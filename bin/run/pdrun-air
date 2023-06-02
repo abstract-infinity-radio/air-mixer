@@ -1,0 +1,39 @@
+#!/bin/bash
+
+##################################################
+# PDRUN - AIR (B-AIR) TEST VERSION WITH 8 INPUTS #
+##################################################
+
+killpd
+
+# this is a pre-op call to initialize MOTU samplerate clock, otherwise qjackctl will fail on the first attempt
+# UNCOMMENT THIS IF USING MOTU:
+/usr/bin/jackd -dalsa -r48000 -p512 -n4 -D -Chw:D1248,0 -Phw:D1248,0 &
+
+sleep 1
+
+killpd
+
+qjackctl -s &
+
+sleep 1
+
+
+# -nogui 
+puredata -nojackconnect -font-size 12 -font currier -rt -jack -nosleep -alsamidi -inchannels 21 -outchannels 45 -jackname AIRpd &
+
+sleep 1
+
+echo "exec pdrun-rt-root:";
+
+sleep 3
+
+sudo /usr/local/bin/pdrun-rt-root
+#setup /etc/sudoers (sudo visudo) to run this script passwordless ==put
+# gregor ALL=NOPASSWD: /usr/local/bin/pdrun-rt-root   in /usr/local/bin/aexorcise
+# at the end
+
+echo "exec pdrun-rt-root done";
+
+echo "pdrun-air succeeded"
+

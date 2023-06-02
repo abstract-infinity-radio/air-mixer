@@ -1,0 +1,44 @@
+#!/usr/bin/perl -w
+
+use Net::OpenSoundControl::Server;
+use strict;
+use warnings;
+
+use feature qw/say/;
+use Data::Dumper;
+use Term::ReadLine;
+#use bytes;
+
+say "+++ air-coremixer monitor +++";
+say "listening to localhost:3001";
+say "";
+ 
+my $server = Net::OpenSoundControl::Server->new(
+    Port => 3001, Handler => \&airmon) or
+    die "Could not start server: $@\n";
+ 
+$server->readloop();
+
+sub airmon {
+    my ($sender, $mref) = @_;
+#    print "[$sender] ";
+    print "[$sender] ",$mref->[0];
+    my $lnum=1;
+    for my $i (1..$#{$mref}){
+	if ($lnum == 2 * (int($lnum / 2))) { print "  ",$mref->[$i] };
+	$lnum++;
+    };
+    say "";
+    
+}
+
+
+
+
+
+sub oftype{
+    $_=shift;
+    m/^\d*\.\d+$/ and return "f";
+    m/^\d+$/ and return "i";
+    return "s";
+};

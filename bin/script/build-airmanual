@@ -1,0 +1,3 @@
+pod2man airsh > airsh.1p
+
+sudo cp airsh.1p /usr/local/man/man1/
