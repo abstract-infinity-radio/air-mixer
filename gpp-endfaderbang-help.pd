@@ -1,0 +1,46 @@
+#N canvas 36 180 2139 1400 12;
+#X obj 523 38 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
+0;
+#X text 521 61 Gregor Pirš 2022;
+#X text 649 33 gpp-endfaderbang: emit two bangs \, one for endfader
+start and the second for the sample end boundary, f 47;
+#X text 649 126 in1 start delay bang | in2 [ list sample duration \,
+fader duration ];
+#X obj 433 203 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 227 100 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 447 317 20 0 0 0 - - -;
+#X obj 226 130 t b b;
+#X floatatom 219 317 20 0 0 0 - - -;
+#X obj 251 210 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 198 285 realtime;
+#X obj 363 281 realtime;
+#X obj 387 391 gpp-display-seconds;
+#X symbolatom 385 425 20 0 0 0 - - -;
+#X obj 212 400 gpp-display-seconds;
+#X symbolatom 210 432 20 0 0 0 - - -;
+#X obj 198 363 / 1000;
+#X obj 373 354 / 1000;
+#X text 648 86 \$1 = sample clip duration [ms] | \$2 = fader duration
+[ms];
+#X msg 372 124 5300 200;
+#X obj 228 166 gpp-endfaderbang 10000 100;
+#X connect 5 0 7 0;
+#X connect 7 0 20 0;
+#X connect 7 1 10 0;
+#X connect 7 1 11 0;
+#X connect 10 0 8 0;
+#X connect 10 0 16 0;
+#X connect 11 0 6 0;
+#X connect 11 0 17 0;
+#X connect 12 0 13 0;
+#X connect 14 0 15 0;
+#X connect 16 0 14 0;
+#X connect 17 0 12 0;
+#X connect 19 0 20 1;
+#X connect 20 0 9 0;
+#X connect 20 0 10 1;
+#X connect 20 1 4 0;
+#X connect 20 1 11 1;

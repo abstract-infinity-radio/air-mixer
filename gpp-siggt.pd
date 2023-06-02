@@ -1,0 +1,25 @@
+#N canvas 0 180 1600 1400 8;
+#X obj 262 213 inlet~;
+#X obj 394 214 inlet;
+#X obj 460 215 loadbang;
+#X obj 460 241 \$1;
+#X obj 263 405 outlet;
+#X obj 263 376 change;
+#X text 497 93 gpp-siggt :: vector to a scalar comparison \; output
+= 1 if greater than arg 0 if not \; only broadcasts result when state
+is changed | scalar can be provided as \$1;
+#X floatatom 337 375 5 0 0 0 - - -;
+#X floatatom 334 419 5 0 0 0 - - -;
+#X obj 262 271 expr~ if ($v1 > $f2 \, 1 \, 0);
+#X obj 262 334 snapshot~;
+#X obj 309 301 bang~;
+#X connect 0 0 9 0;
+#X connect 1 0 9 1;
+#X connect 2 0 3 0;
+#X connect 3 0 9 1;
+#X connect 5 0 4 0;
+#X connect 5 0 8 0;
+#X connect 9 0 10 0;
+#X connect 10 0 5 0;
+#X connect 10 0 7 0;
+#X connect 11 0 10 0;

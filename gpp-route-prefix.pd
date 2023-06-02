@@ -1,0 +1,31 @@
+#N canvas 0 180 1200 713 12;
+#X obj 229 22 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
+0;
+#X text 220 48 Gregor Pirš 2022;
+#X text 348 20 gpp-route-prefix :: router that routes a symbol according
+to its prefix. the ascii code of the prefix should be stated as an
+argument or shall the argument be provided via in2;
+#X obj 134 53 inlet;
+#X obj 80 13 inlet;
+#X obj 133 294 outlet;
+#X obj 80 293 outlet;
+#X obj 80 86 any2bytes;
+#X obj 242 85 pdstring;
+#X obj 80 189 bytes2any;
+#X obj 133 157 bytes2any;
+#X obj 80 118 route \$1;
+#X obj 40 49 list trim;
+#X text 391 72 in1: stream intput (symbol/string) | in2: ascii code
+of routing char | in2: stream output, f 34;
+#X obj 80 251 symbol;
+#X obj 133 243 symbol;
+#X connect 3 0 11 1;
+#X connect 4 0 12 0;
+#X connect 7 0 11 0;
+#X connect 9 0 14 0;
+#X connect 10 0 15 0;
+#X connect 11 0 9 0;
+#X connect 11 1 10 0;
+#X connect 12 0 7 0;
+#X connect 14 0 6 0;
+#X connect 15 0 5 0;

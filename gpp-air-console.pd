@@ -1,0 +1,159 @@
+#N canvas 331 458 2428 1309 12;
+#N canvas 0 580 1092 704 \$0-CON 1;
+#X obj 76 138 gpp-air-console-core 4 3001 3000;
+#X obj 50 38 r 9067|tocore;
+#X obj 70 300 s 9067|lsin;
+#X obj 300 300 s 9067|lsout;
+#X obj 200 200 gpp-dummy;
+#X connect 0 0 2 0;
+#X connect 0 1 3 0;
+#X connect 1 0 0 0;
+#X restore 406 389 pd \$0-CON;
+#X obj 406 164 oscparse;
+#X obj 403 89 \$1;
+#X obj 351 15 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 406 138 netreceive -b -u 3001;
+#X msg 403 113 listen \$1;
+#X obj 597 15 loadbang;
+#X obj 407 193 list split 1;
+#X obj 406 251 list prepend;
+#X obj 406 221 select airmon;
+#X obj 406 285 list trim;
+#X obj 691 15 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
+0;
+#X text 691 40 Gregor Pirš 2022;
+#X text 817 10 gpp-air-console :: remote console for air-coremixer
+, f 31;
+#X obj 616 203 s \$0|tocore;
+#X obj 406 357 cnv 8 120 12 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X obj 176 251 print |||CONSOLE_OUTER_GATE;
+#N canvas 664 180 1896 1394 \$0-SYS-ROUTER 0;
+#X obj 144 29 inlet;
+#X obj 208 568 s \$0|tocore;
+#X obj 144 60 route sys;
+#X msg 144 139 float \$1;
+#X obj 284 186 s \$0|tocore;
+#X obj 65 352 s \$0|tocore;
+#X text 401 152 show request still stands \, but it's internal now
+=> server will broadcast only 'request/con' and 'request/noc', f 39
+;
+#X obj 144 101 route CHNUM;
+#X msg 284 159 syscore SHOW 0;
+#X msg 65 319 syscore SHOW 1;
+#X obj 742 61 t b b;
+#X msg 793 69 \; pd dsp 1 \;, f 11;
+#X msg 792 26 \; pd dsp 0 \;, f 11;
+#X msg 186 626 \; pd-gpp-air-console-core.pd loadbang \; pd-gpp-air-console-track.pd
+loadbang \;;
+#X text 457 568 TWO MAIN RULES OF DYNAMIC PATCHING: 1) dynamically
+produced patch will not receive loadbang per se and 2) will not have
+'audio on' as a part of chain. create one more patch on the top or
+switch off / on the whole thing.;
+#X obj 747 105 del 1000;
+#X msg 236 499 \; pd-\$1-CON obj 200 200 gpp-dummy \;;
+#X obj 236 461 \$0;
+#X text 563 663 SaveMyButt 1;
+#X text 574 528 SaveMyButt 2;
+#X obj 24 56 s \$0-OUTLET;
+#X text 21 82 to connect to midisender, f 12;
+#X obj 285 226 expr $f1 \; \$0 \; \$1 \; \$2 \;, f 10;
+#X obj 285 294 pack f f f f;
+#X msg 285 320 \; pd-\$2-CON clear \; pd-\$2-CON obj 76 138 gpp-air-console-core
+\$1 \$3 \$4 \; pd-\$2-CON obj 50 38 r \$2|tocore \; pd-\$2-CON obj
+70 300 s \$2|lsin \; pd-\$2-CON obj 300 300 s \$2|lsout \; pd-\$2-CON
+connect 1 0 0 0 \; pd-\$2-CON connect 0 0 2 0 \; pd-\$2-CON connect
+0 1 3 0 \;;
+#X obj 144 205 t b f b;
+#X obj 144 171 t f b f b;
+#X msg 126 268 syscore RECHAN;
+#X connect 0 0 2 0;
+#X connect 2 0 7 0;
+#X connect 2 1 1 0;
+#X connect 3 0 20 0;
+#X connect 3 0 26 0;
+#X connect 7 0 3 0;
+#X connect 8 0 4 0;
+#X connect 9 0 5 0;
+#X connect 10 0 15 0;
+#X connect 10 1 12 0;
+#X connect 15 0 11 0;
+#X connect 17 0 16 0;
+#X connect 22 0 23 0;
+#X connect 22 1 23 1;
+#X connect 22 2 23 2;
+#X connect 22 3 23 3;
+#X connect 23 0 24 0;
+#X connect 25 0 9 0;
+#X connect 25 1 27 0;
+#X connect 25 2 13 0;
+#X connect 26 0 25 0;
+#X connect 26 1 17 0;
+#X connect 26 2 22 0;
+#X connect 26 3 8 0;
+#X connect 27 0 5 0;
+#X restore 406 320 pd \$0-SYS-ROUTER;
+#N canvas 2340 831 1254 680 \$0-INIT 0;
+#X obj 42 26 inlet;
+#X text 104 20 prompt server for the init data \, such as CCH \, ADP
+etc, f 30;
+#X obj 99 195 \$2;
+#X obj 101 250 netsend -u -b;
+#X msg 101 224 connect localhost \$1;
+#X obj 42 77 t b b;
+#X obj 44 166 oscformat airmix cinit;
+#X obj 122 112 r \$0-cinitbang;
+#X obj 155 143 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X connect 0 0 5 0;
+#X connect 2 0 4 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 5 1 2 0;
+#X connect 6 0 3 0;
+#X connect 7 0 6 0;
+#X connect 7 0 8 0;
+#X restore 637 134 pd \$0-INIT;
+#X msg 616 177 syscore SHOW 1;
+#X obj 596 49 t b b b b b;
+#X msg 672 276 \; pd dsp 1 \;;
+#X text 329 415 DO NOT ELIMINATE dummy.pd IN THE DYNAMIC CANVAS \;
+It ensures that dsp is properly switched on on the previous canvas
+(gpp-air-console-core). IT'S A BUG., f 44;
+#X obj 146 26 inlet;
+#X obj 152 387 outlet;
+#X obj 151 295 r \$0-OUTLET;
+#X obj 152 343 pack f \$2;
+#X obj 146 68 s \$0-cinitbang;
+#X obj 75 330 print;
+#X obj 735 404 outlet;
+#X obj 524 20 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 839 403 outlet;
+#X obj 735 371 r \$0|lsin;
+#X obj 839 370 r \$0|lsout;
+#X text 737 439 channel-info outlets;
+#X connect 1 0 7 0;
+#X connect 2 0 5 0;
+#X connect 3 0 2 0;
+#X connect 4 0 1 0;
+#X connect 5 0 4 0;
+#X connect 6 0 20 0;
+#X connect 7 0 9 0;
+#X connect 7 1 8 1;
+#X connect 8 0 10 0;
+#X connect 9 0 8 0;
+#X connect 10 0 17 0;
+#X connect 19 0 14 0;
+#X connect 20 0 2 0;
+#X connect 20 1 19 0;
+#X connect 20 2 18 0;
+#X connect 20 4 21 0;
+#X connect 23 0 27 0;
+#X connect 25 0 26 0;
+#X connect 25 0 28 0;
+#X connect 26 0 24 0;
+#X connect 30 0 20 0;
+#X connect 32 0 29 0;
+#X connect 33 0 31 0;

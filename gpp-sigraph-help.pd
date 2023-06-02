@@ -1,0 +1,61 @@
+#N canvas 0 180 3840 1928 8;
+#X obj 129 134 bng 15 250 50 0 empty empty DOWN 17 7 0 10 -261682 -1
+-1;
+#X obj 298 135 bng 15 250 50 0 empty empty UP 17 7 0 10 -204786 -1
+-1;
+#X msg 120 179 0 5000;
+#X obj 106 327 gpp-mvline~;
+#X obj 51 523 gpp-sigraph;
+#X obj 1043 464 r \$0-gctl;
+#X obj 426 125 s \$0-gctl;
+#X obj 425 65 bng 15 250 50 0 empty empty CLEAR 17 7 0 10 -262130 -1
+-1;
+#X floatatom 116 662 5 0 0 0 CURRENT_STATE - -;
+#X msg 298 186 0.5 5000;
+#X obj 277 52 bng 15 250 50 0 empty empty UP 17 7 0 10 -204786 -1 -1
+;
+#X msg 133 237 1 5000;
+#X obj 633 106 bng 15 250 50 0 empty empty DOWN 17 7 0 10 -261682 -1
+-1;
+#X msg 578 177 0.3 5000;
+#X msg 68 290 0;
+#X msg 68 248 1 1;
+#X msg 424 102 clear;
+#X msg 514 307 0 \, 0 1000 \, 1 2000 \, .5.1000 0 bang;
+#X text 477 258 what we need is: the graph-stop arg should be provided
+separately in form o a bang \, as the fourth arg. this way it will
+be possible to stack more than 1 ramps into the same graph;
+#X msg 303 293 0.5 \, 1 3000 \, bang;
+#X msg 58 36 \; pd dsp 1 \;;
+#X obj 55 14 loadbang;
+#X obj 132 355 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 135 384 t b b b;
+#X obj 303 474 s \$0-gctl;
+#X msg 98 474 1 \, 0 2000 \, 0.5 1000 4000;
+#X msg 259 440 1;
+#X msg 317 423 0;
+#X connect 0 0 2 0;
+#X connect 1 0 9 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 8 0;
+#X connect 5 0 4 1;
+#X connect 7 0 16 0;
+#X connect 9 0 3 0;
+#X connect 10 0 11 0;
+#X connect 11 0 3 0;
+#X connect 12 0 13 0;
+#X connect 13 0 3 0;
+#X connect 14 0 3 0;
+#X connect 15 0 3 0;
+#X connect 16 0 6 0;
+#X connect 19 0 3 0;
+#X connect 21 0 20 0;
+#X connect 22 0 23 0;
+#X connect 23 0 27 0;
+#X connect 23 1 25 0;
+#X connect 23 2 26 0;
+#X connect 25 0 3 0;
+#X connect 26 0 24 0;
+#X connect 27 0 24 0;

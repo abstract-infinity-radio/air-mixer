@@ -1,0 +1,10 @@
+#N canvas 723 180 1200 800 10;
+#X obj 77 211 outlet;
+#X obj 75 169 - 96.99;
+#X obj 74 94 inlet~;
+#X obj 75 127 env~;
+#X text 144 151 standard gpp env sig bias;
+#X obj 35 169 - 100;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 5 0 0 0;

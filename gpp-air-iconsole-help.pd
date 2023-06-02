@@ -1,0 +1,30 @@
+#N canvas 2088 1375 1088 614 12;
+#X obj 397 92 cnv 15 280 70 empty empty iConsole 20 20 0 14 -203904
+-261234 0;
+#X text 403 129 Interactive version of gpp-air-console;
+#X obj 395 22 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
+0;
+#X text 395 47 Gregor Pirš 2022;
+#X text 302 311 CURRENT CONFIG: INPUT AND OUPUT DESCRIPTION;
+#X obj 243 115 tgl 22 0 empty foorec VISIBLE 24 11 0 10 -262130 -1
+-1 0 1;
+#X text 527 13 gpp-air-iconsole :: remote console for gpp-air-coremixer
+:: interactive version :: EU CREATIVE EUROPE 2020-23 :: https://b-air.infinity.radio
+, f 48;
+#X obj 82 165 bng 15 250 50 0 empty empty REBUILD 17 7 0 10 -260097
+-1 -1;
+#X msg 213 247 [total 21] @INPUT TRACKS (stereo pairs) : 1+2 (CH1)..
+19+20 (CH10) | 21 SYNCTRACK, f 87;
+#X msg 346 283 [total 5] @OUTPUT TRACKS : 1+2 (MASTER) | 3+4 (PRELISTEN)
+| 5 SYNCTRACK, f 78;
+#X text 401 190 ARGS: receiving OSC port \, sending OSC (to server)
+port \, server address \, default number of channels (needed when run
+without server sync, f 66;
+#X text 29 232 inlet1 \, outlet1 : reserved for gpp-air-midisender
+communication, f 16;
+#X msg 210 69 kohai.ijs.si;
+#X obj 82 202 gpp-air-iconsole 3001 3000 localhost 4;
+#X connect 5 0 13 1;
+#X connect 7 0 13 0;
+#X connect 13 1 8 0;
+#X connect 13 2 9 0;

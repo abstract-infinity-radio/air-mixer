@@ -1,0 +1,11 @@
+#N canvas 827 174 1200 800 10;
+#X obj 213 117 gpp-zenbox2;
+#X obj 208 74 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 212 143 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 287 144 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X connect 0 0 2 0;
+#X connect 0 1 3 0;
+#X connect 1 0 0 0;

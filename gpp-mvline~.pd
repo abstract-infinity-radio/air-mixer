@@ -1,0 +1,20 @@
+#N canvas 93 180 1600 1400 10;
+#X obj 35 123 vline~;
+#X obj 32 247 outlet~;
+#X obj 207 176 gpp-sigeq \$1;
+#X obj 36 54 inlet;
+#X obj 95 53 inlet;
+#X obj 140 52 inlet;
+#X obj 258 252 outlet;
+#X obj 231 49 inlet;
+#X text 345 30 gpp-mvline~ :: reach-target vline~ | in 1-3 = vline~
+| in 4 or arg 1 = target-to-reach | out~ 1 = ramp out | out~ 2 = RF
+out (request fulfilled) => 1 if the signal equals the target-to-reach
+\, 0 if not;
+#X connect 0 0 1 0;
+#X connect 0 0 2 0;
+#X connect 2 0 6 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 1;
+#X connect 5 0 0 2;
+#X connect 7 0 2 1;

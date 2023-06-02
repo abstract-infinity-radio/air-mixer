@@ -1,0 +1,41 @@
+#N canvas 643 180 2548 1400 12;
+#X obj 523 38 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
+0;
+#X text 521 61 Gregor Pirš 2022;
+#X text 649 33 gpp-endfaderbang: emit two bangs \, one for endfader
+start and the second for the sample end boundary, f 47;
+#X text 645 132 in1 start delay bang | in2 [ list sample duration \,
+fader duration ];
+#X obj 89 33 inlet;
+#X obj 322 32 inlet;
+#X obj 89 192 delay;
+#X obj 179 32 loadbang;
+#X obj 179 66 t b b;
+#X obj 204 193 delay;
+#X obj 322 64 unpack f f;
+#X obj 179 95 \$1;
+#X obj 211 94 \$2;
+#X obj 90 230 outlet;
+#X obj 204 222 outlet;
+#X floatatom 33 213 5 0 0 0 - - -;
+#X floatatom 269 161 5 0 0 0 - - -;
+#X text 645 174 out1 = endfader bang;
+#X text 645 201 out2 = end boundary bang;
+#X text 648 86 \$1 = sample clip duration [ms] | \$2 = fader duration
+[ms];
+#X obj 89 148 expr ($f2 - $f3) \; $f2;
+#X connect 4 0 20 0;
+#X connect 5 0 10 0;
+#X connect 6 0 13 0;
+#X connect 7 0 8 0;
+#X connect 8 0 11 0;
+#X connect 8 1 12 0;
+#X connect 9 0 14 0;
+#X connect 10 0 20 1;
+#X connect 10 1 20 2;
+#X connect 11 0 20 1;
+#X connect 12 0 20 2;
+#X connect 20 0 6 0;
+#X connect 20 0 15 0;
+#X connect 20 1 9 0;
+#X connect 20 1 16 0;

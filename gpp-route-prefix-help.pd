@@ -1,0 +1,28 @@
+#N canvas 0 180 3840 1980 12;
+#X msg 241 64 +123;
+#X msg 374 56 123;
+#X msg 226 36 symbol +123;
+#X obj 224 137 gpp-route-prefix 43;
+#X msg 361 29 symbol 123;
+#X symbolatom 217 172 10 0 0 0 - - -;
+#X symbolatom 344 181 10 0 0 0 - - -;
+#X msg 48 102 symbol +0:5;
+#X obj 490 24 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
+0;
+#X text 481 50 Gregor Pirš 2022;
+#X text 609 22 gpp-route-prefix :: router that routes a symbol according
+to its prefix. the ascii code of the prefix should be stated as an
+argument or shall the argument be provided via in2;
+#X text 362 137 route on +;
+#X msg 354 101 58;
+#X text 380 99 route on : instead;
+#X msg 55 39 symbol :something;
+#X connect 0 0 3 0;
+#X connect 1 0 3 0;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 3 1 6 0;
+#X connect 4 0 3 0;
+#X connect 7 0 3 0;
+#X connect 12 0 3 1;
+#X connect 14 0 3 0;

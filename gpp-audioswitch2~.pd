@@ -1,0 +1,21 @@
+#N canvas 2554 287 1200 1042 12;
+#X obj 124 245 expr~ $v1 \; 1 - $v1 \;;
+#X obj 124 210 vline~;
+#X msg 166 158 1 50;
+#X msg 124 158 0 50;
+#X obj 124 80 inlet;
+#X obj 124 112 sel 0 1;
+#X obj 74 314 outlet~;
+#X obj 141 313 outlet~;
+#X text 202 16 gpp-audioswitch~ :: a fancy version of audioswitch.
+Providing control sigs to be connected to audio-channels.;
+#X obj 235 315 outlet;
+#X connect 0 0 6 0;
+#X connect 0 1 7 0;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 4 0 9 0;
+#X connect 5 0 3 0;
+#X connect 5 1 2 0;

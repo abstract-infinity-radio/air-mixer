@@ -1,0 +1,1107 @@
+#N canvas 1690 507 2150 1421 12;
+#X obj 1097 19 loadbang;
+#X msg 1007 179 \; pd dsp 1 \;, f 16;
+#X obj 516 25 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
+0;
+#X text 516 50 Gregor Pirš 2022;
+#N canvas 885 648 2704 1182 \$0-BUILD-MIXER 0;
+#X obj 112 4 inlet;
+#X obj 148 689 outlet;
+#X text 198 686 to clone input directly;
+#X obj 175 23 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 165 77 \$0;
+#N canvas 401 803 1697 986 \$0-AIR-LABEL 0;
+#X obj 23 26 inlet;
+#X obj 25 220 pack f f f;
+#X obj 25 151 expr (\$1 / 2 * 100) + 220 - 58 \; (\$1 / 2 * 100) +
+334 - 58 \; (\$1 / 2 * 100) + 334 - 48 \;;
+#X msg 24 261 \; pd-ICONSOLE obj \$1 480 cnv 10 114 22 empty empty
+AIR 36 6 1 22 -66577 -262144 0 \; pd-ICONSOLE obj \$2 480 cnv 2 1 1
+empty empty i 8 12 2 15 -262144 -203904 0 \; pd-ICONSOLE obj \$3 480
+cnv 2 1 1 empty empty Console 8 12 2 15 -262144 -66577 0 \;, f 86
+;
+#X connect 0 0 2 0;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X connect 2 1 1 1;
+#X connect 2 2 1 2;
+#X restore 136 534 pd \$0-AIR-LABEL;
+#N canvas 225 495 1517 1225 \$0-RIGHT-SIDE 0;
+#X obj 30 17 inlet;
+#X obj 29 44 t b b;
+#X obj 50 141 expr 220 + (\$1 * 100) \; $f1 \;;
+#N canvas 1037 528 1279 1064 \$0-SEND-AIRDIR 0;
+#X obj 44 52 inlet;
+#X obj 44 108 symbol;
+#X obj 115 53 r \$0|airdir_path;
+#X msg 44 274 label \$1;
+#X symbolatom 132 100 10 0 0 0 - - -;
+#X obj 13 63 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 44 302 s \$0|airdir_display;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 1 1;
+#X connect 2 0 4 0;
+#X connect 3 0 6 0;
+#X connect 5 0 1 0;
+#X restore 22 94 pd \$0-SEND-AIRDIR;
+#X msg 50 203 \; pd-ICONSOLE obj \$1 0 cnv 8 500 550 empty \\\$0|airdir_display
+empty 6 12 0 6 -216697 -66577 0 \;, f 85;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 1 1 2 0;
+#X connect 2 0 4 0;
+#X restore 129 187 pd \$0-RIGHT-SIDE;
+#N canvas 98 326 1780 1120 \$0-BACKCANVAS 0;
+#X obj 47 25 inlet;
+#X obj 48 68 expr (\$1 * 100) + 20;
+#X msg 48 129 \; pd-ICONSOLE obj 200 0 cnv 15 \$1 475 empty empty empty
+20 12 0 14 -13330 -66577 0 \;, f 86;
+#X msg 66 201 \; pd-ICONSOLE obj 200 0 cnv 15 \$1 475 empty empty empty
+20 12 0 14 -216697 -66577 0 \;, f 81;
+#X msg 68 335 \; pd-ICONSOLE obj 200 0 cnv 15 \$1 475 empty empty empty
+20 12 0 14 -86277 -66577 0 \;, f 81;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X restore 182 158 pd \$0-BACKCANVAS;
+#X floatatom 14 42 5 0 0 0 - - -;
+#X msg 148 658 all refreshmix;
+#X obj 112 46 t b b b b b b;
+#X obj 62 405 t b b b b b;
+#N canvas 2340 226 1254 680 \$0-REFRESH 0;
+#X obj 42 26 inlet;
+#X text 104 20 prompt server for the init data \, such as CCH \, ADP
+etc, f 30;
+#X obj 101 250 netsend -u -b;
+#X obj 42 77 t b b;
+#X obj 41 129 oscformat airmix crefresh;
+#X obj 99 195 \$3 \$4;
+#X msg 101 224 connect \$2 \$1;
+#X connect 0 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 1 5 0;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X connect 6 0 2 0;
+#X restore 80 575 pd \$0-REFRESH;
+#X msg 200 105 \; pd-ICONSOLE clear \;;
+#X msg 419 561 #X obj 39 93 vsl 8 320 0 1 0 0 foosnd \\\$0|master-fader-l
+empty 0 -9 0 10 -13381 -262144 -66577 0 1 \; #X obj 48 93 vsl 8 320
+0 1 0 0 foosnd \\\$0|master-fader-r empty 0 -9 0 10 -13381 -262144
+-262144 0 1 \; #X obj 137 93 vsl 11 320 0 1 0 0 1469|master-fader-sender
+1469|master-fader-sender-rec empty 0 -9 0 10 -204786 -1 -1 52000 0
+\;, f 126;
+#X msg 311 208 \; pd-ICONSOLE obj 0 -6 cnv 15 200 550 empty empty empty
+20 12 0 14 -216697 -66577 0 \; pd-ICONSOLE obj 18 62 cnv 15 60 360
+empty empty empty 20 12 0 14 -16662 -66577 0 \; pd-ICONSOLE obj 57
+93 vu 20 320 \$1|master-vu-r empty -1 -8 0 4 -66577 -1 1 0 \; pd-ICONSOLE
+obj 20 93 vu 20 320 \$1|master-vu-l empty -1 -8 0 4 -66577 -1 0 0 \;
+pd-ICONSOLE obj 10 3 cnv 1 1 1 empty empty MASTER 20 12 0 14 -245689
+-66577 0 \; pd-ICONSOLE obj 39 93 vsl 8 320 0 1 0 0 foosnd \$1|master-fader-l
+empty 0 -9 0 10 -13381 -262144 -66577 0 1 \; pd-ICONSOLE obj 48 93
+vsl 8 320 0 1 0 0 foosnd \$1|master-fader-r empty 0 -9 0 10 -13381
+-262144 -262144 0 1 \; pd-ICONSOLE obj 18 498 cnv 6 50 30 foosnd \$1-CONNECTED
+Srv 4 14 2 14 -33289 -228856 0 \; pd-ICONSOLE obj 120 72 tgl 15 0 foo
+\$1|master-RF-l empty 17 7 0 4 -216697 -1 -1 0 1 \; pd-ICONSOLE obj
+150 72 tgl 15 0 foo \$1|master-RF-r empty 17 7 0 4 -216697 -1 -1 0
+1 \; pd-ICONSOLE obj 119 420 tgl 19 0 \$1|mute-lmaster-sender \$1|master-mute-l
+M 5 10 0 7 -233017 16 -1 0 1 \; pd-ICONSOLE obj 148 420 tgl 19 0 \$1|mute-rmaster-sender
+\$1|master-mute-r M 5 10 0 7 -233017 16 -1 0 1 \; pd-ICONSOLE obj 119
+93 vsl 18 320 0 1 0 0 \$1|master-fader-l-sender \$1|master-fader-l-sender-rec
+empty 0 -9 0 10 -4032 -1 -1 0 0 \; pd-ICONSOLE obj 148 93 vsl 18 320
+0 1 0 0 \$1|master-fader-r-sender \$1|master-fader-r-sender-rec empty
+0 -9 0 10 -4032 -1 -1 0 0 \; pd-ICONSOLE obj 137 93 vsl 11 320 0 1
+0 0 \$1|master-fader-sender \$1|master-fader-sender-rec empty 0 -9
+0 10 -204786 -1 -1 52000 0 \; pd-ICONSOLE floatatom 148 444 5 0 0 0
+- \$1|master-fader-r foosnd \; pd-ICONSOLE floatatom 103 444 5 0 0
+0 - \$1|master-fader-l foosnd \;, f 137;
+#X connect 0 0 8 0;
+#X connect 0 0 10 0;
+#X connect 3 0 10 0;
+#X connect 4 0 15 0;
+#X connect 9 0 1 0;
+#X connect 10 0 11 0;
+#X connect 10 1 6 0;
+#X connect 10 2 9 0;
+#X connect 10 3 4 0;
+#X connect 10 4 7 0;
+#X connect 10 5 13 0;
+#X connect 11 1 12 0;
+#X connect 11 4 5 0;
+#X restore 759 345 pd \$0-BUILD-MIXER;
+#X obj 716 202 bng 15 250 50 0 empty empty REBUILD_MIXER 17 7 0 6 -232576
+-1 -1;
+#X obj 855 192 loadbang;
+#X text 640 21 gpp-air-console :: a core mixer console (monitor display)
+;
+#X obj 452 24 inlet;
+#X obj 759 295 r \$0|REBUILD_MIXER;
+#X obj 107 218 list split 1;
+#X obj 129 334 float;
+#X obj 128 402 list trim;
+#X obj 128 365 list append;
+#N canvas 1410 1140 1737 1376 \$0-MAIN-ROUTER 0;
+#X obj 38 7 inlet;
+#X obj 361 40 outlet;
+#X text 359 59 pass args;
+#N canvas 503 511 1438 1204 \$0-HANDLE_REQUEST 0;
+#X obj 44 13 inlet;
+#X obj 146 34 print >=>REQUEST;
+#X obj 44 375 s \$0|HANDLE_SYSCORE;
+#X msg 44 337 SHOW 1;
+#X msg 102 337 SHOW 0;
+#X text 44 398 note: SHOW 1 request WILL REBUILD MIXER, f 17;
+#X obj 43 303 bang;
+#X obj 101 304 bang;
+#X obj 651 354 outlet;
+#X text 652 378 towards track request, f 12;
+#X text 349 70 excluder (of commands that do not affect console but
+are still dispatched, f 29;
+#X obj 563 351 outlet;
+#X obj 603 174 route all;
+#X obj 44 134 route master m;
+#X obj 195 96 route refreshcon;
+#X obj 194 123 bang;
+#X obj 375 129 route ls con noc xim mix mono stereo;
+#X obj 45 245 outlet;
+#X connect 0 0 13 0;
+#X connect 3 0 2 0;
+#X connect 4 0 2 0;
+#X connect 6 0 3 0;
+#X connect 7 0 4 0;
+#X connect 12 0 11 0;
+#X connect 12 1 8 0;
+#X connect 13 0 17 0;
+#X connect 13 1 17 0;
+#X connect 13 2 14 0;
+#X connect 14 0 15 0;
+#X connect 14 1 16 0;
+#X connect 16 7 12 0;
+#X restore 38 134 pd \$0-HANDLE_REQUEST;
+#N canvas 834 180 909 936 \$0-HANDLE_SNAPSHOT 0;
+#X obj 61 25 inlet;
+#X obj 119 44 print >=>SNAPSHOT;
+#X obj 125 305 outlet;
+#X obj 44 134 route master;
+#N canvas 67 466 1558 1481 \$0-HANDLE-MASTER-SNAPSHOT 0;
+#X obj 33 29 inlet;
+#X obj 32 198 s \$0|master-fader-l;
+#X obj 85 261 s \$0|master-fader-r;
+#X text 33 134 binding this via gpp-airliner~ \, the console would
+become autonomous. then \, it's neccessary to switch off *snapshot
+and *contour control;
+#X obj 332 48 print ||>>>||SNAPSHOT|MASTER;
+#X obj 32 65 route lfader rfader fader;
+#X connect 0 0 5 0;
+#X connect 5 0 1 0;
+#X connect 5 1 2 0;
+#X connect 5 2 1 0;
+#X connect 5 2 2 0;
+#X restore 44 191 pd \$0-HANDLE-MASTER-SNAPSHOT;
+#X text 256 138 comment;
+#X connect 0 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 1 2 0;
+#X restore 96 238 pd \$0-HANDLE_SNAPSHOT;
+#N canvas 1822 426 909 1024 \$0-HANDLE_CONTOUR 0;
+#X obj 46 29 inlet;
+#X obj 128 48 print >=>CONTOUR;
+#X obj 125 305 outlet;
+#X obj 44 134 route master;
+#N canvas 1363 631 2232 1086 \$0-HANDLE-MASTER-CONTOUR 0;
+#X obj 33 29 inlet;
+#X obj 292 18 print ||>>>||CONTOUR|MASTER;
+#N canvas 216 401 2083 1353 \$0-VALUE-RESTORED 0;
+#X obj 52 13 inlet;
+#X msg 70 135 set \$1;
+#X obj 83 169 s \$0|master-fader-l;
+#X obj 52 198 s \$0|master-fader-l-sender-rec;
+#X obj 54 81 route lfader rfader fader;
+#X msg 153 241 set \$1;
+#X obj 167 275 s \$0|master-fader-r;
+#X obj 135 304 s \$0|master-fader-r-sender-rec;
+#X msg 370 203 set \$1;
+#X obj 384 237 s \$0|master-fader;
+#X obj 351 266 s \$0|master-fader-sender-rec;
+#X connect 0 0 4 0;
+#X connect 1 0 2 0;
+#X connect 1 0 3 0;
+#X connect 4 0 1 0;
+#X connect 4 1 5 0;
+#X connect 4 2 8 0;
+#X connect 5 0 6 0;
+#X connect 5 0 7 0;
+#X connect 8 0 9 0;
+#X connect 8 0 10 0;
+#X restore 108 241 pd \$0-VALUE-RESTORED;
+#N canvas 0 225 523 519 \$0-REQUEST-FULFILLED 0;
+#X obj 44 33 inlet;
+#X obj 31 165 s \$0|master-RF-r;
+#X obj 85 207 s \$0|master-RF-l;
+#X obj 31 106 route lfader rfader fader;
+#X connect 0 0 3 0;
+#X connect 3 0 1 0;
+#X connect 3 1 2 0;
+#X connect 3 2 1 0;
+#X connect 3 2 2 0;
+#X restore 34 123 pd \$0-REQUEST-FULFILLED;
+#N canvas 628 760 1890 1317 \$0-VALUE-REACHED 0;
+#X obj 53 23 inlet;
+#X obj 211 234 s \$0|master-fader-r;
+#X obj 55 234 s \$0|master-fader-l;
+#X obj 68 82 route lfader rfader fader;
+#X obj 24 359 s \$0|master-fader-l-sender-rec;
+#X obj 280 350 s \$0|master-fader-r-sender-rec;
+#X obj 327 540 s \$0|master-fader-sender-rec;
+#X obj 502 433 t b f;
+#X obj 326 501 moses 0;
+#X obj 326 473 expr if ($f1 == $f2 \, $f1 \, -1) \;;
+#X msg 386 501 set \$1;
+#X msg 181 456 set \$1;
+#X msg 24 298 set \$1;
+#X msg 259 302 set \$1;
+#X connect 0 0 3 0;
+#X connect 3 0 2 0;
+#X connect 3 0 9 0;
+#X connect 3 0 12 0;
+#X connect 3 1 1 0;
+#X connect 3 1 7 0;
+#X connect 3 1 13 0;
+#X connect 3 2 2 0;
+#X connect 3 2 1 0;
+#X connect 3 2 11 0;
+#X connect 7 0 9 0;
+#X connect 7 1 9 1;
+#X connect 8 1 10 0;
+#X connect 9 0 8 0;
+#X connect 10 0 6 0;
+#X connect 11 0 6 0;
+#X connect 12 0 4 0;
+#X connect 13 0 5 0;
+#X restore 71 185 pd \$0-VALUE-REACHED;
+#X obj 34 55 route rf vr rest;
+#X connect 0 0 5 0;
+#X connect 5 0 3 0;
+#X connect 5 1 4 0;
+#X connect 5 2 2 0;
+#X restore 44 191 pd \$0-HANDLE-MASTER-CONTOUR;
+#X connect 0 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 1 2 0;
+#X restore 158 178 pd \$0-HANDLE_CONTOUR;
+#N canvas 1590 180 1305 773 \$0-HANDLE_ETC 0;
+#X obj 61 25 inlet;
+#X obj 141 44 print >=>ETC;
+#X obj 143 226 outlet;
+#X obj 61 88 route master;
+#N canvas 1018 597 2204 1242 \$0-HANDLE-MASTER-ETC 0;
+#X obj 46 25 inlet;
+#X obj 46 70 route setmute setlmute setrmute;
+#X obj 48 137 s \$0|MASTER_MUTE_BOTH;
+#X obj 127 191 s \$0|MASTER_MUTE_L;
+#X obj 194 247 s \$0|MASTER_MUTE_R;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 1 3 0;
+#X connect 1 2 4 0;
+#X restore 61 172 pd \$0-HANDLE-MASTER-ETC;
+#X connect 0 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 1 2 0;
+#X restore 211 133 pd \$0-HANDLE_ETC;
+#X obj 38 45 route request snapshot contour etc syscore;
+#N canvas 1653 543 1832 1241 \$0-HANDLE_SYSCORE 0;
+#X obj 144 34 inlet;
+#N canvas 54 832 1384 981 \$0-SHOW-CONSOLE 0;
+#X obj 84 34 inlet;
+#X obj 84 68 sel 1 0;
+#X obj 84 113 t b b;
+#X obj 117 215 s \$0|REBUILD_MIXER;
+#X msg 137 99 \; pd-ICONSOLE vis 0;
+#X msg 84 150 \; pd-ICONSOLE vis 1;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 1 4 0;
+#X connect 2 0 5 0;
+#X connect 2 1 3 0;
+#X restore 146 269 pd \$0-SHOW-CONSOLE;
+#X obj 319 53 print >=>SYSCORE;
+#X obj 214 18 r \$0|HANDLE_SYSCORE;
+#X obj 325 209 s \$0|airdir_display;
+#X obj 202 207 s \$0|airdir_path;
+#X obj 202 163 symbol;
+#X msg 324 182 label \$1;
+#X obj 262 334 s \$0|RECHAN;
+#N canvas 0 180 874 776 \$0-SRVALIVE 0;
+#X obj 74 31 inlet;
+#X obj 62 67 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 62 103 delay 10000;
+#X obj 172 273 s \$0-CONNECTED;
+#X msg 212 100 color #0 #0 #84e200;
+#X msg 62 134 color #0 #0 #ff0000;
+#X connect 0 0 1 0;
+#X connect 1 0 4 0;
+#X connect 1 0 2 0;
+#X connect 2 0 5 0;
+#X connect 4 0 3 0;
+#X connect 5 0 3 0;
+#X restore 311 150 pd \$0-SRVALIVE;
+#X obj 145 96 route SHOW AIRDIR RECHAN SRVALIVE WAKEUP;
+#X obj 545 148 s \$0-WAKEUP;
+#X text 632 147 a global wakeup sig (load values...);
+#X text 562 127 no need...;
+#X connect 0 0 10 0;
+#X connect 3 0 10 0;
+#X connect 6 0 5 0;
+#X connect 6 0 7 0;
+#X connect 7 0 4 0;
+#X connect 10 0 1 0;
+#X connect 10 1 6 0;
+#X connect 10 2 8 0;
+#X connect 10 3 9 0;
+#X restore 271 90 pd \$0-HANDLE_SYSCORE;
+#X obj 2 255 outlet;
+#X obj 107 410 outlet;
+#X obj 164 468 outlet;
+#X obj 234 529 outlet;
+#X obj 51 424 outlet;
+#X obj 53 310 list prepend all;
+#X obj 53 357 list trim;
+#X obj -52 469 outlet;
+#X connect 0 0 7 0;
+#X connect 3 0 16 0;
+#X connect 3 1 14 0;
+#X connect 3 2 9 0;
+#X connect 4 0 10 0;
+#X connect 5 0 11 0;
+#X connect 6 0 12 0;
+#X connect 7 0 3 0;
+#X connect 7 1 4 0;
+#X connect 7 2 5 0;
+#X connect 7 3 6 0;
+#X connect 7 4 8 0;
+#X connect 7 5 1 0;
+#X connect 14 0 15 0;
+#X connect 15 0 13 0;
+#X restore 449 125 pd \$0-MAIN-ROUTER;
+#X obj 266 215 list split 1;
+#X obj 267 307 float;
+#X obj 267 390 list trim;
+#X obj 267 353 list append;
+#X obj 401 215 list split 1;
+#X obj 402 305 float;
+#X obj 402 388 list trim;
+#X obj 402 351 list append;
+#X obj 513 214 list split 1;
+#X obj 514 304 float;
+#X obj 514 387 list trim;
+#X obj 514 350 list append;
+#X text 276 254 this is needed due to osc-depacker type mismatch =>
+re-floating so-called symbols;
+#X obj 855 231 s \$0|loadbang;
+#X obj 108 249 route symbol float;
+#N canvas 269 180 1916 993 \$0-CATCH-ALIAS 0;
+#X obj 817 371 outlet;
+#X obj 89 371 outlet;
+#X obj 34 10 inlet;
+#X msg 34 234 all;
+#X msg 427 380 all fader 0;
+#X text 28 397 replace initial tracknumber float;
+#X text 800 398 back to float;
+#X msg 451 342 all pan 0.5;
+#X msg 475 308 all fader 1;
+#X obj 816 344 gpp-span;
+#X text 645 161 before passing further \, dereference span declarations
+, f 23;
+#X msg 482 273 all fader 0.5;
+#N canvas 763 180 1189 785 \$0-EO-LOOP 0;
+#X obj 30 8 inlet;
+#X obj 22 283 outlet;
+#X obj 28 125 until;
+#X obj 29 91 \$1;
+#X obj 28 209 expr if ($f1 % 2 != 0 \, $f1 \, 0), f 32;
+#X obj 28 244 moses 1;
+#X obj 27 179 gpp-adder3 0;
+#X msg 30 151 1;
+#X obj 285 10 inlet;
+#X obj 284 288 outlet;
+#X obj 283 102 until;
+#X obj 284 68 \$1;
+#X obj 282 242 moses 1;
+#X obj 283 171 gpp-adder3 0;
+#X obj 285 42 t b b;
+#X msg 284 131 1;
+#X obj 282 208 expr if ($f1 % 2 == 0 \, $f1 \, 0), f 32;
+#X obj 30 66 t b b;
+#X connect 0 0 17 0;
+#X connect 2 0 7 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X connect 5 1 1 0;
+#X connect 6 0 4 0;
+#X connect 7 0 6 0;
+#X connect 8 0 14 0;
+#X connect 10 0 15 0;
+#X connect 11 0 10 0;
+#X connect 12 1 9 0;
+#X connect 13 0 16 0;
+#X connect 14 0 11 0;
+#X connect 14 1 13 1;
+#X connect 15 0 13 0;
+#X connect 16 0 12 0;
+#X connect 17 0 3 0;
+#X connect 17 1 6 1;
+#X restore 413 213 pd \$0-EO-LOOP;
+#N canvas 699 298 1541 1282 \$0-GLOOP 0;
+#X obj 145 44 inlet;
+#X obj 139 366 outlet;
+#X obj 143 138 until;
+#X obj 144 104 \$1;
+#X obj 142 192 gpp-adder3 0;
+#X obj 146 79 t b b;
+#X msg 145 164 1;
+#X msg 142 322 \$1 pan \$2;
+#X obj 143 285 pack f f;
+#X obj 143 233 expr $f1 \; ($f1 - 1) / (\$1 - 1) \;;
+#X connect 0 0 5 0;
+#X connect 2 0 6 0;
+#X connect 3 0 2 0;
+#X connect 4 0 9 0;
+#X connect 5 0 3 0;
+#X connect 5 1 4 1;
+#X connect 6 0 4 0;
+#X connect 7 0 1 0;
+#X connect 8 0 7 0;
+#X connect 9 0 8 0;
+#X connect 9 1 8 1;
+#X restore 405 416 pd \$0-GLOOP;
+#X obj 656 375 outlet;
+#X text 635 400 enforced appender;
+#X obj 423 81 t b b b b;
+#X msg 531 133 pan 1;
+#X msg 537 104 pan 0;
+#X obj 33 176 select all panic centerpan fullout halfout stereopan
+globepan even odd, f 70;
+#X connect 2 0 19 0;
+#X connect 3 0 1 0;
+#X connect 4 0 1 0;
+#X connect 7 0 1 0;
+#X connect 8 0 1 0;
+#X connect 9 0 0 0;
+#X connect 11 0 1 0;
+#X connect 12 0 1 0;
+#X connect 12 1 1 0;
+#X connect 13 0 1 0;
+#X connect 16 0 12 1;
+#X connect 16 1 17 0;
+#X connect 16 2 12 0;
+#X connect 16 3 18 0;
+#X connect 17 0 14 0;
+#X connect 18 0 14 0;
+#X connect 19 0 3 0;
+#X connect 19 1 4 0;
+#X connect 19 2 7 0;
+#X connect 19 3 8 0;
+#X connect 19 4 11 0;
+#X connect 19 5 16 0;
+#X connect 19 6 13 0;
+#X connect 19 7 12 0;
+#X connect 19 8 12 1;
+#X connect 19 9 9 0;
+#X restore 16 289 pd \$0-CATCH-ALIAS;
+#N canvas 2084 793 1386 650 \$0-SYNC 0;
+#X obj 266 148 adc~;
+#X obj 267 203 dac~ 5;
+#X obj 193 33 r \$0|RECHAN;
+#X obj 307 29 loadbang;
+#X msg 198 101 set \$1;
+#X msg 171 142 9;
+#X obj 158 41 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 199 72 expr (2*\$1)+1 \;;
+#X connect 0 0 1 0;
+#X connect 2 0 7 0;
+#X connect 3 0 7 0;
+#X connect 4 0 0 0;
+#X connect 4 0 5 0;
+#X connect 6 0 7 0;
+#X connect 7 0 4 0;
+#X restore 829 49 pd \$0-SYNC;
+#X obj 935 816 outlet;
+#X obj 1030 814 outlet;
+#N canvas 145 180 2612 1203 \$0-LSTRACKS 0;
+#X obj 39 13 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 76 368 outlet;
+#X obj 118 12 loadbang;
+#X obj 213 13 r \$0-lstracks;
+#X obj 210 417 outlet;
+#X obj 48 283 pack f f f f f;
+#X obj 176 45 expr (2*\$1)-1 \; (2*\$1) \; \$1 \; (2*\$1)+1 \;;
+#X msg 76 333 set [total \$4] @INPUT TRACKS (stereo pairs) : 1+2 (CH1)..
+\$1+\$2 (CH\$3) | \$4 SYNCTRACK, f 88;
+#X msg 210 382 set [total 5] @OUTPUT TRACKS : 1+2 (MASTER) | 3+4 (PRELISTEN)
+| 5 SYNCTRACK, f 78;
+#X connect 0 0 6 0;
+#X connect 2 0 6 0;
+#X connect 3 0 6 0;
+#X connect 5 0 8 0;
+#X connect 5 0 7 0;
+#X connect 6 0 5 0;
+#X connect 6 1 5 1;
+#X connect 6 2 5 2;
+#X connect 6 3 5 3;
+#X connect 7 0 1 0;
+#X connect 8 0 4 0;
+#X restore 935 744 pd \$0-LSTRACKS;
+#X msg 256 496 vis 4 1;
+#N canvas 1760 180 1388 1136 ICONSOLE 1;
+#X obj 200 0 cnv 15 420 475 empty empty empty 20 12 0 14 -13330 -66577
+0;
+#X obj 0 -6 cnv 15 200 550 empty empty empty 20 12 0 14 -216697 -66577
+0;
+#X obj 18 62 cnv 15 60 360 empty empty empty 20 12 0 14 -16662 -66577
+0;
+#X obj 57 93 vu 20 320 7599|master-vu-r empty -1 -8 0 4 -66577 -1 1
+0;
+#X obj 20 93 vu 20 320 7599|master-vu-l empty -1 -8 0 4 -66577 -1 0
+0;
+#X obj 10 3 cnv 1 1 1 empty empty MASTER 20 12 0 14 -245689 -66577
+0;
+#X obj 39 93 vsl 8 320 0 1 0 0 foosnd 7599|master-fader-l empty 0 -9
+0 10 -13381 -262144 -66577 34000 1;
+#X obj 48 93 vsl 8 320 0 1 0 0 foosnd 7599|master-fader-r empty 0 -9
+0 10 -13381 -262144 -262144 34200 1;
+#X obj 18 498 cnv 6 50 30 foosnd 7599-CONNECTED Srv 4 14 2 14 -1 -138753
+0;
+#X obj 120 72 tgl 15 0 foo 7599|master-RF-l empty 17 7 0 4 -216697
+-1 -1 0 1;
+#X obj 150 72 tgl 15 0 foo 7599|master-RF-r empty 17 7 0 4 -216697
+-1 -1 0 1;
+#X obj 119 420 tgl 19 0 7599|mute-lmaster-sender 7599|master-mute-l
+M 5 10 0 7 -24198 -24198 -1 0 1;
+#X obj 148 420 tgl 19 0 7599|mute-rmaster-sender 7599|master-mute-r
+M 5 10 0 7 -24198 -24198 -1 0 1;
+#X obj 119 93 vsl 18 320 0 1 0 0 7599|master-fader-l-sender 7599|master-fader-l-sender-rec
+empty 0 -9 0 10 -4032 -1 -1 34000 0;
+#X obj 148 93 vsl 18 320 0 1 0 0 7599|master-fader-r-sender 7599|master-fader-r-sender-rec
+empty 0 -9 0 10 -4032 -1 -1 34200 0;
+#X obj 137 93 vsl 11 320 0 1 0 0 7599|master-fader-sender 7599|master-fader-sender-rec
+empty 0 -9 0 10 -204786 -1 -1 34000 0;
+#X floatatom 148 444 5 0 0 0 - 7599|master-fader-r foosnd;
+#X floatatom 103 444 5 0 0 0 - 7599|master-fader-l foosnd;
+#X obj 214 8 cnv 15 100 400 empty empty 1 22 12 0 14 -203904 -83269
+0;
+#X obj 216 382 tgl 15 0 foosnd 7622|1-fader-rf empty 17 7 0 10 -203904
+-1 -1 1 1;
+#X obj 279 222 tgl 15 0 foosnd 7622|1-pan-rf empty 17 7 0 10 -203904
+-1 -1 1 1;
+#X obj 237 202 hsl 64 15 0 1 0 0 7622|1-pan-state-sender 7622|1-pan-state-sender-rec
+empty -2 -8 0 10 -262144 -1 -1 0 0;
+#X floatatom 234 382 5 0 0 0 - 7622|1-fader-state foosnd;
+#X floatatom 234 221 5 0 0 0 - 7622|1-pan-stateN foosnd;
+#X obj 241 255 vsl 18 120 0 1 0 0 7622|1-fader-state-sender 7622|1-fader-state-sender-rec
+empty 0 -9 0 10 -262144 -1 -1 23800 0;
+#X obj 214 445 cnv 15 100 30 empty 7622|1-time-remaining empty 12 15
+0 7 -480 -262130 0;
+#X obj 263 255 vu 10 120 7622|1-vu-l empty -1 -8 0 10 -66577 -1 0 0
+;
+#X obj 276 255 vu 10 120 7622|1-vu-r empty -1 -8 0 4 -66577 -1 1 0
+;
+#X obj 245 62 vu 8 80 7622|1-svu-l empty -1 -8 0 4 -159808 -1 0 0;
+#X obj 256 62 vu 8 80 7622|1-svu-r empty -1 -8 0 4 -159808 -1 1 0;
+#X obj 214 412 cnv 15 100 30 empty 7622|1-filename ------IN------ 2
+15 0 6 -203904 -83269 0;
+#X obj 228 160 tgl 18 0 foosnd 7622|1-loop-active L 4 9 0 6 -228992
+-1 -1 0 1;
+#X obj 255 162 hradio 15 1 0 3 foosnd 7622|1-input-track IN_MP_SP 0
+-6 0 5 -203904 -83269 -1 0;
+#X obj 292 387 tgl 19 0 7622|1-mute-sender 7622|1-mute M 5 10 0 7 -24198
+-24198 -1 0 1;
+#X obj 289 0 tgl 20 0 7622|1-prelisten-sender 7622|1-prelisten >) 3
+9 0 6 -258699 -258699 -1 0 1;
+#X floatatom 283 20 4 0 1 0 > 7622|1-prelisten-level foosnd;
+#X obj 218 202 tgl 14 0 foosnd 7622|1-pan-enabled-diode MO 1 7 0 5
+-24198 -24198 -1 0 1;
+#X obj 239 48 tgl 8 0 foosnd 7622|1-inbound-diodes-S empty 17 7 0 8
+-262144 -262144 -1 0 1;
+#X obj 262 48 tgl 8 0 foosnd 7622|1-inbound-diodes-S empty 14 5 0 8
+-262144 -262144 -1 0 1;
+#X obj 249 45 tgl 11 0 7622|1-inbound-sender 7622|1-inbound-diode-M
+empty 17 7 0 8 -24198 -24198 -1 0 1;
+#X obj 222 255 vsl 9 120 0 1 0 0 foosnd 7622|1-fader-state empty 0
+-9 0 10 -225280 -1 -1 23800 1;
+#X obj 237 188 hsl 64 8 0 1 0 0 foosnd 7622|1-pan-state empty -2 -8
+0 10 -225280 -1 -1 6300 1;
+#X obj 275 389 tgl 15 0 7622|1-solo-sender 7622|1-solo S 4 8 0 5 -228992
+-228992 -1 0 1;
+#X obj 298 39 tgl 15 0 7622|1-presolo-sender 7622|1-presolo PS 1 8
+0 5 -228992 -228992 -1 0 1;
+#X obj 302 56 vsl 8 40 0 1 0 0 7622|1-prelisten-level-sender 7622|1-prelisten-level-sender-rec
+empty 0 -9 0 10 -228992 -1 -1 7800 0;
+#X obj 218 185 bng 14 250 50 0 7622|1-CPAN foorec C 3 7 0 6 -257985
+-262130 -13381;
+#X obj 314 8 cnv 15 100 400 empty empty 2 22 12 0 14 -158848 -83269
+0;
+#X obj 316 382 tgl 15 0 foosnd 7642|2-fader-rf empty 17 7 0 10 -158848
+-1 -1 1 1;
+#X obj 379 222 tgl 15 0 foosnd 7642|2-pan-rf empty 17 7 0 10 -158848
+-1 -1 1 1;
+#X obj 337 202 hsl 64 15 0 1 0 0 7642|2-pan-state-sender 7642|2-pan-state-sender-rec
+empty -2 -8 0 10 -262144 -1 -1 0 0;
+#X floatatom 334 382 5 0 0 0 - 7642|2-fader-state foosnd;
+#X floatatom 334 221 5 0 0 0 - 7642|2-pan-stateN foosnd;
+#X obj 341 255 vsl 18 120 0 1 0 0 7642|2-fader-state-sender 7642|2-fader-state-sender-rec
+empty 0 -9 0 10 -262144 -1 -1 23800 0;
+#X obj 314 445 cnv 15 100 30 empty 7642|2-time-remaining empty 12 15
+0 7 -1760 -262130 0;
+#X obj 363 255 vu 10 120 7642|2-vu-l empty -1 -8 0 10 -66577 -1 0 0
+;
+#X obj 376 255 vu 10 120 7642|2-vu-r empty -1 -8 0 4 -66577 -1 1 0
+;
+#X obj 345 62 vu 8 80 7642|2-svu-l empty -1 -8 0 4 -159808 -1 0 0;
+#X obj 356 62 vu 8 80 7642|2-svu-r empty -1 -8 0 4 -159808 -1 1 0;
+#X obj 314 412 cnv 15 100 30 empty 7642|2-filename ------IN------ 2
+15 0 6 -158848 -83269 0;
+#X obj 328 160 tgl 18 0 foosnd 7642|2-loop-active L 4 9 0 6 -228992
+-1 -1 0 1;
+#X obj 355 162 hradio 15 1 0 3 foosnd 7642|2-input-track IN_MP_SP 0
+-6 0 5 -158848 -83269 -1 0;
+#X obj 392 387 tgl 19 0 7642|2-mute-sender 7642|2-mute M 5 10 0 7 -24198
+-24198 -1 0 1;
+#X obj 389 0 tgl 20 0 7642|2-prelisten-sender 7642|2-prelisten >) 3
+9 0 6 -258699 -258699 -1 0 1;
+#X floatatom 383 20 4 0 1 0 > 7642|2-prelisten-level foosnd;
+#X obj 318 202 tgl 14 0 foosnd 7642|2-pan-enabled-diode MO 1 7 0 5
+-24198 -24198 -1 0 1;
+#X obj 339 48 tgl 8 0 foosnd 7642|2-inbound-diodes-S empty 17 7 0 8
+-262144 -262144 -1 0 1;
+#X obj 362 48 tgl 8 0 foosnd 7642|2-inbound-diodes-S empty 14 5 0 8
+-262144 -262144 -1 0 1;
+#X obj 349 45 tgl 11 0 7642|2-inbound-sender 7642|2-inbound-diode-M
+empty 17 7 0 8 -24198 -24198 -1 0 1;
+#X obj 322 255 vsl 9 120 0 1 0 0 foosnd 7642|2-fader-state empty 0
+-9 0 10 -225280 -1 -1 23800 1;
+#X obj 337 188 hsl 64 8 0 1 0 0 foosnd 7642|2-pan-state empty -2 -8
+0 10 -225280 -1 -1 6300 1;
+#X obj 375 389 tgl 15 0 7642|2-solo-sender 7642|2-solo S 4 8 0 5 -228992
+-228992 -1 0 1;
+#X obj 398 39 tgl 15 0 7642|2-presolo-sender 7642|2-presolo PS 1 8
+0 5 -228992 -228992 -1 0 1;
+#X obj 402 56 vsl 8 40 0 1 0 0 7642|2-prelisten-level-sender 7642|2-prelisten-level-sender-rec
+empty 0 -9 0 10 -228992 -1 -1 7800 0;
+#X obj 318 185 bng 14 250 50 0 7642|2-CPAN foorec C 3 7 0 6 -257985
+-262130 -13381;
+#X obj 414 8 cnv 15 100 400 empty empty 3 22 12 0 14 -203904 -83269
+0;
+#X obj 416 382 tgl 15 0 foosnd 7662|3-fader-rf empty 17 7 0 10 -203904
+-1 -1 1 1;
+#X obj 479 222 tgl 15 0 foosnd 7662|3-pan-rf empty 17 7 0 10 -203904
+-1 -1 1 1;
+#X obj 437 202 hsl 64 15 0 1 0 0 7662|3-pan-state-sender 7662|3-pan-state-sender-rec
+empty -2 -8 0 10 -258699 -1 -1 0 0;
+#X floatatom 434 382 5 0 0 0 - 7662|3-fader-state foosnd;
+#X floatatom 434 221 5 0 0 0 - 7662|3-pan-stateN foosnd;
+#X obj 441 255 vsl 18 120 0 1 0 0 7662|3-fader-state-sender 7662|3-fader-state-sender-rec
+empty 0 -9 0 10 -262144 -1 -1 23800 0;
+#X obj 414 445 cnv 15 100 30 empty 7662|3-time-remaining empty 12 15
+0 7 -480 -262130 0;
+#X obj 463 255 vu 10 120 7662|3-vu-l empty -1 -8 0 10 -66577 -1 0 0
+;
+#X obj 476 255 vu 10 120 7662|3-vu-r empty -1 -8 0 4 -66577 -1 1 0
+;
+#X obj 445 62 vu 8 80 7662|3-svu-l empty -1 -8 0 4 -159808 -1 0 0;
+#X obj 456 62 vu 8 80 7662|3-svu-r empty -1 -8 0 4 -159808 -1 1 0;
+#X obj 414 412 cnv 15 100 30 empty 7662|3-filename ------IN------ 2
+15 0 6 -203904 -83269 0;
+#X obj 428 160 tgl 18 0 foosnd 7662|3-loop-active L 4 9 0 6 -228992
+-1 -1 0 1;
+#X obj 455 162 hradio 15 1 0 3 foosnd 7662|3-input-track IN_MP_SP 0
+-6 0 5 -203904 -83269 -1 0;
+#X obj 492 387 tgl 19 0 7662|3-mute-sender 7662|3-mute M 5 10 0 7 -24198
+-24198 -1 0 1;
+#X obj 489 0 tgl 20 0 7662|3-prelisten-sender 7662|3-prelisten >) 3
+9 0 6 -258699 -258699 -1 0 1;
+#X floatatom 483 20 4 0 1 0 > 7662|3-prelisten-level foosnd;
+#X obj 418 202 tgl 14 0 foosnd 7662|3-pan-enabled-diode ST 1 7 0 5
+-258699 -258699 -1 0 1;
+#X obj 439 48 tgl 8 0 foosnd 7662|3-inbound-diodes-S empty 17 7 0 8
+-24198 -24198 -1 0 1;
+#X obj 462 48 tgl 8 0 foosnd 7662|3-inbound-diodes-S empty 14 5 0 8
+-24198 -24198 -1 0 1;
+#X obj 449 45 tgl 11 0 7662|3-inbound-sender 7662|3-inbound-diode-M
+empty 17 7 0 8 -262144 -262144 -1 0 1;
+#X obj 422 255 vsl 9 120 0 1 0 0 foosnd 7662|3-fader-state empty 0
+-9 0 10 -225280 -1 -1 23800 1;
+#X obj 437 188 hsl 64 8 0 1 0 0 foosnd 7662|3-pan-state empty -2 -8
+0 10 -258699 -1 -1 6300 1;
+#X obj 475 389 tgl 15 0 7662|3-solo-sender 7662|3-solo S 4 8 0 5 -228992
+-228992 -1 0 1;
+#X obj 498 39 tgl 15 0 7662|3-presolo-sender 7662|3-presolo PS 1 8
+0 5 -228992 -228992 -1 0 1;
+#X obj 502 56 vsl 8 40 0 1 0 0 7662|3-prelisten-level-sender 7662|3-prelisten-level-sender-rec
+empty 0 -9 0 10 -228992 -1 -1 5200 0;
+#X obj 418 185 bng 14 250 50 0 7662|3-CPAN foorec C 3 7 0 6 -257985
+-262130 -13381;
+#X obj 514 8 cnv 15 100 400 empty empty 4 22 12 0 14 -158848 -83269
+0;
+#X obj 516 382 tgl 15 0 foosnd 7682|4-fader-rf empty 17 7 0 10 -158848
+-1 -1 1 1;
+#X obj 579 222 tgl 15 0 foosnd 7682|4-pan-rf empty 17 7 0 10 -158848
+-1 -1 1 1;
+#X obj 537 202 hsl 64 15 0 1 0 0 7682|4-pan-state-sender 7682|4-pan-state-sender-rec
+empty -2 -8 0 10 -262144 -1 -1 0 0;
+#X floatatom 534 382 5 0 0 0 - 7682|4-fader-state foosnd;
+#X floatatom 534 221 5 0 0 0 - 7682|4-pan-stateN foosnd;
+#X obj 541 255 vsl 18 120 0 1 0 0 7682|4-fader-state-sender 7682|4-fader-state-sender-rec
+empty 0 -9 0 10 -262144 -1 -1 23800 0;
+#X obj 514 445 cnv 15 100 30 empty 7682|4-time-remaining empty 12 15
+0 7 -1760 -262130 0;
+#X obj 563 255 vu 10 120 7682|4-vu-l empty -1 -8 0 10 -66577 -1 0 0
+;
+#X obj 576 255 vu 10 120 7682|4-vu-r empty -1 -8 0 4 -66577 -1 1 0
+;
+#X obj 545 62 vu 8 80 7682|4-svu-l empty -1 -8 0 4 -159808 -1 0 0;
+#X obj 556 62 vu 8 80 7682|4-svu-r empty -1 -8 0 4 -159808 -1 1 0;
+#X obj 514 412 cnv 15 100 30 empty 7682|4-filename ------IN------ 2
+15 0 6 -158848 -83269 0;
+#X obj 528 160 tgl 18 0 foosnd 7682|4-loop-active L 4 9 0 6 -228992
+-1 -1 0 1;
+#X obj 555 162 hradio 15 1 0 3 foosnd 7682|4-input-track IN_MP_SP 0
+-6 0 5 -158848 -83269 -1 0;
+#X obj 592 387 tgl 19 0 7682|4-mute-sender 7682|4-mute M 5 10 0 7 -24198
+-24198 -1 0 1;
+#X obj 589 0 tgl 20 0 7682|4-prelisten-sender 7682|4-prelisten >) 3
+9 0 6 -258699 -258699 -1 0 1;
+#X floatatom 583 20 4 0 1 0 > 7682|4-prelisten-level foosnd;
+#X obj 518 202 tgl 14 0 foosnd 7682|4-pan-enabled-diode MO 1 7 0 5
+-24198 -24198 -1 0 1;
+#X obj 539 48 tgl 8 0 foosnd 7682|4-inbound-diodes-S empty 17 7 0 8
+-262144 -262144 -1 0 1;
+#X obj 562 48 tgl 8 0 foosnd 7682|4-inbound-diodes-S empty 14 5 0 8
+-262144 -262144 -1 0 1;
+#X obj 549 45 tgl 11 0 7682|4-inbound-sender 7682|4-inbound-diode-M
+empty 17 7 0 8 -24198 -24198 -1 0 1;
+#X obj 522 255 vsl 9 120 0 1 0 0 foosnd 7682|4-fader-state empty 0
+-9 0 10 -225280 -1 -1 23800 1;
+#X obj 537 188 hsl 64 8 0 1 0 0 foosnd 7682|4-pan-state empty -2 -8
+0 10 -225280 -1 -1 6300 1;
+#X obj 575 389 tgl 15 0 7682|4-solo-sender 7682|4-solo S 4 8 0 5 -228992
+-228992 -1 0 1;
+#X obj 598 39 tgl 15 0 7682|4-presolo-sender 7682|4-presolo PS 1 8
+0 5 -228992 -228992 -1 0 1;
+#X obj 602 56 vsl 8 40 0 1 0 0 7682|4-prelisten-level-sender 7682|4-prelisten-level-sender-rec
+empty 0 -9 0 10 -228992 -1 -1 5200 0;
+#X obj 518 185 bng 14 250 50 0 7682|4-CPAN foorec C 3 7 0 6 -257985
+-262130 -13381;
+#X obj 620 0 cnv 8 500 550 empty \$0|airdir_display /home/gregor/audio/pd-projects/work/wavedata/air/testfile/
+6 12 0 6 -216697 -66577 0;
+#X obj 362 480 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
+0;
+#X obj 476 480 cnv 2 1 1 empty empty i 8 12 2 15 -262144 -203904 0
+;
+#X obj 486 480 cnv 2 1 1 empty empty Console 8 12 2 15 -262144 -66577
+0;
+#X restore 644 47 pd ICONSOLE;
+#X obj 495 784 dac~ 1 2 3 4;
+#N canvas 101 180 1149 752 \$0-MONITOR-MASTER 0;
+#X obj 75 44 inlet~;
+#X obj 182 45 inlet~;
+#X obj 75 144 s \$0|master-vu-l;
+#X obj 181 185 s \$0|master-vu-r;
+#X obj 76 85 gpp-vufeeder;
+#X obj 182 82 gpp-vufeeder;
+#X obj 267 16 loadbang;
+#X msg 287 48 6000;
+#X connect 0 0 4 0;
+#X connect 1 0 5 0;
+#X connect 4 0 2 0;
+#X connect 5 0 3 0;
+#X connect 6 0 7 0;
+#X connect 7 0 4 1;
+#X connect 7 0 5 1;
+#X restore 230 789 pd \$0-MONITOR-MASTER;
+#X text 490 806 these are the only console audio outs: MASTER LR (1
+\, 2) PRELISTEN LR (3 \, 4) + SYNC (5);
+#X msg 242 564 vis 2 1;
+#N canvas 568 625 2081 1480 \$0-MASTER-FADER 0;
+#X obj 59 21 inlet;
+#X obj 57 375 outlet~;
+#X obj 275 386 outlet~;
+#X obj 60 156 gpp-airliner~;
+#N canvas 1250 400 1921 1034 \$0-monitor 0;
+#X obj 26 30 inlet~;
+#X obj 115 25 inlet~;
+#X text 40 1 fader l r;
+#X obj 195 209 s \$0|master-fader-r;
+#X obj 26 186 s \$0|master-fader-l;
+#X obj 194 119 gpp-snapshot~ 100;
+#X obj 195 182 change;
+#X obj 26 158 change;
+#X obj 26 125 gpp-snapshot~ 100;
+#X connect 0 0 8 0;
+#X connect 1 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 3 0;
+#X connect 7 0 4 0;
+#X connect 8 0 7 0;
+#X restore 142 422 pd \$0-monitor;
+#X obj 204 155 gpp-airliner~;
+#N canvas 455 1160 1986 797 \$0-ROUTE-MASTER-COMMANDS 0;
+#X obj 48 10 inlet;
+#X obj 53 194 outlet;
+#X obj 117 193 outlet;
+#X obj 251 109 t a a;
+#X obj 450 249 s \$0|MASTER_MUTE_L;
+#X obj 479 291 s \$0|MASTER_MUTE_R;
+#X obj 413 90 route setmute setlmute setrmute;
+#X obj 410 195 s \$0|MASTER_MUTE_BOTH;
+#X obj 54 49 route l r lfader rfader left right fader level f, f 52
+;
+#X obj 126 264 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 428 134 5 0 0 0 - - -;
+#X connect 0 0 8 0;
+#X connect 0 0 9 0;
+#X connect 3 0 1 0;
+#X connect 3 1 2 0;
+#X connect 6 0 7 0;
+#X connect 6 0 10 0;
+#X connect 6 1 4 0;
+#X connect 6 2 5 0;
+#X connect 8 0 1 0;
+#X connect 8 1 2 0;
+#X connect 8 2 1 0;
+#X connect 8 3 2 0;
+#X connect 8 4 1 0;
+#X connect 8 5 2 0;
+#X connect 8 6 3 0;
+#X connect 8 7 3 0;
+#X connect 8 8 3 0;
+#X connect 8 9 6 0;
+#X restore 60 94 pd \$0-ROUTE-MASTER-COMMANDS;
+#X obj 77 52 print ||>>>||REQUEST|MASTER;
+#X obj 262 488 s \$0|master-RF-r;
+#X obj 69 492 s \$0|master-RF-l;
+#X obj 173 579 s \$0|master-VR-l;
+#X obj 336 581 s \$0|master-VR-r;
+#X text 263 612 value reached;
+#X text 162 517 request fulfilled;
+#X obj 326 305 s \$0|master-fader-l-sender-rec;
+#X obj 726 284 s \$0|master-fader-r-sender-rec;
+#X obj 697 338 t b f;
+#X obj 582 435 s \$0|master-fader-sender-rec;
+#X obj 521 406 moses 0;
+#X obj 521 378 expr if ($f1 == $f2 \, $f1 \, -1) \;;
+#X msg 325 261 set \$1;
+#X msg 725 251 set \$1;
+#X msg 581 406 set \$1;
+#X connect 0 0 6 0;
+#X connect 3 0 4 0;
+#X connect 3 0 1 0;
+#X connect 3 4 20 0;
+#X connect 3 4 19 0;
+#X connect 5 0 4 1;
+#X connect 5 0 2 0;
+#X connect 5 4 21 0;
+#X connect 5 4 16 0;
+#X connect 6 0 3 0;
+#X connect 6 1 5 0;
+#X connect 16 0 19 0;
+#X connect 16 1 19 1;
+#X connect 18 1 22 0;
+#X connect 19 0 18 0;
+#X connect 20 0 14 0;
+#X connect 21 0 15 0;
+#X connect 22 0 17 0;
+#X restore 416 584 pd \$0-MASTER-FADER;
+#X obj 403 636 *~;
+#X obj 457 636 *~;
+#X text 359 635 FADER;
+#X obj 403 707 *~;
+#X obj 457 706 *~;
+#X text 364 705 MUTE;
+#N canvas 1970 398 1590 1234 \$0-MUTE 0;
+#X obj 52 164 sel 0 1;
+#X obj 128 166 sel 0 1;
+#X obj 333 415 s \$0|master-mute-l;
+#X obj 510 417 s \$0|master-mute-r;
+#X obj 40 85 r \$0|MASTER_MUTE_L;
+#X obj 178 86 r \$0|MASTER_MUTE_R;
+#X obj 56 396 outlet~;
+#X obj 142 396 outlet~;
+#X obj 56 349 vline~;
+#X msg 57 309 \$1 50;
+#X obj 142 351 vline~;
+#X msg 144 311 \$1 50;
+#X msg 52 190 1;
+#X msg 85 192 0;
+#X msg 143 193 1;
+#X msg 182 194 0;
+#X text 224 195 note: bolean is reversed here: is_muted means is_not_sound
+;
+#X obj 97 21 r \$0|MASTER_MUTE_BOTH;
+#X obj 96 48 t f f;
+#X msg 268 326 color 16 16;
+#X msg 380 321 color 13 13;
+#X msg 484 322 color 16 16;
+#X msg 574 323 color 13 13;
+#X connect 0 0 12 0;
+#X connect 0 1 13 0;
+#X connect 1 0 14 0;
+#X connect 1 1 15 0;
+#X connect 4 0 0 0;
+#X connect 5 0 1 0;
+#X connect 8 0 6 0;
+#X connect 9 0 8 0;
+#X connect 10 0 7 0;
+#X connect 11 0 10 0;
+#X connect 12 0 19 0;
+#X connect 12 0 9 0;
+#X connect 13 0 20 0;
+#X connect 13 0 9 0;
+#X connect 14 0 21 0;
+#X connect 14 0 11 0;
+#X connect 15 0 22 0;
+#X connect 15 0 11 0;
+#X connect 17 0 18 0;
+#X connect 18 0 0 0;
+#X connect 18 1 1 0;
+#X connect 19 0 2 0;
+#X connect 20 0 2 0;
+#X connect 21 0 3 0;
+#X connect 22 0 3 0;
+#X restore 421 672 pd \$0-MUTE;
+#N canvas 162 814 2395 1346 \$0-GUICMD-MASTER 0;
+#X obj 35 89 r \$0|master-fader-l-sender;
+#X obj 219 161 r \$0|master-fader-r-sender;
+#X obj 493 -7 r \$0|mute-lmaster-sender;
+#X obj 640 29 r \$0|mute-rmaster-sender;
+#X obj 794 375 netsend -u -b;
+#X obj 837 229 t b b;
+#X obj 837 199 loadbang;
+#X obj 845 295 pack s f;
+#X msg 843 328 connect \$1 \$2;
+#X obj 794 263 symbol \$4;
+#X obj 885 261 float \$3;
+#X obj 799 196 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 37 123 oscformat -f f airmix master lfader;
+#X obj 216 192 oscformat -f f airmix master rfader;
+#X obj 489 38 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 640 58 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 503 105 oscformat -f f airmix master setlmute;
+#X obj 534 153 oscformat -f f airmix master setrmute;
+#X obj 685 67 sel 1;
+#X obj 113 7 r \$0|master-fader-sender;
+#X msg 44 317 set \$1;
+#X msg 100 264 set \$1;
+#X obj 99 287 s \$0|master-fader-l-sender-rec;
+#X obj 45 349 s \$0|master-fader-r-sender-rec;
+#X floatatom 35 246 5 0 0 0 - - -;
+#X obj 134 39 oscformat -f f airmix master fader;
+#X text 104 309 this is harmless in terms of feedback \, since it only
+sets the vslider val;
+#X connect 0 0 12 0;
+#X connect 1 0 13 0;
+#X connect 2 0 14 0;
+#X connect 3 0 15 0;
+#X connect 5 0 9 0;
+#X connect 5 1 10 0;
+#X connect 6 0 5 0;
+#X connect 7 0 8 0;
+#X connect 8 0 4 0;
+#X connect 9 0 7 0;
+#X connect 10 0 7 1;
+#X connect 11 0 5 0;
+#X connect 12 0 4 0;
+#X connect 13 0 4 0;
+#X connect 14 0 16 0;
+#X connect 15 0 17 0;
+#X connect 15 0 18 0;
+#X connect 16 0 4 0;
+#X connect 17 0 4 0;
+#X connect 19 0 24 0;
+#X connect 19 0 25 0;
+#X connect 19 0 21 0;
+#X connect 19 0 20 0;
+#X connect 20 0 23 0;
+#X connect 21 0 22 0;
+#X connect 25 0 4 0;
+#X restore 827 76 pd \$0-GUICMD-MASTER;
+#X obj 390 509 clone -s 1 gpp-air-iconsole-track \$1 \$1 \$3 \$4;
+#X msg 195 523 vis 8 1;
+#X obj 1065 119 t b b;
+#X msg 1051 221 \; pd dsp 0 \;, f 16;
+#X obj 1007 150 del 300;
+#X obj 1045 70 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 295 82 print ::>|~|con_core_gate|~|;
+#X connect 0 0 52 0;
+#X connect 4 0 50 4;
+#X connect 5 0 4 0;
+#X connect 6 0 4 0;
+#X connect 6 0 28 0;
+#X connect 8 0 14 0;
+#X connect 8 0 56 0;
+#X connect 9 0 4 0;
+#X connect 10 0 29 0;
+#X connect 10 1 13 1;
+#X connect 11 0 13 0;
+#X connect 12 0 50 0;
+#X connect 13 0 12 0;
+#X connect 14 0 41 0;
+#X connect 14 1 10 0;
+#X connect 14 2 50 0;
+#X connect 14 3 15 0;
+#X connect 14 4 19 0;
+#X connect 14 5 23 0;
+#X connect 14 6 50 4;
+#X connect 15 0 16 0;
+#X connect 15 1 18 1;
+#X connect 16 0 18 0;
+#X connect 17 0 50 1;
+#X connect 18 0 17 0;
+#X connect 19 0 20 0;
+#X connect 19 1 22 1;
+#X connect 20 0 22 0;
+#X connect 21 0 50 2;
+#X connect 22 0 21 0;
+#X connect 23 0 24 0;
+#X connect 23 1 26 1;
+#X connect 24 0 26 0;
+#X connect 25 0 50 3;
+#X connect 26 0 25 0;
+#X connect 29 0 30 0;
+#X connect 29 1 11 0;
+#X connect 30 0 13 0;
+#X connect 30 1 13 1;
+#X connect 30 2 11 0;
+#X connect 34 0 32 0;
+#X connect 34 1 33 0;
+#X connect 35 0 50 0;
+#X connect 40 0 50 0;
+#X connect 41 0 42 1;
+#X connect 41 1 43 1;
+#X connect 42 0 45 0;
+#X connect 43 0 46 0;
+#X connect 45 0 37 0;
+#X connect 45 0 38 0;
+#X connect 46 0 37 1;
+#X connect 46 0 38 1;
+#X connect 48 0 45 1;
+#X connect 48 1 46 1;
+#X connect 50 0 42 0;
+#X connect 50 1 43 0;
+#X connect 50 2 37 2;
+#X connect 50 3 37 3;
+#X connect 51 0 50 0;
+#X connect 52 0 54 0;
+#X connect 52 1 53 0;
+#X connect 54 0 1 0;
+#X connect 55 0 52 0;

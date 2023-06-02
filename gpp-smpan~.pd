@@ -1,0 +1,34 @@
+#N canvas 1191 304 2250 1693 12;
+#X obj 433 110 inlet~;
+#X obj 481 31 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
+0;
+#X text 481 56 Gregor Pirš 2022;
+#X obj 438 388 outlet~;
+#X obj 778 386 outlet~;
+#X text 764 416 RIGHT CH AMP;
+#X text 430 413 LEFT CH AMP;
+#X obj 438 228 expr~ if ($v2 \, cos($v1 * (4 * atan(1)) / 2) \, 1 )
+\; if ($v2 \, sin($v1 * (4 * atan(1)) / 2) \, 1 ) \;;
+#X text 515 320 cosinus has a feeble zero (-...);
+#X obj 942 177 loadbang;
+#X msg 943 213 \; pd dsp 1 \;;
+#X obj 189 103 inlet;
+#X obj 189 146 sig~;
+#X text 180 75 manual switch \, mono/stereo;
+#X floatatom 155 205 5 0 0 0 - - -;
+#X obj 438 312 clip~ 0 1;
+#X obj 778 319 clip~ 0 1;
+#X obj 167 404 outlet~;
+#X text 609 25 gpp-smpan~ :: selective stereo/mono panner. will allow
+user panning interraction (3rd inlet) if the (manual!) switch is on
+(=mono mode);
+#X connect 0 0 7 0;
+#X connect 7 0 15 0;
+#X connect 7 1 16 0;
+#X connect 9 0 10 0;
+#X connect 11 0 12 0;
+#X connect 11 0 14 0;
+#X connect 12 0 7 1;
+#X connect 12 0 17 0;
+#X connect 15 0 3 0;
+#X connect 16 0 4 0;

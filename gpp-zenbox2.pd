@@ -1,0 +1,26 @@
+#N canvas 827 174 1740 843 10;
+#X obj 232 141 expr 1 ^ $f1;
+#X obj 232 119 float 0;
+#X obj 231 66 inlet;
+#X obj 325 195 expr ! $f1;
+#X obj 200 270 outlet;
+#X obj 274 268 outlet;
+#X obj 200 210 spigot;
+#X obj 274 212 spigot;
+#X obj 232 163 t b f f;
+#X text 277 65 bang;
+#X text 206 294 bang;
+#X text 280 293 bang;
+#X text 156 40 gpp-zenbox2 : broadcast bang to two outlets interchangeably
+;
+#X connect 0 0 1 1;
+#X connect 0 0 8 0;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X connect 3 0 7 1;
+#X connect 6 0 4 0;
+#X connect 7 0 5 0;
+#X connect 8 0 6 0;
+#X connect 8 0 7 0;
+#X connect 8 1 6 1;
+#X connect 8 2 3 0;

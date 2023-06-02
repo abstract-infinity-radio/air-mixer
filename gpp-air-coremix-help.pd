@@ -1,0 +1,272 @@
+#N canvas 675 1548 1247 638 12;
+#X msg 952 317 4 pan 100;
+#X obj 787 6 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
+0;
+#X text 787 31 Gregor Pirš 2022;
+#X text 914 1 gpp-air-coremix :: a core mixer for the AIR plarform
+:: in 1 = osc netreceiver control :: in 2 = direct in (list mode);
+#X msg 973 371 1 fader 1 2020 pow;
+#X msg 973 401 1 fader 0 2020 pow;
+#X text 627 499 CUSTOM CMD$ airmix <track> [pan/fader] [... gpp-airliner~
+arguments], f 72;
+#X obj 0 95 cnv 15 100 20 empty empty ----> 20 30 0 14 -262144 -258113
+0;
+#N canvas 0 180 1600 1400 \$0-REST 0;
+#X text 86 80 OSC SPEC https://ccrma.stanford.edu/groups/osc/spec-1_0.html
+;
+#X text 86 120 mrpeach/net/tcpsocket.OSC;
+#X text 89 45 ALSO:;
+#X text 82 177 NOTE: air coremix handles adc~ and dac~ ports itself.
+outlet~ output is intended exclusively for monitoring;
+#X restore 679 8 pd \$0-REST;
+#N canvas 332 202 2800 1903 \$0-TODO 0;
+#X text 1015 239 -- bidirectional OSC: reporting ENDBANGS on tracks
+\, possibility to query the track from "currently played" file-id;
+#X text 1021 121 --- play from and to directives (automatical cutting)
++ automatical microfading at start end;
+#X text 1015 30 --- MONITOR SENDERS *SHOULD NOT* BROADCAST BANG~ TRIGGERED
+SNAPSHOT => MONITORING POLICY FOR LONG-DISTANCE! :: RESOLVED AS: SNAP
+100 SENDERS. ANOTHER POSSIBILITY FOR EVEN MORE CONSTRAINTED CONNECTIONS:
+RELY ON "RF" TO SHOW THAT THE FADER IS RUNNING AND ONLY MARK THE FINAL
+STATE OF EACH SINGLE ACTION;
+#X text 1047 5 DONE:;
+#X text 1014 202 -- direct transitions from play to rec and vice versa:
+concurent timing displays!;
+#X text 1016 184 -- implement "loop" option \, looping version of "play"
+;
+#X text 165 22 TODO:;
+#X text 1013 158 --- DELAY FOR *record DIRECTIVE;
+#X text 1020 285 -- fix recording directory derivation;
+#X text 1019 319 airmix 1 record bach.wav 1:20 1:30;
+#X text 1020 404 airmix 1 loop bach.wav 1:20 1:30 +0:03.21;
+#X text 1016 338 --- DeLAY FOR LOOP AND PLAY DIRECTIVES :: loop command
+takes the third argument \, delay:;
+#X text 1020 376 airmix 1 play bach.wav 1:20 1:30 +0:03:21;
+#X text 1275 320 these are hard-boundaries \, set in future;
+#X text 1324 376 arg 3 is play/loop delay;
+#X text 1022 435 airmix 1 loop bach.wav 1:20 +0:03.21;
+#X text 1021 469 airmix 1 loop bach.wav +0:03.21;
+#X text 1251 468 loop whole file with loop-delay;
+#X text 1283 433 loop from 1:20 to the end with loop-delay;
+#X text 1022 558 *play-delay is delay from now to the beginning of
+sample-play (or trimmed chunk play);
+#X text 1022 508 *loop-delay is a buffer interval between the end of
+sample-play and beginning of the new iteration o sample(or trimmed-chunk)-play
+;
+#X text 1021 595 --- WARNING: ENDFADER LOGIC COUNTER IS BOGUS (TEMPO
+METRONOME?) AND ENDBENG/ENDFADER MECH DOESNT PROPERLY CALIBRATE;
+#X text 1027 646 --- transform MONO player for operation with new dir
+sys and loopbang and loop delay \, just like STEREO player;
+#X text 63 392 -- osc monitor send -- playhead func: 1 playhead file.wav
+, f 44;
+#X text 60 365 -- dissable excessive PRINT commands;
+#X text 61 332 -- data check : negative time span can break the whole
+thing!;
+#X text 1030 697 -- mapping sudden sub-sec loop to ALL faders will
+most probably break the pd gui due to channel in- faders: should a
+selector button be used to present the current chosen in channel? YES
+AND DONE;
+#X text 546 166 -- map all monitoring directives to console;
+#X text 1034 804 TAKE CARE ABOUT OSC OUT HARTBEAT POLICY!;
+#X text 1036 929 timer monitoring policy: 1/counter/player/ start <ms_start>
+up 1/counter/recorder/ start <ms_start> down :: 1/counter/player/ stop
+|| *NO STATE MONITORING* because it's quite simple to establish web
+based time counters, f 67;
+#X text 1030 768 -- single-steam continuous-controllers monitoring
+pulse (metro);
+#X text 544 82 OSC RECEIVER/CONSOLE AND SHELL MONITOR: FILTER EMPTY
+RECEIVES! (that can occur due to high traffic \, serial fader addressings
+: maybe we should micro-delay outputs from each fader? DONE :: still
+some problems \, these cannot be caught from within user handler =>
+err specific to Net::OpenSoundControl::Server perl module, f 67;
+#X text 1033 823 get rid of double ac requests \, as a consequence
+that each play- or record- request is preceeded by a stop- request:
+[localhost] /airmon/contour/ac/1/player/ 0 [localhost] /airmon/contour/ac/1/player/
+1 === ACTUALLY \, THIS WONT BE NECCESSARY - no harm \, even better
+\, because the purpose of stop- pre- requests is that they enable direct
+transitions from play to record or from on play to another play.;
+#X text 671 37 !!! MAKE monitoring mode val persistent;
+#X text 766 7 DONE2:;
+#X text 53 160 !!!!!!! FADERS ARE SELF-RESETTING \, NOT CONTINUING
+!!!!!;
+#X text 75 193 NEW LOOP ITERATION WILL RESET THE FILENAME TAG;
+#X text 546 213 adding refresh values to console and mixer OK FOR BOTH
+\, MIXER AND CONSOLE;
+#X text 44 116 !!!!! seems that fader-on but muted track bursts in
+the beginning of play (monoplay?);
+#X restore 679 37 pd \$0-TODO;
+#X text 626 474 COMMAND LINE$ send_osc osc.udp://localhost:3000/ /airmix/4/pan/
+100, f 75;
+#X text 618 435 close all faders;
+#X obj 798 442 cnv 15 158 20 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X obj 16 -118 cnv 15 200 20 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#N canvas 0 180 1050 538 \$0-AIR-WAVEDATA-DIRECTORY 0;
+#X obj 81 140 outlet;
+#X msg 119 70 cd /some/wd/directory/;
+#X msg 143 107 dir /some/other/directory/;
+#X msg 154 148 ls;
+#X text 200 148 check directory;
+#X text 78 189 directory can also be changed via airdir textfile (see)
+;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X restore 17 -118 pd \$0-AIR-WAVEDATA-DIRECTORY;
+#X text 63 361 special addressing modes:;
+#X msg 326 393 all fader 1 1000;
+#X msg 21 427 1\\\,3\\\,5-8 mon;
+#X msg 22 455 1\\\,3\\\,5-8 nom;
+#X msg 327 362 1\\\,3\\\,5-8 fader 0 1000;
+#X msg 14 393 1\\\,3\\\,5-8 fader 0 1000;
+#X text 212 392 address ALL;
+#X text 330 425 WARNING in direct mode \, comma should be quoted!,
+f 20;
+#X text 212 412 adress a span of tracks, f 6;
+#X text 265 486 NOTE if addressing span for recording purposes \, only
+first track stated will be used., f 20;
+#X msg 23 493 1\\\,3\\\,5-8 record something.wav;
+#X msg 22 528 1\\\,3\\\,5-8 rstop;
+#X msg 473 534 panic;
+#X obj 514 519 cnv 15 100 20 empty empty <---- 20 30 0 14 -262144 -4034
+0;
+#X msg 473 508 center;
+#X msg 473 480 fullout;
+#X obj 320 -2 oscformat airmix;
+#X msg 212 -23 listen 3000;
+#X obj 213 -55 loadbang;
+#X text -4 24 netreceive control -->;
+#N canvas 2094 214 1600 1400 osc-netsend 0;
+#X obj 170 132 oscformat airmix;
+#X msg 300 79 connect localhost 3000;
+#X obj 316 33 loadbang;
+#X obj 281 31 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 170 183 list prepend send;
+#X obj 170 215 list trim;
+#X obj 165 61 inlet;
+#X obj 302 268 netsend -b -u;
+#X connect 0 0 4 0;
+#X connect 1 0 7 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 0 0;
+#X restore 766 -55 pd osc-netsend;
+#X msg 765 -105 4 fader 100;
+#X text 795 -80 send via netsend/udp;
+#X msg 363 -59 3 fader 0.1;
+#X msg 311 -93 3 pan 1 1000;
+#X msg 425 -93 1 fader 1 2020 log;
+#X msg 457 -58 1 fader 0 2020 log;
+#X msg 184 -88 listen 0;
+#X msg 331 -123 3 pan 0.6 1000;
+#X msg 511 -27 1 fader 0.8 2000 sin;
+#X msg 506 2 1 fader 0.1 2000 sin;
+#X msg 572 -132 1 fader 1 3000 hsin;
+#X msg 576 -108 1 fader 0 1000 hsin;
+#X text 107 -25 DISCONNECT;
+#X msg 953 343 dir /home/gregor/audio;
+#N canvas 575 671 2803 1488 \$0-PLAY-RECORD-LOOP 0;
+#X obj 268 487 outlet;
+#X text 684 363 trim A - B and play \, with trimfaders;
+#X text 684 391 trim beginning - B and play \, with trimfaders;
+#X text 639 431 trim A - end and play \, with trimfaders;
+#X text 642 453 trim A - end and play \, with trimfaders;
+#X msg 92 68 trimfader time 200;
+#X msg 123 99 trimfader type hsin;
+#X msg 354 603 record myfile.wav;
+#X msg 344 637 record myfile.aiff;
+#X text 508 620 start recording into myfile;
+#X text 987 590 start recording into myfile and stop after given time
+;
+#X msg 791 593 record myfile.wav 2:23.987;
+#X msg 827 182 1 dir /home/gregor/audio/pd-projects/work/wavedata/air/testfile/
+, f 68;
+#X text 822 160 set current directory FOR PATH 1;
+#X text 818 563 TODO:;
+#X msg 794 620 record myfile.wav 0:5 1:22.003;
+#X text 1018 617 start recording into myfile after 5 seconds and stop
+after given time;
+#X msg 469 321 play bach.wav;
+#X text 572 319 play whole file;
+#X msg 262 221 ALL dir /home/gregor/audio/pd-projects/work/wavedata/air/testfile/
+, f 68;
+#X msg 471 362 play bach.wav 0:15 2:15.325;
+#X msg 470 389 play bach.wav 0 2:15.325;
+#X msg 468 429 play bach.wav 0:15;
+#X msg 470 452 play bach.wav 0:15 0;
+#X msg 797 673 recparams x x x;
+#X text 918 676 set recording params;
+#X text 262 200 set current directory FOR ALL PATHS;
+#X text 823 141 NOT (YET) IMPLEMENTED:;
+#X text 23 33 NOT YET IMPLEMENTED: set trimfaders to something other
+than default;
+#X connect 5 0 0 0;
+#X connect 6 0 0 0;
+#X connect 7 0 0 0;
+#X connect 8 0 0 0;
+#X connect 11 0 0 0;
+#X connect 12 0 0 0;
+#X connect 15 0 0 0;
+#X connect 17 0 0 0;
+#X connect 19 0 0 0;
+#X connect 20 0 0 0;
+#X connect 21 0 0 0;
+#X connect 22 0 0 0;
+#X connect 24 0 0 0;
+#X restore 798 443 pd \$0-PLAY-RECORD-LOOP;
+#X obj 111 29 cnv 15 140 60 empty empty SERVER 20 12 0 16 -203904 -66577
+0;
+#X msg 365 167 CONSOLE AUDIO LATENCY: 0;
+#X msg 238 266 [ŧotal 17] @OUTPUT TRACKS (stereo pairs) : PREFADER:
+1+2 (CH1) .. 7+8 (CH4) | 9 SYNCTRACK | POSTFADER: 10+11 (CH1) .. 16+17
+(CH4) | MASTER 18+19 | PRELISTEN BUS 20+21, f 150;
+#N canvas 118 203 758 554 MATTHEW 0;
+#X text 28 20 add solo BUTTONS;
+#X text 28 94 window opener switch;
+#X text 29 40 add presolo BUTTONS;
+#X text 28 63 prelevel values interactive = faders?;
+#X text 23 145 save state on the console!!! = local ....;
+#X restore 13 67 pd MATTHEW;
+#X msg 110 219 [ŧotal 9] @INPUT TRACKS (stereo pairs) : [ŧotal 9]
+1+2 (CH1).. 7+8 (CH4) | 9 SYNCTRACK, f 94;
+#X msg 480 54 84.20.237.57 :: GP;
+#X obj 253 13 tgl 50 1 empty foorec MIX 10 12 0 10 -262130 -1 -1 1
+1;
+#N canvas 0 225 450 300 \$0-SHOWMIX 0;
+#X obj 37 21 inlet;
+#X obj 36 123 outlet;
+#X msg 33 90 mix;
+#X msg 74 89 xim;
+#X obj 35 62 sel 1 0;
+#X connect 0 0 4 0;
+#X connect 2 0 1 0;
+#X connect 3 0 1 0;
+#X connect 4 0 2 0;
+#X connect 4 1 3 0;
+#X restore 253 66 pd \$0-SHOWMIX;
+#X text 405 89 gpp-aircoremix <channels> <OSC-in-port> <OSC-out-port>
+<client OSC address>, f 78;
+#X msg 584 121 MIHA :: 89.212.162.186;
+#X msg 586 147 GREGOR :: 84.20.248.32;
+#X obj 110 116 gpp-air-coremix 4 3000 3001 localhost;
+#X connect 33 0 32 0;
+#X connect 36 0 35 0;
+#X connect 38 0 31 0;
+#X connect 39 0 31 0;
+#X connect 40 0 31 0;
+#X connect 41 0 31 0;
+#X connect 43 0 31 0;
+#X connect 44 0 31 0;
+#X connect 45 0 31 0;
+#X connect 46 0 31 0;
+#X connect 47 0 31 0;
+#X connect 50 0 62 0;
+#X connect 57 0 58 0;
+#X connect 58 0 62 1;
+#X connect 62 0 55 0;
+#X connect 62 1 53 0;
+#X connect 62 2 52 0;

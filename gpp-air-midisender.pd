@@ -1,0 +1,92 @@
+#N canvas 106 924 2419 901 12;
+#N canvas 1800 534 1896 1394 \$0-SYS-ROUTER 1;
+#X obj 107 37 inlet;
+#X obj 285 294 pack f f f;
+#X text 269 489 TWO MAIN RULES OF DYNAMIC PATCHING: 1) dynamically
+produced patch will not receive loadbang per se and 2) will not have
+'audio on' as a part of chain. create one more patch on the top or
+switch off / on the whole thing.;
+#X obj 160 404 \$0;
+#X text 482 589 SaveMyButt 1;
+#X text 394 448 SaveMyButt 2;
+#X msg 160 442 \; pd-\$1-MID obj 200 200 gpp-dummy \;;
+#X msg 193 574 \; pd-gpp-air-midisender-core.pd loadbang \; pd-gpp-air-midisender-track.pd
+loadbang \;;
+#X obj 130 171 t f b f;
+#X obj 130 207 t f b b;
+#X obj 112 655 outlet;
+#X obj 130 138 unpack f;
+#X obj 285 234 expr $f1 \; \$0 \; \$2 \;, f 10;
+#N canvas 1701 735 924 636 __OSC_SENDER 1;
+#X obj 68 24 r __OSC_SENDER;
+#X obj 141 271 netsend -u -b;
+#X msg 268 145 connect localhost \$1;
+#X obj 225 22 inlet;
+#X obj 224 64 unpack f f;
+#X text 74 54 universal sender;
+#X obj 264 199 print MIDISENDER_CONNECT;
+#X connect 0 0 1 0;
+#X connect 2 0 1 0;
+#X connect 2 0 6 0;
+#X connect 3 0 4 0;
+#X connect 4 1 2 0;
+#X restore 153 103 pd __OSC_SENDER;
+#X obj 107 69 t a a a;
+#X msg 285 329 \; pd-\$2-MID clear \; pd-\$2-MID obj 76 138 gpp-air-midisender-core
+\$1 \$3 \; pd-\$2-MID obj 50 38 r \$2|tocore \; pd-\$2-MID connect
+1 0 0 0 \;;
+#X connect 0 0 14 0;
+#X connect 1 0 15 0;
+#X connect 3 0 6 0;
+#X connect 8 0 9 0;
+#X connect 8 1 3 0;
+#X connect 8 2 12 0;
+#X connect 9 2 7 0;
+#X connect 11 0 8 0;
+#X connect 12 0 1 0;
+#X connect 12 1 1 1;
+#X connect 12 2 1 2;
+#X connect 14 0 10 0;
+#X connect 14 1 11 0;
+#X connect 14 2 13 0;
+#X restore 72 218 pd \$0-SYS-ROUTER;
+#X obj 72 131 inlet;
+#X obj 72 289 outlet;
+#X obj 512 150 inlet;
+#X obj 512 272 outlet;
+#N canvas 170 196 1234 624 \$0-MID 1;
+#X obj 76 138 gpp-air-midisender-core 9 0;
+#X obj 50 38 r \$0|tocore;
+#X obj 200 200 gpp-dummy;
+#X connect 1 0 0 0;
+#X restore 488 63 pd \$0-MID;
+#X obj 456 9 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
+0;
+#X text 456 34 Gregor Pirš 2022;
+#N canvas 0 225 450 300 \$0-SETUP 0;
+#X obj 28 32 inlet;
+#X obj 32 93 outlet;
+#X restore 512 211 pd \$0-SETUP;
+#X obj 293 289 outlet;
+#X text 281 315 hello bang;
+#X obj 293 249 loadbang;
+#X text 590 4 gpp-air-mididsender :: (client-side) midi frontend for
+gpp-air-coremix | inlet1 = number of mixer channels (received from
+gpp-air-console which will pass on the server information if obtained)
+| inlet2 = setup pukebag | outlet1 = number of channels (for reference)
+| outlet2 = broadcast 'loadbang' to connect with gpp-air-console and
+gather the necessary system params \, such as (server) number of channels
+and (server) input address:port | outlet3 = setup pukebag, f 62;
+#X obj 364 249 bang;
+#X obj 72 162 route reconnect bang;
+#X connect 0 0 2 0;
+#X connect 1 0 14 0;
+#X connect 3 0 8 0;
+#X connect 8 0 4 0;
+#X connect 11 0 9 0;
+#X connect 13 0 9 0;
+#X connect 14 0 13 0;
+#X connect 14 0 0 0;
+#X connect 14 1 0 0;
+#X connect 14 1 13 0;
+#X connect 14 2 0 0;

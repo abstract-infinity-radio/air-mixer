@@ -1,0 +1,36 @@
+#N canvas 880 635 2151 791 12;
+#X obj 391 15 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
+0;
+#X text 391 40 Gregor Pirš 2022;
+#X text 538 27 gpp-bitwall :: bitfield simulator built around 'solo'
+processor for the gpp-air-coremix;
+#X obj 173 161 gpp-bitwall 256;
+#X msg 163 105 set 3;
+#X msg 401 115 reset 3;
+#X msg 126 65 sum;
+#X msg 40 39 bitsum;
+#X msg 377 84 set 200;
+#X msg 226 104 set 1;
+#X obj 275 198 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 288 127 reset 3;
+#X msg 289 84 reset 1;
+#X floatatom 158 199 5 0 0 0 - - -;
+#X msg 13 74 clear;
+#X msg 205 56 set 2;
+#X msg 267 40 set \$1;
+#X floatatom 269 18 5 0 0 0 - - -;
+#X text 537 79 ARG1=bitwall / bitfield size;
+#X connect 3 0 13 0;
+#X connect 3 1 10 0;
+#X connect 4 0 3 0;
+#X connect 5 0 3 0;
+#X connect 6 0 3 0;
+#X connect 8 0 3 0;
+#X connect 9 0 3 0;
+#X connect 11 0 3 0;
+#X connect 12 0 3 0;
+#X connect 14 0 3 0;
+#X connect 15 0 3 0;
+#X connect 16 0 3 0;
+#X connect 17 0 16 0;

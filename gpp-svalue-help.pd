@@ -1,0 +1,28 @@
+#N canvas 1038 939 1900 1060 12;
+#X obj 194 116 symbol;
+#X msg 153 62 mama;
+#X obj 277 115 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 196 197 print DIRECT;
+#X obj 181 266 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 180 357 print WIRELESS;
+#X obj 399 215 print RECEIVER;
+#X obj 418 269 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 417 360 print WIRELESS;
+#X msg 204 41 tata;
+#X obj 179 319 gpp-svalue \$0-mySymbol;
+#X obj 416 322 gpp-svalue \$0-mySymbol;
+#X obj 195 158 gpp-svalue \$0-mySymbol;
+#X obj 398 184 r \$0-mySymbol;
+#X connect 0 0 12 0;
+#X connect 1 0 0 0;
+#X connect 2 0 12 0;
+#X connect 4 0 10 0;
+#X connect 7 0 11 0;
+#X connect 9 0 0 0;
+#X connect 10 0 5 0;
+#X connect 11 0 8 0;
+#X connect 12 0 3 0;
+#X connect 13 0 6 0;

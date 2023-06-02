@@ -1,0 +1,42 @@
+#N canvas 133 180 2302 1562 8;
+#N canvas 0 180 3840 1928 (subpatch) 0;
+#X array \$0-mon 480000 float 2;
+#X coords 0 1 479999 0 2000 100 2 0 0;
+#X restore 101 101 graph;
+#X msg 122 386 bang;
+#X msg 166 388 stop;
+#X obj 104 439 tabwrite~ \$0-mon;
+#X obj 104 248 inlet~;
+#X obj 166 251 inlet;
+#X text 436 309 gpp-sigraph :: a handy signal graph | in 1 = sig \,
+in 2 = ctrl write on/off;
+#X obj 342 371 \$0;
+#X obj 343 338 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 343 399 \; \$1-mon const 0 \;;
+#X obj 32 549 snapshot~;
+#X obj 48 512 metro 100;
+#X obj 42 476 loadbang;
+#X obj 116 474 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 33 574 outlet;
+#X obj 162 331 sel 1 0;
+#X obj 166 294 route clear;
+#X floatatom 241 362 5 0 0 0 - - -;
+#X connect 1 0 3 0;
+#X connect 2 0 3 0;
+#X connect 4 0 3 0;
+#X connect 4 0 10 0;
+#X connect 5 0 16 0;
+#X connect 7 0 9 0;
+#X connect 8 0 7 0;
+#X connect 10 0 14 0;
+#X connect 11 0 10 0;
+#X connect 12 0 11 0;
+#X connect 13 0 11 0;
+#X connect 15 0 1 0;
+#X connect 15 1 2 0;
+#X connect 16 0 8 0;
+#X connect 16 1 15 0;
+#X connect 16 1 17 0;
+#X coords 0 0 480000 1 2004 102 2 100 100;

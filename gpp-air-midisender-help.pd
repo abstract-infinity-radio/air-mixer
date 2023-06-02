@@ -1,0 +1,23 @@
+#N canvas 1859 684 1845 1204 12;
+#X obj 28 114 gpp-air-console 3001 3000;
+#X obj 456 9 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
+0;
+#X text 456 34 Gregor Pirš 2022;
+#X text 580 12 gpp-air-mididsender :: (client-side) midi frontend for
+gpp-air-coremix;
+#X floatatom 28 261 5 0 0 0 - - -;
+#X obj 28 236 unpack f f;
+#X floatatom 95 261 5 0 0 0 - - -;
+#X msg 84 166 reconnect;
+#X text 144 262 <-- both params (number of channels and server receiving
+address:port) will be provided by the server via osc-loop feed, f
+49;
+#X text 165 164 reclaim params;
+#X text 26 281 params received;
+#X obj 28 209 gpp-air-midisender;
+#X connect 0 0 11 0;
+#X connect 5 0 4 0;
+#X connect 5 1 6 0;
+#X connect 7 0 11 0;
+#X connect 11 0 5 0;
+#X connect 11 1 0 0;

@@ -1,0 +1,18 @@
+#N canvas 650 316 1900 1060 12;
+#X obj 183 402 symbol;
+#X obj 182 37 inlet;
+#X obj 181 103 route bang symbol;
+#X obj 183 467 outlet;
+#X obj 239 176 s \$1;
+#X obj 239 214 r \$1;
+#X text 326 94 usage: gpp-svalue \$0-symbolVarName;
+#X text 268 28 gpp-svalue a "value"-like symbol storage. also broadcasts
+the symbol to the direct receiver.;
+#X text 341 152 WARNING: ALL svalue elements HAVE TO BE CREATED BEFORE
+SYMBOL DISTRIBUTION. NEWLY CREATED ONES WILL *NOT* RECEIVE IT (IN CONTRAST
+TO value POLICY);
+#X connect 0 0 3 0;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 2 1 4 0;
+#X connect 5 0 0 1;

@@ -1,0 +1,21 @@
+#N canvas 1270 284 2072 1401 12;
+#X obj 88 53 inlet;
+#X obj 66 317 spigot;
+#X obj 144 314 spigot;
+#X obj 66 353 outlet;
+#X obj 145 356 outlet;
+#X obj 168 53 inlet;
+#X obj 171 226 expr ! $f1 \; $f1 \;;
+#X obj 313 50 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
+0;
+#X text 311 73 Gregor Pirš 2022;
+#X text 441 44 gpp-switch2 :: a simple switch based on toggle. | inlet1
+= ctrl line to switch | inlet2 = switch toggle | outlet1 outlet2 =
+output routing of inlet1 control stream;
+#X connect 0 0 1 0;
+#X connect 0 0 2 0;
+#X connect 1 0 3 0;
+#X connect 2 0 4 0;
+#X connect 5 0 6 0;
+#X connect 6 0 1 1;
+#X connect 6 1 2 1;

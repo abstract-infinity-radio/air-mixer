@@ -1,0 +1,48 @@
+#N canvas 1781 426 1823 1400 12;
+#X obj 202 336 gpp-tempo2;
+#X floatatom 119 464 5 0 0 0 AVERAGE_TEMPO - -;
+#X obj 213 256 metro 1000;
+#X floatatom 529 469 5 0 0 0 BEAT_NUMBER - -;
+#X obj 212 98 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 213 137 sel 1;
+#X obj 213 180 t b b;
+#X msg 213 211 1;
+#X msg 279 205 0;
+#X obj 229 295 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 450 169 1000;
+#X msg 451 199 2000;
+#X floatatom 323 511 5 0 0 0 DYNAMIC_TEMPO_(MEASURED_FROM_THE_PREVIOUS_TO_THE_CURRENT_BEAT)
+- -;
+#X obj 283 21 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
+0;
+#X text 283 46 Gregor Pirš 2022;
+#X floatatom 449 237 5 0 0 0 - - -;
+#X obj 450 262 * 500;
+#X text 428 137 change tempo, f 1;
+#X floatatom 473 566 5 0 0 0 DEVIATION_FROM_AVERAGE - -;
+#X msg 256 297 waitstart;
+#X text 406 13 gpp-tempo2 :: measure tempo pulse (bangs) :: in1 = bang
+pulse in2 = reset to listen-at-the beginning mode :: out1 = current
+tempo average :: out 2 = actual (dynamic) tempo measured from the previous
+beat till the current one :: out3 = deviation of the current beat timing
+from the averae :: out4 = current beat number;
+#X connect 0 0 1 0;
+#X connect 0 1 12 0;
+#X connect 0 2 18 0;
+#X connect 0 3 3 0;
+#X connect 2 0 9 0;
+#X connect 2 0 0 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 5 1 8 0;
+#X connect 6 0 7 0;
+#X connect 6 1 19 0;
+#X connect 7 0 2 0;
+#X connect 8 0 2 0;
+#X connect 10 0 2 1;
+#X connect 11 0 2 1;
+#X connect 15 0 16 0;
+#X connect 16 0 2 1;
+#X connect 19 0 0 1;

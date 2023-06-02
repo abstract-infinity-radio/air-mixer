@@ -1,0 +1,65 @@
+#N canvas 415 650 2503 1400 12;
+#X obj 687 50 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
+0;
+#X text 687 75 Gregor Pirš 2022;
+#X obj 163 109 gpp-timing2seconds;
+#X floatatom 163 155 10 0 0 0 SECONDS - -;
+#X msg 162 61 1:0:0.001;
+#X msg 256 64 1:0:0.010;
+#X text 279 170 NOTE: display resolution of float atom is sub 1/1000
+!;
+#X msg 217 19 2:13:123;
+#X text 30 215 NOTE: no need to apply trailing zeroes;
+#X obj 405 229 samplerate~;
+#X obj 405 196 loadbang;
+#X obj 407 262 *;
+#X obj 477 197 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 407 307 20 0 0 0 SAMPLES - -;
+#X msg 13 90 0.1;
+#X msg 363 65 1:2:3;
+#X msg 131 6 0;
+#X msg 424 11 0:0.0;
+#X msg 521 20 3;
+#X msg 529 66 0.3;
+#X text 565 62 3 miliseconds, f 3;
+#X msg 526 93 0.03;
+#X msg 520 120 0.003;
+#X text 550 20 3 seconds (!!!);
+#X msg 49 32 1:1:1;
+#X msg 34 191 1:1:1.1;
+#X obj 164 280 gpp-display-seconds;
+#X symbolatom 161 315 20 0 0 0 - - -;
+#X msg 305 28 02:13:12;
+#X msg 328 0 02:13.12;
+#X text 621 259 3 = 3 seconds;
+#X text 624 280 3:3:3 = 3 hours 3 minutes 3 seconds;
+#X text 625 302 3:3:3.3 = 3 hours 3 minutes 3 seconds 3 miliseconds
+;
+#X msg 449 446 1:12:22;
+#X text 815 48 gpp-timing2seconds / gpp-timing2ms :: change the standard
+timing format (symbol: <hh>:<mm>:<ss>.<ms>) to seconds;
+#X connect 2 0 3 0;
+#X connect 2 0 11 0;
+#X connect 3 0 26 0;
+#X connect 4 0 2 0;
+#X connect 5 0 2 0;
+#X connect 7 0 2 0;
+#X connect 9 0 11 1;
+#X connect 10 0 9 0;
+#X connect 11 0 13 0;
+#X connect 12 0 9 0;
+#X connect 14 0 2 0;
+#X connect 15 0 2 0;
+#X connect 16 0 2 0;
+#X connect 17 0 2 0;
+#X connect 18 0 2 0;
+#X connect 19 0 2 0;
+#X connect 21 0 2 0;
+#X connect 22 0 2 0;
+#X connect 24 0 2 0;
+#X connect 25 0 2 0;
+#X connect 26 0 27 0;
+#X connect 28 0 2 0;
+#X connect 29 0 2 0;
+#X connect 33 0 2 0;

@@ -1,0 +1,46 @@
+#N canvas 989 237 1600 1400 12;
+#X obj 122 526 print;
+#X obj 122 482 gpp-afparams;
+#X msg 234 242 sr /home/gregor/audio/pd-projects/work/wavedata/air/testfile/bach.wav
+, f 81;
+#X floatatom 186 531 20 0 0 0 - - -;
+#X text 510 -1 gpp-afparams :: get audiofile parameters;
+#X msg 158 149 ch /home/gregor/audio/pd-projects/work/wavedata/air/testfile/bachmono.wav
+, f 81;
+#X msg 248 403 br /home/gregor/audio/pd-projects/work/wavedata/air/testfile/bonepiece.wav
+, f 81;
+#X msg 100 83 br /home/gregor/audio/pd-projects/work/wavedata/air/testfile/bach.aiff
+, f 81;
+#X msg 232 284 sr /home/gregor/audio/pd-projects/work/wavedata/air/testfile/bach.aiff
+, f 81;
+#X msg 224 367 sr /home/gregor/audio/pd-projects/work/wavedata/air/testfile/bonepiece.wav
+, f 81;
+#X msg 259 437 hs /home/gregor/audio/pd-projects/work/wavedata/air/testfile/bonepiece.wav
+, f 81;
+#X msg 237 321 headersize /home/gregor/audio/pd-projects/work/wavedata/air/testfile/bach.aiff
+, f 81;
+#X text 511 529 in1: [directive samplepath<;
+#X msg 145 112 size /home/gregor/audio/pd-projects/work/wavedata/air/testfile/bach.wav
+, f 81;
+#X msg 171 190 bitrate /home/gregor/audio/pd-projects/work/wavedata/air/testfile/doors.wav
+, f 81;
+#X msg 53 24 dur /home/gregor/audio/pd-projects/work/wavedata/air/testfile/bach.aiff
+, f 81;
+#X msg 70 50 sz /home/gregor/audio/pd-projects/work/wavedata/air/testfile/bach.aiff
+, f 81;
+#X text 413 486 sr samplerate br bitrate ch channels sz size hs headersize
+duration|sec dur|sec all, f 12;
+#X connect 1 0 0 0;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X connect 5 0 1 0;
+#X connect 6 0 1 0;
+#X connect 7 0 1 0;
+#X connect 8 0 1 0;
+#X connect 9 0 1 0;
+#X connect 10 0 1 0;
+#X connect 11 0 1 0;
+#X connect 13 0 1 0;
+#X connect 14 0 1 0;
+#X connect 15 0 1 0;
+#X connect 16 0 1 0;

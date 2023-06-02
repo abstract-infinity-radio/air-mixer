@@ -1,0 +1,4 @@
+#N canvas 423 469 1502 921 12;
+#X obj 130 52 inlet;
+#X obj 130 103 clone -s 1 gpp-air-midisender-track \$1;
+#X connect 0 0 1 0;

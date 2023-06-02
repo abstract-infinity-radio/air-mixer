@@ -1,0 +1,63 @@
+#N canvas 2642 180 1168 591 12;
+#N canvas 970 230 1821 1434 \$0-TODO 0;
+#X text 510 51 console should be made bidirectional: the second param
+being output port/address.;
+#X text 513 139 WARNING: ADP is a fumble: do send the airdir path itself
+instead of storage place \; so ADP is not really needed \, follow the
+usual transfer of airdir (already established) but triggered by client
+initmon call;
+#X text 509 23 DONE;
+#X text 513 88 console loadbang triggers init sig to coremixer upon
+which all init data is sent back /./ :: via /airmix/cinit/ bang;
+#X text 528 241 bind con and noc to syscore SHOW event and exclude
+it from 'request' tactics in order to have request tactics clear which
+will enable it be switched off when needed;
+#X text 530 299 THE REAL PROBLEM HERE IS THAT TECHNICALLY \, EVERYTHING
+'EARLY' IS BOUND TO 'request' == any shit whatsoever. which is not
+a problem provided that all instructions that matter are (pre)handled
+server side;
+#X text 534 372 Poleg RF tudi VR (value reached) .. verjetno u017ee
+v airlinerju.. ki prihefta konu010dno vrednost na pobudo RF ko postane
+rf 1 Contour naj bo varnostno dopolnilo obeh modusov \, mirroring in
+autonomous \, lahko pa dela tudi sam v coarse;
+#X text 38 214 implement TEST line / a separate request \, similar
+to play \, but providing sinus 440 100 db to the selected line/s;
+#X text 37 265 mirror mode is the default. The mode should be set on
+the server side. When there are several monitors around \, it's the
+least common denominator of the capacities of all monitoring clients.
+Server has separate val param that determines current selection mode
+0=mirror 1=auto 2=coarse;
+#X text 42 371 implement stereo panning server request (even/odd tracks
+automatically set);
+#X text 40 66 WARNING: the console is non initializing! = after noc+con
+the actual state is not reflected;
+#X text 42 106 WARNING: special calls like stereopan or panic should
+be also inplemented at console level \; for 'request' tactics \, this
+is the only way to actually render their effect.;
+#X restore 388 13 pd \$0-TODO;
+#X obj 77 104 gpp-air-console 3001 3000;
+#X obj 15 195 gpp-air-midisender;
+#X msg 74 20 reconnect;
+#X msg 14 19 bang;
+#X obj 15 241 unpack f f;
+#X floatatom 180 294 5 0 0 0 SERVER_NUM_OF_CHANNELS - -;
+#X floatatom 352 293 5 0 0 0 SERVER'S_OSC_PORT - -;
+#X text 53 21 or;
+#X obj 347 44 cnv 15 140 60 empty empty CLIENT 20 12 0 16 -261682 -66577
+0;
+#X msg 166 151 [total 25] @INPUT TRACKS (stereo pairs) : 1+2 (CH1)..
+19+20 (CH10) | MASTER 21+22 | PRELISTEN BUS 23+24 | SYNC TRACK 25,
+f 67;
+#X msg 251 209 [total 1] @OUTPUT TRACKS : 1 (SYNC TRACK);
+#X obj 86 72 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X connect 1 0 2 0;
+#X connect 1 1 10 0;
+#X connect 1 2 11 0;
+#X connect 2 0 5 0;
+#X connect 2 1 1 0;
+#X connect 3 0 2 0;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X connect 5 1 7 0;
+#X connect 12 0 1 0;

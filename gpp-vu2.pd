@@ -1,0 +1,12 @@
+#N canvas 1908 312 1600 1400 12;
+#X obj 97 27 inlet~;
+#X obj 98 62 gpp-env~;
+#X text 285 12 gpp-vu2: no gpp-vu-control version;
+#X obj 288 43 gpp-vu-control;
+#X obj 172 27 inlet;
+#X obj 106 109 vu 15 120 empty empty -1 -8 0 5 -66577 -1 1 0;
+#X connect 0 0 1 0;
+#X connect 1 0 5 0;
+#X connect 3 0 5 0;
+#X connect 4 0 5 0;
+#X coords 0 -1 1 1 60 150 2 100 100;

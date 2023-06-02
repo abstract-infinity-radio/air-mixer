@@ -1,0 +1,48 @@
+#N canvas 0 180 3840 1980 12;
+#X obj 205 303 snapshot~;
+#X obj 242 263 bang~;
+#X obj 290 306 snapshot~;
+#X floatatom 202 342 5 0 0 0 - - -;
+#X floatatom 288 343 5 0 0 0 - - -;
+#X msg 225 182 1;
+#X msg 189 181 0;
+#X text 459 92 Gregor Pirš 2022;
+#X obj 462 68 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
+0;
+#X obj 91 90 bng 15 250 50 0 empty empty OPEN_LEFT 17 7 0 10 -262144
+-1 -1;
+#X obj 263 144 bng 15 250 50 0 empty empty OPEN_RIGHT 17 7 0 10 -262144
+-1 -1;
+#X msg 312 176 time 1000;
+#X msg 401 181 type lin;
+#X msg 410 215 type pow;
+#X msg 414 252 type hsin;
+#X obj 225 226 gpp-crossfade3;
+#X text 591 49 gpp-crossfade3~ :: airliner~ based crossfader \, 3 channel
+| in1 = channel selection (0 = left 1 = middle 2 = right) :: in2 =
+control (select crossfade *time or *type) :: out 1 \, 2 \, 3 = amplitude
+signal 1 \, 2 \, 3:: out4 = endbang;
+#X obj 385 305 snapshot~;
+#X floatatom 383 342 5 0 0 0 - - -;
+#X msg 263 182 2;
+#X obj 227 113 bng 15 250 50 0 empty empty OPEN_MIDDLE 17 7 0 10 -262144
+-1 -1;
+#X connect 0 0 3 0;
+#X connect 1 0 0 0;
+#X connect 1 0 2 0;
+#X connect 1 0 17 0;
+#X connect 2 0 4 0;
+#X connect 5 0 15 0;
+#X connect 6 0 15 0;
+#X connect 9 0 6 0;
+#X connect 10 0 19 0;
+#X connect 11 0 15 1;
+#X connect 12 0 15 1;
+#X connect 13 0 15 1;
+#X connect 14 0 15 1;
+#X connect 15 0 0 0;
+#X connect 15 1 2 0;
+#X connect 15 2 17 0;
+#X connect 17 0 18 0;
+#X connect 19 0 15 0;
+#X connect 20 0 5 0;
