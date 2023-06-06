@@ -1461,9 +1461,9 @@ latencystop conalive alivesig reset, f 96;
 #N canvas 92 261 1896 973 \$0-CHANGE-DIR 0;
 #X obj 138 10 inlet;
 #X obj 19 9 loadbang;
-#X msg 249 44 read /home/gregor/audio/pd-projects/work/wavedata/air/settings/airdir.txt
+#X msg 249 44 read /var/air/data/mixer/airdir.txt
 , f 82;
-#X msg 225 12 write /home/gregor/audio/pd-projects/work/wavedata/air/settings/airdir.txt
+#X msg 225 12 write /var/air/data/mixer/airdir.txt
 , f 82;
 #X obj 248 76 text define -k airdir;
 #A set /home/gregor/audio/pd-projects/work/wavedata/air/testfile/ \;
@@ -2051,9 +2051,9 @@ connectors sync track (mono): (2*n+1), f 27;
 -1;
 #X obj 156 272 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X msg 295 102 read /home/gregor/audio/pd-projects/work/wavedata/air/settings/mixerstate/autosave.txt
+#X msg 295 102 read /var/air/data/mixer/state/autosave.txt
 , f 88;
-#X msg 251 241 write /home/gregor/audio/pd-projects/work/wavedata/air/settings/mixerstate/autosave.txt
+#X msg 251 241 write /var/air/data/mixer/state/autosave.txt
 , f 88;
 #X obj 164 13 inlet;
 #X obj 203 123 s \$0-WAKEUP;
