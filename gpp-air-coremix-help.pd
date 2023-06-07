@@ -1,13 +1,13 @@
-#N canvas 675 1548 1247 638 12;
-#X msg 952 317 4 pan 100;
-#X obj 787 6 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
+#N canvas 872 180 2717 1333 12;
+#X msg 1154 242 4 pan 100;
+#X obj 786 4 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
 0;
-#X text 787 31 Gregor Pirš 2022;
+#X text 786 29 Gregor Pirš 2022;
 #X text 914 1 gpp-air-coremix :: a core mixer for the AIR plarform
 :: in 1 = osc netreceiver control :: in 2 = direct in (list mode);
-#X msg 973 371 1 fader 1 2020 pow;
-#X msg 973 401 1 fader 0 2020 pow;
-#X text 627 499 CUSTOM CMD$ airmix <track> [pan/fader] [... gpp-airliner~
+#X msg 1155 301 1 fader 1 2020 pow;
+#X msg 1155 331 1 fader 0 2020 pow;
+#X text 619 458 CUSTOM CMD$ airmix <track> [pan/fader] [... gpp-airliner~
 arguments], f 72;
 #X obj 0 95 cnv 15 100 20 empty empty ----> 20 30 0 14 -262144 -258113
 0;
@@ -95,10 +95,10 @@ transitions from play to record or from on play to another play.;
 #X text 44 116 !!!!! seems that fader-on but muted track bursts in
 the beginning of play (monoplay?);
 #X restore 679 37 pd \$0-TODO;
-#X text 626 474 COMMAND LINE$ send_osc osc.udp://localhost:3000/ /airmix/4/pan/
+#X text 680 610 COMMAND LINE$ send_osc osc.udp://localhost:3000/ /airmix/4/pan/
 100, f 75;
 #X text 618 435 close all faders;
-#X obj 798 442 cnv 15 158 20 empty empty empty 20 12 0 14 -261234 -66577
+#X obj 854 579 cnv 15 158 20 empty empty empty 20 12 0 14 -261234 -66577
 0;
 #X obj 16 -118 cnv 15 200 20 empty empty empty 20 12 0 14 -203904 -66577
 0;
@@ -168,7 +168,7 @@ first track stated will be used., f 20;
 #X msg 572 -132 1 fader 1 3000 hsin;
 #X msg 576 -108 1 fader 0 1000 hsin;
 #X text 107 -25 DISCONNECT;
-#X msg 953 343 dir /home/gregor/audio;
+#X msg 1153 272 dir /home/gregor/audio;
 #N canvas 575 671 2803 1488 \$0-PLAY-RECORD-LOOP 0;
 #X obj 268 487 outlet;
 #X text 684 363 trim A - B and play \, with trimfaders;
@@ -217,13 +217,13 @@ than default;
 #X connect 21 0 0 0;
 #X connect 22 0 0 0;
 #X connect 24 0 0 0;
-#X restore 798 443 pd \$0-PLAY-RECORD-LOOP;
+#X restore 852 579 pd \$0-PLAY-RECORD-LOOP;
 #X obj 111 29 cnv 15 140 60 empty empty SERVER 20 12 0 16 -203904 -66577
 0;
-#X msg 365 167 CONSOLE AUDIO LATENCY: 0;
-#X msg 238 266 [ŧotal 17] @OUTPUT TRACKS (stereo pairs) : PREFADER:
-1+2 (CH1) .. 7+8 (CH4) | 9 SYNCTRACK | POSTFADER: 10+11 (CH1) .. 16+17
-(CH4) | MASTER 18+19 | PRELISTEN BUS 20+21, f 150;
+#X msg 373 147 CONSOLE AUDIO LATENCY: 0;
+#X msg 116 298 [ŧotal 37] @OUTPUT TRACKS (stereo pairs) : SUBSTRMIX:
+1+2 (CH1) .. 15+16 (CH8) | 17 SYNCTRACK | PREDFADER: 18+19 (CH1) ..
+32+33 (CH8) | MASTER 34+35 | PRELISTEN BUS 36+37, f 80;
 #N canvas 118 203 758 554 MATTHEW 0;
 #X text 28 20 add solo BUTTONS;
 #X text 28 94 window opener switch;
@@ -231,10 +231,10 @@ than default;
 #X text 28 63 prelevel values interactive = faders?;
 #X text 23 145 save state on the console!!! = local ....;
 #X restore 13 67 pd MATTHEW;
-#X msg 110 219 [ŧotal 9] @INPUT TRACKS (stereo pairs) : [ŧotal 9]
-1+2 (CH1).. 7+8 (CH4) | 9 SYNCTRACK, f 94;
+#X msg 118 253 [ŧotal 17] @INPUT TRACKS (stereo pairs) : [ŧotal 17]
+1+2 (CH1).. 15+16 (CH8) | 17 SYNCTRACK, f 88;
 #X msg 480 54 84.20.237.57 :: GP;
-#X obj 253 13 tgl 50 1 empty foorec MIX 10 12 0 10 -262130 -1 -1 1
+#X obj 252 14 tgl 50 1 empty foorec MIX 10 12 0 10 -262130 -1 -1 1
 1;
 #N canvas 0 225 450 300 \$0-SHOWMIX 0;
 #X obj 37 21 inlet;
@@ -252,7 +252,15 @@ than default;
 <client OSC address>, f 78;
 #X msg 584 121 MIHA :: 89.212.162.186;
 #X msg 586 147 GREGOR :: 84.20.248.32;
-#X obj 110 116 gpp-air-coremix 4 3000 3001 localhost;
+#X text 2 190 list-abs OK;
+#X text 3 168 pdstring NO_GO;
+#X msg 367 47 80.0.8.216;
+#X obj 111 118 gpp-air-coremix 8 3000 3001 localhost;
+#X text 820 190 /var/air/data/mixer/state;
+#X text 823 172 @kohai - settings:;
+#X text 819 207 /var/air/data/mixer/airdir;
+#X obj 821 154 cnv 15 200 15 empty empty empty 20 12 0 14 -258113 -66577
+0;
 #X connect 33 0 32 0;
 #X connect 36 0 35 0;
 #X connect 38 0 31 0;
@@ -264,9 +272,7 @@ than default;
 #X connect 45 0 31 0;
 #X connect 46 0 31 0;
 #X connect 47 0 31 0;
-#X connect 50 0 62 0;
 #X connect 57 0 58 0;
-#X connect 58 0 62 1;
-#X connect 62 0 55 0;
-#X connect 62 1 53 0;
-#X connect 62 2 52 0;
+#X connect 65 0 55 0;
+#X connect 65 1 53 0;
+#X connect 65 2 52 0;

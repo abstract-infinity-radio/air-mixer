@@ -1,9 +1,9 @@
-#N canvas 903 180 1479 1070 12;
-#N canvas 1144 1198 1094 704 \$0-CON 0;
+#N canvas 982 489 2740 1671 12;
+#N canvas 1152 623 1094 704 \$0-CON 0;
 #X obj 76 138 gpp-air-iconsole-core 4 3001 3000 localhost;
-#X obj 50 38 r 7390|tocore;
-#X obj 70 300 s 7390|lsin;
-#X obj 300 300 s 7390|lsout;
+#X obj 50 38 r 4901|tocore;
+#X obj 70 300 s 4901|lsin;
+#X obj 300 300 s 4901|lsout;
 #X obj 200 200 gpp-dummy;
 #X connect 0 0 2 0;
 #X connect 0 1 3 0;
@@ -25,43 +25,43 @@
 #X obj 554 311 s \$0|tocore;
 #X obj 406 357 cnv 8 120 12 empty empty empty 20 12 0 14 -258113 -66577
 0;
-#N canvas 1892 180 1896 1394 \$0-SYS-ROUTER 0;
+#N canvas 1369 180 2419 1428 \$0-SYS-ROUTER 0;
 #X obj 142 3 inlet;
-#X obj 205 582 s \$0|tocore;
+#X obj 209 610 s \$0|tocore;
 #X obj 142 32 route sys;
-#X msg 144 139 float \$1;
+#X msg 124 141 float \$1;
 #X obj 287 172 s \$0|tocore;
-#X obj 65 352 s \$0|tocore;
+#X obj 45 354 s \$0|tocore;
 #X text 401 152 show request still stands \, but it's internal now
 => server will broadcast only 'request/con' and 'request/noc', f 39
 ;
 #X msg 287 145 syscore SHOW 0;
-#X msg 65 319 syscore SHOW 1;
-#X text 457 568 TWO MAIN RULES OF DYNAMIC PATCHING: 1) dynamically
+#X msg 45 321 syscore SHOW 1;
+#X text 657 551 TWO MAIN RULES OF DYNAMIC PATCHING: 1) dynamically
 produced patch will not receive loadbang per se and 2) will not have
 'audio on' as a part of chain. create one more patch on the top or
 switch off / on the whole thing.;
-#X msg 236 499 \; pd-\$1-CON obj 200 200 gpp-dummy \;;
-#X obj 236 461 \$0;
-#X text 563 663 SaveMyButt 1;
-#X text 574 528 SaveMyButt 2;
+#X msg 240 527 \; pd-\$1-CON obj 200 200 gpp-dummy \;;
+#X obj 240 489 \$0;
+#X text 775 639 SaveMyButt 1;
+#X text 774 511 SaveMyButt 2;
 #X obj 24 56 s \$0-OUTLET;
 #X text 21 82 to connect to midisender, f 12;
-#X obj 144 205 t b f b;
-#X obj 144 171 t f b f b;
-#X msg 126 268 syscore RECHAN;
-#X msg 186 626 \; pd-gpp-air-iconsole-core.pd loadbang \; pd-gpp-air-iconsole-track.pd
+#X obj 124 207 t b f b;
+#X obj 124 173 t f b f b;
+#X msg 106 270 syscore RECHAN;
+#X msg 190 654 \; pd-gpp-air-iconsole-core.pd loadbang \; pd-gpp-air-iconsole-track.pd
 loadbang \;;
-#X obj 260 304 pack f f f f s;
-#X msg 285 351 \; pd-\$2-CON clear \; pd-\$2-CON obj 76 138 gpp-air-iconsole-core
+#X obj 264 332 pack f f f f s;
+#X msg 289 379 \; pd-\$2-CON clear \; pd-\$2-CON obj 76 138 gpp-air-iconsole-core
 \$1 \$3 \$4 \$5 \; pd-\$2-CON obj 50 38 r \$2|tocore \; pd-\$2-CON
 obj 70 300 s \$2|lsin \; pd-\$2-CON obj 300 300 s \$2|lsout \; pd-\$2-CON
 connect 1 0 0 0 \; pd-\$2-CON connect 0 0 2 0 \; pd-\$2-CON connect
 0 1 3 0 \;;
-#X obj 286 200 expr $f1 \; \$0 \; \$1 \; \$2 \;;
-#X obj 380 282 symbol \$3;
-#X obj 370 254 loadbang;
-#X obj 66 198 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 270 243 expr $f1 \; \$0 \; \$1 \; \$2 \;;
+#X obj 383 313 symbol \$3;
+#X obj 383 283 loadbang;
+#X obj 46 200 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #N canvas 0 180 1402 1148 \$0-ALIVESIG 0;
 #X obj 63 27 inlet;
@@ -105,7 +105,7 @@ connect 1 0 0 0 \; pd-\$2-CON connect 0 0 2 0 \; pd-\$2-CON connect
 #X connect 27 1 26 0;
 #X connect 27 2 26 1;
 #X restore 406 320 pd \$0-SYS-ROUTER;
-#N canvas 552 282 1254 680 \$0-INIT 0;
+#N canvas 552 227 1254 680 \$0-INIT 0;
 #X obj 42 26 inlet;
 #X text 104 20 prompt server for the init data \, such as CCH \, ADP
 etc, f 30;

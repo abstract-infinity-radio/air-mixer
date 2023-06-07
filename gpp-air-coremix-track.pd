@@ -1,4 +1,4 @@
-#N canvas 114 180 2880 1453 12;
+#N canvas 0 373 2569 1948 12;
 #X obj 554 -5 inlet;
 #X text 1281 25 gpp-air-coremix-track :: B-AIR AIR Platform Core Mixer
 ;
@@ -128,7 +128,7 @@ will broadcast its value and the next time \, if it remains... not.
 #X obj 322 615 gpp-airliner~;
 #X obj 273 739 *~;
 #X text 305 739 FADER;
-#N canvas 928 180 2494 1401 \$0-REC 0;
+#N canvas 352 594 2854 1352 \$0-REC 1;
 #X obj 453 36 inlet;
 #X msg 517 239 open \$1;
 #X obj 668 452 outlet;
@@ -152,7 +152,7 @@ but the file will _not_ be resampled.);
 #X obj 453 181 t b b s b b;
 #X text 447 15 record;
 #X text 604 13 rstop;
-#N canvas 0 180 1685 1842 \$0-SCHEDULE-RECORDING 0;
+#N canvas 1563 267 2126 1841 \$0-SCHEDULE-RECORDING 1;
 #X obj 381 49 inlet;
 #X text 298 30 route 2 trimstart & trimend = IF!;
 #X obj 433 354 t b f;
@@ -160,15 +160,13 @@ but the file will _not_ be resampled.);
 #X obj 401 203 t b a;
 #X obj 433 316 gpp-timing2ms;
 #X obj 591 319 gpp-timing2ms;
-#X obj 382 628 outlet;
-#X obj 401 494 expr $f3 - $f2;
-#X text 400 574 if <= 0 \, interpret as limitless;
+#X obj 382 660 outlet;
+#X text 400 606 if <= 0 \, interpret as limitless;
 #X obj 433 260 unpack s s s;
 #X obj 251 355 symbol;
 #X obj 433 396 v x\$0_recstart_ms;
-#X obj 591 396 v x\$0_recend_ms;
-#X obj 401 553 v x\$0_rec_duration_ms;
-#N canvas 64 570 1600 1400 \$0-ASSEMBLE-RPATH 0;
+#X obj 401 585 v x\$0_rec_duration_ms;
+#N canvas 64 515 1600 1400 \$0-ASSEMBLE-RPATH 0;
 #X obj 72 77 inlet;
 #X obj 175 327 outlet;
 #X obj 177 267 makefilename %s/%%s;
@@ -186,28 +184,49 @@ but the file will _not_ be resampled.);
 #X restore 251 397 pd \$0-ASSEMBLE-RPATH;
 #X obj 518 163 float 0;
 #X obj 383 146 t b a b;
-#X connect 0 0 17 0;
-#X connect 2 0 12 0;
-#X connect 2 1 12 0;
-#X connect 3 0 13 0;
-#X connect 3 1 13 0;
-#X connect 4 0 8 0;
-#X connect 4 1 10 0;
+#X obj 579 267 unpack s f f;
+#X obj 564 217 gpp-switch2;
+#X obj 653 215 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 637 187 r __NONHUMAN;
+#X obj 467 543 v x\$0_recend_ms;
+#X obj 401 494 expr $f3 \; $f2 + $f3 \;;
+#X obj 591 396 float;
+#X text 549 504 NOW \, TIME ARG 2 = REC DURATION \, NOT END_TIME;
+#X floatatom 620 551 5 0 0 0 - - -;
+#X floatatom 352 541 5 0 0 0 - - -;
+#X connect 0 0 15 0;
+#X connect 2 0 11 0;
+#X connect 2 1 11 0;
+#X connect 3 0 22 0;
+#X connect 3 1 22 0;
+#X connect 4 0 21 0;
+#X connect 4 1 17 0;
 #X connect 5 0 2 0;
 #X connect 6 0 3 0;
-#X connect 8 0 14 0;
-#X connect 10 0 11 1;
-#X connect 10 1 5 0;
-#X connect 10 2 6 0;
-#X connect 11 0 15 0;
-#X connect 12 0 8 1;
-#X connect 13 0 8 2;
-#X connect 15 0 7 0;
-#X connect 16 0 12 0;
-#X connect 16 0 13 0;
-#X connect 17 0 11 0;
-#X connect 17 1 4 0;
-#X connect 17 2 16 0;
+#X connect 9 0 10 1;
+#X connect 9 1 5 0;
+#X connect 9 2 6 0;
+#X connect 10 0 13 0;
+#X connect 11 0 21 1;
+#X connect 13 0 7 0;
+#X connect 14 0 11 0;
+#X connect 14 0 22 0;
+#X connect 15 0 10 0;
+#X connect 15 1 4 0;
+#X connect 15 2 14 0;
+#X connect 16 0 10 1;
+#X connect 16 1 2 0;
+#X connect 16 2 3 0;
+#X connect 17 0 9 0;
+#X connect 17 1 16 0;
+#X connect 19 0 17 1;
+#X connect 19 0 18 0;
+#X connect 21 0 12 0;
+#X connect 21 0 25 0;
+#X connect 21 1 20 0;
+#X connect 21 1 24 0;
+#X connect 22 0 21 2;
 #X restore 451 127 pd \$0-SCHEDULE-RECORDING;
 #X text 466 145 get trim boundaries if applicable and forward path
 ;
@@ -352,7 +371,7 @@ but the file will _not_ be resampled.);
 #X obj 764 639 print RECORD_EB;
 #X obj 213 946 outlet~;
 #X obj 279 947 outlet~;
-#N canvas 47 473 2880 1453 \$0-PLAYER 0;
+#N canvas 380 180 2335 1541 \$0-PLAYER 0;
 #X obj 134 56 inlet;
 #X obj 549 50 inlet;
 #X text 550 24 stop;
@@ -389,7 +408,7 @@ but the file will _not_ be resampled.);
 #X connect 9 0 8 0;
 #X connect 10 0 8 0;
 #X restore 960 93 pd \$0-SET-TRIMFADER;
-#N canvas 135 337 2252 1438 \$0-DIR-FILE-PATH 0;
+#N canvas 135 227 2252 1438 \$0-DIR-FILE-PATH 0;
 #X obj 482 41 inlet;
 #X obj 482 83 symbol;
 #X obj 529 172 gpp-svalue x\$0_file;
@@ -412,7 +431,7 @@ but the file will _not_ be resampled.);
 #X connect 7 0 6 0;
 #X restore 317 231 pd \$0-ASSEMBLE-PATH;
 #X obj 348 296 gpp-svalue x\$0_path;
-#X obj 202 265 print \$1|PATH;
+#X obj 189 272 print \$1|PATH;
 #X obj 321 363 gpp-afparams;
 #X obj 316 266 t s s;
 #X msg 319 326 dur \$1;
@@ -430,9 +449,7 @@ but the file will _not_ be resampled.);
 #X connect 0 0 1 0;
 #X connect 1 0 14 0;
 #X connect 1 0 16 0;
-#X connect 3 0 5 0;
 #X connect 3 0 7 0;
-#X connect 6 0 9 0;
 #X connect 6 0 11 0;
 #X connect 7 0 8 0;
 #X connect 7 1 4 0;
@@ -459,18 +476,18 @@ f 20;
 #X obj 214 94 s \$0-RSTOP;
 #X text 717 13 no more per-track dir;
 #X obj 134 95 t b a b b;
-#N canvas 1657 180 2099 1853 \$0-SCHEDULE-PLAY 0;
+#N canvas 72 180 1982 1912 \$0-SCHEDULE-PLAY 0;
 #X obj 381 49 inlet;
-#X text 298 30 route 2 trimstart & trimend = IF!;
-#X text 482 325 first \, underlay the defaults;
+#X text 291 -12 route 2 trimstart & trimend = IF!;
+#X text 480 343 first \, underlay the defaults;
 #X obj 405 538 expr $f3 - $f2;
 #X obj 433 372 t b f;
 #X obj 570 377 t b f;
-#X obj 400 121 t b a;
-#X obj 486 308 float 0;
+#X obj 400 120 t b a;
+#X obj 487 297 float 0;
 #X obj 487 371 t b f;
 #X obj 619 375 t b f;
-#N canvas 376 180 2880 1453 \$0-TRIG-STEREO-MONO 0;
+#N canvas 960 395 2880 1453 \$0-TRIG-STEREO-MONO 0;
 #X obj 188 16 inlet;
 #X obj 70 200 gpp-afparams;
 #X obj 70 312 symbol;
@@ -534,37 +551,49 @@ f 20;
 #X connect 27 9 14 0;
 #X connect 29 0 30 0;
 #X restore 233 222 pd \$0-TRIG-STEREO-MONO;
-#X obj 431 270 gpp-timing2ms;
-#X obj 570 277 gpp-timing2ms;
+#X obj 433 254 gpp-timing2ms;
+#X obj 570 287 gpp-timing2ms;
 #X obj 433 428 v x\$0_trimstart_ms;
 #X obj 571 426 v x\$0_trimend_ms;
-#X obj 615 308 v x\$0_file_duration_ms;
+#X obj 619 322 v x\$0_file_duration_ms;
 #X obj 484 674 v x\$0_trimmed_duration_ms;
-#X obj 567 90 unpack s s s;
+#X obj 525 86 unpack s s s;
 #X obj 381 84 t b a b b b;
 #X obj 792 421 v x\$0_play_delay_ms;
-#X obj 791 377 gpp-timing2ms;
+#X obj 798 364 gpp-timing2ms;
 #X floatatom 840 480 20 0 0 0 - - -;
 #X floatatom 580 472 20 0 0 0 - - -;
 #X floatatom 424 475 20 0 0 0 - - -;
-#X obj 209 110 print ##SCHEDULEPLAY;
+#X obj 188 129 print ##SCHEDULEPLAY;
 #X symbolatom 162 423 10 0 0 0 - - -;
 #X symbolatom 165 448 10 0 0 0 - - -;
 #X symbolatom 1022 486 10 0 0 0 - - -;
-#X symbolatom 1022 455 10 0 0 0 - - -;
-#X symbolatom 1022 429 10 0 0 0 - - -;
+#X symbolatom 1020 459 10 0 0 0 - - -;
+#X symbolatom 1020 433 10 0 0 0 - - -;
 #X symbolatom 166 473 10 0 0 0 - - -;
 #X obj 413 180 gpp-route-prefix 43;
 #X obj 564 182 gpp-route-prefix 43;
 #X obj 712 182 gpp-route-prefix 43;
-#X symbolatom 617 140 10 0 0 0 - - -;
-#X symbolatom 706 139 10 0 0 0 - - -;
+#X symbolatom 583 142 10 0 0 0 - - -;
+#X symbolatom 672 141 10 0 0 0 - - -;
 #X msg 849 306 float 0;
 #X obj 406 578 moses 0;
 #X msg 406 721 NEGATIVE CLIP DEFINITION - SKIPPING;
 #X obj 406 748 print (!);
 #X obj 452 609 t b b f;
+#X symbolatom 494 138 10 0 0 0 - - -;
+#X obj 721 61 unpack f f f;
+#X floatatom 717 91 5 0 0 0 - - -;
+#X floatatom 753 114 5 0 0 0 - - -;
+#X floatatom 806 121 5 0 0 0 - - -;
+#X obj 526 30 gpp-switch2;
+#X obj 615 28 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X text 722 38 milisec format;
+#X text 537 63 HR format;
+#X obj 599 0 r __NONHUMAN;
 #X connect 0 0 18 0;
+#X connect 0 0 24 0;
 #X connect 3 0 37 0;
 #X connect 4 0 13 0;
 #X connect 4 1 13 0;
@@ -573,7 +602,7 @@ f 20;
 #X connect 5 1 14 0;
 #X connect 5 1 22 0;
 #X connect 6 0 3 0;
-#X connect 6 1 17 0;
+#X connect 6 1 46 0;
 #X connect 7 0 8 0;
 #X connect 8 0 13 0;
 #X connect 8 1 13 0;
@@ -584,8 +613,8 @@ f 20;
 #X connect 11 0 4 0;
 #X connect 12 0 5 0;
 #X connect 15 0 9 0;
-#X connect 17 0 24 0;
 #X connect 17 0 31 0;
+#X connect 17 0 41 0;
 #X connect 17 1 32 0;
 #X connect 17 1 34 0;
 #X connect 17 2 33 0;
@@ -617,6 +646,16 @@ f 20;
 #X connect 40 0 10 0;
 #X connect 40 1 16 0;
 #X connect 40 2 16 0;
+#X connect 42 0 43 0;
+#X connect 42 0 4 0;
+#X connect 42 1 44 0;
+#X connect 42 1 5 0;
+#X connect 42 2 45 0;
+#X connect 42 2 19 0;
+#X connect 46 0 17 0;
+#X connect 46 1 42 0;
+#X connect 50 0 46 1;
+#X connect 50 0 47 0;
 #X restore 132 253 pd \$0-SCHEDULE-PLAY;
 #N canvas 1673 180 1600 1400 \$0-ENDFADER-NOW 0;
 #X obj 81 476 outlet;
@@ -686,7 +725,6 @@ f 20;
 #X connect 32 0 36 0;
 #X connect 36 0 37 0;
 #X connect 37 0 27 0;
-#X connect 37 0 35 0;
 #X connect 39 0 40 0;
 #X connect 39 1 28 0;
 #X connect 39 2 32 0;
@@ -699,7 +737,7 @@ f 20;
 #X obj 79 222 tgl 15 0 empty \$0|\$1-pan-rf empty 17 7 0 10 -203904
 -1 -1 1 1;
 #X obj 35 202 hsl 64 15 0 1 0 0 empty \$0|\$1-pan-state empty -2 -8
-0 10 -225280 -1 -1 0 1;
+0 10 -225280 -1 -1 6300 1;
 #X floatatom 41 382 5 0 0 0 - - -;
 #X floatatom 32 221 5 0 0 0 - - -;
 #X obj 41 255 vsl 18 120 0 1 0 0 empty \$0|\$1-fader-state empty 0
@@ -720,7 +758,7 @@ f 20;
 ;
 #X obj 65 62 vu 8 80 \$0|\$1-svu-l empty -1 -8 0 4 -159808 -1 0 0;
 #X obj 76 62 vu 8 80 \$0|\$1-svu-r empty -1 -8 0 4 -159808 -1 1 0;
-#X obj 14 412 cnv 15 100 30 empty \$0|\$1-filename ------IN------ 2
+#X obj 14 412 cnv 15 100 30 empty \$0|\$1-filename norbert_[1+2] 2
 15 0 6 -203904 -83269 0;
 #X connect 3 0 5 0;
 #X connect 6 0 4 0;
@@ -763,8 +801,8 @@ f 20;
 #X connect 5 0 7 1;
 #X connect 6 0 1 0;
 #X connect 7 0 0 0;
-#X restore 36 900 pd \$0-audio-monitor;
-#N canvas 949 226 2636 1388 \$0-LOOP 0;
+#X restore 18 899 pd \$0-audio-monitor;
+#N canvas 949 180 2636 1388 \$0-LOOP 0;
 #X obj 65 27 inlet;
 #X obj 65 136 outlet;
 #X obj 65 66 t a b;
@@ -792,7 +830,7 @@ f 20;
 #X connect 8 0 9 0;
 #X connect 12 0 7 0;
 #X connect 13 0 7 0;
-#X restore 935 342 pd \$0-LOOP;
+#X restore 1042 334 pd \$0-LOOP;
 #N canvas 0 180 1870 849 \$0-DELOOP 0;
 #X obj 207 144 s \$0-LOOPSWITCH;
 #X msg 82 76 0;
@@ -807,12 +845,12 @@ f 20;
 #X connect 3 0 1 0;
 #X connect 5 0 2 0;
 #X connect 6 0 5 0;
-#X restore 756 336 pd \$0-DELOOP;
-#N canvas 1028 180 2101 965 \$0-TRACKMON-OSC 0;
+#X restore 795 344 pd \$0-DELOOP;
+#N canvas 1088 659 2101 965 \$0-TRACKMON-OSC 0;
 #X obj 521 20 loadbang;
 #X obj 518 145 netsend -u -b;
 #X floatatom 519 181 5 0 0 0 - - -;
-#N canvas 1198 552 2558 1333 \$0-OSC_TRACK 0;
+#N canvas 1190 625 2558 1333 \$0-OSC_TRACK 0;
 #X obj 806 613 outlet;
 #X text 792 17 forward local MIXER signals to OSC out (airmon);
 #N canvas 0 180 1819 1406 \$0-HANDLE-TRACK-SNAPSHOT 0;
@@ -1069,7 +1107,7 @@ survive app restart \, no point;
 #X obj 1482 61 r \$0|\$1-PRELISTEN_TRACK_MUTE;
 #X obj 1482 103 oscformat -f i airmon etc \$1 setpremute;
 #X obj 1057 49 r \$0|\$1-PRELISTEN_TRACK_LEVEL;
-#X obj 1057 89 oscformat -f f airmon etc \$1 setprelevel;
+#X obj 1068 94 oscformat -f f airmon etc \$1 setprelevel;
 #N canvas 1272 625 2371 1260 \$0-PERSIST 0;
 #X obj 235 18 inlet;
 #X obj 345 17 inlet;
@@ -1222,6 +1260,8 @@ survive app restart \, no point;
 dynamic use \, it should go to main persistence processor;
 #X obj 340 329 cnv 15 100 60 empty empty empty 20 12 0 14 -4034 -66577
 0;
+#X obj 747 59 r \$0|\$1-name_OSC;
+#X obj 747 93 oscformat -f s airmon etc \$1 chname;
 #X connect 1 0 2 0;
 #X connect 1 0 9 2;
 #X connect 2 0 0 0;
@@ -1248,13 +1288,15 @@ dynamic use \, it should go to main persistence processor;
 #X connect 21 0 0 0;
 #X connect 22 0 23 0;
 #X connect 23 0 0 0;
+#X connect 27 0 28 0;
+#X connect 28 0 0 0;
 #X restore 1044 483 pd \$0-HANDLE-TRACK-ETC;
 #X text 1050 458 etc = unconditional;
-#X obj 334 527 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 334 527 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 573 602 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 869 542 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 869 542 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 382 443 r __OPENTAC|REQ;
 #X obj 613 454 r __OPENTAC|SNAP;
@@ -1315,7 +1357,7 @@ bus reports in order to prevent congestion;
 #X connect 0 0 2 0;
 #X connect 1 0 0 0;
 #X connect 5 0 2 0;
-#X restore 1156 513 pd \$0-FF;
+#X restore 1233 527 pd \$0-FF;
 #N canvas 229 180 1264 1166 \$0-MUTE 0;
 #X obj 81 393 outlet~;
 #X obj 81 323 vline~;
@@ -1407,7 +1449,7 @@ mon nom rec loop rebuildmix setff, f 93;
 #X connect 6 0 2 0;
 #X connect 7 0 8 0;
 #X connect 8 0 9 0;
-#X restore 1859 463 pd \$0-refreshvals;
+#X restore 1935 477 pd \$0-refreshvals;
 #X obj 725 424 t a b;
 #X obj 772 423 t a b;
 #X text 602 324 note: rstop is now virtual \, broadcast after early
@@ -1441,10 +1483,9 @@ processing of 'stop', f 20;
 #X restore 613 227 pd \$0-preprocess-stop;
 #X obj 576 169 list prepend loop;
 #X obj 601 104 t a b;
-#X text 782 69 stop preprocessor: branches uniform 'stop' into stop
+#X text 848 69 stop preprocessor: branches uniform 'stop' into stop
 and rstop. stop controlls playing and looping and rstop controls recording.
 This is neccessary due to complex play and record algos, f 21;
-#X obj 554 75 route play loop record rec stop;
 #X obj 513 211 list trim;
 #X obj 532 247 list trim;
 #X obj 559 283 list trim;
@@ -1472,7 +1513,7 @@ This is neccessary due to complex play and record algos, f 21;
 8 0 8 -262130 -66577 0;
 #X obj 67 843 cnv 15 300 20 empty empty POST-FADER_LEVEL_------ 20
 8 0 8 -261682 -66577 0;
-#N canvas 1896 473 1472 1028 \$0-monitor-sm 0;
+#N canvas 1792 381 1472 1028 \$0-monitor-sm 0;
 #X text 57 6 is_mono;
 #X obj 66 24 inlet~;
 #X obj 226 328 s \$0|\$1-inbound-diodes-S;
@@ -1503,13 +1544,13 @@ This is neccessary due to complex play and record algos, f 21;
 #X restore 67 571 pd \$0-monitor-sm;
 #X obj 229 658 *~;
 #X obj 273 660 *~;
-#N canvas 0 180 1600 1400 \$0-ERR 0;
+#N canvas 104 600 1600 1400 \$0-ERR 0;
 #X obj 247 231 print air-coremix;
 #X msg 247 199 unrecognized ctrl msg;
 #X obj 247 148 inlet;
 #X connect 1 0 0 0;
 #X connect 2 0 1 0;
-#X restore 2201 613 pd \$0-ERR;
+#X restore 2549 607 pd \$0-ERR;
 #N canvas 591 180 1724 930 \$0-MONOSTEREO 0;
 #X obj 41 23 inlet;
 #X obj 128 23 inlet;
@@ -1564,13 +1605,13 @@ This is neccessary due to complex play and record algos, f 21;
 #X connect 20 0 7 0;
 #X connect 21 0 5 0;
 #X connect 22 0 5 0;
-#X restore 2051 569 pd \$0-MONOSTEREO;
+#X restore 2399 563 pd \$0-MONOSTEREO;
 #X obj 70 449 r \$0|\$1-ISMONO;
-#N canvas 48 180 1737 1393 \$0-INPUTS 0;
+#N canvas 135 657 1737 1393 \$0-INPUTS 0;
 #X obj 170 543 outlet~;
 #X obj 241 544 outlet~;
 #X obj 361 547 outlet;
-#N canvas 1964 237 1843 1899 \$0-PLAYER-STEREO 0;
+#N canvas 1964 182 1843 1899 \$0-PLAYER-STEREO 0;
 #X msg 300 336 1;
 #X msg 708 326 0;
 #X text 794 24 Open takes a filename \, an onset in sample frames \,
@@ -1626,7 +1667,7 @@ and \, as an override \, you may also supply a header size to skip
 #X obj 559 103 samplerate~;
 #X obj 293 156 t b b a b b b;
 #X obj 333 279 t b b b;
-#N canvas 1473 287 2021 1214 \$0-MONITOR-TIME-REMAINING 0;
+#N canvas 1473 232 2021 1214 \$0-MONITOR-TIME-REMAINING 0;
 #X obj 81 75 inlet;
 #X obj 396 77 inlet;
 #X text 77 46 start;
@@ -1663,7 +1704,6 @@ and \, as an override \, you may also supply a header size to skip
 #X floatatom 184 125 5 0 0 0 - - -;
 #X obj 335 483 float;
 #X connect 0 0 25 0;
-#X connect 1 0 17 0;
 #X connect 1 0 29 0;
 #X connect 4 0 15 1;
 #X connect 6 0 4 0;
@@ -1678,7 +1718,6 @@ and \, as an override \, you may also supply a header size to skip
 #X connect 18 0 24 0;
 #X connect 19 0 18 0;
 #X connect 24 0 14 0;
-#X connect 24 0 23 0;
 #X connect 25 0 4 0;
 #X connect 25 1 15 0;
 #X connect 25 2 32 0;
@@ -1722,15 +1761,12 @@ and \, as an override \, you may also supply a header size to skip
 #X connect 1 0 17 0;
 #X connect 4 0 3 0;
 #X connect 4 1 6 0;
-#X connect 4 2 5 0;
-#X connect 4 2 13 0;
 #X connect 4 2 29 0;
 #X connect 7 0 12 0;
 #X connect 10 0 8 0;
 #X connect 12 0 34 0;
 #X connect 14 0 16 0;
 #X connect 16 0 4 0;
-#X connect 16 0 15 0;
 #X connect 20 0 10 0;
 #X connect 20 1 1 0;
 #X connect 20 1 30 0;
@@ -1753,7 +1789,6 @@ and \, as an override \, you may also supply a header size to skip
 #X connect 30 0 37 0;
 #X connect 31 0 30 1;
 #X connect 31 0 35 0;
-#X connect 33 0 36 0;
 #X connect 33 0 25 0;
 #X connect 34 0 37 0;
 #X connect 34 1 33 1;
@@ -1769,7 +1804,7 @@ and \, as an override \, you may also supply a header size to skip
 #X obj 238 44 loadbang;
 #X msg 238 72 0;
 #X obj 351 271 print CROSSFADE_EB;
-#N canvas 435 485 1600 1400 \$0-cf-monitor 0;
+#N canvas 383 439 1600 1400 \$0-cf-monitor 0;
 #X obj 148 53 inlet;
 #X obj 276 48 inlet;
 #X obj 396 46 inlet;
@@ -1819,7 +1854,7 @@ and \, as an override \, you may also supply a header size to skip
 #X connect 8 0 7 0;
 #X restore 213 115 pd \$0-TF;
 #X obj 213 144 gpp-crossfade3;
-#N canvas 2183 180 1444 1060 \$0-MON-IN 0;
+#N canvas 2131 180 1444 1060 \$0-MON-IN 0;
 #X obj 61 121 s \$0|\$1-filename;
 #X obj 60 35 sel 1;
 #X obj 60 9 inlet;
@@ -1834,7 +1869,7 @@ and \, as an override \, you may also supply a header size to skip
 #X connect 6 0 3 0;
 #X connect 6 1 5 0;
 #X restore 133 234 pd \$0-MON-IN;
-#N canvas 184 192 1689 1835 \$0-PLAYER-MONO 0;
+#N canvas 1853 393 2403 1835 \$0-PLAYER-MONO 0;
 #X msg 300 336 1;
 #X msg 673 324 0;
 #X text 826 40 Open takes a filename \, an onset in sample frames \,
@@ -1853,7 +1888,7 @@ and \, as an override \, you may also supply a header size to skip
 #X obj 818 654 outlet;
 #X text 871 651 player-active monitor;
 #X text 726 438 open stereo-input-gate;
-#N canvas 1608 180 1600 1400 \$0-ENDFADER-LOGIC 0;
+#N canvas 1556 180 1600 1400 \$0-ENDFADER-LOGIC 0;
 #X obj 81 476 outlet;
 #X obj 201 475 outlet;
 #X obj 174 51 inlet;
@@ -1884,7 +1919,7 @@ and \, as an override \, you may also supply a header size to skip
 #X obj 559 103 samplerate~;
 #X obj 293 156 t b b a b b b;
 #X obj 333 279 t b b b;
-#N canvas 61 260 1977 1195 \$0-MONITOR-TIME-REMAINING 0;
+#N canvas -68 1317 1977 1195 \$0-MONITOR-TIME-REMAINING 0;
 #X obj 81 75 inlet;
 #X obj 396 77 inlet;
 #X text 77 46 start;
@@ -1920,7 +1955,6 @@ and \, as an override \, you may also supply a header size to skip
 #X obj 397 107 t b b b;
 #X msg 434 446 list stop;
 #X connect 0 0 27 0;
-#X connect 1 0 17 0;
 #X connect 1 0 30 0;
 #X connect 4 0 15 1;
 #X connect 6 0 4 0;
@@ -2010,7 +2044,6 @@ and \, as an override \, you may also supply a header size to skip
 #X connect 24 0 31 0;
 #X connect 25 0 24 1;
 #X connect 25 0 29 0;
-#X connect 27 0 30 0;
 #X connect 27 0 19 0;
 #X connect 28 0 31 0;
 #X connect 28 1 27 1;
@@ -2024,7 +2057,7 @@ and \, as an override \, you may also supply a header size to skip
 #X connect 39 0 1 0;
 #X connect 39 0 21 1;
 #X restore 170 15 pd \$0-PLAYER-MONO;
-#N canvas 1049 602 2226 1161 \$0-AUDIOIN 0;
+#N canvas 997 501 2226 1161 \$0-AUDIOIN 0;
 #X msg 98 181 set \$1 \$2;
 #X obj 98 154 pack f f;
 #X text 239 9 through monostereo filter (if the second input is active
@@ -2062,8 +2095,8 @@ and \, as an override \, you may also supply a header size to skip
 #X restore 21 16 pd \$0-AUDIOIN;
 #X obj 133 319 *~;
 #X obj 166 320 *~;
-#X obj 58 466 osc~ 440;
-#X text 56 434 test;
+#X obj 61 385 osc~ 440;
+#X text 59 353 test;
 #X connect 3 0 5 0;
 #X connect 3 1 6 0;
 #X connect 3 2 11 0;
@@ -2085,7 +2118,6 @@ and \, as an override \, you may also supply a header size to skip
 #X connect 12 3 13 0;
 #X connect 12 4 10 1;
 #X connect 12 5 10 2;
-#X connect 12 6 9 0;
 #X connect 14 0 4 0;
 #X connect 14 1 11 0;
 #X connect 14 2 2 0;
@@ -2193,73 +2225,79 @@ and \, as an override \, you may also supply a header size to skip
 #X connect 45 0 40 0;
 #X connect 46 0 40 0;
 #X connect 47 0 37 0;
-#X restore 1389 489 pd \$0-SOLO_MUTE_PROCESSOR;
-#N canvas 1290 358 1752 1438 \$0-POSTFADER-DAC 0;
-#X obj 42 209 dac~;
-#X msg 141 176 set \$1 \$2;
-#X obj 135 145 pack f f;
-#X obj 194 38 loadbang;
+#X restore 1465 503 pd \$0-SOLO_MUTE_PROCESSOR;
+#N canvas 1238 180 1752 1438 \$0-POSTFADER-DAC 0;
 #X obj 41 22 inlet~;
 #X obj 100 24 inlet~;
-#X msg 138 218 10 11;
-#X obj 122 61 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X msg 233 350 22 23;
+#X obj 233 387 list append for channel \$1;
+#X obj 234 317 t b a;
+#X obj 233 433 print @REGISTERED_DAC/POST_OUT_SRV;
+#X obj 7 519 send~ \$1_auxL;
+#X obj 118 520 send~ \$1_auxR;
+#X text 21 474 to substractor;
+#X text 41 202 postfader dac was here, f 10;
+#X msg 432 174 set \$1 \$2;
+#X obj 426 143 pack f f;
+#X obj 485 36 loadbang;
+#X msg 429 216 10 11;
+#X obj 413 59 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 135 102 expr (2*\$2)+1+(2*\$1)-1 \; (2*\$2)+1+(2*\$1) \;;
-#X msg 228 335 10 11;
-#X obj 228 372 list append for channel \$1;
-#X obj 229 302 t b a;
-#X obj 228 418 print @REGISTERED_DAC/POST_OUT_SRV;
-#X connect 1 0 0 0;
-#X connect 1 0 6 0;
-#X connect 1 0 11 0;
-#X connect 2 0 1 0;
-#X connect 3 0 8 0;
-#X connect 4 0 0 0;
-#X connect 5 0 0 1;
-#X connect 7 0 8 0;
-#X connect 8 0 2 0;
-#X connect 8 1 2 1;
-#X connect 9 0 10 0;
-#X connect 10 0 12 0;
-#X connect 11 0 9 0;
-#X connect 11 1 9 0;
+#X obj 426 100 expr (2*\$2)+1+(2*\$1)-1 \; (2*\$2)+1+(2*\$1) \;;
+#X connect 0 0 6 0;
+#X connect 1 0 7 0;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 4 0 2 0;
+#X connect 4 1 2 0;
+#X connect 10 0 13 0;
+#X connect 11 0 10 0;
+#X connect 12 0 15 0;
+#X connect 14 0 15 0;
+#X connect 15 0 11 0;
+#X connect 15 1 11 1;
 #X restore 185 902 pd \$0-POSTFADER-DAC;
-#N canvas 2094 180 1352 1138 \$0-PREFADER-DAC 0;
+#N canvas 2094 180 1746 1565 \$0-PREFADER-DAC 0;
 #X obj 42 30 inlet~;
 #X obj 118 30 inlet~;
-#X floatatom 131 234 5 0 0 0 - - -;
-#X floatatom 298 243 5 0 0 0 - - -;
-#X obj 132 138 loadbang;
 #X obj 74 343 dac~;
-#X msg 156 276 set \$1 \$2;
-#X obj 179 235 pack f f;
-#X obj 181 91 r \$0-RECHAN;
-#X obj 133 176 expr (2*\$1) - 1 \; 2*\$1 \;;
-#X msg 226 336 1 2;
 #X obj 226 373 list append for channel \$1;
 #X obj 227 303 t b a;
-#X obj 152 79 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
 #X obj 226 419 print @REGISTERED_DAC/PRE_OUT_SRV;
-#X obj 319 127 gpp-snapshot~ 100;
-#X floatatom 319 167 5 0 0 0 - - -;
-#X connect 0 0 5 0;
-#X connect 1 0 5 1;
-#X connect 4 0 9 0;
-#X connect 6 0 12 0;
-#X connect 6 0 5 0;
+#X msg 216 163 set \$1 \$2;
+#X obj 216 132 pack f f;
+#X obj 275 25 loadbang;
+#X obj 198 27 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 216 89 expr (2*\$2)+1+(2*\$1)-1 \; (2*\$2)+1+(2*\$1) \;;
+#X floatatom 625 483 5 0 0 0 - - -;
+#X obj 626 387 loadbang;
+#X msg 650 525 set \$1 \$2;
+#X obj 673 484 pack f f;
+#X obj 675 340 r \$0-RECHAN;
+#X obj 627 425 expr (2*\$1) - 1 \; 2*\$1 \;;
+#X obj 646 328 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 228 276 10 11;
+#X connect 0 0 2 0;
+#X connect 1 0 2 1;
+#X connect 3 0 5 0;
+#X connect 4 1 3 0;
+#X connect 6 0 18 0;
+#X connect 6 0 2 0;
 #X connect 7 0 6 0;
-#X connect 8 0 9 0;
-#X connect 9 0 2 0;
-#X connect 9 0 7 0;
-#X connect 9 1 3 0;
-#X connect 9 1 7 1;
-#X connect 10 0 11 0;
-#X connect 11 0 14 0;
-#X connect 12 0 10 0;
-#X connect 12 1 10 0;
-#X connect 13 0 9 0;
+#X connect 8 0 10 0;
+#X connect 9 0 10 0;
+#X connect 10 0 7 0;
+#X connect 10 1 7 1;
+#X connect 12 0 16 0;
+#X connect 14 0 13 0;
 #X connect 15 0 16 0;
+#X connect 16 0 11 0;
+#X connect 16 0 14 0;
+#X connect 16 1 14 1;
+#X connect 17 0 16 0;
+#X connect 18 0 4 0;
 #X restore 183 412 pd \$0-PREFADER-DAC;
 #N canvas 52 284 1916 829 \$0-PRELISTEN-BUS 0;
 #X obj 143 279 vline~;
@@ -2296,7 +2334,7 @@ and \, as an override \, you may also supply a header size to skip
 #X floatatom 587 539 5 0 0 0 - - -;
 #X msg 170 16 1;
 #X msg 486 512 color \$1;
-#X obj 496 546 tgl 15 0 empty empty empty 17 7 0 10 -258699 -1 -1 0
+#X obj 496 546 tgl 15 0 empty empty empty 17 7 0 10 -24198 -1 -1 0
 1;
 #X obj 544 28 r \$0|\$1-TRACK_SOLOPREMUTE;
 #X msg 459 435 93;
@@ -2434,8 +2472,8 @@ obj \$28 44 tgl 11 0 foosnd \$19|\$18-inbound-diode-M empty 17 7 0
 #X connect 14 25 13 25;
 #X connect 14 26 13 26;
 #X connect 14 27 13 27;
-#X restore 1111 613 pd \$0-BUILD-MIXER-STRIPE-ORIG;
-#N canvas 1637 180 2203 1951 \$0-BUILD-MIXER-STRIPE-INTERACTIVE 0;
+#X restore 1162 592 pd \$0-BUILD-MIXER-STRIPE-ORIG;
+#N canvas 452 758 2880 1453 \$0-BUILD-MIXER-STRIPE-INTERACTIVE 0;
 #X obj 51 10 inlet;
 #X obj 50 69 \$1;
 #X obj 19 44 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
@@ -2448,10 +2486,10 @@ obj \$28 44 tgl 11 0 foosnd \$19|\$18-inbound-diode-M empty 17 7 0
 #X text 617 235 \$20 = stripe background color;
 #X text 619 276 \$18 = track number;
 #X text 618 255 \$19 = \$0 :: track-local!;
-#X msg 716 421 \$19|\$18-prelisten-level-sender;
-#X obj 34 353 pack f f f f f f f f f f f f f f f f f f f f f f f f
+#X msg 854 334 \$19|\$18-prelisten-level-sender;
+#X obj 100 278 pack f f f f f f f f f f f f f f f f f f f f f f f f
 f f f f f f f f f, f 74;
-#X obj 252 -177 expr $f1+14 \; $f1+16 \; $f1+79 \; $f1+37 \; $f1+34
+#X obj 261 -222 expr $f1+14 \; $f1+16 \; $f1+79 \; $f1+37 \; $f1+34
 \; $f1+34 \; $f1+41 \; $f1+24 \; $f1+23 \; $f1+34 \; $f1+45 \; $f1+14
 \; $f1+63 \; $f1+76 \; $f1+45 \; $f1+56 \; $f1+14 \; $f2 \; $f3 \;
 if ($f2 % 2 != 0 \, -203904 \, -158848) \; $f1+28 \; $f1+55 \; $f1+89
@@ -2497,6 +2535,58 @@ empty -2 -8 0 10 7 -1 -1 0 1 \; pd-MIXER obj \$30 389 tgl 15 0 \$19|\$18-solo-se
 \$19|\$18-prelisten-level-sender-rec empty 0 -9 0 10 38 -1 -1 0 0 \;
 pd-MIXER obj \$25 185 bng 14 250 50 0 \$19|\$18-CPAN foorec C 3 7 0
 6 -257985 -262130 -13381 \;, f 144;
+#X obj 76 410 spigot;
+#X obj 167 354 spigot;
+#X obj 114 377 != 1;
+#X obj 26 308 t f f;
+#X obj 33 231 r \$0-SETMFTYPE;
+#X obj 51 265 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 224 403 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 1086 460 \; pd-MIXER obj \$1 8 cnv 15 100 400 empty empty \$18
+22 12 0 14 \$20 -83269 0 \; pd-MIXER obj \$2 382 tgl 15 0 foosnd \$19|\$18-fader-rf
+empty 17 7 0 10 \$20 -1 -1 1 1 \; pd-MIXER obj \$3 222 tgl 15 0 foosnd
+\$19|\$18-pan-rf empty 17 7 0 10 \$20 -1 -1 1 1 \; pd-MIXER obj \$4
+202 hsl 64 15 0 1 0 0 \$19|\$18-pan-state-sender \$19|\$18-pan-state-sender-rec
+empty -2 -8 0 10 -262144 -1 -1 0 0 \; pd-MIXER floatatom \$5 382 5
+0 0 0 - \$19|\$18-fader-state foosnd \; pd-MIXER floatatom \$6 221
+5 0 0 0 - \$19|\$18-pan-stateN foosnd \; pd-MIXER obj \$7 255 vsl 18
+120 0.001 1 1 0 \$19|\$18-fader-state-sender \$19|\$18-fader-state-sender-rec
+empty 0 -9 0 10 -262144 -1 -1 11900 0 \; pd-MIXER obj \$12 445 cnv
+15 100 30 empty \$19|\$18-time-remaining empty 12 15 0 7 \$20 -262130
+0 \; pd-MIXER obj \$13 255 vu 10 120 \$19|\$18-vu-l empty -1 -8 0 10
+-66577 -1 0 0 \; pd-MIXER obj \$14 255 vu 10 120 \$19|\$18-vu-r empty
+-1 -8 0 4 -66577 -1 1 0 \; pd-MIXER obj \$15 62 vu 8 80 \$19|\$18-svu-l
+empty -1 -8 0 4 -159808 -1 0 0 \; pd-MIXER obj \$16 62 vu 8 80 \$19|\$18-svu-r
+empty -1 -8 0 4 -159808 -1 1 0 \; pd-MIXER obj \$17 412 cnv 15 100
+30 empty \$19|\$18-filename ------IN------ 2 15 0 6 \$20 -83269 0 \;
+\$19|\$18-fader-rf 1 \; \$19|\$18-pan-rf 1 \; \$19|\$18-time-remaining
+color \$20 \; pd-MIXER obj \$21 160 tgl 18 0 foosnd \$19|\$18-loop-active
+L 4 9 0 6 38 -1 -1 0 1 \; pd-MIXER obj \$22 162 hradio 15 1 0 3 foosnd
+\$19|\$18-input-track IN_MP_SP 0 -6 0 5 \$20 -83269 -1 0 \; pd-MIXER
+obj \$32 387 tgl 19 0 \$19|\$18-mute-sender \$19|\$18-mute M 5 10 0
+7 38 38 -1 0 1 \; pd-MIXER obj \$23 0 tgl 20 0 \$19|\$18-prelisten-sender
+\$19|\$18-prelisten >) 3 9 0 6 38 38 -1 0 1 \; pd-MIXER floatatom \$24
+20 4 0 1 0 > \$19|\$18-prelisten-level foosnd \; pd-MIXER obj \$25
+202 tgl 14 0 foosnd \$19|\$18-pan-enabled-diode -- 1 7 0 5 90 90 -1
+0 1 \; pd-MIXER obj \$26 48 tgl 8 0 foosnd \$19|\$18-inbound-diodes-S
+empty 17 7 0 8 90 90-1 -1 0 1 \; pd-MIXER obj \$27 48 tgl 8 0 foosnd
+\$19|\$18-inbound-diodes-S empty 14 5 0 8 90 90 -1 0 1 \; pd-MIXER
+obj \$28 45 tgl 11 0 \$19|\$18-inbound-sender \$19|\$18-inbound-diode-M
+empty 17 7 0 8 -262144 -262144 -1 0 1 \; pd-MIXER obj \$29 255 vsl
+9 120 0.001 1 1 0 foosnd \$19|\$18-fader-state empty 0 -9 0 10 7 -1
+-1 0 1 \; pd-MIXER obj \$4 188 hsl 64 8 0 1 0 0 foosnd \$19|\$18-pan-state
+empty -2 -8 0 10 7 -1 -1 0 1 \; pd-MIXER obj \$30 389 tgl 15 0 \$19|\$18-solo-sender
+\$19|\$18-solo S 4 8 0 5 38 38 -1 0 1 \; pd-MIXER obj \$31 39 tgl 15
+0 \$19|\$18-presolo-sender \$19|\$18-presolo PS 1 8 0 5 38 38 -1 0
+1 \; pd-MIXER obj \$33 56 vsl 8 40 0 1 0 0 \$19|\$18-prelisten-level-sender
+\$19|\$18-prelisten-level-sender-rec empty 0 -9 0 10 38 -1 -1 0 0 \;
+pd-MIXER obj \$25 185 bng 14 250 50 0 \$19|\$18-CPAN foorec C 3 7 0
+6 -257985 -262130 -13381 \;, f 144;
+#X obj 165 410 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 20 194 1;
 #X connect 0 0 6 0;
 #X connect 1 0 5 0;
 #X connect 2 0 1 0;
@@ -2506,7 +2596,8 @@ pd-MIXER obj \$25 185 bng 14 250 50 0 \$19|\$18-CPAN foorec C 3 7 0
 #X connect 5 1 13 1;
 #X connect 5 2 4 0;
 #X connect 6 0 1 0;
-#X connect 12 0 14 0;
+#X connect 12 0 15 0;
+#X connect 12 0 16 0;
 #X connect 13 0 12 0;
 #X connect 13 1 12 1;
 #X connect 13 2 12 2;
@@ -2540,10 +2631,19 @@ pd-MIXER obj \$25 185 bng 14 250 50 0 \$19|\$18-CPAN foorec C 3 7 0
 #X connect 13 30 12 30;
 #X connect 13 31 12 31;
 #X connect 13 32 12 32;
-#X restore 1091 643 pd \$0-BUILD-MIXER-STRIPE-INTERACTIVE;
-#N canvas 445 1138 2900 892 \$0-GUICMD-TRACK 0;
-#X obj 77 41 r \$0|\$1-fader-state-sender;
-#X obj 83 165 r \$0|\$1-pan-state-sender;
+#X connect 15 0 14 0;
+#X connect 16 0 21 0;
+#X connect 16 0 22 0;
+#X connect 17 0 15 1;
+#X connect 18 0 16 1;
+#X connect 18 1 17 0;
+#X connect 19 0 18 0;
+#X connect 19 0 20 0;
+#X connect 24 0 18 0;
+#X restore 1090 643 pd \$0-BUILD-MIXER-STRIPE-INTERACTIVE;
+#N canvas 597 327 2900 892 \$0-GUICMD-TRACK 0;
+#X obj 42 138 r \$0|\$1-fader-state-sender;
+#X obj 225 28 r \$0|\$1-pan-state-sender;
 #X obj 410 26 r \$0|\$1-mute-sender;
 #X obj 1149 16 r \$0|\$1-solo-sender;
 #X obj 808 197 r \$0|\$1-inbound-sender;
@@ -2554,8 +2654,8 @@ pd-MIXER obj \$25 185 bng 14 250 50 0 \$19|\$18-CPAN foorec C 3 7 0
 #X obj 619 420 outlet;
 #X msg 796 300 mono;
 #X msg 837 301 stereo;
-#X obj 79 93 list prepend fader;
-#X obj 80 208 list prepend pan;
+#X obj 293 308 list prepend fader;
+#X obj 222 71 list prepend pan;
 #X msg 411 59 list setmute \$1;
 #X obj 1149 105 s __SELFCOM;
 #X obj 1151 244 s __SELFCOM;
@@ -2567,18 +2667,17 @@ pd-MIXER obj \$25 185 bng 14 250 50 0 \$19|\$18-CPAN foorec C 3 7 0
 #X obj 858 129 print ==;
 #X obj 849 76 list prepend setprelevel;
 #X obj 625 95 list prepend setpremute;
-#X floatatom 576 87 5 0 0 0 - - -;
 #X floatatom 821 227 5 0 0 0 - - -;
 #X obj 995 301 r \$0|\$1-CPAN;
 #X msg 986 331 pan 0.5;
-#X floatatom 117 66 5 0 0 0 - - -;
-#X connect 0 0 12 0;
+#X msg 115 239 0;
+#X obj 68 193 moses 0.0011;
 #X connect 0 0 29 0;
 #X connect 1 0 13 0;
 #X connect 2 0 14 0;
 #X connect 3 0 17 0;
 #X connect 4 0 7 0;
-#X connect 4 0 26 0;
+#X connect 4 0 25 0;
 #X connect 5 0 19 0;
 #X connect 6 0 23 0;
 #X connect 7 0 10 0;
@@ -2594,12 +2693,13 @@ pd-MIXER obj \$25 185 bng 14 250 50 0 \$19|\$18-CPAN foorec C 3 7 0
 #X connect 19 0 20 0;
 #X connect 20 0 16 0;
 #X connect 21 0 8 0;
-#X connect 21 0 25 0;
 #X connect 23 0 9 0;
-#X connect 23 0 22 0;
 #X connect 24 0 9 0;
-#X connect 27 0 28 0;
-#X connect 28 0 9 0;
+#X connect 26 0 27 0;
+#X connect 27 0 9 0;
+#X connect 28 0 12 0;
+#X connect 29 0 28 0;
+#X connect 29 1 12 0;
 #X restore 652 271 pd \$0-GUICMD-TRACK;
 #X obj 652 297 list trim;
 #N canvas 0 180 1891 976 \$0-PRELISTEN-LEVEL 0;
@@ -2613,11 +2713,11 @@ pd-MIXER obj \$25 185 bng 14 250 50 0 \$19|\$18-CPAN foorec C 3 7 0
 #X connect 4 0 0 0;
 #X connect 4 0 2 0;
 #X connect 4 0 5 0;
-#X restore 1642 477 pd \$0-PRELISTEN-LEVEL;
+#X restore 1718 491 pd \$0-PRELISTEN-LEVEL;
 #X obj 608 40 print ===>|@|srv_track_gate_\$1|@|;
 #X obj 738 761 print ####AIRLINER_COREMIX_FADER;
 #X obj 749 737 print ####AIRLINER_COREMIX_PAN;
-#N canvas -902 458 3383 1417 \$0-PERSIST-TRACK 0;
+#N canvas 685 746 3383 1417 \$0-PERSIST-TRACK 0;
 #X obj 676 447 s __SELFCOM;
 #N canvas 193 180 1577 1376 \$0-STB 0;
 #X obj 53 56 inlet;
@@ -2639,7 +2739,6 @@ pd-MIXER obj \$25 185 bng 14 250 50 0 \$19|\$18-CPAN foorec C 3 7 0
 #X text 343 476 to console track, f 20;
 #X obj 348 454 s \$0-RESTORE_OSC_TRACK;
 #X msg 345 318 fader \$1;
-#X connect 0 0 7 0;
 #X connect 0 0 8 0;
 #X connect 3 0 12 0;
 #X connect 5 0 6 0;
@@ -2678,7 +2777,6 @@ pd-MIXER obj \$25 185 bng 14 250 50 0 \$19|\$18-CPAN foorec C 3 7 0
 #X text 536 460 to console track, f 20;
 #X obj 541 438 s \$0-RESTORE_OSC_TRACK;
 #X msg 538 302 pan \$1;
-#X connect 0 0 7 0;
 #X connect 0 0 9 0;
 #X connect 3 0 12 0;
 #X connect 5 0 6 0;
@@ -2698,7 +2796,7 @@ pd-MIXER obj \$25 185 bng 14 250 50 0 \$19|\$18-CPAN foorec C 3 7 0
 #X obj 250 153 print %%%%%%%%%%%%%RECALL_PAN;
 #X obj 57 25 r \$0|\$1-fader-state;
 #X obj 260 24 r \$0|\$1-pan-state;
-#N canvas 27 951 918 820 \$0-STB 0;
+#N canvas 27 896 918 820 \$0-STB 0;
 #X obj 53 56 inlet;
 #X obj 140 360 outlet;
 #X text 50 20 wire;
@@ -2717,7 +2815,6 @@ pd-MIXER obj \$25 185 bng 14 250 50 0 \$19|\$18-CPAN foorec C 3 7 0
 -1;
 #X floatatom 293 184 5 0 0 0 - - -;
 #X connect 0 0 7 0;
-#X connect 0 0 12 0;
 #X connect 3 0 11 0;
 #X connect 5 0 9 0;
 #X connect 6 0 5 0;
@@ -2750,7 +2847,6 @@ pd-MIXER obj \$25 185 bng 14 250 50 0 \$19|\$18-CPAN foorec C 3 7 0
 #X msg 172 319 \$2 setsolo \$1;
 #X obj 104 112 print <<<<<<<<<<<<storesolo_\$1;
 #X connect 0 0 7 0;
-#X connect 0 0 12 0;
 #X connect 3 0 10 0;
 #X connect 5 0 11 0;
 #X connect 6 0 5 0;
@@ -2760,7 +2856,7 @@ pd-MIXER obj \$25 185 bng 14 250 50 0 \$19|\$18-CPAN foorec C 3 7 0
 #X connect 11 0 1 0;
 #X restore 716 122 pd \$0-STB;
 #X obj 467 177 print %%%%%%%%%%%%%RECALL_MUTE;
-#X obj 716 164 print %%%%%%%%%%%%%RECALL_SOLO;
+#X obj 735 191 print %%%%%%%%%%%%%RECALL_SOLO;
 #X obj 1231 77 route set color;
 #X obj 476 25 r \$0|\$1-mute-persist;
 #X obj 710 27 r \$0|\$1-solo-persist;
@@ -2775,7 +2871,7 @@ pd-MIXER obj \$25 185 bng 14 250 50 0 \$19|\$18-CPAN foorec C 3 7 0
 #X obj 1059 26 r \$0|\$1-presolo-persist;
 #X obj 1059 68 route set color;
 #X obj 880 66 route set color;
-#N canvas 2195 407 954 896 \$0-STB 0;
+#N canvas 2195 352 954 896 \$0-STB 0;
 #X obj 53 56 inlet;
 #X obj 140 360 outlet;
 #X text 50 20 wire;
@@ -2790,7 +2886,6 @@ pd-MIXER obj \$25 185 bng 14 250 50 0 \$19|\$18-CPAN foorec C 3 7 0
 #X obj 172 231 expr (\$1 * 10) + 5;
 #X msg 170 321 \$2 setpremute \$1;
 #X connect 0 0 7 0;
-#X connect 0 0 9 0;
 #X connect 3 0 11 0;
 #X connect 5 0 12 0;
 #X connect 6 0 5 0;
@@ -2801,7 +2896,7 @@ pd-MIXER obj \$25 185 bng 14 250 50 0 \$19|\$18-CPAN foorec C 3 7 0
 #X restore 873 107 pd \$0-STB;
 #X obj 856 211 print %%%%%%%%%%%%%RECALL_PREMUTE;
 #X obj 1037 287 print %%%%%%%%%%%%%RECALL_PRESOLO;
-#N canvas 1043 442 954 896 \$0-STB 0;
+#N canvas 1043 387 954 896 \$0-STB 0;
 #X obj 53 56 inlet;
 #X obj 140 360 outlet;
 #X text 50 20 wire;
@@ -2816,7 +2911,6 @@ pd-MIXER obj \$25 185 bng 14 250 50 0 \$19|\$18-CPAN foorec C 3 7 0
 #X msg 170 321 \$2 setpresolo \$1;
 #X obj 109 113 print <<<<<<<<<<<<storepresolo_\$1;
 #X connect 0 0 7 0;
-#X connect 0 0 12 0;
 #X connect 3 0 10 0;
 #X connect 5 0 11 0;
 #X connect 6 0 5 0;
@@ -2826,7 +2920,7 @@ pd-MIXER obj \$25 185 bng 14 250 50 0 \$19|\$18-CPAN foorec C 3 7 0
 #X connect 11 0 1 0;
 #X restore 1059 130 pd \$0-STB;
 #X obj 1189 206 print %%%%%%%%%%%%%RECALL_PRELEVEL;
-#N canvas 1043 277 954 896 \$0-STB 0;
+#N canvas 1043 222 954 896 \$0-STB 0;
 #X obj 53 56 inlet;
 #X obj 140 360 outlet;
 #X text 50 20 wire;
@@ -2841,7 +2935,6 @@ pd-MIXER obj \$25 185 bng 14 250 50 0 \$19|\$18-CPAN foorec C 3 7 0
 #X obj 172 231 expr (\$1 * 10) + 7;
 #X msg 170 321 \$2 setprelevel \$1;
 #X connect 0 0 7 0;
-#X connect 0 0 9 0;
 #X connect 3 0 11 0;
 #X connect 5 0 12 0;
 #X connect 6 0 5 0;
@@ -2851,7 +2944,7 @@ pd-MIXER obj \$25 185 bng 14 250 50 0 \$19|\$18-CPAN foorec C 3 7 0
 #X connect 12 0 1 0;
 #X restore 1231 125 pd \$0-STB;
 #X obj 1464 79 route set color;
-#N canvas 1756 780 954 896 \$0-STB 0;
+#N canvas 1704 679 954 896 \$0-STB 0;
 #X obj 53 56 inlet;
 #X obj 93 404 outlet;
 #X text 50 20 wire;
@@ -2870,7 +2963,6 @@ pd-MIXER obj \$25 185 bng 14 250 50 0 \$19|\$18-CPAN foorec C 3 7 0
 #X obj 111 113 print <<<<<<<<<<<<storeismono_\$1;
 #X obj 171 296 sel 1 0;
 #X connect 0 0 6 0;
-#X connect 0 0 15 0;
 #X connect 3 0 9 0;
 #X connect 5 0 16 0;
 #X connect 7 0 8 0;
@@ -2886,22 +2978,18 @@ pd-MIXER obj \$25 185 bng 14 250 50 0 \$19|\$18-CPAN foorec C 3 7 0
 #X obj 1374 254 print %%%%%%%%%%%%%RECALL_INBOUND;
 #X floatatom 1193 82 5 0 0 0 - - -;
 #X obj 1439 4 r \$0|\$1-ISMONO;
-#X obj 1424 61 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 1424 61 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X connect 1 0 0 0;
-#X connect 1 0 5 0;
 #X connect 3 0 2 0;
 #X connect 4 0 0 0;
-#X connect 4 0 6 0;
 #X connect 7 0 12 0;
 #X connect 8 0 11 0;
-#X connect 9 0 17 0;
 #X connect 9 0 0 0;
 #X connect 11 2 4 0;
 #X connect 12 2 1 0;
 #X connect 13 2 9 0;
 #X connect 15 2 16 0;
-#X connect 16 0 18 0;
 #X connect 16 0 0 0;
 #X connect 19 2 35 0;
 #X connect 20 0 13 0;
@@ -2914,24 +3002,17 @@ pd-MIXER obj \$25 185 bng 14 250 50 0 \$19|\$18-CPAN foorec C 3 7 0
 #X connect 27 0 28 0;
 #X connect 28 2 33 0;
 #X connect 29 2 30 0;
-#X connect 30 0 31 0;
 #X connect 30 0 0 0;
 #X connect 33 0 0 0;
-#X connect 33 0 32 0;
-#X connect 35 0 34 0;
 #X connect 35 0 0 0;
 #X connect 36 2 37 0;
 #X connect 37 0 0 0;
-#X connect 37 0 38 0;
 #X connect 40 0 36 0;
 #X connect 40 0 41 0;
 #X restore 1210 254 pd \$0-PERSIST-TRACK;
 #X obj 1212 222 cnv 15 100 10 empty empty empty 20 12 0 14 -260097
 -66577 0;
-#X obj 1218 412 route setmute setsolo setsolomute setpremute setpresolo
-setsolopremute setprelevel prelevel refreshmix refreshcon wakeup,
-f 123;
-#X obj 2081 505 route mono stereo restore;
+#X obj 2429 499 route mono stereo restore;
 #N canvas 1060 180 2351 1505 \$0-RESTORE 0;
 #X obj 49 27 inlet;
 #X obj 131 23 inlet;
@@ -2943,40 +3024,98 @@ f 123;
 #X connect 1 0 5 0;
 #X connect 3 0 2 0;
 #X connect 5 0 4 0;
-#X restore 2134 673 pd \$0-RESTORE;
-#X connect 0 0 50 0;
-#X connect 0 0 76 0;
+#X restore 2210 687 pd \$0-RESTORE;
+#X obj 554 75 route play loop record rec stop name;
+#N canvas 1385 576 1732 814 \$0-name 0;
+#X obj 292 81 expr (2 * \$1) - 1 \; 2*\$1 \;;
+#X obj 269 207 s \$0|\$1-filename;
+#X obj 37 12 inlet;
+#X obj 223 140 pack s f f;
+#X msg 269 170 label \$1_[\$2+\$3];
+#X obj 216 31 symbol;
+#X obj 220 59 t s b;
+#X obj 28 166 s \$0|\$1-filename;
+#X msg 28 133 label ------IN------;
+#X obj 37 43 route clear;
+#X obj 229 327 text set __chname \$1;
+#X msg 229 294 list \$1_[\$2+\$3];
+#X obj 577 24 r \$0-WAKEUP;
+#X msg 576 234 label \$1;
+#X obj 29 88 t b b;
+#X obj 26 231 text delete __chname \$1;
+#X obj 26 204 \$1;
+#X obj 576 60 \$1;
+#X obj 578 131 text get __chname;
+#X obj 643 184 s \$0|\$1-name_OSC;
+#X text 693 216 to etc;
+#X obj 230 255 t a b;
+#X connect 0 0 3 1;
+#X connect 0 1 3 2;
+#X connect 2 0 9 0;
+#X connect 3 0 4 0;
+#X connect 3 0 21 0;
+#X connect 4 0 1 0;
+#X connect 5 0 6 0;
+#X connect 6 0 3 0;
+#X connect 6 1 0 0;
+#X connect 8 0 7 0;
+#X connect 9 0 14 0;
+#X connect 9 1 5 0;
+#X connect 11 0 10 0;
+#X connect 12 0 17 0;
+#X connect 13 0 1 0;
+#X connect 14 0 8 0;
+#X connect 14 1 16 0;
+#X connect 16 0 15 0;
+#X connect 17 0 18 0;
+#X connect 18 0 13 0;
+#X connect 18 0 19 0;
+#X connect 21 0 11 0;
+#X connect 21 1 16 0;
+#X restore 762 115 pd \$0-name;
+#X obj 1294 426 route setmute setsolo setsolomute setpremute setpresolo
+setsolopremute setprelevel prelevel refreshmix refreshcon wakeup setfadertype
+, f 144;
+#N canvas 265 522 1304 695 \$0-setfadertype 0;
+#X obj 67 15 inlet;
+#X obj 67 72 s \$0-SETMFTYPE;
+#X obj 82 124 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X connect 0 0 1 0;
+#X connect 0 0 2 0;
+#X restore 2243 495 pd \$0-setfadertype;
+#X text 303 678 supermod 6DB;
+#X obj 293 696 *~ 2;
+#X obj 48 633 osc~ 440;
+#X connect 0 0 75 0;
+#X connect 0 0 82 0;
 #X connect 5 0 8 1;
-#X connect 5 0 56 1;
+#X connect 5 0 55 1;
 #X connect 5 1 8 3;
 #X connect 5 4 8 6;
 #X connect 11 0 29 0;
-#X connect 12 0 11 1;
-#X connect 12 0 13 1;
 #X connect 12 0 8 0;
+#X connect 12 0 87 0;
 #X connect 12 1 8 2;
 #X connect 12 4 8 7;
 #X connect 13 0 30 0;
-#X connect 15 0 16 0;
 #X connect 19 0 8 5;
 #X connect 23 0 19 0;
 #X connect 28 0 29 1;
 #X connect 28 0 30 1;
 #X connect 29 0 17 0;
-#X connect 29 0 68 0;
+#X connect 29 0 67 0;
 #X connect 29 0 15 0;
 #X connect 29 0 22 0;
 #X connect 30 0 18 0;
-#X connect 30 0 68 1;
+#X connect 30 0 67 1;
 #X connect 30 0 15 1;
 #X connect 30 0 22 1;
-#X connect 34 0 72 0;
+#X connect 34 0 71 0;
 #X connect 34 1 36 0;
 #X connect 36 0 35 0;
 #X connect 37 0 12 0;
-#X connect 37 0 77 0;
 #X connect 37 1 5 0;
-#X connect 37 1 78 0;
 #X connect 37 2 15 2;
 #X connect 37 3 15 3;
 #X connect 37 4 39 0;
@@ -2989,60 +3128,64 @@ f 123;
 #X connect 37 12 23 0;
 #X connect 37 13 34 0;
 #X connect 37 14 27 0;
-#X connect 37 15 81 0;
+#X connect 37 15 84 0;
 #X connect 39 0 19 0;
 #X connect 39 1 24 0;
 #X connect 40 0 19 1;
 #X connect 40 1 24 0;
 #X connect 42 0 43 0;
 #X connect 42 1 46 1;
-#X connect 43 0 51 0;
-#X connect 44 0 53 0;
+#X connect 43 0 50 0;
+#X connect 44 0 52 0;
 #X connect 45 0 44 0;
 #X connect 45 1 46 2;
 #X connect 46 0 37 0;
-#X connect 47 0 52 0;
+#X connect 47 0 51 0;
 #X connect 48 0 47 0;
 #X connect 48 1 46 1;
-#X connect 50 0 42 0;
-#X connect 50 1 48 0;
-#X connect 50 2 45 0;
-#X connect 50 3 45 0;
-#X connect 50 4 46 0;
-#X connect 50 5 37 0;
+#X connect 50 0 37 0;
 #X connect 51 0 37 0;
 #X connect 52 0 37 0;
-#X connect 53 0 37 0;
-#X connect 56 1 61 1;
-#X connect 56 2 62 1;
-#X connect 61 0 11 0;
-#X connect 62 0 13 0;
+#X connect 55 1 60 1;
+#X connect 55 2 61 1;
+#X connect 60 0 11 0;
+#X connect 61 0 13 0;
+#X connect 64 0 55 0;
+#X connect 65 0 60 0;
 #X connect 65 0 56 0;
-#X connect 66 0 61 0;
-#X connect 66 0 57 0;
-#X connect 66 0 69 0;
-#X connect 66 0 70 0;
-#X connect 66 1 62 0;
-#X connect 66 1 57 1;
-#X connect 66 1 69 1;
-#X connect 66 1 70 1;
-#X connect 66 2 8 4;
-#X connect 70 0 32 0;
-#X connect 70 1 54 0;
-#X connect 73 0 74 0;
-#X connect 74 0 37 0;
-#X connect 81 0 67 0;
-#X connect 81 1 67 1;
-#X connect 81 2 67 2;
-#X connect 81 3 67 3;
-#X connect 81 4 67 4;
-#X connect 81 5 67 5;
-#X connect 81 6 75 0;
-#X connect 81 7 75 0;
-#X connect 81 8 38 0;
-#X connect 81 9 38 1;
-#X connect 81 10 38 2;
-#X connect 81 11 82 0;
-#X connect 82 0 64 0;
-#X connect 82 1 64 1;
-#X connect 82 3 63 0;
+#X connect 65 0 68 0;
+#X connect 65 0 69 0;
+#X connect 65 1 61 0;
+#X connect 65 1 56 1;
+#X connect 65 1 68 1;
+#X connect 65 1 69 1;
+#X connect 65 2 8 4;
+#X connect 69 0 32 0;
+#X connect 69 1 53 0;
+#X connect 72 0 73 0;
+#X connect 73 0 37 0;
+#X connect 80 0 63 0;
+#X connect 80 1 63 1;
+#X connect 80 3 62 0;
+#X connect 82 0 42 0;
+#X connect 82 1 48 0;
+#X connect 82 2 45 0;
+#X connect 82 3 45 0;
+#X connect 82 4 46 0;
+#X connect 82 5 83 0;
+#X connect 82 6 37 0;
+#X connect 84 0 66 0;
+#X connect 84 1 66 1;
+#X connect 84 2 66 2;
+#X connect 84 3 66 3;
+#X connect 84 4 66 4;
+#X connect 84 5 66 5;
+#X connect 84 6 74 0;
+#X connect 84 7 74 0;
+#X connect 84 8 38 0;
+#X connect 84 9 38 1;
+#X connect 84 10 38 2;
+#X connect 84 11 85 0;
+#X connect 84 12 80 0;
+#X connect 87 0 13 1;
+#X connect 87 0 11 1;
