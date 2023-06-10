@@ -1,1 +1,1 @@
-//tmp/air_kohai/AIRC_1;
+/home/gregor/temp/airfront/AIRC_1/;

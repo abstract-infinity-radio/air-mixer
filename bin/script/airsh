@@ -7,6 +7,17 @@ use Data::Dumper;
 use Term::ReadLine;
 use bytes;
 
+
+my @log;
+open (ACTIONS , "+<","/var/air/data/airsh/airsh_log.txt");
+print "=============\n";
+for (<ACTIONS>) {
+    push @log,$_;
+    print $_;
+};
+print "=============\n";
+
+
 my $client = Net::OpenSoundControl::Client->new(
     Host => shift || "localhost", Port => 3000)
 #        Host => "localhost", Port => 3000)
@@ -16,18 +27,22 @@ my $client = Net::OpenSoundControl::Client->new(
 
 
 my $term = Term::ReadLine->new('airmix');
-         my $prompt = "AIRmix|>";
-         my $OUT = $term->OUT || \*STDOUT;
-         while ( defined ($_ = $term->readline($prompt)) and $_ ne "exit" ) {
-	     my (@args)=split /\s+/,$_;
-	     my $track=shift(@args);
-	     my $ctrl=shift(@args);
-	     # i f s (b) :: @rest are pairs type,val
-	     my @rest=map { oftype($_)=>$_ } @args;
-#	     print Dumper("REST",@rest);
-	     $client->send(['/airmix/'.$track.($ctrl ? '/'.$ctrl : ""),(@rest ? @rest : "")]);	     
-
+my $prompt = "AIRmix|>";
+my $OUT = $term->OUT || \*STDOUT;
+while ( defined ($_ = $term->readline($prompt)) and $_ ne "exit" ) {
+    print ACTIONS $_,"\n";
+    if ( $_ eq 'clear' ){ @log=(); close ACTIONS; open (ACTIONS , "+>","/var/air/data/airsh/airsh_log.txt"); goto EXIT;}; 
+    my (@args)=split /\s+/,$_;
+    my $track=shift(@args);
+    my $ctrl=shift(@args);
+    # i f s (b) :: @rest are pairs type,val
+    my @rest=map { oftype($_)=>$_ } @args;
+    #	     print Dumper("REST",@rest);
+    $client->send(['/airmix/'.$track.($ctrl ? '/'.$ctrl : ""),(@rest ? @rest : "")]);	     
+  EXIT:
 }
+
+close ACTIONS;
 
 sub oftype{
     $_=shift;

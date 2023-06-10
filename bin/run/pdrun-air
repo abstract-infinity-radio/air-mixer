@@ -18,8 +18,8 @@ qjackctl -s &
 
 sleep 1
 
+#  #=> -nojackconnect: for live events OR when PATCHBAY is used (!)
 
-# -nogui 
 puredata -nojackconnect -font-size 12 -font currier -rt -jack -nosleep -alsamidi -inchannels 21 -outchannels 45 -jackname AIRpd &
 
 sleep 1

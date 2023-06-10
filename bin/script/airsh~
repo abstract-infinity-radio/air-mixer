@@ -366,7 +366,7 @@ Record to B<file> after initial B<+delay>
 
 <ch> record <file>  <hh:mm:ss.uuu>  <hh:mm:ss.uuu>
  
-Record to B<file> after initial B<lead-in> till selected B<end>. The second figure being absolute time, not a time interval. Timing display will change color to red when the recording actually starts.
+Record to B<file> after initial B<lead-in> a B<lenght> long clip. The second figure being interval length. Timing display will change color to red when the recording actually starts.
 
 <ch> stop 
 
@@ -467,6 +467,8 @@ B<solo> and B<presolo> switches do the following:
 =head2 B<other globals>
 
 =over 3
+
+=item B<human> | B<nonhuman> : set OSC input policy. B<nonhuman> will: 1) not dereference complex spans (only per-channel or global addressing remains) and 2) treat all timing arguments as miliseconds (not hh:mm:ss.msc format). B<human> reverts this behaviour to normal (enabled complex spans and hh:mm:ss.msc format)
 
 =item B<panic> : all channel faders set to 0
 
@@ -778,7 +780,7 @@ airsh play file.wav 0:12.345 0:15.012 +1:0.300 => play a clip after delay
 
 airsh loop file.wav 0:12.345 0:15.012 +1:0.300 => loop a clip after delay
 
-airsh rec 0:10 0:15 => record from (abs) time 10 to 15 seconds (5 sec long block)  
+airsh rec 0:10 0:15 => record 15 seconds after 10 seconds delay
 
 =head1 B<AIRMON PROTOCOL EXAMPLES> [broadcast by gpp-air-coremix/server]
 

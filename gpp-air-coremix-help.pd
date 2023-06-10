@@ -1,4 +1,4 @@
-#N canvas 872 180 2717 1333 12;
+#N canvas 2651 1356 1189 801 12;
 #X msg 1154 242 4 pan 100;
 #X obj 786 4 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
 0;
@@ -255,12 +255,12 @@ than default;
 #X text 2 190 list-abs OK;
 #X text 3 168 pdstring NO_GO;
 #X msg 367 47 80.0.8.216;
-#X obj 111 118 gpp-air-coremix 8 3000 3001 localhost;
 #X text 820 190 /var/air/data/mixer/state;
 #X text 823 172 @kohai - settings:;
 #X text 819 207 /var/air/data/mixer/airdir;
 #X obj 821 154 cnv 15 200 15 empty empty empty 20 12 0 14 -258113 -66577
 0;
+#X obj 111 118 gpp-air-coremix 8 3000 3001 localhost;
 #X connect 33 0 32 0;
 #X connect 36 0 35 0;
 #X connect 38 0 31 0;
@@ -273,6 +273,6 @@ than default;
 #X connect 46 0 31 0;
 #X connect 47 0 31 0;
 #X connect 57 0 58 0;
-#X connect 65 0 55 0;
-#X connect 65 1 53 0;
-#X connect 65 2 52 0;
+#X connect 69 0 55 0;
+#X connect 69 1 53 0;
+#X connect 69 2 52 0;

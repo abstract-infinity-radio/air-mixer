@@ -1,0 +1,32 @@
+#N canvas 2253 490 1573 1074 12;
+#X obj 49 256 route duration;
+#X obj 53 33 openpanel;
+#X obj 53 3 bng 25 250 50 0 empty empty empty 17 7 0 10 -204786 -1
+-1;
+#X floatatom 60 335 20 0 0 0 seconds - -;
+#X obj 55 81 gpp-afparams2;
+#X text 275 11 gpp-afparams2 :: get audiofile parameters;
+#X floatatom 207 305 5 0 0 0 - - -;
+#X obj 206 264 route samplerate;
+#X text 266 46 duration | samples | channel | sample_size | samplerate
+;
+#X obj 348 97 route samples;
+#X floatatom 352 129 20 0 0 0 - - -;
+#X obj 353 173 route channels;
+#X floatatom 352 204 5 0 0 0 - - -;
+#X obj 343 263 route sample_size;
+#X floatatom 341 302 5 0 0 0 - - -;
+#X obj 19 130 print;
+#X connect 0 0 3 0;
+#X connect 1 0 4 0;
+#X connect 2 0 1 0;
+#X connect 4 0 0 0;
+#X connect 4 0 7 0;
+#X connect 4 0 9 0;
+#X connect 4 0 11 0;
+#X connect 4 0 13 0;
+#X connect 4 0 15 0;
+#X connect 7 0 6 0;
+#X connect 9 0 10 0;
+#X connect 11 0 12 0;
+#X connect 13 0 14 0;
