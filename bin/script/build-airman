@@ -1,3 +1,7 @@
+rm ./doc/*.1p
+rm ./doc/*.pdf
+
 pod2man airsh > ./doc/airsh.1p
+pod2pdf airsh > ./doc/airsh.pdf
 
 sudo cp ./doc/airsh.1p /usr/local/man/man1/
