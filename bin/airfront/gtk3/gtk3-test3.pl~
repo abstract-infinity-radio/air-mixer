@@ -1,0 +1,90 @@
+#!/usr/bin/perl
+
+# Make a binding to the Gio API in the Perl program (just copy&paste ;-))
+# This is necessary mainly for Gtk3::Application
+# Alternatively you find an early implementation as a Perl module
+# on https://git.gnome.org/browse/perl-Glib-IO (not yet published on CPAN!)
+# Hopefully this module simplifies the use of the Gio API in the future
+# (see also the notes above).
+BEGIN {
+  use Glib::Object::Introspection;
+  Glib::Object::Introspection->setup(
+    basename => 'Gio',
+    version => '2.0',
+    package => 'Glib::IO');
+}
+
+use strict;
+use warnings;
+use utf8; #needed for gtk3 !!
+
+
+use Gtk3;
+use Glib qw/TRUE FALSE/;
+
+use feature qw/say/;
+
+# The MAIN FUNCTION should be as small as possible and do almost nothing except creating 
+# your Gtk3::Application and running it
+# The "real work" should always be done in response to the signals fired by Gtk3::Application.
+# see below
+my $app = Gtk3::Application->new('app.test', 'flags-none');
+ 
+$app->signal_connect('startup'  => \&_init     );
+$app->signal_connect('activate' => \&_build_ui );
+$app->signal_connect('shutdown' => \&_cleanup  );
+ 
+$app->run(\@ARGV);
+ 
+exit;
+ 
+
+# The CALLBACK FUNCTIONS to the SIGNALS fired by the main function.
+# Here we do the "real work" (see above)
+sub _init {
+	my ($app) = @_;
+ 
+	# Handle program initialization
+     	say "_init";
+ 
+ }
+ 
+sub _build_ui {
+ 
+     	my ($app) = @_;
+ 
+     	my $window = Gtk3::ApplicationWindow->new($app);
+     	$window->set_title ('DROWENSCHIELD');
+     	$window->set_default_size (200, 200);
+     	$window->signal_connect( 'delete_event' => sub {$app->quit()} );
+
+	# create an image
+	my $image = Gtk3::Image->new();
+	
+	# set the content of the image as the file filename.png
+	$image->set_from_file('/home/gregor/Pictures/StoneSun.jpg');
+	
+	# add the image to the window
+#	$window->add($image);
+
+	# create a label
+	my $label = Gtk3::Label->new();
+	
+	# set the text of the label
+	$label -> set_text('THE PLACE OF ETERNAL STRUGGLE');
+	
+	# add the label to the window
+	$window->add($label);
+	
+	$window->show_all();
+
+}
+ 
+sub _cleanup {
+ 
+     	my ($app) = @_;
+ 
+     	# Handle cleanup
+     	say "_cleanup";
+     
+} 

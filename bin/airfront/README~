@@ -1,0 +1,54 @@
+support scripts for airblender : organizing wav files in structured way
+
+---
+
+- za vsak projekt = mapa (airc = AIRC.<cardnum>)
+
+- folder nejmi so generirani in pod enim tekstnim preamblom vsak fajl kakršnokoli <filename> (najbolje AIRC.<unique>)
+
+- rsyncaj fajle
+
+- šiml za metadata fajl
+
+- enonivojska dir struktura
+
+- yaml/json form
+
+metadata.yaml * da
+
+metadata.json x ne
+
+vsak dir ima 2 metapodatkovna fajla:
+
+- human editable general metadata [
+
+- polja:
+
+naslov_projekta
+
+avtorji
+
+datum_posnetka
+
+seznam audio fajlov v tej mapi
+
+- zaenkrat samo imena fajlov
+
+- kasneje morda razširimo
+
+- computer generated audio metadata:
+
+tekstovni fajl: vsak analizator naredi <filename>.<tip_analize>
+
+AIR4535234.wav.anal.tempo  | loudness | density
+
+AIR232132.aiff.anal.density
+
+analitični fajl:
+
+<start> <stop> <analdataobj>
+
+0:32:13.234 0:33:12.234 13
+
+0:34:13.234 0:35:12.234 22
+

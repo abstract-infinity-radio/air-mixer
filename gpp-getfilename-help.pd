@@ -1,0 +1,12 @@
+#N canvas 347 328 1615 923 12;
+#X obj 185 202 gpp-getfilename;
+#X text 284 65 gpp-getfilename :: get filename from path;
+#X msg 186 161 /home/grego/audio/pd-projects/mama.wav;
+#X symbolatom 245 251 10 0 0 0 - - -;
+#X obj 123 249 print FILENAME;
+#X text 221 138 PATH;
+#X msg 521 166 /home/gregor/audio/airPogovorAnamarija.wav;
+#X connect 0 0 3 0;
+#X connect 0 0 4 0;
+#X connect 2 0 0 0;
+#X connect 6 0 0 0;

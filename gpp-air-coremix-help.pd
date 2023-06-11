@@ -1,4 +1,4 @@
-#N canvas 2651 1356 1189 801 12;
+#N canvas 2651 1192 1189 801 12;
 #X msg 1154 242 4 pan 100;
 #X obj 786 4 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
 0;
@@ -234,7 +234,7 @@ than default;
 #X msg 118 253 [ŧotal 17] @INPUT TRACKS (stereo pairs) : [ŧotal 17]
 1+2 (CH1).. 15+16 (CH8) | 17 SYNCTRACK, f 88;
 #X msg 480 54 84.20.237.57 :: GP;
-#X obj 252 14 tgl 50 1 empty foorec MIX 10 12 0 10 -262130 -1 -1 1
+#X obj 256 23 tgl 50 1 empty foorec MIX 10 12 0 10 -262130 -1 -1 1
 1;
 #N canvas 0 225 450 300 \$0-SHOWMIX 0;
 #X obj 37 21 inlet;
@@ -247,7 +247,7 @@ than default;
 #X connect 3 0 1 0;
 #X connect 4 0 2 0;
 #X connect 4 1 3 0;
-#X restore 253 66 pd \$0-SHOWMIX;
+#X restore 257 75 pd \$0-SHOWMIX;
 #X text 405 89 gpp-aircoremix <channels> <OSC-in-port> <OSC-out-port>
 <client OSC address>, f 78;
 #X msg 584 121 MIHA :: 89.212.162.186;

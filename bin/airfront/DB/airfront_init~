@@ -1,0 +1,11 @@
+
+echo "PREVENTED. ENABLE ON REAL PURPOSE."
+exit
+
+dropdb airfront
+createdb airfront
+
+#AUTO UPDATER VERSION:
+psql airfront < aifront.sql
+
+#sudo -u postgres psql airfront -c "CREATE EXTENSION pgcrypto"

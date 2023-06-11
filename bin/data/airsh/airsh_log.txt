@@ -1,0 +1,100 @@
+1 loop AIRR_1.wav 11:10 11:11
+2 loop AIRR_2.wav 13:20 13:21.500
+3 loop AIRR_3.wav 14:20 14:21
+4 loop AIRR_15.wav 23:12 24:011 +0:1:123
+all fader .3
+all fader .4
+all fader .5
+all fader .3
+\q
+4 loop AIRR_15.wav 23:12 24:011 +0:1:123
+4 fader 1
+m fader .7
+all stop
+1 loop AIRR_12.wav 6:12 8:15
+1 loop AIRR_12.wav 10:12 11:15
+3 loop AIRR_12.wav 10:12 11:15
+2 loop AIRR_12.wav 10:12 11:15
+all fader 1
+4 loop AIRR_12.wav 10:12 11:15
+5 loop AIRR_12.wav 10:12 11:15
+6 loop AIRR_94.wav 10:12 11:15
+7 loop AIRR_100.wav 10:12 11:15
+8 loop AIRR_29.wav 10:12 11:15
+m fader .7
+all stop
+all fader .5
+1 play /home/gregor/audio/airPogovorAnamarija.wav 
+1 stop
+1 stop
+1 play /home/gregor/audio/airPogovorAnamarija.wav 
+12play /home/gregor/audio/airPogovorAnamarija.wav 
+2 play /home/gregor/audio/airPogovorAnamarija.wav 
+2 play /home/gregor/audio/airPogovorAnamarija.wav 
+2 stop
+1 play /home/gregor/audio/airPogovorAnamarija.wav 
+1 play AIRR_1.wav
+1 play /home/gregor/audio/airPogovorAnamarija.wav 
+1 stop
+1 play /home/gregor/audio/airPogovorAnamarija.wav 
+1 stop
+1 stop
+1 play /home/gregor/audio/airPogovorAnamarija.wav 
+1 stop
+1 play /home/gregor/audio/airPogovorAnamarija.wav 
+1 stop
+1 play /home/gregor/audio/airPogovorAnamarija.wav 
+1 play /home/gregor/audio/airPogovorAnamarija.wav 
+1 stop
+1 play /home/gregor/audio/airPogovorAnamarija.wav 
+1 play /home/gregor/audio/airPogovorAnamarija.wav 
+all stop
+1 play /home/gregor/audio/airPogovorAnamarija.wav 
+1 play /home/gregor/audio/airPogovorAnamarija.wav 
+1 play /home/gregor/audio/airPogovorAnamarija.wav 
+1 play /home/gregor/audio/airPogovorAnamarija.wav 
+1 play /home/gregor/audio/airPogovorAnamarija.wav 
+1 play /home/gregor/audio/abp2014-cd.wav 
+1 play /home/gregor/audio/matičič.wav
+1 play /home/gregor/audio/matičič.wav
+1 stop
+1 play /home/gregor/audio/matičič.wav 0:11 0:12
+exk
+1 name one
+2 name two
+3 name three
+4 name four
+5 name five
+6 name six
+7 name seven
+8 name eight
+1 play /home/gregor/audio/matičič.wav 0:11 0:12
+1 play /home/gregor/audio/matičič.wav 0:11 0:12
+1 play /home/gregor/audio/matičič.wav 0:11 0:12
+1 play /home/gregor/audio/matičič.wav 0:11 0:12
+1 play /home/gregor/audio/matičič.wav 0:11 0:12
+1 play /home/gregor/audio/matičič.wav 0:11 0:12
+1 play /home/gregor/audio/matičič.wav
+1 stop
+1 play /home/gregor/audio/matičič.wav
+1 stop
+1 play /home/gregor/audio/matičič.wav 0:11 0:12
+1 play /home/gregor/audio/matičič.wav 0:11 0:12
+1 play /home/gregor/audio/matičič.wav 0:11 0:12
+1 play /home/gregor/audio/matičič.wav
+1 stop
+7 name seven
+8 name eight
+\q
+1 name one
+2 name two
+3 name three
+4 name four
+5 name five
+6 name six
+7 name seven
+8 name eight
+1 stop1 play /home/gregor/audio/matičič.wav 0:11 0:12
+1 play /home/gregor/audio/matičič.wav 0:11 0:12
+1 play /home/gregor/audio/matičič.wav 0:11 0:12
+1 play /home/gregor/audio/matičič.wav 0:11 0:12

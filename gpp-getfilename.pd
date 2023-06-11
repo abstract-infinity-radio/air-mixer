@@ -1,0 +1,26 @@
+#N canvas 970 398 1779 1174 12;
+#X obj 62 77 any2bytes;
+#X obj 63 112 list-abs/list-map;
+#X obj 63 144 bytes2any;
+#X text 495 34 gpp-getfilename :: get filename from path;
+#X obj 195 113 expr if (($f1 == 47 || $f1 == 0) \, 32 \, $f1) \;,
+f 45;
+#X obj 95 234 list-abs/list-drip;
+#X obj 64 253 list;
+#X obj 63 187 t b a;
+#X obj 62 293 outlet;
+#X obj 62 11 inlet;
+#X obj 62 49 list;
+#X text 96 50 !!! => otherwise the whole sequence will be misinterpreted
+;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 1 4 0;
+#X connect 2 0 7 0;
+#X connect 4 0 1 1;
+#X connect 5 0 6 1;
+#X connect 6 0 8 0;
+#X connect 7 0 6 0;
+#X connect 7 1 5 0;
+#X connect 9 0 10 0;
+#X connect 10 0 0 0;
