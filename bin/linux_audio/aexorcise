@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ `systemctl is-active postgresql` == "active" ]; then service postgresql stop; echo STOPPED postgresql; fi
+if [ `systemctl is-active cron` == "active" ]; then service cron stop; echo STOPPED cron; fi
+
+
+######################################3
+#service redis-server stop
+#killall -9 /usr/bin/xbindkeys
+#killall -9 xbindkeys
+#rmmod iwldvm
+#rmmod iwlwifi
+
+#rt-general

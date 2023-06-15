@@ -1,0 +1,17 @@
+chrt -f -p 50 `pgrep xhci`;
+for f in `pgrep -f irq/328-snd_hda`; do chrt -p -f 50 $f; done;
+for f in `pgrep -f gdm`; do chrt -p -f 5 $f; done;
+for f in `pgrep -f gdm3`; do chrt -p -f 5 $f; done;
+for f in `pgrep -f /usr/bin/pulseaudio`;do chrt -p -f 5 $f; done;
+
+for f in `pgrep -fi pd-watchdog`; do chrt -f -p 48 $f; done
+#chrt -f -p 48 `pidof pd-watchdog`
+chrt -f -p 40 `pidof pd`
+chrt -f -p 40 `pidof puredata`
+for f in `pgrep -f pd-gui`; do chrt -p -f 5 $f; done
+
+chrt -f -p 5 `pidof qjackctl`
+chrt -f -p 45 `pidof jackd`
+
+
+sudo /usr/local/bin/aexorcise
