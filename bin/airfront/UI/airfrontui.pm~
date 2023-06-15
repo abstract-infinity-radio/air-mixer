@@ -74,8 +74,8 @@ sub input_gtk3{
     my $airlogo = Gtk3::Image->new();
     $airlogo->set_from_file('/home/gregor/audio/pd-projects/work/wavedata/air/airfront/logo/airlogo.png');
 
-    say "SOURCE: ",$self->{'source'};
-    say "NEXTCN: ",$self->{'nextcn'};
+#    say "SOURCE: ",$self->{'source'};
+#    say "NEXTCN: ",$self->{'nextcn'};
     
     my $Lsource=Gtk3::Label->new();
     $Lsource->set_text("LOCAL SOURCE DIRECTORY:\n".$self->{'source'});

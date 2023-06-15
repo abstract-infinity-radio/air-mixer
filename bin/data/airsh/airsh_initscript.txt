@@ -1,0 +1,11 @@
+all fader 0
+globepan
+AIRmix|>2 loop /home/gregor/temp/airfront/AIRC_1/AIRR_56.wav 6:12 6:31
+AIRmix|>7 loop /home/gregor/temp/airfront/AIRC_4/AIRR_214.wav 5:13 6:12 
+AIRmix|>1 loop /home/gregor/temp/airfront/AIRC_4/AIRR_212.wav 13:13 14:32 
+AIRmix|>8 loop /home/gregor/temp/airfront/AIRC_4/AIRR_214.wav 3:13 4:12 
+AIRmix|>3 loop /home/gregor/temp/airfront/AIRC_1/AIRR_4.wav 6:12 6:31
+AIRmix|>5 loop /home/gregor/temp/airfront/AIRC_1/AIRR_5.wav 6:12 6:31
+AIRmix|>4 loop /home/gregor/temp/airfront/AIRC_1/AIRR_5.wav 3:12 6:31
+AIRmix|>6 loop /home/gregor/temp/airfront/AIRC_3/AIRR_153.wav 3:12 6:31
+AIRmix|>all fader 1 3000 log

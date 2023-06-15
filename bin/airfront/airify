@@ -59,15 +59,22 @@ use optchain; #options chainer
 
 my $DBG=1;
 my $LOCALHOST='gregor@matangi';
-my $REMOTEHOST='gregor@kohai';
+#my $REMOTEHOST='gregor@kohai';
+# NOTE: KEEP TRAILING SLASHES IN REMOTEHOME DEFINITIONS:
+
+my $REMOTEHOST=('root@air.sedemcezdevet.si');
+my $REMOTEHOME=('/var/air/data/library/');
+#my $REMOTEHOST=('gregor@kohai');
+#my $REMOTEHOME=('/home/gregor/air/aerotheque/');
+
 my $TEMPDIR="/home/gregor/temp/airfront/";
-my $REMOTEHOME="/home/gregor/air/aerotheque/";
+#my $REMOTEHOME="/home/gregor/air/aerotheque/";
 my $LASTTEMP=""; #Global for temp post-removal
 my $LASTREMOTE=""; #Global for remote rollback-removal
 
 # SSH
-use Net::OpenSSH;
-my $SSH=Net::OpenSSH->new($REMOTEHOST);
+#use Net::OpenSSH;
+#my $SSH=Net::OpenSSH->new($REMOTEHOST);
 #$SSH->error and die "Couldn't establish SSH connection: ". $SSH->error;
 
 #RSYNC
@@ -105,6 +112,7 @@ GetOptions (
     'resync|r' => sub{$oc->caller(\&resync)},
     'flush|f' => sub{$oc->caller(\&flush)}, #also, flush will be called if not explicitely invoked, =default
     'nosync|ns' => sub{$oc->boolean('nosync');},
+    'revert|R=s{1,1}' => sub{ $oc->scalar('airc',$_[1],\&revert)},
     ) or die("Error in command line arguments\n");
 
 $oc->run({default_caller=>\&flush});
@@ -157,6 +165,8 @@ B<any other (string) field> (title|author/s|performer/s s) to match B<(ilike)> i
 
 
 =back
+
+=head2 -R | -revert <PARAM>  - revert the DB so that it will continue filling-in at the <PARAM> AIRC
 
 =cut
 
@@ -408,7 +418,7 @@ sub flush {
 			$audiosources->{"AIRR_".$_->airr.".wav"}{'encoding'}=$s->encoding;
 			$audiosources->{"AIRR_".$_->airr.".wav"}{'type'}=$s->type;
 			$audiosources->{"AIRR_".$_->airr.".wav"}{'duration'}=$s->duration;
-			$audiosources->{"AIRR_".$_->airr.".wav"}{'duration_ms'}=$s->duration_ms;
+			$audiosources->{"AIRR_".$_->airr.".wav"}{'duration_ms'}=sprintf("%.3f", $_->duration_ms);
 		    };
 		    
 		};#for recording
@@ -422,17 +432,20 @@ sub flush {
 		unless (exists $oh->{'nosync'} and $oh->{'nosync'}){
 		    #RSYNC WHOLE PROJECT DIRECTORY TO THE SERVER
 		    #	$AFUI->progressbar_gtk3;
-		    say "";
 		    
-		    say "RSYNC: ".$TEMPDIR."AIRC_".$new_card->airc." => ".$REMOTEHOST.":".$REMOTEHOME;
-		    #		my $ret=system 'rsync -av --info=progress2 --stats '.$TEMPDIR.'AIRC_'.$new_card->airc.' '.$REMOTEHOST.':'.$REMOTEHOME;
-		    
-		    #returns 0 on success
-		    if (system 'rsync -av --info=progress2 --stats '.$TEMPDIR.'AIRC_'.$new_card->airc.' '.$REMOTEHOST.':'.$REMOTEHOME){die "RSYNC FAILED for AIRC_".$new_card->airc;}else{say " ... OK";};
-		    #temp cleanup at POST
+		    #TRANSFER TO ALL REMOTE HOSTS
+			say "";
+
+			say "RSYNC: ".$TEMPDIR."AIRC_".$new_card->airc." => ".$REMOTEHOST.':'.$REMOTEHOME;
+			#		my $ret=system 'rsync -av --info=progress2 --stats '.$TEMPDIR.'AIRC_'.$new_card->airc.' '.$REMOTEHOST.':'.$REMOTEHOME;
+			#			rsync -av tvoj_lokalen_AIRC_3/ root@air.sedemcezdevet.si:/var/air/data/library/AIRC_3/
+			#returns 0 on success
+			if (system 'rsync -av --info=progress2 --stats '.$TEMPDIR.'AIRC_'.$new_card->airc.' '.$REMOTEHOST.':'.$REMOTEHOME){die "RSYNC FAILED for AIRC_".$new_card->airc;}else{say " ... OK";};
+#			if (system 'rsync -av --info=progress2 --stats '.$TEMPDIR.'AIRC_'.$new_card->airc.' '.$REMOTEHOST.':'.$REMOTEHOME){die "RSYNC FAILED for AIRC_".$new_card->airc;}else{say " ... OK";};
+			#temp cleanup at POST
 		};#UNLESS NOSYNC
-		    #	$AFUI->donedialog_gtk3;  
-		    
+		#	$AFUI->donedialog_gtk3;  
+		
 		#==COMMIT
 		$AFDB->txn_commit; 	
 		return 1;
@@ -448,7 +461,7 @@ sub flush {
 		#REMOVE REMOTE DIR
 		if (defined $LASTREMOTE){
 		    warn ("REMOVING REMOTE DIR ".$LASTREMOTE);
-		    system ("ssh ".$REMOTEHOST." rm -r ".$LASTREMOTE);
+		    system ("ssh ".$REMOTEHOST." rm -rf ".$LASTREMOTE);
 		}
 
 		return 0;
@@ -458,6 +471,35 @@ sub flush {
 }; #flush
 
 
+#CAUTION: THIS FUNC CAN BE VERY DESTRUCTIVE!
+#it deletes all records from the airc arg above
+sub revert {
+    my %ap = (%{$_[0]},%{$_[1]}); #both, optchain preamble and postamble
+    my $oh=\%ap;
+    $DBG and warn "airify.revert called";
+
+
+    my $found=$AFDB->resultset('Public_Card')->search({'airc'=>{'>='=>$oh->{'airc'}}});
+
+    while (my $c=$found->next){
+	say $c->airc," | ",$c->title;
+	my $belonging=$c->recordings;
+	while (my $r=$belonging->next){
+	    say "\t",$r->airr," > ",$r->path;
+	};
+    };
+    my $AFUI=airfrontui->new($AFDB);
+    my $answer=$AFUI->yesnodialog($oh->{'airc'});
+
+    $answer or do{die "LEVEL PROC ABORTED..:"};
+
+    my $deleted=$AFDB->resultset('Public_Card')->search({'airc'=>{'>='=>$oh->{'airc'}}})->delete;
+
+    say "DELETED ",$deleted," ENTRIES";
+    my $next=$AFDB->resultset('Public_Reseq')->search()->first;
+    
+};#revert
+
 
 
 #resync  audio; goes through the DB, checks for existence of files and flushes all the missing audio
@@ -466,7 +508,7 @@ sub resync {
     $DBG and warn "airify.resync called";
     $DBG and print "ALLPARAMS ",Dumper(\%ap);
 
-
+ 
     exit;
 }; #resync
 

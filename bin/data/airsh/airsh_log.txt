@@ -98,3 +98,161 @@ exk
 1 play /home/gregor/audio/matičič.wav 0:11 0:12
 1 play /home/gregor/audio/matičič.wav 0:11 0:12
 1 play /home/gregor/audio/matičič.wav 0:11 0:12
+lstracks
+hbtime 300
+hbtime 200
+noautosave
+autosave
+a
+autosave
+noautosave
+noautosave
+mix
+xim
+mix
+noautosave
+nonhuman
+autosave
+noautosave
+all fader 1 4000 sin
+1 play /home/gregor/audio/matičič.wav 0:11 0:12
+\q
+2 pan 1 5000 pow
+autosave
+loop AIRR_12.wav 6:12 8:15
+1 loop AIRR_12.wav 6:12 8:15
+2 loop AIRR_12.wav 10:12 11:15
+3 loop AIRR_12.wav 10:12 11:15
+4 play AIRR_12.wav +0:1
+5 rec test.wav
+6 rec test2.wav
+7 loop AIRR_14.wav 1:12.123 1:12:898
+all mono
+globepan
+all fader 1 5000 sin
+all fader 0 1000 log
+all fader 1 6000 lin 1000
+all fader 0 1000 log
+all fader 1 6000 hsin 1000
+1-3,7-8 fader 0
+all fader 0
+all fader 1 10000 pow 2000
+even fader 0
+odd pan .8
+centerpan
+globepan
+all fader 0
+all fader 1 10000 sin 1500
+all fader 0
+all fader 1 10000 sin 1500
+exot
+all play AIRR_14.wav 
+odd play play AIRR_12.wav
+all play AIRR_14.wav 
+odd play play AIRR_12.wav
+all play AIRR_14.wav 
+1-3 play AIRR_14.wav 
+all play AIRR_14.wav 
+1-3 play AIRR_12.wav 
+1-3 play AIRR_12.wav 6-8 play AIRR_94.wav
+8-12 play AIRR_13.wav 12:20 
+all play AIRR_14.wav 
+1 play AIRR_14.wav 
+2 play AIRR_14.wav 
+3 play AIRR_14.wav 
+4 play AIRR_14.wav 
+5 play AIRR_14.wav 
+6 play AIRR_14.wav 
+67 play AIRR_14.wav 
+7 play AIRR_14.wav 
+8 play AIRR_14.wav 
+9 play AIRR_14.wav 
+10-12 loop AIRR_11.wav 0:20 0:21
+11 loop AIRR_11.wav 0:20 0:21
+12 loop AIRR_11.wav 0:20 0:21
+4 loop /home/gregor/audio/pd-projects/work/wavedata/carter-cut.wav
+4 loop /home/gregor/audio/pd-projects/work/wavedata/carter-cut.wav
+all fader 0.7
+4 loop /home/gregor/audio/pd-projects/work/wavedata/turbo-idyl/cdclips/ofreunde.wav 
+4 loop /home/gregor/audio/pd-projects/work/wavedata/turbo-idyl/cdclips/ofreunde.wav 
+8
+8 loop /home/gregor/audio/pd-projects/work/wavedata/turbo-idyl/cdclips/ofreunde.wav 
+8 solo
+8 stop
+all mute
+all unsolo
+all mute
+all stop
+1 loop /home/gregor/audio/pd-projects/work/wavedata/turbo-idyl/cdclips/ofreunde.wav 
+1 stop
+1 loop ~/temp/airfront/AIRC_1/AIRR_3.wav
+1 loop ~/temp/airfront/AIRC_1/AIRR_3.wav 6:12 6:31
+all um
+all fader 1
+all loop ~/temp/airfront/AIRC_1/AIRR_3.wav 6:12 6:31
+all loop /home/gregor/temp/airfront/AIRC_1/AIRR_3.wav 6:12 6:31
+1 loop /home/gregor/temp/airfront/AIRC_1/AIRR_3.wav 6:12 6:31
+2 loop /home/gregor/temp/airfront/AIRC_1/AIRR_3.wav 6:12 6:31
+3 loop /home/gregor/temp/airfront/AIRC_1/AIRR_4.wav 6:12 6:31
+5 loop /home/gregor/temp/airfront/AIRC_1/AIRR_5.wav 6:12 6:31
+8 loop /home/gregor/temp/airfront/AIRC_1/AIRR_4.wav 6:12 6:31
+9 loop /home/gregor/temp/airfront/AIRC_3/AIRR_4.wav 6:12 6:31
+all stop
+1 loop /home/gregor/temp/airfront/AIRC_3/AIRR_3.wav 6:12 6:31
+1 loop /home/gregor/temp/airfront/AIRC_3/AIRR_3.wav 6:12 6:31
+1 loop /home/gregor/temp/airfront/AIRC_3/AIRR_109.wav 6:12 6:31
+all stop
+1 loop /home/gregor/temp/airfront/AIRC_3/AIRR_109.wav 9:12 9:31
+2 loop /home/gregor/temp/airfront/AIRC_3/AIRR_109.wav 9:12 9:31
+2 loop /home/gregor/temp/airfront/AIRC_3/AIRR_111.wav 9:12 9:31
+3 loop /home/gregor/temp/airfront/AIRC_3/AIRR_113.wav 9:12 9:31
+all um
+all m
+all um
+all fader 1
+all fader .5
+all fader 1
+app1 loop /home/gregor/temp/airfront/AIRC_3/AIRR_109.wav 9:12 9:31
+all loop /home/gregor/temp/airfront/AIRC_3/AIRR_109.wav 9:12 9:31
+1 loop /home/gregor/temp/airfront/AIRC_3/AIRR_109.wav 9:12 9:31
+2 loop /home/gregor/temp/airfront/AIRC_3/AIRR_109.wav 9:12 9:31
+3 loop /home/gregor/temp/airfront/AIRC_3/AIRR_109.wav 9:12 9:31
+5 loop /home/gregor/temp/airfront/AIRC_3/AIRR_109.wav 9:12 9:31
+6 loop /home/gregor/temp/airfront/AIRC_3/AIRR_109.wav 9:12 9:31
+7 loop /home/gregor/temp/airfront/AIRC_3/AIRR_109.wav 9:12 9:31
+8 loop /home/gregor/temp/airfront/AIRC_3/AIRR_109.wav 9:12 9:31
+1 loop /home/gregor/temp/airfront/AIRC_3/AIRR_130.wav 3:12.123 4:12.123
+2 loop /home/gregor/temp/airfront/AIRC_3/AIRR_131.wav 3:12.123 4:12.123
+3 loop /home/gregor/temp/airfront/AIRC_3/AIRR_131.wav 3:12.123 4:12.123
+8 loop /home/gregor/temp/airfront/AIRC_3/AIRR_133.wav 12:12 12:13
+7 loop /home/gregor/temp/airfront/AIRC_3/AIRR_134.wav 13:13 13:14
+8 loop /home/gregor/temp/airfront/AIRC_3/AIRR_133.wav 12:12 12:16
+8 loop /home/gregor/temp/airfront/AIRC_3/AIRR_133.wav 12:12 12:16
+7 loop /home/gregor/temp/airfront/AIRC_4/AIRR_200.wav 12:12 12:16
+7 solo
+7 unsolo
+1-6 mute
+8 mute
+7 stop
+8 loop /home/gregor/temp/airfront/AIRC_4/AIRR_209.wav 12:12 12:16
+8 play /home/gregor/temp/airfront/AIRC_4/AIRR_209.wav 
+8 play /home/gregor/temp/airfront/AIRC_4/AIRR_210.wav 
+all unmute
+8 solo
+8 play /home/gregor/temp/airfront/AIRC_4/AIRR_210.wav 10:00
+globepan
+8 play /home/gregor/temp/airfront/AIRC_4/AIRR_210.wav 20:00 
+8 play /home/gregor/temp/airfront/AIRC_4/AIRR_211.wav 20:00 
+all unmute
+8 unsolo
+all fader 1
+2 loop /home/gregor/temp/airfront/AIRC_4/AIRR_213.wav 15;1
+2 loop /home/gregor/temp/airfront/AIRC_4/AIRR_213.wav 15:12.141 15:14.543
+7 play /home/gregor/temp/airfront/AIRC_4/AIRR_209.wav
+3 loop /home/gregor/temp/airfront/AIRC_3/AIRR_153.wav 06:22 06:23.500
+1 fader .7 4000 sin
+2 fader .8 4000 sin
+5 fader .3 4000 sin
+2 fader .6 4000 sin
+8,9 fader .8 3000 sin
+7,8 fader .8 3000 sin

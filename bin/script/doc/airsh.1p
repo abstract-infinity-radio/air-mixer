@@ -133,7 +133,7 @@
 .\" ========================================================================
 .\"
 .IX Title "AIRSH 1"
-.TH AIRSH 1 "2023-06-09" "perl v5.28.1" "User Contributed Perl Documentation"
+.TH AIRSH 1 "2023-06-15" "perl v5.28.1" "User Contributed Perl Documentation"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -357,7 +357,7 @@ Currently available curves:
 .IX Header "AUDIO PRODUCTION / PROCESSING TOOLS"
 .SS "\fB\s-1PLAY\s0\fP"
 .IX Subsection "PLAY"
-<ch> play <file>
+<ch> play \fB<file*\fR>
 .PP
 Play a file (wav,aiff)
 .PP
@@ -372,6 +372,8 @@ Play a \fBfile\fR from the selected \fBtiming\fR to the selected \fBend\fR
 <ch> play <file> <hh:mm:ss.uuu> <hh:mm:ss.uuu> +<hh:mm:ss.uuu>
 .PP
 Play a \fBfile\fR from the selected \fBtiming\fR to the selected \fBend\fR with the selected \fB+delay\fR. Note that the player / looper delay parameter should be marked with \fB+\fR
+.PP
+\&\fB<file\fR*> can be either a \fBfilename in connection with current working directory\fR (see cd / dir directives) or an \fBabsolute path\fR
 .PP
 <ch>  stop
 .PP
@@ -513,12 +515,16 @@ Stop current recording session at the addressed channel
 .IX Item "globepan : evenly distribute panning across panorama 0-1 accross all channels"
 .IP "\fBlstracks\fR : list numbers / configuration of input and output tracks through the rightmost outlet of [gpp\-air\-coremix] element (via set message)" 3
 .IX Item "lstracks : list numbers / configuration of input and output tracks through the rightmost outlet of [gpp-air-coremix] element (via set message)"
+.IP "\fBautosave\fR : turn autosave (track names, mixer state, fader type) feature \s-1ON\s0" 3
+.IX Item "autosave : turn autosave (track names, mixer state, fader type) feature ON"
+.IP "\fBnoautosave\fR : turn autosave (track names, mixer state, fader type) feature \s-1OFF\s0" 3
+.IX Item "noautosave : turn autosave (track names, mixer state, fader type) feature OFF"
 .IP "\fBlatency\fR / \fBlatencystop\fR : starts / stops measuring console latency (audio and control). The values are reported to the control (3rd) outlet of the [gpp\-air\-coremix] element (via set message)" 3
 .IX Item "latency / latencystop : starts / stops measuring console latency (audio and control). The values are reported to the control (3rd) outlet of the [gpp-air-coremix] element (via set message)"
+.IP "\fBsetmode\fR : set server's monitoring mode (auto, mirror, coarse, off). See 'Two main server-side monitoring modes' below." 3
+.IX Item "setmode : set server's monitoring mode (auto, mirror, coarse, off). See 'Two main server-side monitoring modes' below."
 .IP "\fBsetff\fR : set server's fanning factor (distance between serial \s-1OSC\s0 monitoring request, somewhere between 2 and 6, default 3 ) :: the serial monitoring requests (fader, pan) get distributed after the following formula:" 3
 .IX Item "setff : set server's fanning factor (distance between serial OSC monitoring request, somewhere between 2 and 6, default 3 ) :: the serial monitoring requests (fader, pan) get distributed after the following formula:"
-.IP "\fBsetmode\fR : set server's monitoring mode (auto, mirror, coarse). See 'Two main server-side monitoring modes' below." 3
-.IX Item "setmode : set server's monitoring mode (auto, mirror, coarse). See 'Two main server-side monitoring modes' below."
 .RS 3
 .IP "\fBfader\fR : (<ch> * <\s-1FF\s0> * 2) msec \s-1DELAY\s0" 5
 .IX Item "fader : (<ch> * <FF> * 2) msec DELAY"
@@ -527,8 +533,8 @@ Stop current recording session at the addressed channel
 .RE
 .RS 3
 .RE
-.IP "\fBalivesig\fR on / off : turn alive signals on / off. In the left bottom corner of the iConsole and CoreMixer there are rectangular symbols \fBiCo\fR and \fBSrv\fR. If \fBalivesig\fR is running they will show the state of connection:" 3
-.IX Item "alivesig on / off : turn alive signals on / off. In the left bottom corner of the iConsole and CoreMixer there are rectangular symbols iCo and Srv. If alivesig is running they will show the state of connection:"
+.IP "\fBalivesig\fR start / stop : turn alive signals on / off. In the left bottom corner of the iConsole and CoreMixer there are rectangular symbols \fBiCo\fR and \fBSrv\fR. If \fBalivesig\fR is running they will show the state of connection:" 3
+.IX Item "alivesig start / stop : turn alive signals on / off. In the left bottom corner of the iConsole and CoreMixer there are rectangular symbols iCo and Srv. If alivesig is running they will show the state of connection:"
 .RS 3
 .IP "\fBiCo\fR is green : iConsole is connected (server-side monitoring)" 5
 .IX Item "iCo is green : iConsole is connected (server-side monitoring)"
@@ -734,10 +740,12 @@ System params (internal communication between air-coremix and console, without u
 .PD
 .SH "\fBTWO MAIN SERVER-SIDE MONITORING MODES BASED ON DIFFERENT MONITORING TACTICS\fP"
 .IX Header "TWO MAIN SERVER-SIDE MONITORING MODES BASED ON DIFFERENT MONITORING TACTICS"
+.IP "\fB\s-1OFF\s0\fR :: monitoring disabled" 3
+.IX Item "OFF :: monitoring disabled"
+.PD 0
 .IP "\fB\s-1MIRROR\s0\fR and \fB\s-1COARSE\s0\fR :: implementing \fBcontour\fR and \fBsnapshot\fR tactics:" 3
 .IX Item "MIRROR and COARSE :: implementing contour and snapshot tactics:"
 .RS 3
-.PD 0
 .IP "\fB\s-1MIRROR\s0\fR : use \fBboth\fR tactics => high bandwidth and low client capacity; will report border states and intermediate snapshots according to network capacity (tunable). \fBContour\fR skeleton is used to prevent possible timing-based anomalies, especially with extremely lo frequency monitoring heartbeat." 5
 .IX Item "MIRROR : use both tactics => high bandwidth and low client capacity; will report border states and intermediate snapshots according to network capacity (tunable). Contour skeleton is used to prevent possible timing-based anomalies, especially with extremely lo frequency monitoring heartbeat."
 .IP "\fB\s-1COARSE\s0\fR : use \fBonly contour tactic\fR => low bandwidth and low client capacity; will only report border (crucial) states." 5
@@ -762,6 +770,18 @@ Server can be set to either mode in terms of communicating with its console(s):
 .RE
 .RS 3
 .RE
+.PD
+.SH "\fBAIR MIXER CONFIG FILES\fP"
+.IX Header "AIR MIXER CONFIG FILES"
+.IP "/var/air/data/mixer/airdir.txt \- air current working directory" 4
+.IX Item "/var/air/data/mixer/airdir.txt - air current working directory"
+.PD 0
+.IP "/var/air/data/mixer/state/autosave.txt \- mixer params state" 4
+.IX Item "/var/air/data/mixer/state/autosave.txt - mixer params state"
+.IP "/var/air/data/mixer/state/autosave_chname.txt \- fader type and channel names" 4
+.IX Item "/var/air/data/mixer/state/autosave_chname.txt - fader type and channel names"
+.IP "/var/air/data/airsh/airsh_log.txt \- list of recently cast airsh commands" 4
+.IX Item "/var/air/data/airsh/airsh_log.txt - list of recently cast airsh commands"
 .PD
 .SH "\fBAIRSH EXAMPLES\fP EXAMPLES> [broadcast by user/client]"
 .IX Header "AIRSH EXAMPLES EXAMPLES> [broadcast by user/client]"

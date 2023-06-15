@@ -1,4 +1,4 @@
-#N canvas 480 180 2880 1453 12;
+#N canvas 682 279 2880 1453 12;
 #X obj 689 108 loadbang;
 #X obj 271 101 inlet;
 #X obj 448 101 inlet;
@@ -17,7 +17,7 @@
 :: in 1 = osc netreceiver control :: in 2 = direct in (list mode);
 #X obj 460 459 route symbol float;
 #X text 270 71 NETREC control;
-#N canvas 456 549 370 1006 \$0-OUT-MONITOR 0;
+#N canvas 456 539 370 1006 \$0-OUT-MONITOR 0;
 #X obj -3 -1 cnv 15 200 500 empty empty empty 20 12 0 14 -216697 -66577
 0;
 #X obj 109 97 vsl 15 320 0 1 0 0 empty \$0|master-fader-l empty 0 -9
@@ -202,7 +202,7 @@
 #X connect 26 0 21 0;
 #X restore 445 752 pd \$0-MASTER-FADER;
 #X obj 447 131 list prepend airmix;
-#N canvas 757 1033 2120 722 \$0-OSC-MONITOR 0;
+#N canvas 757 978 2120 722 \$0-OSC-MONITOR 0;
 #X obj 657 15 loadbang;
 #X obj 689 143 netsend -u -b;
 #X floatatom 689 170 5 0 0 0 - - -;
@@ -298,7 +298,7 @@ SPAN;
 #X obj 453 549 outlet;
 #X obj 706 485 oscformat -f f airmon contour master vr fader;
 #X obj 706 455 r \$0|master-fader-sender;
-#N canvas 433 665 2539 1127 \$0-PERSIST 0;
+#N canvas 433 610 2539 1127 \$0-PERSIST 0;
 #X obj 87 30 inlet;
 #X obj 190 31 inlet;
 #X obj 308 32 inlet;
@@ -386,9 +386,9 @@ SPAN;
 #X restore 541 276 pd \$0-HANDLE-CONTOUR;
 #X obj 179 329 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 115 249 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 115 249 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 561 315 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 561 315 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 186 244 r __OPENTAC|REQ;
 #X obj 364 245 r __OPENTAC|SNAP;
@@ -459,7 +459,7 @@ SPAN;
 #X connect 5 0 0 0;
 #X connect 6 0 0 0;
 #X restore 982 280 pd \$0-HANDLE-ETC;
-#N canvas 1004 358 2389 1036 \$0-HANDLE-SYS 0;
+#N canvas 557 659 2389 1036 \$0-HANDLE-SYS 1;
 #X obj 125 521 outlet;
 #X obj 580 338 loadbang;
 #X text 597 386 periodically check downwards connection for console
@@ -474,11 +474,15 @@ SPAN;
 #X obj 380 237 oscformat -f s airmon sys ALIVESIG;
 #X obj 500 430 oscformat -f i airmon sys ALIVE;
 #X obj 443 170 r \$0|ALIVESIG_OSC;
+#X obj 440 418 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 413 317 print AS;
 #X connect 1 0 6 0;
 #X connect 3 0 5 0;
 #X connect 4 0 5 0;
 #X connect 5 0 11 0;
 #X connect 6 0 11 0;
+#X connect 6 0 13 0;
 #X connect 7 0 6 0;
 #X connect 8 0 6 0;
 #X connect 9 0 8 0;
@@ -487,6 +491,7 @@ SPAN;
 #X connect 11 0 0 0;
 #X connect 12 0 9 0;
 #X connect 12 0 10 0;
+#X connect 12 0 14 0;
 #X restore 859 276 pd \$0-HANDLE-SYS;
 #X connect 2 0 0 0;
 #X connect 3 0 0 0;
@@ -513,7 +518,7 @@ SPAN;
 #X connect 7 0 8 0;
 #X connect 8 0 1 0;
 #X restore 693 321 pd \$0-OSC-MONITOR;
-#N canvas 626 180 2976 1909 \$0-BUILD-MIXER 0;
+#N canvas 812 180 2976 1909 \$0-BUILD-MIXER 0;
 #X obj 72 13 inlet;
 #X obj 126 727 outlet;
 #X obj 20 9 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
@@ -533,7 +538,7 @@ empty CoreMixer 8 12 2 15 -262144 -66577 0 \;, f 86;
 #X connect 2 0 1 0;
 #X connect 2 1 1 1;
 #X restore 91 129 pd \$0-AIR-LABEL;
-#N canvas 840 180 1517 1189 \$0-RIGHT-SIDE 0;
+#N canvas 788 180 1517 1189 \$0-RIGHT-SIDE 0;
 #X obj 30 17 inlet;
 #X obj 29 44 t b b;
 #X obj 50 141 expr 220 + (\$1 * 100) \; $f1 \;;
@@ -552,7 +557,8 @@ empty CoreMixer 8 12 2 15 -262144 -66577 0 \;, f 86;
 empty 6 12 0 6 -216697 -66577 0 \; pd-MIXER obj \$1 40 cnv 8 500 50
 empty \\\$0|SHOWFADERTYPE empty 6 12 0 6 -216697 -66577 0 \; pd-MIXER
 obj \$1 80 cnv 8 500 550 empty \\\$0|HUMANSTATE empty 6 12 0 6 -216697
--66577 0 \;, f 85;
+-66577 0 \; pd-MIXER obj \$1 120 cnv 8 500 550 empty \\\$0|AUTOSAVESTATE
+empty 6 12 0 6 -216697 -66577 0 \;, f 85;
 #X connect 0 0 1 0;
 #X connect 1 0 3 0;
 #X connect 1 1 2 0;
@@ -567,7 +573,7 @@ obj \$1 80 cnv 8 500 550 empty \\\$0|HUMANSTATE empty 6 12 0 6 -216697
 #X connect 1 0 2 0;
 #X restore 159 160 pd \$0-BACKCANVAS;
 #X obj 74 46 t b b b b b b b;
-#X text 203 509 open snapshot route \, regardless of mode and bang
+#X text 204 509 open snapshot route \, regardless of mode and bang
 mixer reloaded \, then close;
 #X text 330 557 NOTE: all params (should be sig of any kind!) that
 we want to refresh should be bound to SNAP sends and should have __MIXER_RELOADED
@@ -598,57 +604,7 @@ pointed towards their 'change' elements;
 #X msg -49 295 \$1 50;
 #X msg -56 178 1;
 #X msg -21 178 0;
-#X msg 359 214 \; pd-MIXER obj 0 -6 cnv 15 200 550 empty empty empty
-20 12 0 14 -216697 -66577 0 \; pd-MIXER obj 18 62 cnv 15 60 360 empty
-empty empty 20 12 0 14 -16662 -66577 0 \; pd-MIXER obj 57 93 vu 20
-320 \$1|master-vu-r empty -1 -8 0 4 -66577 -1 1 0 \; pd-MIXER obj 20
-93 vu 20 320 \$1|master-vu-l empty -1 -8 0 4 -66577 -1 0 0 \; pd-MIXER
-obj 10 3 cnv 1 1 1 empty empty MASTER 20 12 0 14 -245689 -66577 0 \;
-pd-MIXER obj 39 93 vsl 8 320 0 1 0 0 foosnd \$1|master-fader-l empty
-0 -9 0 10 -13381 -262144 -66577 0 1 \; pd-MIXER obj 48 93 vsl 8 320
-0 1 0 0 foosnd \$1|master-fader-r empty 0 -9 0 10 -13381 -262144 -262144
-0 1 \; pd-MIXER obj 120 72 tgl 15 0 foo \$1|master-RF-l empty 17 7
-0 4 -216697 -1 -1 0 1 \; pd-MIXER obj 150 72 tgl 15 0 foo \$1|master-RF-r
-empty 17 7 0 4 -216697 -1 -1 0 1 \; pd-MIXER obj 119 420 tgl 19 0 \$1|mute-lmaster-sender
-\$1|master-mute-l M 5 10 0 7 -233017 -233017 -1 0 1 \; pd-MIXER obj
-148 420 tgl 19 0 \$1|mute-rmaster-sender \$1|master-mute-r M 5 10 0
-7 -233017 -233017 -1 0 1 \; pd-MIXER obj 119 93 vsl 18 320 0 1 0 0
-\$1|master-fader-l-sender \$1|master-fader-l-sender-rec empty 0 -9
-0 10 -4032 -1 -1 0 0 \; pd-MIXER obj 148 93 vsl 18 320 0 1 0 0 \$1|master-fader-r-sender
-\$1|master-fader-r-sender-rec empty 0 -9 0 10 -4032 -1 -1 0 0 \; pd-MIXER
-obj 137 93 vsl 11 320 0 1 0 0 \$1|master-fader-sender \$1|master-fader-sender-rec
-empty 0 -9 0 10 -204786 -1 -1 52000 0 \; pd-MIXER floatatom 148 444
-5 0 0 0 - \$1|master-fader-r foosnd \; pd-MIXER floatatom 103 444 5
-0 0 0 - \$1|master-fader-l foosnd \; pd-MIXER obj 18 498 cnv 6 50 30
-foosnd \$1-CONALIVE iCn 4 14 2 14 -33289 -228856 0 \; pd-MIXER obj
-149 5 tgl 42 0 \$1|MMTOPL \$1|MMTOPL-rec PL~>PL 0 20 0 6 -262130 17
--1 1 1 \;, f 137;
-#X msg 350 622 \; pd-MIXER obj 0 -6 cnv 15 200 550 empty empty empty
-20 12 0 14 -216697 -66577 0 \; pd-MIXER obj 18 62 cnv 15 60 360 empty
-empty empty 20 12 0 14 -16662 -66577 0 \; pd-MIXER obj 57 93 vu 20
-320 \$1|master-vu-r empty -1 -8 0 4 -66577 -1 1 0 \; pd-MIXER obj 20
-93 vu 20 320 \$1|master-vu-l empty -1 -8 0 4 -66577 -1 0 0 \; pd-MIXER
-obj 10 3 cnv 1 1 1 empty empty MASTER 20 12 0 14 -245689 -66577 0 \;
-pd-MIXER obj 39 93 vsl 8 320 0.001 1 1 0 foosnd \$1|master-fader-l
-empty 0 -9 0 10 -13381 -262144 -66577 0 1 \; pd-MIXER obj 48 93 vsl
-8 320 0.001 1 1 0 foosnd \$1|master-fader-r empty 0 -9 0 10 -13381
--262144 -262144 0 1 \; pd-MIXER obj 120 72 tgl 15 0 foo \$1|master-RF-l
-empty 17 7 0 4 -216697 -1 -1 0 1 \; pd-MIXER obj 150 72 tgl 15 0 foo
-\$1|master-RF-r empty 17 7 0 4 -216697 -1 -1 0 1 \; pd-MIXER obj 119
-420 tgl 19 0 \$1|mute-lmaster-sender \$1|master-mute-l M 5 10 0 7 -233017
--233017 -1 0 1 \; pd-MIXER obj 148 420 tgl 19 0 \$1|mute-rmaster-sender
-\$1|master-mute-r M 5 10 0 7 -233017 -233017 -1 0 1 \; pd-MIXER obj
-119 93 vsl 18 320 0.001 1 1 0 \$1|master-fader-l-sender \$1|master-fader-l-sender-rec
-empty 0 -9 0 10 -4032 -1 -1 0 0 \; pd-MIXER obj 148 93 vsl 18 320 0.001
-1 1 0 \$1|master-fader-r-sender \$1|master-fader-r-sender-rec empty
-0 -9 0 10 -4032 -1 -1 0 0 \; pd-MIXER obj 137 93 vsl 11 320 0.001 1
-1 0 \$1|master-fader-sender \$1|master-fader-sender-rec empty 0 -9
-0 10 -204786 -1 -1 52000 0 \; pd-MIXER floatatom 148 444 5 0 0 0 -
-\$1|master-fader-r foosnd \; pd-MIXER floatatom 103 444 5 0 0 0 - \$1|master-fader-l
-foosnd \; pd-MIXER obj 18 498 cnv 6 50 30 foosnd \$1-CONALIVE iCn 4
-14 2 14 -33289 -228856 0 \; pd-MIXER obj 149 5 tgl 42 0 \$1|MMTOPL
-\$1|MMTOPL-rec PL~>PL 0 20 0 6 -262130 17 -1 1 1 \;, f 137;
-#N canvas 0 180 1981 1421 \$0-HUMANSTATE 0;
+#N canvas 1175 1210 1981 1421 \$0-HUMANSTATE 0;
 #X obj 214 12 inlet;
 #X obj 303 143 \$0;
 #X obj 397 88 \$0;
@@ -679,6 +635,59 @@ foosnd \; pd-MIXER obj 18 498 cnv 6 50 30 foosnd \$1-CONALIVE iCn 4
 #X connect 4 0 2 0;
 #X connect 5 0 3 0;
 #X restore 104 470 pd \$0-FADERTYPE;
+#X msg 359 214 \; pd-MIXER obj 0 -6 cnv 15 200 550 empty empty empty
+20 12 0 14 -216697 -66577 0 \; pd-MIXER obj 18 62 cnv 15 60 360 empty
+empty empty 20 12 0 14 -16662 -66577 0 \; pd-MIXER obj 57 93 vu 20
+320 \$1|master-vu-r empty -1 -8 0 4 -66577 -1 1 0 \; pd-MIXER obj 20
+93 vu 20 320 \$1|master-vu-l empty -1 -8 0 4 -66577 -1 0 0 \; pd-MIXER
+obj 10 3 cnv 1 1 1 empty empty MASTER 20 12 0 14 -245689 -66577 0 \;
+pd-MIXER obj 39 93 vsl 8 320 0 1 0 0 foosnd \$1|master-fader-l empty
+0 -9 0 10 -13381 -262144 -66577 0 1 \; pd-MIXER obj 48 93 vsl 8 320
+0 1 0 0 foosnd \$1|master-fader-r empty 0 -9 0 10 -13381 -262144 -262144
+0 1 \; pd-MIXER obj 120 72 tgl 15 0 foo \$1|master-RF-l empty 17 7
+0 4 -216697 -1 -1 0 1 \; pd-MIXER obj 150 72 tgl 15 0 foo \$1|master-RF-r
+empty 17 7 0 4 -216697 -1 -1 0 1 \; pd-MIXER obj 119 420 tgl 19 0 \$1|mute-lmaster-sender
+\$1|master-mute-l M 5 10 0 7 -233017 -233017 -1 0 1 \; pd-MIXER obj
+148 420 tgl 19 0 \$1|mute-rmaster-sender \$1|master-mute-r M 5 10 0
+7 -233017 -233017 -1 0 1 \; pd-MIXER obj 119 93 vsl 18 320 0 1 0 0
+\$1|master-fader-l-sender \$1|master-fader-l-sender-rec empty 0 -9
+0 10 -4032 -1 -1 0 0 \; pd-MIXER obj 148 93 vsl 18 320 0 1 0 0 \$1|master-fader-r-sender
+\$1|master-fader-r-sender-rec empty 0 -9 0 10 -4032 -1 -1 0 0 \; pd-MIXER
+obj 137 93 vsl 11 320 0 1 0 0 \$1|master-fader-sender \$1|master-fader-sender-rec
+empty 0 -9 0 10 -204786 -1 -1 52000 0 \; pd-MIXER floatatom 148 444
+5 0 0 0 - \$1|master-fader-r foosnd \; pd-MIXER floatatom 103 444 5
+0 0 0 - \$1|master-fader-l foosnd \; pd-MIXER obj 18 498 cnv 6 50 30
+foosnd \$1-CONALIVE iCn 4 14 2 14 -33289 -228856 0 \; pd-MIXER obj
+149 5 tgl 42 0 \$1|MMTOPL \$1|MMTOPL-rec PL~>PL 0 20 0 6 -262130 17
+-1 1 1 \; pd-MIXER obj 162 506 bng 20 250 50 0 foosnd \$1|ASMETRO AS
+4 10 0 5 -216697 -66577 0 \;, f 137;
+#X msg 350 622 \; pd-MIXER obj 0 -6 cnv 15 200 550 empty empty empty
+20 12 0 14 -216697 -66577 0 \; pd-MIXER obj 18 62 cnv 15 60 360 empty
+empty empty 20 12 0 14 -16662 -66577 0 \; pd-MIXER obj 57 93 vu 20
+320 \$1|master-vu-r empty -1 -8 0 4 -66577 -1 1 0 \; pd-MIXER obj 20
+93 vu 20 320 \$1|master-vu-l empty -1 -8 0 4 -66577 -1 0 0 \; pd-MIXER
+obj 10 3 cnv 1 1 1 empty empty MASTER 20 12 0 14 -245689 -66577 0 \;
+pd-MIXER obj 39 93 vsl 8 320 0.001 1 1 0 foosnd \$1|master-fader-l
+empty 0 -9 0 10 -13381 -262144 -66577 0 1 \; pd-MIXER obj 48 93 vsl
+8 320 0.001 1 1 0 foosnd \$1|master-fader-r empty 0 -9 0 10 -13381
+-262144 -262144 0 1 \; pd-MIXER obj 120 72 tgl 15 0 foo \$1|master-RF-l
+empty 17 7 0 4 -216697 -1 -1 0 1 \; pd-MIXER obj 150 72 tgl 15 0 foo
+\$1|master-RF-r empty 17 7 0 4 -216697 -1 -1 0 1 \; pd-MIXER obj 119
+420 tgl 19 0 \$1|mute-lmaster-sender \$1|master-mute-l M 5 10 0 7 -233017
+-233017 -1 0 1 \; pd-MIXER obj 148 420 tgl 19 0 \$1|mute-rmaster-sender
+\$1|master-mute-r M 5 10 0 7 -233017 -233017 -1 0 1 \; pd-MIXER obj
+119 93 vsl 18 320 0.001 1 1 0 \$1|master-fader-l-sender \$1|master-fader-l-sender-rec
+empty 0 -9 0 10 -4032 -1 -1 0 0 \; pd-MIXER obj 148 93 vsl 18 320 0.001
+1 1 0 \$1|master-fader-r-sender \$1|master-fader-r-sender-rec empty
+0 -9 0 10 -4032 -1 -1 0 0 \; pd-MIXER obj 137 93 vsl 11 320 0.001 1
+1 0 \$1|master-fader-sender \$1|master-fader-sender-rec empty 0 -9
+0 10 -204786 -1 -1 52000 0 \; pd-MIXER floatatom 148 444 5 0 0 0 -
+\$1|master-fader-r foosnd \; pd-MIXER floatatom 103 444 5 0 0 0 - \$1|master-fader-l
+foosnd \; pd-MIXER obj 18 498 cnv 6 50 30 foosnd \$1-CONALIVE iCn 4
+14 2 14 -33289 -228856 0 \; pd-MIXER obj 149 5 tgl 42 0 \$1|MMTOPL
+\$1|MMTOPL-rec PL~>PL 0 20 0 6 -262130 17 -1 1 1 \; pd-MIXER obj 162
+506 bng 20 250 50 0 foosnd \$1|ASMETRO AS 4 10 0 5 -216697 -66577 0
+\;, f 137;
 #X connect 0 0 8 0;
 #X connect 2 0 8 0;
 #X connect 4 0 20 0;
@@ -690,7 +699,7 @@ foosnd \; pd-MIXER obj 18 498 cnv 6 50 30 foosnd \$1-CONALIVE iCn 4
 #X connect 8 4 4 0;
 #X connect 8 5 7 0;
 #X connect 8 6 3 0;
-#X connect 11 0 36 0;
+#X connect 11 0 34 0;
 #X connect 11 1 28 0;
 #X connect 11 1 29 0;
 #X connect 11 2 16 0;
@@ -699,8 +708,8 @@ foosnd \; pd-MIXER obj 18 498 cnv 6 50 30 foosnd \$1-CONALIVE iCn 4
 #X connect 17 0 1 0;
 #X connect 18 0 7 0;
 #X connect 19 0 4 0;
-#X connect 20 0 34 0;
-#X connect 21 0 35 0;
+#X connect 20 0 36 0;
+#X connect 21 0 37 0;
 #X connect 22 0 24 0;
 #X connect 22 0 25 0;
 #X connect 23 0 20 1;
@@ -708,14 +717,14 @@ foosnd \; pd-MIXER obj 18 498 cnv 6 50 30 foosnd \$1-CONALIVE iCn 4
 #X connect 24 0 21 1;
 #X connect 24 0 29 1;
 #X connect 24 1 23 0;
-#X connect 28 0 37 1;
-#X connect 29 0 37 0;
+#X connect 28 0 35 1;
+#X connect 29 0 35 0;
 #X connect 30 0 32 0;
 #X connect 30 1 33 0;
 #X connect 32 0 31 0;
 #X connect 33 0 31 0;
 #X restore 695 426 pd \$0-BUILD-MIXER;
-#N canvas 863 180 2313 1051 MIXER 1;
+#N canvas 324 249 2313 1199 MIXER 1;
 #X obj 200 0 cnv 15 820 475 empty empty empty 20 12 0 14 -13330 -66577
 0;
 #X obj 0 -6 cnv 15 200 550 empty empty empty 20 12 0 14 -216697 -66577
@@ -752,6 +761,8 @@ empty 0 -9 0 10 -204786 -1 -1 44660 0;
 -228856 0;
 #X obj 149 5 tgl 42 0 1004|MMTOPL 1004|MMTOPL-rec PL~>PL 0 20 0 6 -262131
 -44926 -1 0 1;
+#X obj 162 506 bng 20 250 50 0 foosnd 1004|ASMETRO AS 4 10 0 5 -216697
+-66577 -262144;
 #X obj 214 8 cnv 15 100 400 empty empty 1 22 12 0 14 -203904 -83269
 0;
 #X obj 216 382 tgl 15 0 foosnd 1062|1-fader-rf empty 17 7 0 10 -203904
@@ -763,21 +774,21 @@ empty -2 -8 0 10 -258699 -1 -1 0 0;
 #X floatatom 234 382 5 0 0 0 - 1062|1-fader-state foosnd;
 #X floatatom 234 221 5 0 0 0 - 1062|1-pan-stateN foosnd;
 #X obj 241 255 vsl 18 120 0 1 0 0 1062|1-fader-state-sender 1062|1-fader-state-sender-rec
-empty 0 -9 0 10 -262144 -1 -1 11900 0;
-#X obj 214 445 cnv 15 100 30 empty 1062|1-time-remaining empty 12 15
-0 7 -480 -262130 0;
+empty 0 -9 0 10 -262144 -1 -1 23800 0;
+#X obj 214 445 cnv 15 100 30 empty 1062|1-time-remaining 0:00:23.5
+12 15 0 7 -7297 -262130 0;
 #X obj 263 255 vu 10 120 1062|1-vu-l empty -1 -8 0 10 -66577 -1 0 0
 ;
 #X obj 276 255 vu 10 120 1062|1-vu-r empty -1 -8 0 4 -66577 -1 1 0
 ;
 #X obj 245 62 vu 8 80 1062|1-svu-l empty -1 -8 0 4 -159808 -1 0 0;
 #X obj 256 62 vu 8 80 1062|1-svu-r empty -1 -8 0 4 -159808 -1 1 0;
-#X obj 214 412 cnv 15 100 30 empty 1062|1-filename one_[1+2] 2 15 0
-6 -203904 -83269 0;
-#X obj 228 160 tgl 18 0 foosnd 1062|1-loop-active L 4 9 0 6 -233017
+#X obj 214 412 cnv 15 100 30 empty 1062|1-filename AIRR_212.wav 2 15
+0 6 -203904 -83269 0;
+#X obj 228 160 tgl 18 0 foosnd 1062|1-loop-active L 4 9 0 6 -260818
 -233017 -1 0 1;
 #X obj 255 162 hradio 15 1 0 3 foosnd 1062|1-input-track IN_MP_SP 0
--6 0 5 -203904 -83269 -1 0;
+-6 0 5 -203904 -83269 -1 2;
 #X obj 292 387 tgl 19 0 1062|1-mute-sender 1062|1-mute M 5 10 0 7 -24198
 -24198 -1 0 1;
 #X obj 289 0 tgl 20 0 1062|1-prelisten-sender 1062|1-prelisten >) 3
@@ -792,7 +803,7 @@ empty 0 -9 0 10 -262144 -1 -1 11900 0;
 #X obj 249 45 tgl 11 0 1062|1-inbound-sender 1062|1-inbound-diode-M
 empty 17 7 0 8 -262144 -262144 -1 0 1;
 #X obj 222 255 vsl 9 120 0 1 0 0 foosnd 1062|1-fader-state empty 0
--9 0 10 -225280 -1 -1 11900 1;
+-9 0 10 -225280 -1 -1 23800 1;
 #X obj 237 188 hsl 64 8 0 1 0 0 foosnd 1062|1-pan-state empty -2 -8
 0 10 -258699 -1 -1 0 1;
 #X obj 275 389 tgl 15 0 1062|1-solo-sender 1062|1-solo S 4 8 0 5 -228992
@@ -810,42 +821,42 @@ empty 0 -9 0 10 -228992 -1 -1 0 0;
 #X obj 379 222 tgl 15 0 foosnd 1160|2-pan-rf empty 17 7 0 10 -158848
 -1 -1 1 1;
 #X obj 337 202 hsl 64 15 0 1 0 0 1160|2-pan-state-sender 1160|2-pan-state-sender-rec
-empty -2 -8 0 10 -258699 -1 -1 1800 0;
+empty -2 -8 0 10 -262144 -1 -1 1800 0;
 #X floatatom 334 382 5 0 0 0 - 1160|2-fader-state foosnd;
 #X floatatom 334 221 5 0 0 0 - 1160|2-pan-stateN foosnd;
 #X obj 341 255 vsl 18 120 0 1 0 0 1160|2-fader-state-sender 1160|2-fader-state-sender-rec
-empty 0 -9 0 10 -262144 -1 -1 11900 0;
-#X obj 314 445 cnv 15 100 30 empty 1160|2-time-remaining empty 12 15
-0 7 -1760 -262130 0;
+empty 0 -9 0 10 -262144 -1 -1 23800 0;
+#X obj 314 445 cnv 15 100 30 empty 1160|2-time-remaining 0:00:12.5
+12 15 0 7 -7297 -262130 0;
 #X obj 363 255 vu 10 120 1160|2-vu-l empty -1 -8 0 10 -66577 -1 0 0
 ;
 #X obj 376 255 vu 10 120 1160|2-vu-r empty -1 -8 0 4 -66577 -1 1 0
 ;
 #X obj 345 62 vu 8 80 1160|2-svu-l empty -1 -8 0 4 -159808 -1 0 0;
 #X obj 356 62 vu 8 80 1160|2-svu-r empty -1 -8 0 4 -159808 -1 1 0;
-#X obj 314 412 cnv 15 100 30 empty 1160|2-filename two_[3+4] 2 15 0
-6 -158848 -83269 0;
-#X obj 328 160 tgl 18 0 foosnd 1160|2-loop-active L 4 9 0 6 -233017
+#X obj 314 412 cnv 15 100 30 empty 1160|2-filename AIRR_56.wav 2 15
+0 6 -158848 -83269 0;
+#X obj 328 160 tgl 18 0 foosnd 1160|2-loop-active L 4 9 0 6 -260818
 -233017 -1 0 1;
 #X obj 355 162 hradio 15 1 0 3 foosnd 1160|2-input-track IN_MP_SP 0
--6 0 5 -158848 -83269 -1 0;
+-6 0 5 -158848 -83269 -1 1;
 #X obj 392 387 tgl 19 0 1160|2-mute-sender 1160|2-mute M 5 10 0 7 -24198
 -24198 -1 0 1;
 #X obj 389 0 tgl 20 0 1160|2-prelisten-sender 1160|2-prelisten >) 3
 9 0 6 -258699 -258699 -1 0 1;
 #X floatatom 383 20 4 0 1 0 > 1160|2-prelisten-level foosnd;
-#X obj 318 202 tgl 14 0 foosnd 1160|2-pan-enabled-diode ST 1 7 0 5
--258699 -258699 -1 0 1;
+#X obj 318 202 tgl 14 0 foosnd 1160|2-pan-enabled-diode MO 1 7 0 5
+-24198 -24198 -1 0 1;
 #X obj 339 48 tgl 8 0 foosnd 1160|2-inbound-diodes-S empty 17 7 0 8
--24198 -24198 -1 0 1;
+-262144 -262144 -1 0 1;
 #X obj 362 48 tgl 8 0 foosnd 1160|2-inbound-diodes-S empty 14 5 0 8
--24198 -24198 -1 0 1;
+-262144 -262144 -1 0 1;
 #X obj 349 45 tgl 11 0 1160|2-inbound-sender 1160|2-inbound-diode-M
-empty 17 7 0 8 -262144 -262144 -1 0 1;
+empty 17 7 0 8 -24198 -24198 -1 0 1;
 #X obj 322 255 vsl 9 120 0 1 0 0 foosnd 1160|2-fader-state empty 0
--9 0 10 -225280 -1 -1 11900 1;
+-9 0 10 -225280 -1 -1 23800 1;
 #X obj 337 188 hsl 64 8 0 1 0 0 foosnd 1160|2-pan-state empty -2 -8
-0 10 -258699 -1 -1 1800 1;
+0 10 -225280 -1 -1 1800 1;
 #X obj 375 389 tgl 15 0 1160|2-solo-sender 1160|2-solo S 4 8 0 5 -228992
 -228992 -1 0 1;
 #X obj 398 39 tgl 15 0 1160|2-presolo-sender 1160|2-presolo PS 1 8
@@ -865,21 +876,21 @@ empty -2 -8 0 10 -262144 -1 -1 3600 0;
 #X floatatom 434 382 5 0 0 0 - 1258|3-fader-state foosnd;
 #X floatatom 434 221 5 0 0 0 - 1258|3-pan-stateN foosnd;
 #X obj 441 255 vsl 18 120 0 1 0 0 1258|3-fader-state-sender 1258|3-fader-state-sender-rec
-empty 0 -9 0 10 -262144 -1 -1 11900 0;
-#X obj 414 445 cnv 15 100 30 empty 1258|3-time-remaining empty 12 15
-0 7 -480 -262130 0;
+empty 0 -9 0 10 -262144 -1 -1 19000 0;
+#X obj 414 445 cnv 15 100 30 empty 1258|3-time-remaining 0:00:12.5
+12 15 0 7 -7297 -262130 0;
 #X obj 463 255 vu 10 120 1258|3-vu-l empty -1 -8 0 10 -66577 -1 0 0
 ;
 #X obj 476 255 vu 10 120 1258|3-vu-r empty -1 -8 0 4 -66577 -1 1 0
 ;
 #X obj 445 62 vu 8 80 1258|3-svu-l empty -1 -8 0 4 -159808 -1 0 0;
 #X obj 456 62 vu 8 80 1258|3-svu-r empty -1 -8 0 4 -159808 -1 1 0;
-#X obj 414 412 cnv 15 100 30 empty 1258|3-filename three_[5+6] 2 15
+#X obj 414 412 cnv 15 100 30 empty 1258|3-filename AIRR_4.wav 2 15
 0 6 -203904 -83269 0;
-#X obj 428 160 tgl 18 0 foosnd 1258|3-loop-active L 4 9 0 6 -233017
+#X obj 428 160 tgl 18 0 foosnd 1258|3-loop-active L 4 9 0 6 -260818
 -233017 -1 0 1;
 #X obj 455 162 hradio 15 1 0 3 foosnd 1258|3-input-track IN_MP_SP 0
--6 0 5 -203904 -83269 -1 0;
+-6 0 5 -203904 -83269 -1 1;
 #X obj 492 387 tgl 19 0 1258|3-mute-sender 1258|3-mute M 5 10 0 7 -24198
 -24198 -1 0 1;
 #X obj 489 0 tgl 20 0 1258|3-prelisten-sender 1258|3-prelisten >) 3
@@ -894,7 +905,7 @@ empty 0 -9 0 10 -262144 -1 -1 11900 0;
 #X obj 449 45 tgl 11 0 1258|3-inbound-sender 1258|3-inbound-diode-M
 empty 17 7 0 8 -24198 -24198 -1 0 1;
 #X obj 422 255 vsl 9 120 0 1 0 0 foosnd 1258|3-fader-state empty 0
--9 0 10 -225280 -1 -1 11900 1;
+-9 0 10 -225280 -1 -1 19000 1;
 #X obj 437 188 hsl 64 8 0 1 0 0 foosnd 1258|3-pan-state empty -2 -8
 0 10 -225280 -1 -1 3600 1;
 #X obj 475 389 tgl 15 0 1258|3-solo-sender 1258|3-solo S 4 8 0 5 -228992
@@ -916,21 +927,21 @@ empty -2 -8 0 10 -262144 -1 -1 5400 0;
 #X floatatom 534 382 5 0 0 0 - 1356|4-fader-state foosnd;
 #X floatatom 534 221 5 0 0 0 - 1356|4-pan-stateN foosnd;
 #X obj 541 255 vsl 18 120 0 1 0 0 1356|4-fader-state-sender 1356|4-fader-state-sender-rec
-empty 0 -9 0 10 -262144 -1 -1 11900 0;
-#X obj 514 445 cnv 15 100 30 empty 1356|4-time-remaining empty 12 15
-0 7 -1760 -262130 0;
+empty 0 -9 0 10 -262144 -1 -1 23800 0;
+#X obj 514 445 cnv 15 100 30 empty 1356|4-time-remaining 0:00:29.4
+12 15 0 7 -7297 -262130 0;
 #X obj 563 255 vu 10 120 1356|4-vu-l empty -1 -8 0 10 -66577 -1 0 0
 ;
 #X obj 576 255 vu 10 120 1356|4-vu-r empty -1 -8 0 4 -66577 -1 1 0
 ;
 #X obj 545 62 vu 8 80 1356|4-svu-l empty -1 -8 0 4 -159808 -1 0 0;
 #X obj 556 62 vu 8 80 1356|4-svu-r empty -1 -8 0 4 -159808 -1 1 0;
-#X obj 514 412 cnv 15 100 30 empty 1356|4-filename four_[7+8] 2 15
+#X obj 514 412 cnv 15 100 30 empty 1356|4-filename AIRR_5.wav 2 15
 0 6 -158848 -83269 0;
-#X obj 528 160 tgl 18 0 foosnd 1356|4-loop-active L 4 9 0 6 -233017
+#X obj 528 160 tgl 18 0 foosnd 1356|4-loop-active L 4 9 0 6 -260818
 -233017 -1 0 1;
 #X obj 555 162 hradio 15 1 0 3 foosnd 1356|4-input-track IN_MP_SP 0
--6 0 5 -158848 -83269 -1 0;
+-6 0 5 -158848 -83269 -1 1;
 #X obj 592 387 tgl 19 0 1356|4-mute-sender 1356|4-mute M 5 10 0 7 -24198
 -24198 -1 0 1;
 #X obj 589 0 tgl 20 0 1356|4-prelisten-sender 1356|4-prelisten >) 3
@@ -945,7 +956,7 @@ empty 0 -9 0 10 -262144 -1 -1 11900 0;
 #X obj 549 45 tgl 11 0 1356|4-inbound-sender 1356|4-inbound-diode-M
 empty 17 7 0 8 -24198 -24198 -1 0 1;
 #X obj 522 255 vsl 9 120 0 1 0 0 foosnd 1356|4-fader-state empty 0
--9 0 10 -225280 -1 -1 11900 1;
+-9 0 10 -225280 -1 -1 23800 1;
 #X obj 537 188 hsl 64 8 0 1 0 0 foosnd 1356|4-pan-state empty -2 -8
 0 10 -225280 -1 -1 5400 1;
 #X obj 575 389 tgl 15 0 1356|4-solo-sender 1356|4-solo S 4 8 0 5 -228992
@@ -967,21 +978,21 @@ empty -2 -8 0 10 -262144 -1 -1 7200 0;
 #X floatatom 634 382 5 0 0 0 - 1454|5-fader-state foosnd;
 #X floatatom 634 221 5 0 0 0 - 1454|5-pan-stateN foosnd;
 #X obj 641 255 vsl 18 120 0 1 0 0 1454|5-fader-state-sender 1454|5-fader-state-sender-rec
-empty 0 -9 0 10 -262144 -1 -1 11900 0;
-#X obj 614 445 cnv 15 100 30 empty 1454|5-time-remaining empty 12 15
-0 7 -480 -262130 0;
+empty 0 -9 0 10 -262144 -1 -1 16400 0;
+#X obj 614 445 cnv 15 100 30 empty 1454|5-time-remaining 0:00:12.5
+12 15 0 7 -7297 -262130 0;
 #X obj 663 255 vu 10 120 1454|5-vu-l empty -1 -8 0 10 -66577 -1 0 0
 ;
 #X obj 676 255 vu 10 120 1454|5-vu-r empty -1 -8 0 4 -66577 -1 1 0
 ;
 #X obj 645 62 vu 8 80 1454|5-svu-l empty -1 -8 0 4 -159808 -1 0 0;
 #X obj 656 62 vu 8 80 1454|5-svu-r empty -1 -8 0 4 -159808 -1 1 0;
-#X obj 614 412 cnv 15 100 30 empty 1454|5-filename five_[9+10] 2 15
+#X obj 614 412 cnv 15 100 30 empty 1454|5-filename AIRR_5.wav 2 15
 0 6 -203904 -83269 0;
-#X obj 628 160 tgl 18 0 foosnd 1454|5-loop-active L 4 9 0 6 -233017
+#X obj 628 160 tgl 18 0 foosnd 1454|5-loop-active L 4 9 0 6 -260818
 -233017 -1 0 1;
 #X obj 655 162 hradio 15 1 0 3 foosnd 1454|5-input-track IN_MP_SP 0
--6 0 5 -203904 -83269 -1 0;
+-6 0 5 -203904 -83269 -1 1;
 #X obj 692 387 tgl 19 0 1454|5-mute-sender 1454|5-mute M 5 10 0 7 -24198
 -24198 -1 0 1;
 #X obj 689 0 tgl 20 0 1454|5-prelisten-sender 1454|5-prelisten >) 3
@@ -996,7 +1007,7 @@ empty 0 -9 0 10 -262144 -1 -1 11900 0;
 #X obj 649 45 tgl 11 0 1454|5-inbound-sender 1454|5-inbound-diode-M
 empty 17 7 0 8 -24198 -24198 -1 0 1;
 #X obj 622 255 vsl 9 120 0 1 0 0 foosnd 1454|5-fader-state empty 0
--9 0 10 -225280 -1 -1 11900 1;
+-9 0 10 -225280 -1 -1 16400 1;
 #X obj 637 188 hsl 64 8 0 1 0 0 foosnd 1454|5-pan-state empty -2 -8
 0 10 -225280 -1 -1 7200 1;
 #X obj 675 389 tgl 15 0 1454|5-solo-sender 1454|5-solo S 4 8 0 5 -228992
@@ -1014,42 +1025,42 @@ empty 0 -9 0 10 -228992 -1 -1 0 0;
 #X obj 779 222 tgl 15 0 foosnd 1552|6-pan-rf empty 17 7 0 10 -158848
 -1 -1 1 1;
 #X obj 737 202 hsl 64 15 0 1 0 0 1552|6-pan-state-sender 1552|6-pan-state-sender-rec
-empty -2 -8 0 10 -258699 -1 -1 9000 0;
+empty -2 -8 0 10 -262144 -1 -1 9000 0;
 #X floatatom 734 382 5 0 0 0 - 1552|6-fader-state foosnd;
 #X floatatom 734 221 5 0 0 0 - 1552|6-pan-stateN foosnd;
 #X obj 741 255 vsl 18 120 0 1 0 0 1552|6-fader-state-sender 1552|6-fader-state-sender-rec
-empty 0 -9 0 10 -262144 -1 -1 11900 0;
-#X obj 714 445 cnv 15 100 30 empty 1552|6-time-remaining empty 12 15
-0 7 -1760 -262130 0;
+empty 0 -9 0 10 -262144 -1 -1 23800 0;
+#X obj 714 445 cnv 15 100 30 empty 1552|6-time-remaining 0:00:29.4
+12 15 0 7 -7297 -262130 0;
 #X obj 763 255 vu 10 120 1552|6-vu-l empty -1 -8 0 10 -66577 -1 0 0
 ;
 #X obj 776 255 vu 10 120 1552|6-vu-r empty -1 -8 0 4 -66577 -1 1 0
 ;
 #X obj 745 62 vu 8 80 1552|6-svu-l empty -1 -8 0 4 -159808 -1 0 0;
 #X obj 756 62 vu 8 80 1552|6-svu-r empty -1 -8 0 4 -159808 -1 1 0;
-#X obj 714 412 cnv 15 100 30 empty 1552|6-filename six_[11+12] 2 15
+#X obj 714 412 cnv 15 100 30 empty 1552|6-filename AIRR_153.wav 2 15
 0 6 -158848 -83269 0;
-#X obj 728 160 tgl 18 0 foosnd 1552|6-loop-active L 4 9 0 6 -233017
+#X obj 728 160 tgl 18 0 foosnd 1552|6-loop-active L 4 9 0 6 -260818
 -233017 -1 0 1;
 #X obj 755 162 hradio 15 1 0 3 foosnd 1552|6-input-track IN_MP_SP 0
--6 0 5 -158848 -83269 -1 0;
+-6 0 5 -158848 -83269 -1 1;
 #X obj 792 387 tgl 19 0 1552|6-mute-sender 1552|6-mute M 5 10 0 7 -24198
 -24198 -1 0 1;
 #X obj 789 0 tgl 20 0 1552|6-prelisten-sender 1552|6-prelisten >) 3
 9 0 6 -258699 -258699 -1 0 1;
 #X floatatom 783 20 4 0 1 0 > 1552|6-prelisten-level foosnd;
-#X obj 718 202 tgl 14 0 foosnd 1552|6-pan-enabled-diode ST 1 7 0 5
--258699 -258699 -1 0 1;
+#X obj 718 202 tgl 14 0 foosnd 1552|6-pan-enabled-diode MO 1 7 0 5
+-24198 -24198 -1 0 1;
 #X obj 739 48 tgl 8 0 foosnd 1552|6-inbound-diodes-S empty 17 7 0 8
--24198 -24198 -1 0 1;
+-262144 -262144 -1 0 1;
 #X obj 762 48 tgl 8 0 foosnd 1552|6-inbound-diodes-S empty 14 5 0 8
--24198 -24198 -1 0 1;
+-262144 -262144 -1 0 1;
 #X obj 749 45 tgl 11 0 1552|6-inbound-sender 1552|6-inbound-diode-M
-empty 17 7 0 8 -262144 -262144 -1 0 1;
+empty 17 7 0 8 -24198 -24198 -1 0 1;
 #X obj 722 255 vsl 9 120 0 1 0 0 foosnd 1552|6-fader-state empty 0
--9 0 10 -225280 -1 -1 11900 1;
+-9 0 10 -225280 -1 -1 23800 1;
 #X obj 737 188 hsl 64 8 0 1 0 0 foosnd 1552|6-pan-state empty -2 -8
-0 10 -258699 -1 -1 9000 1;
+0 10 -225280 -1 -1 9000 1;
 #X obj 775 389 tgl 15 0 1552|6-solo-sender 1552|6-solo S 4 8 0 5 -228992
 -228992 -1 0 1;
 #X obj 798 39 tgl 15 0 1552|6-presolo-sender 1552|6-presolo PS 1 8
@@ -1065,42 +1076,42 @@ empty 0 -9 0 10 -228992 -1 -1 0 0;
 #X obj 879 222 tgl 15 0 foosnd 1650|7-pan-rf empty 17 7 0 10 -203904
 -1 -1 1 1;
 #X obj 837 202 hsl 64 15 0 1 0 0 1650|7-pan-state-sender 1650|7-pan-state-sender-rec
-empty -2 -8 0 10 -262144 -1 -1 10800 0;
+empty -2 -8 0 10 -258699 -1 -1 10800 0;
 #X floatatom 834 382 5 0 0 0 - 1650|7-fader-state foosnd;
 #X floatatom 834 221 5 0 0 0 - 1650|7-pan-stateN foosnd;
 #X obj 841 255 vsl 18 120 0 1 0 0 1650|7-fader-state-sender 1650|7-fader-state-sender-rec
-empty 0 -9 0 10 -262144 -1 -1 11900 0;
-#X obj 814 445 cnv 15 100 30 empty 1650|7-time-remaining empty 12 15
-0 7 -480 -262130 0;
+empty 0 -9 0 10 -262144 -1 -1 23800 0;
+#X obj 814 445 cnv 15 100 30 empty 1650|7-time-remaining 0:00:00.4
+12 15 0 7 -7297 -262130 0;
 #X obj 863 255 vu 10 120 1650|7-vu-l empty -1 -8 0 10 -66577 -1 0 0
 ;
 #X obj 876 255 vu 10 120 1650|7-vu-r empty -1 -8 0 4 -66577 -1 1 0
 ;
 #X obj 845 62 vu 8 80 1650|7-svu-l empty -1 -8 0 4 -159808 -1 0 0;
 #X obj 856 62 vu 8 80 1650|7-svu-r empty -1 -8 0 4 -159808 -1 1 0;
-#X obj 814 412 cnv 15 100 30 empty 1650|7-filename seven_[13+14] 2
-15 0 6 -203904 -83269 0;
-#X obj 828 160 tgl 18 0 foosnd 1650|7-loop-active L 4 9 0 6 -233017
+#X obj 814 412 cnv 15 100 30 empty 1650|7-filename AIRR_214.wav 2 15
+0 6 -203904 -83269 0;
+#X obj 828 160 tgl 18 0 foosnd 1650|7-loop-active L 4 9 0 6 -260818
 -233017 -1 0 1;
 #X obj 855 162 hradio 15 1 0 3 foosnd 1650|7-input-track IN_MP_SP 0
--6 0 5 -203904 -83269 -1 0;
+-6 0 5 -203904 -83269 -1 2;
 #X obj 892 387 tgl 19 0 1650|7-mute-sender 1650|7-mute M 5 10 0 7 -24198
 -24198 -1 0 1;
 #X obj 889 0 tgl 20 0 1650|7-prelisten-sender 1650|7-prelisten >) 3
 9 0 6 -258699 -258699 -1 0 1;
 #X floatatom 883 20 4 0 1 0 > 1650|7-prelisten-level foosnd;
-#X obj 818 202 tgl 14 0 foosnd 1650|7-pan-enabled-diode MO 1 7 0 5
--24198 -24198 -1 0 1;
+#X obj 818 202 tgl 14 0 foosnd 1650|7-pan-enabled-diode ST 1 7 0 5
+-258699 -258699 -1 0 1;
 #X obj 839 48 tgl 8 0 foosnd 1650|7-inbound-diodes-S empty 17 7 0 8
--262144 -262144 -1 0 1;
+-24198 -24198 -1 0 1;
 #X obj 862 48 tgl 8 0 foosnd 1650|7-inbound-diodes-S empty 14 5 0 8
--262144 -262144 -1 0 1;
+-24198 -24198 -1 0 1;
 #X obj 849 45 tgl 11 0 1650|7-inbound-sender 1650|7-inbound-diode-M
-empty 17 7 0 8 -24198 -24198 -1 0 1;
+empty 17 7 0 8 -262144 -262144 -1 0 1;
 #X obj 822 255 vsl 9 120 0 1 0 0 foosnd 1650|7-fader-state empty 0
--9 0 10 -225280 -1 -1 11900 1;
+-9 0 10 -225280 -1 -1 23800 1;
 #X obj 837 188 hsl 64 8 0 1 0 0 foosnd 1650|7-pan-state empty -2 -8
-0 10 -225280 -1 -1 10800 1;
+0 10 -258699 -1 -1 10800 1;
 #X obj 875 389 tgl 15 0 1650|7-solo-sender 1650|7-solo S 4 8 0 5 -228992
 -228992 -1 0 1;
 #X obj 898 39 tgl 15 0 1650|7-presolo-sender 1650|7-presolo PS 1 8
@@ -1120,21 +1131,21 @@ empty -2 -8 0 10 -258699 -1 -1 12600 0;
 #X floatatom 934 382 5 0 0 0 - 1748|8-fader-state foosnd;
 #X floatatom 934 221 5 0 0 0 - 1748|8-pan-stateN foosnd;
 #X obj 941 255 vsl 18 120 0 1 0 0 1748|8-fader-state-sender 1748|8-fader-state-sender-rec
-empty 0 -9 0 10 -262144 -1 -1 11900 0;
-#X obj 914 445 cnv 15 100 30 empty 1748|8-time-remaining empty 12 15
-0 7 -1760 -262130 0;
+empty 0 -9 0 10 -262144 -1 -1 23800 0;
+#X obj 914 445 cnv 15 100 30 empty 1748|8-time-remaining 0:00:00.4
+12 15 0 7 -7297 -262130 0;
 #X obj 963 255 vu 10 120 1748|8-vu-l empty -1 -8 0 10 -66577 -1 0 0
 ;
 #X obj 976 255 vu 10 120 1748|8-vu-r empty -1 -8 0 4 -66577 -1 1 0
 ;
 #X obj 945 62 vu 8 80 1748|8-svu-l empty -1 -8 0 4 -159808 -1 0 0;
 #X obj 956 62 vu 8 80 1748|8-svu-r empty -1 -8 0 4 -159808 -1 1 0;
-#X obj 914 412 cnv 15 100 30 empty 1748|8-filename eight_[15+16] 2
-15 0 6 -158848 -83269 0;
-#X obj 928 160 tgl 18 0 foosnd 1748|8-loop-active L 4 9 0 6 -233017
+#X obj 914 412 cnv 15 100 30 empty 1748|8-filename AIRR_214.wav 2 15
+0 6 -158848 -83269 0;
+#X obj 928 160 tgl 18 0 foosnd 1748|8-loop-active L 4 9 0 6 -260818
 -233017 -1 0 1;
 #X obj 955 162 hradio 15 1 0 3 foosnd 1748|8-input-track IN_MP_SP 0
--6 0 5 -158848 -83269 -1 0;
+-6 0 5 -158848 -83269 -1 2;
 #X obj 992 387 tgl 19 0 1748|8-mute-sender 1748|8-mute M 5 10 0 7 -24198
 -24198 -1 0 1;
 #X obj 989 0 tgl 20 0 1748|8-prelisten-sender 1748|8-prelisten >) 3
@@ -1149,7 +1160,7 @@ empty 0 -9 0 10 -262144 -1 -1 11900 0;
 #X obj 949 45 tgl 11 0 1748|8-inbound-sender 1748|8-inbound-diode-M
 empty 17 7 0 8 -262144 -262144 -1 0 1;
 #X obj 922 255 vsl 9 120 0 1 0 0 foosnd 1748|8-fader-state empty 0
--9 0 10 -225280 -1 -1 11900 1;
+-9 0 10 -225280 -1 -1 23800 1;
 #X obj 937 188 hsl 64 8 0 1 0 0 foosnd 1748|8-pan-state empty -2 -8
 0 10 -258699 -1 -1 12600 1;
 #X obj 975 389 tgl 15 0 1748|8-solo-sender 1748|8-solo S 4 8 0 5 -228992
@@ -1166,6 +1177,8 @@ empty 0 -9 0 10 -228992 -1 -1 0 0;
 12 0 6 -216697 -66577 0;
 #X obj 1020 80 cnv 8 500 550 empty \$0|HUMANSTATE human_input 6 12
 0 6 -216697 -66577 0;
+#X obj 1020 120 cnv 8 500 550 empty \$0|AUTOSAVESTATE autosave_off
+6 12 0 6 -216697 -66577 0;
 #X obj 562 480 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
 0;
 #X obj 676 480 cnv 10 1 1 empty empty CoreMixer 8 12 2 15 -262144 -66577
@@ -1178,7 +1191,7 @@ empty 0 -9 0 10 -228992 -1 -1 0 0;
 #X obj 464 49 \$2;
 #X obj 281 657 print CMPRECLONE;
 #X obj 447 218 select airmix;
-#N canvas 0 180 3840 1980 \$0-MONITORING-HEARTBEAT 0;
+#N canvas 61 519 2880 1453 \$0-MONITORING-HEARTBEAT 0;
 #X obj 81 149 s __HEARTBEAT;
 #X obj 28 29 r \$0|hbswitch;
 #X obj 142 32 r \$0|hbtime;
@@ -1191,9 +1204,9 @@ empty 0 -9 0 10 -228992 -1 -1 0 0;
 #X connect 4 0 5 0;
 #X connect 5 0 0 0;
 #X restore 695 463 pd \$0-MONITORING-HEARTBEAT;
-#N canvas 305 378 2433 834 \$0-ROUTE-EARLY 0;
+#N canvas 1038 225 2433 834 \$0-ROUTE-EARLY 0;
 #X obj 45 12 inlet;
-#X text 975 190 send forth;
+#X text 1036 187 send forth;
 #N canvas 61 726 1685 1296 \$0-CLIENT-INIT-SIG 0;
 #X obj 60 47 inlet;
 #X text 11 7 handle client init request;
@@ -1257,23 +1270,21 @@ and when requested by client;
 #X connect 16 0 3 0;
 #X connect 18 0 12 0;
 #X restore 45 191 pd \$0-CLIENT-INIT-SIG;
-#X obj 979 212 t a a;
-#X obj 1011 318 outlet;
-#X obj 946 98 cnv 15 16 300 empty empty empty 20 12 0 14 -261234 -66577
+#X obj 1040 209 t a a;
+#X obj 1072 315 outlet;
+#X obj 1007 95 cnv 15 16 300 empty empty empty 20 12 0 14 -261234 -66577
 0;
-#X text 366 -7 all globals that SHOULD NOT BE BROADCAST VIA the general
+#X text 374 22 all globals that SHOULD NOT BE BROADCAST VIA the general
 OSC request tactics SHOULD GET STUCK HERE |, f 33;
 #X obj 116 36 print ---ROUTE_EARLY;
 #X obj 403 334 list;
-#X obj 979 359 s \$0|request;
+#X obj 1040 356 s \$0|request;
 #N canvas 1664 180 1998 1279 \$0-SETMODE 0;
 #X obj 73 23 inlet;
-#X text 146 18 set monitoring mode (mirror \, auto \, coarse);
-#X obj 71 85 route m mirror a auto c coarse;
 #X obj 133 245 value x\$0_MONMODE;
-#X msg 89 148 0;
-#X msg 137 149 1;
-#X msg 180 149 2;
+#X msg 84 136 0;
+#X msg 137 133 1;
+#X msg 187 133 2;
 #X text 104 400 mirror;
 #X text 311 397 auto;
 #X text 540 397 coarse;
@@ -1284,7 +1295,7 @@ OSC request tactics SHOULD GET STUCK HERE |, f 33;
 #X obj 178 221 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X floatatom 129 281 5 0 0 0 - - -;
-#X obj 327 146 s x\$0_REMEMBER_MM;
+#X obj 273 203 s x\$0_REMEMBER_MM;
 #X msg 65 326 \; __OPENTAC|SNAP 1 \; __OPENTAC|REQ 0 \; __OPENTAC|CNT
 1 \;, f 26;
 #X msg 275 323 \; __OPENTAC|SNAP 0 \; __OPENTAC|REQ 1 \; __OPENTAC|CNT
@@ -1294,33 +1305,48 @@ OSC request tactics SHOULD GET STUCK HERE |, f 33;
 #X obj 65 253 t b b;
 #X obj 274 253 t b b;
 #X obj 490 251 t b b;
-#X connect 0 0 2 0;
-#X connect 2 0 4 0;
-#X connect 2 1 4 0;
-#X connect 2 2 5 0;
-#X connect 2 3 5 0;
-#X connect 2 4 6 0;
-#X connect 2 5 6 0;
-#X connect 3 0 15 0;
-#X connect 4 0 3 0;
-#X connect 4 0 16 0;
+#X msg 721 318 \; __OPENTAC|SNAP 0 \; __OPENTAC|REQ 0 \; __OPENTAC|CNT
+0 \;, f 26;
+#X text 754 392 off;
+#X obj 71 85 route m mirror a auto c coarse off;
+#X msg 254 131 3;
+#X obj 720 252 t b b;
+#X msg 452 486 off;
+#X text 151 21 set monitoring mode (mirror \, auto \, coarse \, off)
+;
+#X connect 0 0 23 0;
+#X connect 1 0 13 0;
+#X connect 2 0 1 0;
+#X connect 2 0 14 0;
+#X connect 2 0 18 0;
+#X connect 3 0 1 0;
+#X connect 3 0 14 0;
+#X connect 3 0 19 0;
+#X connect 4 0 1 0;
+#X connect 4 0 14 0;
 #X connect 4 0 20 0;
-#X connect 5 0 3 0;
-#X connect 5 0 16 0;
-#X connect 5 0 21 0;
-#X connect 6 0 3 0;
-#X connect 6 0 16 0;
-#X connect 6 0 22 0;
-#X connect 11 0 10 0;
-#X connect 12 0 10 0;
-#X connect 13 0 10 0;
-#X connect 14 0 3 0;
+#X connect 9 0 8 0;
+#X connect 10 0 8 0;
+#X connect 11 0 8 0;
+#X connect 12 0 1 0;
+#X connect 18 0 15 0;
+#X connect 18 1 9 0;
+#X connect 19 0 16 0;
+#X connect 19 1 10 0;
 #X connect 20 0 17 0;
 #X connect 20 1 11 0;
-#X connect 21 0 18 0;
-#X connect 21 1 12 0;
-#X connect 22 0 19 0;
-#X connect 22 1 13 0;
+#X connect 23 0 2 0;
+#X connect 23 1 2 0;
+#X connect 23 2 3 0;
+#X connect 23 3 3 0;
+#X connect 23 4 4 0;
+#X connect 23 5 4 0;
+#X connect 23 6 24 0;
+#X connect 24 0 14 0;
+#X connect 24 0 25 0;
+#X connect 25 0 21 0;
+#X connect 25 1 26 0;
+#X connect 26 0 8 0;
 #X restore 106 236 pd \$0-SETMODE;
 #N canvas 917 180 1998 1279 \$0-LSMODE 0;
 #X obj 73 23 inlet;
@@ -1575,7 +1601,7 @@ setsolo setpresolo, f 77;
 #X connect 52 7 26 0;
 #X connect 53 0 17 0;
 #X connect 53 1 18 0;
-#X restore 848 262 pd \$0-PREPROC_GLOBAL_LOCAL;
+#X restore 987 281 pd \$0-PREPROC_GLOBAL_LOCAL;
 #X text 111 389 all MUTE \, m \, um \, unmute and stuff should be trapped
 here and then converted to setmute <bool> and broadcast as such. from
 here on \, just plain boolean exists \, also in console etc...;
@@ -1637,7 +1663,7 @@ here on \, just plain boolean exists \, also in console etc...;
 #X connect 14 1 13 0;
 #X connect 15 0 5 0;
 #X connect 15 1 12 0;
-#X restore 979 94 pd \$0-PRE_SOLO-COUNT;
+#X restore 1040 91 pd \$0-PRE_SOLO-COUNT;
 #N canvas 257 180 1536 892 \$0-console-alive 0;
 #X obj 41 28 inlet;
 #X obj 41 82 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
@@ -1657,7 +1683,7 @@ here on \, just plain boolean exists \, also in console etc...;
 #X connect 5 0 3 0;
 #X connect 6 0 7 0;
 #X connect 7 0 8 0;
-#X restore 495 82 pd \$0-console-alive;
+#X restore 452 161 pd \$0-console-alive;
 #X obj 600 164 s \$0-RESET;
 #X text 629 294 reset storage params, f 10;
 #N canvas 2099 275 1588 1115 \$0-fadertype 0;
@@ -1699,13 +1725,41 @@ here on \, just plain boolean exists \, also in console etc...;
 #X connect 15 2 10 0;
 #X connect 15 3 14 0;
 #X restore 663 244 pd \$0-fadertype;
-#X obj 45 129 route cinit setmode lsmode crefresh lstracks latency
-latencystop conalive alivesig reset fadertype human nonhuman, f 115
-;
 #X msg 772 164 1;
 #X msg 713 164 0;
 #X obj 711 197 s __NONHUMAN;
-#X connect 0 0 26 0;
+#X obj 45 129 route cinit setmode lsmode crefresh lstracks latency
+latencystop conalive alivesig reset fadertype human nonhuman autosave
+noautosave, f 135;
+#N canvas 714 759 1566 1731 \$0-AUTOSAVE 0;
+#X obj 39 29 inlet;
+#X obj 130 28 inlet;
+#X obj 79 145 s \$0-PERFORM-AUTOSAVE;
+#X msg 60 90 1;
+#X msg 131 93 0;
+#X text 190 69 control autosave spigot;
+#X obj 48 64 bang;
+#X obj 127 62 bang;
+#X obj 221 275 s \$0|ASMETRO;
+#X msg 196 211 color 13 13 13;
+#X msg 321 212 color 10 0 5;
+#X obj 41 374 s \$0|AUTOSAVESTATE;
+#X msg 39 332 label autosave_on;
+#X msg 193 333 label autosave_off;
+#X connect 0 0 6 0;
+#X connect 1 0 7 0;
+#X connect 3 0 2 0;
+#X connect 3 0 12 0;
+#X connect 4 0 2 0;
+#X connect 4 0 13 0;
+#X connect 6 0 3 0;
+#X connect 7 0 4 0;
+#X connect 9 0 8 0;
+#X connect 10 0 8 0;
+#X connect 12 0 11 0;
+#X connect 13 0 11 0;
+#X restore 854 178 pd \$0-AUTOSAVE;
+#X connect 0 0 29 0;
 #X connect 3 0 9 0;
 #X connect 3 1 4 0;
 #X connect 8 0 3 0;
@@ -1717,27 +1771,29 @@ latencystop conalive alivesig reset fadertype human nonhuman, f 115
 #X connect 21 0 3 0;
 #X connect 21 1 3 0;
 #X connect 25 0 8 0;
-#X connect 26 0 2 0;
-#X connect 26 1 10 0;
-#X connect 26 2 11 0;
-#X connect 26 3 14 0;
-#X connect 26 4 15 0;
-#X connect 26 5 18 0;
-#X connect 26 6 19 0;
-#X connect 26 7 22 0;
-#X connect 26 8 22 1;
-#X connect 26 9 23 0;
-#X connect 26 10 25 0;
-#X connect 26 11 28 0;
-#X connect 26 12 27 0;
-#X connect 26 13 12 0;
-#X connect 27 0 29 0;
-#X connect 28 0 29 0;
+#X connect 26 0 28 0;
+#X connect 27 0 28 0;
+#X connect 29 0 2 0;
+#X connect 29 1 10 0;
+#X connect 29 2 11 0;
+#X connect 29 3 14 0;
+#X connect 29 4 15 0;
+#X connect 29 5 18 0;
+#X connect 29 6 19 0;
+#X connect 29 7 22 0;
+#X connect 29 8 22 1;
+#X connect 29 9 23 0;
+#X connect 29 10 25 0;
+#X connect 29 11 27 0;
+#X connect 29 12 26 0;
+#X connect 29 13 30 0;
+#X connect 29 14 30 1;
+#X connect 29 15 12 0;
 #X restore 448 321 pd \$0-ROUTE-EARLY;
 #X obj 447 291 list trim;
-#N canvas 456 432 2880 1453 \$0-REMEMBER-MONITORING-MODE 0;
+#N canvas 456 180 2880 1453 \$0-REMEMBER-MONITORING-MODE 0;
 #X obj 39 9 inlet;
-#N canvas 63 180 1087 908 \$0-AIR-MMODE 0;
+#N canvas 895 444 1087 908 \$0-AIR-MMODE 0;
 #X obj 73 22 inlet;
 #X obj 323 24 inlet;
 #X obj 293 186 outlet;
@@ -1758,9 +1814,8 @@ latencystop conalive alivesig reset fadertype human nonhuman, f 115
 #X connect 8 1 5 0;
 #X restore 40 118 pd \$0-AIR-MMODE;
 #X obj 37 224 value x\$0_MONMODE;
-#X msg 161 119 float 1;
+#X msg 161 119 float 3;
 #X obj 39 174 t f f;
-#X obj 396 91 sel 0 1 2;
 #X msg 699 175 \; __OPENTAC|SNAP 0 \; __OPENTAC|REQ 0 \; __OPENTAC|CNT
 1 \;, f 26;
 #X msg 481 176 \; __OPENTAC|SNAP 0 \; __OPENTAC|REQ 1 \; __OPENTAC|CNT
@@ -1770,22 +1825,26 @@ latencystop conalive alivesig reset fadertype human nonhuman, f 115
 #X obj 31 78 metro 2000;
 #X obj 37 36 t b b;
 #X text 109 69 keep posting to avoid breakups, f 19;
-#X connect 0 0 10 0;
+#X msg 932 171 \; __OPENTAC|SNAP 0 \; __OPENTAC|REQ 0 \; __OPENTAC|CNT
+0 \;, f 26;
+#X obj 396 91 sel 0 1 2 3;
+#X connect 0 0 9 0;
 #X connect 1 0 4 0;
 #X connect 1 1 3 0;
 #X connect 3 0 1 1;
-#X connect 4 0 5 0;
+#X connect 4 0 12 0;
 #X connect 4 1 2 0;
-#X connect 5 0 8 0;
-#X connect 5 1 7 0;
-#X connect 5 2 6 0;
-#X connect 9 0 1 0;
-#X connect 10 0 9 0;
-#X connect 10 1 1 0;
+#X connect 8 0 1 0;
+#X connect 9 0 8 0;
+#X connect 9 1 1 0;
+#X connect 12 0 7 0;
+#X connect 12 1 6 0;
+#X connect 12 2 5 0;
+#X connect 12 3 11 0;
 #X restore 766 137 pd \$0-REMEMBER-MONITORING-MODE;
 #X obj 765 112 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#N canvas 91 556 2040 941 \$0-ROUTE-SYSCOM 0;
+#N canvas 84 674 2040 941 \$0-ROUTE-SYSCOM 0;
 #X obj 33 24 inlet;
 #X obj 167 252 outlet;
 #N canvas 882 661 1896 973 \$0-CHANGE-DIR 0;
@@ -1901,7 +1960,7 @@ block not to get further into the airmix-core digestion system;
 #X connect 17 1 16 0;
 #X connect 17 2 3 0;
 #X restore 448 349 pd \$0-ROUTE-SYSCOM;
-#N canvas 474 422 2818 1190 \$0-CATCH-ALIAS 0;
+#N canvas 474 257 2818 1190 \$0-CATCH-ALIAS 0;
 #X obj 812 372 outlet;
 #X obj 89 371 outlet;
 #X obj 34 10 inlet;
@@ -2098,37 +2157,51 @@ globepan even odd mono stereo, f 86;
 #X obj 634 80 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X text 663 973 prelisten bus;
-#N canvas 1150 180 984 919 \$0-PREMUTE_PRELEVEL_MUTE_CH_MASTER_INIT
-0;
-#X obj 47 21 inlet;
+#N canvas 2570 180 984 919 \$0-PREMUTE_PRELEVEL_MUTE_CH_MASTER_INIT
+1;
+#X obj 43 10 inlet;
 #X obj 48 238 outlet;
 #X msg 167 249 list all setmute 0;
 #X msg 159 286 list master setmute 0;
 #X msg 47 120 list all setpremute 1;
-#X msg 76 149 list all setprelevel 1;
-#X msg 304 114 list all mono;
-#X msg 305 151 centerpan;
-#X msg 303 201 list alivesig start;
-#X obj 43 75 t b b b b b b b b b;
-#X msg 375 271 human;
-#X connect 0 0 9 0;
+#X msg 259 121 list all mono;
+#X msg 246 206 list alivesig start;
+#X msg 95 327 list noautosave;
+#X obj 103 29 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 375 271 list human;
+#X msg 76 149 list all setprelevel 0;
+#X msg 305 151 list globepan;
+#X msg 286 51 list all fader 0;
+#X msg 333 339 list master fader 0.7;
+#X obj 42 75 t b b b b b b b b b b b b;
+#X obj 42 44 del 800;
+#X connect 0 0 15 0;
 #X connect 2 0 1 0;
 #X connect 3 0 1 0;
 #X connect 4 0 1 0;
 #X connect 5 0 1 0;
 #X connect 6 0 1 0;
 #X connect 7 0 1 0;
-#X connect 8 0 1 0;
-#X connect 9 0 4 0;
-#X connect 9 1 5 0;
-#X connect 9 2 2 0;
-#X connect 9 3 3 0;
-#X connect 9 4 7 0;
-#X connect 9 5 6 0;
-#X connect 9 7 8 0;
-#X connect 9 8 10 0;
+#X connect 8 0 14 0;
+#X connect 9 0 1 0;
 #X connect 10 0 1 0;
-#X restore 739 167 pd \$0-PREMUTE_PRELEVEL_MUTE_CH_MASTER_INIT;
+#X connect 11 0 1 0;
+#X connect 12 0 1 0;
+#X connect 13 0 1 0;
+#X connect 14 0 4 0;
+#X connect 14 1 10 0;
+#X connect 14 2 2 0;
+#X connect 14 3 3 0;
+#X connect 14 4 11 0;
+#X connect 14 5 5 0;
+#X connect 14 7 6 0;
+#X connect 14 8 9 0;
+#X connect 14 9 7 0;
+#X connect 14 10 12 0;
+#X connect 14 11 13 0;
+#X connect 15 0 14 0;
+#X restore 731 178 pd \$0-PREMUTE_PRELEVEL_MUTE_CH_MASTER_INIT;
 #X obj 690 137 t b b b b;
 #X obj 1087 163 cnv 15 120 30 empty empty CONSOLE_SYNC 0 12 0 8 -232576
 -66577 0;
@@ -2237,7 +2310,7 @@ track: (2*n+5), f 28;
 #X connect 7 0 1 0;
 #X connect 7 0 5 0;
 #X restore 1086 200 pd \$0-CSYNC-IN;
-#N canvas 659 445 1710 1035 \$0-CSYNC-TIMER 0;
+#N canvas 659 335 1710 1035 \$0-CSYNC-TIMER 0;
 #X obj 78 23 inlet~;
 #X obj 297 168 *~ 0;
 #X obj 80 241 bonk~;
@@ -2412,90 +2485,6 @@ connectors sync track (mono): (2*n+1), f 27;
 #X obj 279 349 print |@|srv_gate|@|;
 #X obj 1279 539 cnv 15 100 10 empty empty empty 20 12 0 14 -260097
 -66577 0;
-#N canvas 1614 180 2104 1392 \$0-PERSISTENT-STORAGE-ARRAYS 0;
-#N canvas 440 463 1963 885 \$0-manageAUTOSAVE 0;
-#X obj 262 313 outlet;
-#X obj 38 36 r \$0-RESET;
-#X msg 72 139 const 0;
-#X obj 38 68 t b b;
-#X obj 163 82 t b b b b;
-#X obj 685 389 s \$0-WAKEUP;
-#X obj 694 349 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 36 95 s \$0-WAKEUP;
-#X obj 106 58 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 156 272 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 164 13 inlet;
-#X obj 203 123 s \$0-WAKEUP;
-#X msg 268 37 set y;
-#X msg 269 69 y;
-#X text 441 -5 IMPORTANT: WAKEUP sig IS LOWER LEVEL SIG \, RESPONSIBLE
-FOR REFRESHING VALUES WHEN NEEDED. IT IS NOT NEEDED AT CLIENT BUT IT
-HAS TO REACH SERVER TRACKS;
-#X obj 130 27 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 164 55 del 500;
-#X obj 187 161 del 1000;
-#X msg 148 160 1;
-#X msg 153 133;
-#X obj 189 205 metro 3000;
-#X obj 189 276 del 1500;
-#X obj 123 318 s \$0-SAVE_NAMES;
-#X msg 353 168 read /var/air/data/mixer/state/autosave.txt, f 97;
-#X msg 350 119 read /home/gregor/audio/pd-projects/work/wavedata/air/settings/mixerstate/autosave.txt
-, f 88;
-#X msg 294 261 write /var/air/data/mixer/state/autosave.txt, f 88
-;
-#X msg 341 225 write /home/gregor/audio/pd-projects/work/wavedata/air/settings/mixerstate/autosave.txt
-, f 88;
-#X connect 1 0 3 0;
-#X connect 2 0 0 0;
-#X connect 3 0 7 0;
-#X connect 3 1 2 0;
-#X connect 4 1 17 0;
-#X connect 4 2 11 0;
-#X connect 4 3 23 0;
-#X connect 6 0 5 0;
-#X connect 8 0 4 0;
-#X connect 10 0 12 0;
-#X connect 10 0 15 0;
-#X connect 10 0 16 0;
-#X connect 12 0 13 0;
-#X connect 16 0 4 0;
-#X connect 17 0 20 0;
-#X connect 18 0 20 0;
-#X connect 19 0 20 0;
-#X connect 20 0 9 0;
-#X connect 20 0 21 0;
-#X connect 20 0 25 0;
-#X connect 21 0 22 0;
-#X connect 23 0 0 0;
-#X connect 25 0 0 0;
-#X restore 161 133 pd \$0-manageAUTOSAVE;
-#X obj 161 203 array define __autosave;
-#X msg 333 129 resize \$1;
-#X obj 339 5 loadbang;
-#X obj 490 86 array size __autosave;
-#X floatatom 489 120 5 0 0 0 - - -;
-#X text 396 231 1-10 MASTER;
-#X text 397 259 11-20 TRACK 1 21-30 TRACK 2 ...;
-#X obj 333 95 expr (\$1 + 1) * 10;
-#X obj 420 5 r \$0-REFRESHMIX;
-#X obj 555 5 r \$0-REFRESHCON;
-#X obj 300 54 t b b b;
-#X connect 0 0 1 0;
-#X connect 2 0 1 0;
-#X connect 3 0 11 0;
-#X connect 4 0 5 0;
-#X connect 8 0 2 0;
-#X connect 9 0 11 0;
-#X connect 10 0 11 0;
-#X connect 11 0 0 0;
-#X connect 11 1 8 0;
-#X connect 11 2 4 0;
-#X restore 1277 504 pd \$0-PERSISTENT-STORAGE-ARRAYS;
 #N canvas 1614 180 2198 1397 \$0-PERSIST-MASTER 0;
 #X obj 523 86 s \$0-WAKEUP;
 #X obj 520 44 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
@@ -2621,7 +2610,7 @@ client do render the missing 'set's on slider values, f 29;
 #X obj 239 166 route set;
 #X obj 634 142 r \$0|master-setmute-l-persist;
 #X obj 771 183 r \$0|master-setmute-r-persist;
-#N canvas 202 891 1185 910 \$0-STBfader 0;
+#N canvas 202 836 1185 910 \$0-STBfader 0;
 #X obj 53 56 inlet;
 #X obj 259 393 outlet;
 #X text 50 20 wire;
@@ -2681,7 +2670,7 @@ client do render the missing 'set's on slider values, f 29;
 #X connect 16 1 15 0;
 #X connect 17 0 2 0;
 #X connect 18 1 17 0;
-#X restore 1277 558 pd \$0-PERSIST-MASTER;
+#X restore 1277 564 pd \$0-PERSIST-MASTER;
 #X obj 980 522 s \$0-WAKEUP;
 #X obj 977 473 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
@@ -2703,7 +2692,7 @@ client do render the missing 'set's on slider values, f 29;
 #X text 792 643 for substraction \, master-prefader sig should be used
 \, because it's the real sum of all channels as they appear channel-postfader
 way.;
-#N canvas 1690 1082 1990 993 \$0-PERSISTENT-TRACKNAME-ARRAYS 0;
+#N canvas 1638 706 1990 993 \$0-PERSISTENT-TRACKNAME-ARRAYS 0;
 #X obj 260 114 r \$0-SAVE_NAMES;
 #X obj 134 210 text define __chname;
 #X msg 146 121 click;
@@ -2719,15 +2708,15 @@ way.;
 #X obj 85 294 del 300;
 #X obj 227 296 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X msg 193 51 read /var/air/data/mixer/state/autosave_chname.txt,
+#X msg 203 51 read /var/air/data/mixer/state/autosave_chname.txt,
 f 97;
-#X msg 260 149 write /var/air/data/mixer/state/autosave_chname.txt
+#X msg 309 256 write /home/gregor/audio/pd-projects/work/wavedata/air/settings/mixerstate/autosave_chname.txt
 , f 97;
-#X msg 259 183 write /home/gregor/audio/pd-projects/work/wavedata/air/settings/mixerstate/autosave_chname.txt
+#X msg 307 225 read /home/gregor/audio/pd-projects/work/wavedata/air/settings/mixerstate/autosave_chname.txt
 , f 97;
-#X msg 235 82 read /home/gregor/audio/pd-projects/work/wavedata/air/settings/mixerstate/autosave_chname.txt
+#X msg 260 150 write /var/air/data/mixer/state/autosave_chname.txt
 , f 97;
-#X connect 0 0 15 0;
+#X connect 0 0 17 0;
 #X connect 2 0 1 0;
 #X connect 3 0 1 0;
 #X connect 4 0 8 0;
@@ -2741,7 +2730,7 @@ f 97;
 #X connect 10 0 9 0;
 #X connect 12 0 10 0;
 #X connect 14 0 1 0;
-#X connect 15 0 1 0;
+#X connect 17 0 1 0;
 #X restore 1278 598 pd \$0-PERSISTENT-TRACKNAME-ARRAYS;
 #X obj 311 727 osc~ 440;
 #X text 882 848 map master to prelisten bus;
@@ -2875,7 +2864,7 @@ prelisten via prelisten, f 24;
 #X text 185 763 supermod 6DB : *2;
 #X text 179 781 supermod 12DB : *4;
 #X msg 111 587 vis 3 1;
-#N canvas 647 271 1394 1006 CHANGELOG 1;
+#N canvas 647 216 1394 1006 CHANGELOG 0;
 #X text 53 13 CHANGELOG;
 #X text 56 38 V1.1 => added auto- mode changer for play scheduler.
 mono playing automatically sets the engine into mono mode and vice
@@ -2890,24 +2879,103 @@ hold with larger files;
 0;
 #X text 58 273 V1.2 => added absolute paths with play \, loop etc (auto-recognized)
 ;
-#X text 62 315 V1.2 => removed display bug - after stop directive \,
-returning from play loop etc - (custom) track name won't show;
+#X text 55 311 V1.2 => removed track name display bug - after stop
+directive \, returning from play loop etc - (custom) track name won't
+show;
+#X obj 28 241 cnv 15 10 200 empty empty empty 20 12 0 14 -260097 -66577
+0;
 #X restore 810 29 pd CHANGELOG;
 #X obj 446 798 *~ 1.41;
 #X text 154 804 VU linear scale fitting : *1.41;
-#X floatatom 1616 468 5 0 0 0 - - -;
-#X floatatom 1616 547 20 0 0 0 - - -;
-#X msg 1554 467 0.7;
-#X obj 1616 510 dbtopow;
 #X obj 520 797 *~ 1.41;
 #X obj 575 875 osc~ 440;
+#N canvas 1253 180 2104 1392 \$0-PERSISTENT-STORAGE-ARRAYS 0;
+#N canvas 720 450 2087 1080 \$0-manageAUTOSAVE 0;
+#X obj 262 313 outlet;
+#X obj 38 36 r \$0-RESET;
+#X msg 72 139 const 0;
+#X obj 38 68 t b b;
+#X obj 163 82 t b b b b;
+#X obj 685 389 s \$0-WAKEUP;
+#X obj 694 349 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 36 95 s \$0-WAKEUP;
+#X obj 164 13 inlet;
+#X obj 203 123 s \$0-WAKEUP;
+#X msg 268 37 set y;
+#X msg 269 69 y;
+#X text 441 -5 IMPORTANT: WAKEUP sig IS LOWER LEVEL SIG \, RESPONSIBLE
+FOR REFRESHING VALUES WHEN NEEDED. IT IS NOT NEEDED AT CLIENT BUT IT
+HAS TO REACH SERVER TRACKS;
+#X obj 164 55 del 500;
+#X obj 187 161 del 1000;
+#X obj 123 318 s \$0-SAVE_NAMES;
+#X msg 353 168 read /var/air/data/mixer/state/autosave.txt, f 97;
+#X msg 328 441 read /home/gregor/audio/pd-projects/work/wavedata/air/settings/mixerstate/autosave.txt
+, f 88;
+#X msg 305 265 write /var/air/data/mixer/state/autosave.txt, f 88
+;
+#X msg 330 417 write /home/gregor/audio/pd-projects/work/wavedata/air/settings/mixerstate/autosave.txt
+, f 88;
+#X obj 344 84 r \$0-PERFORM-AUTOSAVE;
+#X obj 187 194 metro 4000;
+#X obj 188 277 del 2000;
+#X obj 39 355 s \$0|ASMETRO;
+#X obj 189 235 spigot;
+#X obj 375 132 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X connect 1 0 3 0;
+#X connect 2 0 0 0;
+#X connect 3 0 7 0;
+#X connect 3 1 2 0;
+#X connect 4 1 14 0;
+#X connect 4 2 9 0;
+#X connect 4 3 16 0;
+#X connect 6 0 5 0;
+#X connect 8 0 10 0;
+#X connect 8 0 13 0;
+#X connect 10 0 11 0;
+#X connect 13 0 4 0;
+#X connect 14 0 21 0;
+#X connect 16 0 0 0;
+#X connect 18 0 0 0;
+#X connect 20 0 24 1;
+#X connect 20 0 25 0;
+#X connect 21 0 24 0;
+#X connect 22 0 15 0;
+#X connect 24 0 22 0;
+#X connect 24 0 18 0;
+#X connect 24 0 23 0;
+#X restore 161 133 pd \$0-manageAUTOSAVE;
+#X obj 161 203 array define __autosave;
+#X msg 333 129 resize \$1;
+#X obj 339 5 loadbang;
+#X obj 490 86 array size __autosave;
+#X floatatom 489 120 5 0 0 0 - - -;
+#X text 396 231 1-10 MASTER;
+#X text 397 259 11-20 TRACK 1 21-30 TRACK 2 ...;
+#X obj 333 95 expr (\$1 + 1) * 10;
+#X obj 420 5 r \$0-REFRESHMIX;
+#X obj 555 5 r \$0-REFRESHCON;
+#X obj 300 54 t b b b;
+#X connect 0 0 1 0;
+#X connect 2 0 1 0;
+#X connect 3 0 11 0;
+#X connect 4 0 5 0;
+#X connect 8 0 2 0;
+#X connect 9 0 11 0;
+#X connect 10 0 11 0;
+#X connect 11 0 0 0;
+#X connect 11 1 8 0;
+#X connect 11 2 4 0;
+#X restore 1274 508 pd \$0-PERSISTENT-STORAGE-ARRAYS;
 #X connect 0 0 49 0;
 #X connect 1 0 5 0;
 #X connect 2 0 23 0;
 #X connect 4 0 32 0;
 #X connect 4 0 45 0;
 #X connect 4 1 9 1;
-#X connect 5 0 97 0;
+#X connect 5 0 96 0;
 #X connect 6 0 14 0;
 #X connect 6 1 10 1;
 #X connect 7 0 10 0;
@@ -2915,13 +2983,13 @@ returning from play loop etc - (custom) track name won't show;
 #X connect 9 0 35 0;
 #X connect 10 0 8 0;
 #X connect 14 0 39 0;
-#X connect 14 0 95 0;
+#X connect 14 0 94 0;
 #X connect 14 1 7 0;
-#X connect 14 1 96 0;
+#X connect 14 1 95 0;
 #X connect 17 0 40 0;
 #X connect 18 0 41 0;
-#X connect 22 0 106 0;
-#X connect 22 1 112 0;
+#X connect 22 0 105 0;
+#X connect 22 1 107 0;
 #X connect 23 0 4 0;
 #X connect 25 0 76 0;
 #X connect 27 0 25 0;
@@ -2940,20 +3008,20 @@ returning from play loop etc - (custom) track name won't show;
 #X connect 39 1 10 1;
 #X connect 39 2 7 0;
 #X connect 40 0 20 0;
-#X connect 40 0 101 0;
+#X connect 40 0 100 0;
 #X connect 41 0 20 1;
-#X connect 41 0 101 1;
+#X connect 41 0 100 1;
 #X connect 43 0 40 1;
 #X connect 43 1 41 1;
 #X connect 45 0 44 0;
 #X connect 46 0 49 0;
 #X connect 48 0 35 0;
-#X connect 49 0 85 0;
+#X connect 49 0 84 0;
 #X connect 49 1 30 0;
 #X connect 49 2 48 0;
 #X connect 49 3 36 0;
-#X connect 53 0 101 0;
-#X connect 53 1 100 0;
+#X connect 53 0 100 0;
+#X connect 53 1 99 0;
 #X connect 53 2 54 0;
 #X connect 53 2 73 0;
 #X connect 53 3 55 0;
@@ -2969,24 +3037,21 @@ returning from play loop etc - (custom) track name won't show;
 #X connect 64 1 66 0;
 #X connect 74 0 22 0;
 #X connect 76 0 17 0;
-#X connect 76 0 93 0;
-#X connect 76 0 87 0;
+#X connect 76 0 92 0;
+#X connect 76 0 86 0;
 #X connect 76 1 18 0;
-#X connect 76 1 93 1;
-#X connect 76 1 87 1;
-#X connect 76 2 93 2;
-#X connect 76 3 93 3;
+#X connect 76 1 92 1;
+#X connect 76 1 86 1;
+#X connect 76 2 92 2;
+#X connect 76 3 92 3;
 #X connect 77 0 35 0;
-#X connect 83 0 82 0;
-#X connect 84 0 76 0;
-#X connect 85 0 86 0;
-#X connect 88 0 87 0;
-#X connect 93 0 100 0;
-#X connect 93 1 100 1;
-#X connect 97 0 4 0;
-#X connect 104 0 76 0;
-#X connect 106 0 17 1;
-#X connect 108 0 111 0;
-#X connect 110 0 111 0;
-#X connect 111 0 109 0;
-#X connect 112 0 18 1;
+#X connect 82 0 81 0;
+#X connect 83 0 76 0;
+#X connect 84 0 85 0;
+#X connect 87 0 86 0;
+#X connect 92 0 99 0;
+#X connect 92 1 99 1;
+#X connect 96 0 4 0;
+#X connect 103 0 76 0;
+#X connect 105 0 17 1;
+#X connect 107 0 18 1;

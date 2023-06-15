@@ -7,6 +7,9 @@ use Data::Dumper;
 use Term::ReadLine;
 use bytes;
 
+my $prompt = "AIRmix|>";
+my $ppat = qr{AIRmix\|\>};
+my $HOST = "localhost";
 
 my @log;
 open (ACTIONS , "+<","/var/air/data/airsh/airsh_log.txt");
@@ -17,9 +20,19 @@ for (<ACTIONS>) {
 };
 print "=============\n";
 
+my $PRERUN;
+
+if ($ARGV[0]){
+    say ">> PASSED SCRIPT: $ARGV[0]";
+    $PRERUN=$ARGV[0];
+}elsif ( -f "/var/air/data/airsh/airsh_initscript.txt"){
+    say ">> INIT SCRIPT: /var/air/data/airsh/airsh_initscript.txt";
+    $PRERUN='/var/air/data/airsh/airsh_initscript.txt';
+}
+
 
 my $client = Net::OpenSoundControl::Client->new(
-    Host => shift || "localhost", Port => 3000)
+    Host => $HOST || "localhost", Port => 3000)
 #        Host => "localhost", Port => 3000)
     or die "Could not start client: $@\n";
 
@@ -27,8 +40,29 @@ my $client = Net::OpenSoundControl::Client->new(
 
 
 my $term = Term::ReadLine->new('airmix');
-my $prompt = "AIRmix|>";
 my $OUT = $term->OUT || \*STDOUT;
+
+# IF PRERUN
+open ( PRERUN , "<",$PRERUN );
+    while (<PRERUN>) {
+	s/^$ppat//;
+	s/$//;
+	m/^\s*exit/ and exit;
+	print "[PRE>] ",$_;
+	my (@args)=split /\s+/,$_;
+	my $track=shift(@args);
+	my $ctrl=shift(@args);
+	# i f s (b) :: @rest are pairs type,val
+	my @rest=map { oftype($_)=>$_ } @args;
+	#	     print Dumper("REST",@rest);
+
+	$client->send(['/airmix/'.$track.($ctrl ? '/'.$ctrl : ""),(@rest ? @rest : "")]);	     
+      EXIT:
+}
+
+close PRERUN;
+
+
 while ( defined ($_ = $term->readline($prompt)) and $_ ne "exit" ) {
     print ACTIONS $_,"\n";
     if ( $_ eq 'clear' ){ @log=(); close ACTIONS; open (ACTIONS , "+>","/var/air/data/airsh/airsh_log.txt"); goto EXIT;}; 
@@ -330,7 +364,7 @@ Currently available curves:
 
 =head2 B<PLAY>
 
-<ch> play <file> 
+<ch> play B<<file*>> 
 
 Play a file (wav,aiff)
 
@@ -345,6 +379,8 @@ Play a B<file> from the selected B<timing> to the selected B<end>
 <ch> play <file> <hh:mm:ss.uuu> <hh:mm:ss.uuu> +<hh:mm:ss.uuu> 
 
 Play a B<file> from the selected B<timing> to the selected B<end> with the selected B<+delay>. Note that the player / looper delay parameter should be marked with B<+>
+
+B<<file>*> can be either a B<filename in connection with current working directory> (see cd / dir directives) or an B<absolute path>
 
 <ch>  stop 
 
@@ -503,11 +539,15 @@ B<solo> and B<presolo> switches do the following:
 
 =item B<lstracks> : list numbers / configuration of input and output tracks through the rightmost outlet of [gpp-air-coremix] element (via set message)
 
+=item B<autosave> : turn autosave (track names, mixer state, fader type) feature ON
+
+=item B<noautosave> : turn autosave (track names, mixer state, fader type) feature OFF
+
 =item B<latency> / B<latencystop> : starts / stops measuring console latency (audio and control). The values are reported to the control (3rd) outlet of the [gpp-air-coremix] element (via set message)
 
-=item B<setff> : set server's fanning factor (distance between serial OSC monitoring request, somewhere between 2 and 6, default 3 ) :: the serial monitoring requests (fader, pan) get distributed after the following formula: 
+=item B<setmode> : set server's monitoring mode (auto, mirror, coarse, off). See 'Two main server-side monitoring modes' below.
 
-=item B<setmode> : set server's monitoring mode (auto, mirror, coarse). See 'Two main server-side monitoring modes' below.
+=item B<setff> : set server's fanning factor (distance between serial OSC monitoring request, somewhere between 2 and 6, default 3 ) :: the serial monitoring requests (fader, pan) get distributed after the following formula: 
 
 =over 5
 
@@ -517,7 +557,7 @@ B<solo> and B<presolo> switches do the following:
 
 =back
 
-=item B<alivesig> on / off : turn alive signals on / off. In the left bottom corner of the iConsole and CoreMixer there are rectangular symbols B<iCo> and B<Srv>. If B<alivesig> is running they will show the state of connection: 
+=item B<alivesig> start / stop : turn alive signals on / off. In the left bottom corner of the iConsole and CoreMixer there are rectangular symbols B<iCo> and B<Srv>. If B<alivesig> is running they will show the state of connection: 
 
 =over 5
 
@@ -757,6 +797,8 @@ System params (internal communication between air-coremix and console, without u
 
 =over 3
 
+=item B<OFF> :: monitoring disabled
+
 =item B<MIRROR> and B<COARSE> :: implementing B<contour> and B<snapshot> tactics:
 
 =over 5
@@ -782,6 +824,20 @@ Server can be set to either mode in terms of communicating with its console(s):
 =item /airmix/B<lsmode> :: list currently selected monitoring mode
 
 =back
+
+=back
+
+=head1 B<AIR MIXER CONFIG FILES> 
+
+=over
+
+=item /var/air/data/mixer/airdir.txt - air current working directory
+
+=item /var/air/data/mixer/state/autosave.txt - mixer params state
+
+=item /var/air/data/mixer/state/autosave_chname.txt - fader type and channel names
+
+=item /var/air/data/airsh/airsh_log.txt - list of recently cast airsh commands
 
 =back
 

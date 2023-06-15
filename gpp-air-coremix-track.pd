@@ -789,7 +789,7 @@ f 20;
 #X floatatom 41 382 5 0 0 0 - - -;
 #X floatatom 32 221 5 0 0 0 - - -;
 #X obj 41 255 vsl 18 120 0 1 0 0 empty \$0|\$1-fader-state empty 0
--9 0 10 -262144 -1 -1 11900 1;
+-9 0 10 -262144 -1 -1 14000 1;
 #X obj 24 164 tgl 18 0 foo \$0|\$1-loop-active LOOP 22 10 0 6 -233017
 -233017 -1 0 1;
 #X obj 23 62 vsl 8 80 0 1 0 0 empty \$0|\$1-gs-line L 0 -9 0 6 -261682
@@ -1655,7 +1655,7 @@ This is neccessary due to complex play and record algos, f 21;
 #X connect 22 0 5 0;
 #X restore 2348 570 pd \$0-MONOSTEREO;
 #X obj 70 449 r \$0|\$1-ISMONO;
-#N canvas 1655 492 1737 1393 \$0-INPUTS 0;
+#N canvas 1655 437 1737 1393 \$0-INPUTS 0;
 #X obj 170 543 outlet~;
 #X obj 241 544 outlet~;
 #X obj 361 547 outlet;
@@ -1851,8 +1851,8 @@ and \, as an override \, you may also supply a header size to skip
 #X obj 323 320 *~;
 #X obj 238 44 loadbang;
 #X msg 238 72 0;
-#X obj 351 271 print CROSSFADE_EB;
-#N canvas 383 439 1600 1400 \$0-cf-monitor 0;
+#X obj 528 296 print CROSSFADE_EB;
+#N canvas 383 384 1600 1400 \$0-cf-monitor 0;
 #X obj 148 53 inlet;
 #X obj 276 48 inlet;
 #X obj 396 46 inlet;
@@ -3086,7 +3086,7 @@ pd-MIXER obj \$25 185 bng 14 250 50 0 \$19|\$18-CPAN foorec C 3 7 0
 #X connect 5 0 4 0;
 #X restore 2309 701 pd \$0-RESTORE;
 #X obj 554 75 route play loop record rec stop name;
-#N canvas 1385 180 2072 901 \$0-name 1;
+#N canvas 1385 180 2072 901 \$0-name 0;
 #X obj 292 81 expr (2 * \$1) - 1 \; 2*\$1 \;;
 #X obj 269 207 s \$0|\$1-filename;
 #X obj 37 12 inlet;

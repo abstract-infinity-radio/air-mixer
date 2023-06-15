@@ -1,3 +1,4 @@
+cd /home/gregor/audio/pd-projects/work/wavedata/air/testfile/
 airmix 1-4 mon
 airmix m mon
 airmix m fader 1
