@@ -1,0 +1,8 @@
+#N canvas 2132 602 987 699 12;
+#X obj 81 39 inlet;
+#X obj 82 173 outlet;
+#X obj 83 119 makefilename %s.\$1;
+#X obj 82 88 symbol;
+#X connect 0 0 3 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;

@@ -1,0 +1,6 @@
+As implemented in pd2yml.pm, pd exported yaml files should be preprocessed
+by replacing symbol # with space.
+
+This is due to puredata text processing limitations.
+
+

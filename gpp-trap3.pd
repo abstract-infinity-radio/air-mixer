@@ -1,0 +1,35 @@
+#N canvas 917 419 1898 1046 12;
+#X obj 50 58 inlet;
+#X obj 49 197 outlet;
+#X obj 175 54 inlet;
+#X obj 49 127 spigot;
+#X msg 175 81 1;
+#X msg 117 141 0;
+#X obj 49 158 t f b;
+#X obj 230 113 loadbang;
+#X obj 154 199 outlet;
+#X obj 297 25 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
+0;
+#X text 294 49 Gregor Pirš 2023;
+#X obj 105 56 inlet;
+#X msg 105 84 0;
+#X msg 230 141 0;
+#X text 423 95 NOTE: as opposed to gpp-trap2 \, this version is CLOSED
+at the loadbang and should be OPENED explicitely, f 39;
+#X text 423 19 gpp-trap3 :: in 1: spigot line \, in2: [bang] CLOSE
+trap \, in3: [bang] OPEN trap | out1: spigot line \, out2: trap state
+, f 39;
+#X connect 0 0 3 0;
+#X connect 2 0 4 0;
+#X connect 3 0 6 0;
+#X connect 4 0 3 1;
+#X connect 4 0 8 0;
+#X connect 5 0 3 1;
+#X connect 5 0 8 0;
+#X connect 6 0 1 0;
+#X connect 6 1 5 0;
+#X connect 7 0 13 0;
+#X connect 11 0 12 0;
+#X connect 12 0 3 1;
+#X connect 13 0 3 1;
+#X connect 13 0 8 0;

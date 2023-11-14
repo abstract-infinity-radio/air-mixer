@@ -1,0 +1,74 @@
+#N canvas 1800 344 2040 1355 12;
+#X obj 127 421 symbol;
+#X msg 73 368 pppp;
+#X msg 102 343 ppp;
+#X msg 131 319 pp;
+#X msg 156 291 p;
+#X msg 174 261 mp;
+#X msg 298 396 mf;
+#X msg 321 360 f;
+#X msg 333 325 ff;
+#X msg 339 289 fff;
+#X msg 338 257 ffff;
+#X obj 92 147 change;
+#X obj 37 209 t f f;
+#X obj 89 211 sel 1 2 3 4 5 6 7 8 9 10 0;
+#X msg 316 187 tacet;
+#X obj 90 30 inlet;
+#X obj 37 493 outlet;
+#X obj 161 488 outlet;
+#X obj 439 38 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
+0;
+#X text 439 63 Gregor Pirš 2023;
+#X text 9 7 env~ values (RMS);
+#X text 28 520 numeric value;
+#X text 163 517 musical symbol;
+#X obj 366 24 inlet;
+#X text 349 5 initbang;
+#X msg 184 149 set -1;
+#X obj 189 52 inlet;
+#X text 169 16 numeric values direct, f 13;
+#X text 868 132 30 40 50 60 65 70 80 90 100;
+#X text 858 158 100+ ffff | 90-100 fff | 80-90 ff | 70-80 f | 65-70
+mf | 60-65 mp | 50-60 p | 40-50 pp | 30-40 ppp | 0-30 pppp | 0 tacet
+, f 12;
+#X text 758 159 100+ ffff | 90-100 fff | 80-90 ff | 70-80 f | 60-70
+mf | 50-60 mp | 40-50 p | 30-40 pp | 15-30 ppp | 0-15 pppp 0 tacet
+, f 12;
+#X text 641 132 15 30 40 50 60 70 80 90 100;
+#X obj 92 117 gpp-multiband 5 25 50 60 70 79 88 95 100;
+#X text 558 35 gpp-dynamics-bands :: a 'universal' method to translate
+env~ values into musical dynamic degrees and symbols;
+#X obj 38 178 expr int($f1);
+#X connect 0 0 17 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 0;
+#X connect 5 0 0 0;
+#X connect 6 0 0 0;
+#X connect 7 0 0 0;
+#X connect 8 0 0 0;
+#X connect 9 0 0 0;
+#X connect 10 0 0 0;
+#X connect 11 0 34 0;
+#X connect 12 0 16 0;
+#X connect 12 1 13 0;
+#X connect 13 0 1 0;
+#X connect 13 1 2 0;
+#X connect 13 2 3 0;
+#X connect 13 3 4 0;
+#X connect 13 4 5 0;
+#X connect 13 5 6 0;
+#X connect 13 6 7 0;
+#X connect 13 7 8 0;
+#X connect 13 8 9 0;
+#X connect 13 9 10 0;
+#X connect 13 10 14 0;
+#X connect 14 0 0 0;
+#X connect 15 0 32 0;
+#X connect 23 0 25 0;
+#X connect 25 0 11 0;
+#X connect 26 0 11 0;
+#X connect 32 0 11 0;
+#X connect 34 0 12 0;

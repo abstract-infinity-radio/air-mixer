@@ -1,0 +1,126 @@
+#N canvas 1180 180 2502 1825 12;
+#X msg 372 180 clear;
+#X msg 372 222 flush;
+#X text 699 60 gpp-sepachain :: separate a flow of floats based on
+value deviation, f 33;
+#X obj 572 65 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
+0;
+#X text 569 85 Gregor Pirš 2023;
+#X text 700 112 sets the gpp-fifostat maxshare treshold (0-1). basically
+\, this determines how much of fifo should contain the number in question
+in order to be considered prevalent. If the current leading number
+holds this position \, no change. if a new number starts holding this
+position \, sepachain will report state change to another output (A<->B).
+Of none of the numbers holds this position (=the maxcount falls below
+minreq) the state turns to 'zero' (0) determining that there's no prevalent
+value (=the content of fifo is too chaotic to define);
+#X msg 407 681 outlet A;
+#X msg 430 714 outlet B;
+#X obj 502 183 loadbang;
+#X text 702 322 note: values 1 below and 1 above the yrange have special
+significance: 1 below is considered "chaos" number (denotes chaotic
+state and 1 above is considered "null" number (denotes nothing happens
+\, but that is actually not perceivable by the user since it will not
+be output.;
+#X obj 407 652 sel 0 1;
+#X obj 394 856 print VAL=;
+#X text 508 238 sepachain specific, f 13;
+#X obj 369 774 route bang float;
+#X msg 371 259 reduce 5;
+#X text 704 408 arg 1-4 = gpp-fifostat parameters \, see gpp-fifostat-help
+;
+#X text 702 268 NOTE: init signal is compulsory at the beginning of
+sending of each separate series to reset and clear the crucial points
+of the mechanism;
+#X msg 501 213 treshold 0.75;
+#X msg 90 150 init;
+#X obj 71 213 until;
+#X msg 73 246 1;
+#X obj 41 77 bng 15 250 50 0 empty empty empty 17 7 0 10 -260097 -1
+-1;
+#X obj 40 103 t b b b;
+#X msg 537 370 init;
+#X obj 29 212 until;
+#X msg 29 177 10;
+#X obj 41 142 t b b;
+#X msg 25 345 2 \, 2 \, 2 \, 1 \, 2 \, 2 \, 2 \, 1 \, 2 \, 2 \, 2 \,
+2 \, 2 \, 2 \, 2;
+#X msg 71 178 17;
+#X msg 32 245 2;
+#X msg 3 389 1 \, 1 \, 1 \, 1 \, 1 \, 1 \, 1 \, 1 \, 1 \, 1 \, 1 \,
+1 \, 2 \, 2 \, 2 \, 2 \, 2 \, 7 \, 2 \, 8 \, 2 \, 11 \, 2 \, 3 \, 6
+\, 2 \, 2 \, 2;
+#X msg 374 74 fifosize 5;
+#X msg 373 110 fifosize 11;
+#X msg 373 146 fiforange 0 110;
+#X msg 48 617 11;
+#X msg 177 463 1 \, 2 \, 3 \, 4 \, 5 \, 6 \, 7 \, 8 \, 9 \, 10;
+#X msg 135 188 13;
+#X msg 52 576 14;
+#X msg 36 500 1;
+#X msg 33 524 2;
+#X msg 75 526 3;
+#X msg 179 106 threshold 0.8;
+#X obj 284 615 gpp-sepachain 10 0 100 1;
+#X msg 334 818 <ELUSIVE>;
+#X obj 534 642 print DEBUG[MAXSHARE/THRESHOLD];
+#X obj 419 742 print OUTPUT STATUS|;
+#X obj 115 23 hradio 15 1 0 21 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X text 508 350 !!!! DON'T FORGET INIT!;
+#X text 379 283 fifostat direct, f 9;
+#X obj 205 738 print A|;
+#X obj 311 743 print B|;
+#X text 704 451 NOTE3: there are 2 statistic mechanisms: 1) orthodox
+FIFOSTAT logic which sets block margin whenever statistical fifo consideration
+says so and 2) PROCRASTINATE mechanism which moves these boundaries
+to the exact block borders;
+#X text 708 522 PROCRASTINATE MECHANISM WILL: 1) delay recognizing
+a prevalent value since it actually appears on flow output. (fifostat
+will report its prevalence before it actually appears) --- 2) delay
+refuting a prevalent value until it keeps apearing on flow output;
+#X connect 0 0 42 1;
+#X connect 1 0 42 1;
+#X connect 6 0 45 0;
+#X connect 7 0 45 0;
+#X connect 8 0 17 0;
+#X connect 10 0 6 0;
+#X connect 10 1 7 0;
+#X connect 13 0 43 0;
+#X connect 13 1 11 0;
+#X connect 14 0 42 1;
+#X connect 17 0 42 2;
+#X connect 18 0 42 2;
+#X connect 19 0 20 0;
+#X connect 20 0 42 0;
+#X connect 21 0 22 0;
+#X connect 22 0 26 0;
+#X connect 22 1 18 0;
+#X connect 22 2 41 0;
+#X connect 23 0 42 2;
+#X connect 24 0 29 0;
+#X connect 25 0 24 0;
+#X connect 26 0 25 0;
+#X connect 26 1 28 0;
+#X connect 27 0 42 0;
+#X connect 28 0 19 0;
+#X connect 29 0 42 0;
+#X connect 30 0 42 0;
+#X connect 31 0 42 1;
+#X connect 32 0 42 1;
+#X connect 33 0 42 1;
+#X connect 34 0 42 0;
+#X connect 35 0 42 0;
+#X connect 36 0 42 0;
+#X connect 37 0 42 0;
+#X connect 38 0 42 0;
+#X connect 39 0 42 0;
+#X connect 40 0 42 0;
+#X connect 41 0 42 2;
+#X connect 42 0 49 0;
+#X connect 42 1 50 0;
+#X connect 42 2 13 0;
+#X connect 42 3 10 0;
+#X connect 42 4 44 0;
+#X connect 43 0 11 0;
+#X connect 46 0 42 0;

@@ -1,0 +1,1 @@
+/usr/local/bin/airloader -l $1 | less

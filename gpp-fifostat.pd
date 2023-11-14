@@ -1,0 +1,231 @@
+#N canvas 647 180 3089 1956 12;
+#X obj 58 8 inlet;
+#X obj 124 732 outlet;
+#X obj 82 258 list store;
+#X msg 215 215 bang;
+#X obj 81 288 list split \$1;
+#X obj 275 78 inlet;
+#X obj 183 179 t a b;
+#X msg 83 209 prepend \$1;
+#X obj 558 12 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
+0;
+#X text 555 32 Gregor Pirš 2023;
+#X obj 191 776 outlet;
+#X obj 61 163 t b f f;
+#X obj 211 265 expr x\$0stat[$f1]=x\$0stat[$f1] + 1 \;;
+#N canvas 1827 617 1671 1523 \$0-STAT 0;
+#X obj 130 153 array max x\$0stat;
+#X obj 130 47 inlet;
+#X msg 188 122 -1;
+#X obj 187 47 loadbang;
+#X obj 84 615 outlet;
+#X text 18 147 y(=x)=statistical power of the value, f 15;
+#X obj 84 231 expr $f1 \; $f1 / \$1 \;;
+#X text 260 145 x (=y)=the value, f 12;
+#X obj 318 473 r \$0-ARRAYSIZE;
+#X obj 100 111 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 84 302 pack f f f;
+#X text 14 639 maxcount | maxshare | maxval;
+#X obj 320 604 outlet;
+#X text 316 637 yrangesize;
+#X floatatom 241 344 5 0 0 0 - - -;
+#X obj 245 293 expr $f1 + x\$0fromy \;;
+#X connect 0 0 6 0;
+#X connect 0 1 15 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 1;
+#X connect 3 0 2 0;
+#X connect 6 0 10 0;
+#X connect 6 1 10 1;
+#X connect 8 0 12 0;
+#X connect 9 0 0 0;
+#X connect 10 0 4 0;
+#X connect 15 0 14 0;
+#X connect 15 0 10 2;
+#X restore 195 511 pd \$0-STAT;
+#X text 302 462 arraysize \, derived from the absolute -yrange and
+then used as x range (array size), f 25;
+#X text 127 148 offset the value;
+#X text 198 387 de-offset the value;
+#X obj 158 367 expr x\$0stat[$f1]=x\$0stat[$f1] - 1 \;;
+#X text 216 333 'release' the value from spectr;
+#X text 1200 195 +- offset => to be added to any value entering \,
+because x within array cannot be negative / add 1 for '0', f 25;
+#X obj 125 313 unpack f;
+#X obj 126 338 t f f;
+#X obj 59 101 gpp-inbetween \$2 \$3;
+#X obj 680 -11 cnv 15 40 60 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 722 -2 *** NOTE: this version of gpp-fifo (unlike the original
+gpp-fifo) only accepts INTEGER values (due to spectral analisys module).
+It will automatically truncate floats., f 67;
+#X obj 332 165 t b b b;
+#X obj 408 210 until;
+#X obj 408 185 float \$1;
+#X obj 262 830 outlet;
+#X text 245 848 yrangesize;
+#X text 193 795 list: maxcount | maxshare | maxval;
+#X obj 431 135 v x\$0reduce;
+#X obj 433 35 loadbang;
+#X obj 58 34 expr round($f1 / x\$0reduce) * x\$0reduce;
+#X obj 192 619 spigot;
+#X obj 271 545 loadbang;
+#X msg 271 587 1;
+#X msg 231 584 0;
+#X obj 373 135 t b b b;
+#X text 161 640 the 'flush' spigot, f 11;
+#X obj 432 61 float \$4;
+#X text 678 228 [flush( into inlet2 will output (drip = float by float)
+whole contents of the fifo and the fifo itself will be cleared (start
+anew);
+#X text 679 191 [clear( into inlet2 will clear the fifo and start anew
+(=the first value comes out after <size> delay;
+#X text 681 95 gpp-fifo = this version of fifo acts as a big black
+box of certain <size>. values are thrown into and after all places
+are filled \, it starts outputing values in FIFO order itself \, so
+no other pulse is needed. the very <size> of the fifo determines when
+the output will be triggered (= after <size> delay);
+#X text 679 376 ===> statistical addendum: a spectral array to evaluate
+crucial values like max \, min etc ... that are refreshed dynamically
+as the fifo flows;
+#X text 681 59 gpp-fifostat :: a genuine gpp- fifo implementation with
+built-in statistical analysis (enhanced gpp-fifo);
+#X text 678 281 [reduce( will reduce input resolution (added to rounding)
+by a factor : round( val / reduce ) * reduce;
+#X text 679 331 **** CREATION ARGUMENTS: \$1 = FIFO size | \$2 \, \$3
+= y-range | \$4=the 'zero' value | \$5= resolution reduction factor
+;
+#X obj 870 689 list prepend \$0;
+#X text 1130 368 \$1=\$0 | \$2 = to_y (size) \$3= to_x (abs(fromy)+abs(toy)+1)
+;
+#X msg 870 723 \; pd-\$1-ARRAY clear \; pd-\$1-ARRAY obj 76 138 array
+define -yrange 0 \$2 x\$1stat \$3 \;, f 62;
+#X obj 871 650 list append;
+#X obj 869 546 r \$0-CREATE-ARRAY;
+#X obj 1001 599 expr (abs(x\$0fromy) + abs(x\$0toy)) + 1 \;;
+#X obj 1247 172 v x\$0fromy;
+#X obj 1428 161 v x\$0toy;
+#X obj 1225 84 loadbang;
+#X obj 1247 139 f \$2;
+#X obj 1428 126 f \$3;
+#X obj 276 151 t f f;
+#X obj 870 609 v x\$0xrange;
+#X obj 869 574 t b b;
+#X obj 796 465 f \$1;
+#X obj 815 811 print [[[ARRAY CREATE]]];
+#X obj 838 505 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1226 107 t b b b;
+#X text 695 779 comment;
+#X obj 1038 478 t b b b b;
+#X obj 60 130 expr $f1 - x\$0fromy \;;
+#X obj 127 407 expr $f1 + x\$0fromy \;;
+#X obj 635 700 f \$0;
+#X text 1421 193 array;
+#X obj 1165 478 expr (abs(x\$0fromy) + abs(x\$0toy)) + 1 \;;
+#X obj 739 609 s \$0-ARRAYSIZE;
+#X text 851 609 =;
+#X text 981 629 (!!!!) x\$0fromy x\$0toy :: these are values BEFORE
+spectral shift = as they supposed to be, f 39;
+#X obj 509 185 s \$0-YRNG;
+#X obj 1325 22 r \$0-YRNG;
+#X obj 1326 93 unpack f f;
+#X obj 1325 56 t b a;
+#X obj 1293 147 s \$0-CREATE-ARRAY;
+#X obj 712 478 t b f f;
+#X obj 657 512 s \$0-CREATE-ARRAY;
+#X msg 635 730 \; x\$1stat const 0 \;;
+#X text 636 673 clear;
+#X obj 714 657 cnv 15 20 40 empty empty empty 20 12 0 14 -184979 -66577
+0;
+#N canvas 2018 180 1119 513 \$0-ARRAY 0;
+#X obj 76 138 array define -yrange 0 10 x2863stat 101;
+#X restore 737 666 pd \$0-ARRAY;
+#X obj 279 109 route fifosize clear flush reduce fiforange;
+#X text 488 209 fiforange = y range (actual);
+#X floatatom 1422 84 5 0 0 0 - - -;
+#X floatatom 1280 57 5 0 0 0 - - -;
+#X obj 803 734 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 541 255 print >>>> YRNG;
+#X text 494 63 \$4 - resolution reduction factor, f 21;
+#X obj 127 443 t f b f;
+#X text 127 761 flow;
+#X connect 0 0 33 0;
+#X connect 2 0 4 0;
+#X connect 3 0 2 1;
+#X connect 4 0 6 0;
+#X connect 4 1 20 0;
+#X connect 5 0 87 0;
+#X connect 6 0 2 1;
+#X connect 6 1 3 0;
+#X connect 7 0 2 0;
+#X connect 11 0 2 0;
+#X connect 11 1 7 0;
+#X connect 11 2 12 0;
+#X connect 13 0 34 0;
+#X connect 13 1 28 0;
+#X connect 20 0 21 0;
+#X connect 21 0 69 0;
+#X connect 21 1 17 0;
+#X connect 22 0 68 0;
+#X connect 25 0 13 0;
+#X connect 25 1 3 0;
+#X connect 25 2 70 0;
+#X connect 26 0 11 0;
+#X connect 27 0 26 0;
+#X connect 32 0 40 0;
+#X connect 33 0 22 0;
+#X connect 34 0 10 0;
+#X connect 35 0 36 0;
+#X connect 36 0 34 1;
+#X connect 37 0 34 1;
+#X connect 38 0 36 0;
+#X connect 38 1 27 0;
+#X connect 38 2 37 0;
+#X connect 40 0 31 0;
+#X connect 48 0 50 0;
+#X connect 48 0 63 0;
+#X connect 51 0 48 0;
+#X connect 52 0 61 0;
+#X connect 53 0 51 1;
+#X connect 56 0 65 0;
+#X connect 57 0 54 0;
+#X connect 58 0 55 0;
+#X connect 59 0 4 1;
+#X connect 59 1 81 0;
+#X connect 60 0 51 0;
+#X connect 61 0 60 0;
+#X connect 61 0 91 0;
+#X connect 61 1 53 0;
+#X connect 62 0 60 0;
+#X connect 62 0 73 0;
+#X connect 64 0 61 0;
+#X connect 65 0 67 0;
+#X connect 65 1 57 0;
+#X connect 65 2 58 0;
+#X connect 67 0 61 0;
+#X connect 67 1 62 0;
+#X connect 67 2 53 0;
+#X connect 67 3 72 0;
+#X connect 68 0 11 0;
+#X connect 69 0 94 0;
+#X connect 70 0 83 0;
+#X connect 77 0 79 0;
+#X connect 78 0 54 0;
+#X connect 78 0 90 0;
+#X connect 78 1 55 0;
+#X connect 78 1 89 0;
+#X connect 79 0 80 0;
+#X connect 79 1 78 0;
+#X connect 81 0 82 0;
+#X connect 81 1 73 0;
+#X connect 81 2 60 0;
+#X connect 87 0 59 0;
+#X connect 87 1 25 0;
+#X connect 87 2 38 0;
+#X connect 87 3 31 0;
+#X connect 87 4 76 0;
+#X connect 94 0 1 0;
+#X connect 94 1 13 0;

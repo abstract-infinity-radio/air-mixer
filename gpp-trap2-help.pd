@@ -1,0 +1,21 @@
+#N canvas 1211 513 1081 573 12;
+#X obj 97 113 gpp-trap2;
+#X floatatom 83 62 5 0 0 0 - - -;
+#X obj 157 77 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 156 151 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 92 152 5 0 0 0 - - -;
+#X msg 51 31 symbol a;
+#X symbolatom 57 210 10 0 0 0 - - -;
+#X obj 42 170 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 136 33 a;
+#X connect 0 0 4 0;
+#X connect 0 0 6 0;
+#X connect 0 0 7 0;
+#X connect 0 1 3 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 1;
+#X connect 5 0 0 0;
+#X connect 8 0 0 0;

@@ -1,0 +1,46 @@
+#!/usr/bin/perl -w
+
+############################################################
+# Load a data-structure from puredata processed yaml file. # 
+############################################################
+
+#2023 Gregor Pirš, B-AIR Project EU CE
+
+
+
+use YAML ();
+use Data::Dumper;
+use File::Slurp;
+use feature qw/say/;
+
+
+use Getopt::Long qw(GetOptionsFromString :config require_order no_ignore_case);
+use optchain; #getopt option chainer
+
+#####################################
+# automatic pd-yaml datastruct loader
+use pd2yml;
+#####################################
+
+my $CLN=join(' ',@ARGV);
+
+my $oh={};
+my $oc=optchain->new;
+
+GetOptionsFromString ($CLN,
+		      'l|load=s{1,1}' => sub{$oc->scalar('path',$_[1],\&load)},
+		      'd|dump=s{1,1}' => sub{$oc->scalar('path',$_[1],\&dump)},
+    ) or die("Error in command line arguments\n");
+
+$oc->run;
+
+sub load{
+    my $oh=shift;
+    my $meta=pd2yml::load($oh->{'path'});
+    print Dumper($meta);
+};
+
+sub dump{
+    my $oh=shift;
+    pd2yml::dump($dsref,$oh->{'path'});
+};

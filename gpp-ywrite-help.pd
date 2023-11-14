@@ -1,0 +1,144 @@
+#N canvas 427 574 3396 1450 12;
+#X msg 1243 601 clear;
+#X text 335 384 key: value pairs of data;
+#X floatatom 249 381 5 0 0 0 struct_depth||||||| - -;
+#X obj 1114 11 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
+0;
+#X text 1113 36 Gregor Pirš 2023;
+#X msg 1247 635 undo;
+#X msg 388 65 1 1 \, 2 3;
+#X obj 356 362 gpp-ywrite, f 15;
+#X text 1235 5 gpp-ywrite: produce a simple yaml-like textfile from
+a stream of data/commands :: can produce any combination of old perl-ish
+List or Hash using (possibly multielement) list messages with special
+symbols;
+#X msg 1244 207 fruits =>;
+#X msg 1244 176 1 \, a \, bom \, 123;
+#X msg 1243 565 outfile /home/gregor/audio/pd-projects/work/wavedata/air/airoscope/ywrite.out
+, f 78;
+#X msg 345 89 kislih 11 \, rdecih 12 \, gnilih 3;
+#X obj 1243 519 loadbang;
+#X text 1242 89 ===============COMMANDS=================;
+#X text 1241 371 WARNING: NO DOUBLE KEYS CHECK \, THESE WILL BE DISCOVERED
+ONLY BY THE YAML LOADER \, HOPEFULLY IGNORED \, BUT THE ERROR WILL
+BE THERE;
+#X text 1241 345 ========================================;
+#X text 1291 626 delete the last line entered (WARNING: WILL NOT ADAPT
+struct_depth VALUE!);
+#X text 1292 598 clear all and start anew. also the outfile will be
+cleared (!!!), f 65;
+#X text 1240 425 WARNING2: in puredata \, space can not be used as
+a prefix to a textline \, therefore gpp-ywrite uses symbol # as a substitute.
+THIS SHOULD BE SUBSTITUTED BEFORE THE YAML LOADER USAGE ON THE OUTFILE
+;
+#X text 1239 493 ========================================;
+#X text 1249 668 ========================================;
+#X obj 332 302 r \$0-YW;
+#X obj 458 303 r \$0-YWCONTROL;
+#X msg 1242 240 [@;
+#X msg 1283 241 @];
+#X msg 1242 270 [%;
+#X msg 1283 270 %];
+#X text 1236 302 (sub)list and (sub)hash declaration is compulsory
+at any level;
+#X msg 1245 118 mykey myval \, otherkey sex;
+#X text 1452 119 hash contents definitio;
+#X text 1360 176 list contents definition;
+#X msg 1243 147 moo;
+#X text 1287 147 if cast within a hash context it will produce moo=>undef
+;
+#X msg 624 163 [% \, marakuje => \, [% \, a 1 \, b 1 \, c 1 \, %] \,
+mangi => \, [@ \, x \, y \, z \, @] \, %], f 73;
+#X msg 626 201 [% \, kiviji => \, [% \, marakuje => \, [% \, jabolka
+=> \, [@ \, 1 \, 2 \, 3 \, @] \, %] \, %] \, kiviji2 13 \, %];
+#X msg 628 251 [@ \, a \, b \, [@ \, x \, y \, z \, @] \, c \, d \,
+@];
+#X msg 628 286 [% \, a 1 \, b 2 \, vidre => \, [% \, x 3 \, y 4 \,
+z 6 \, %] \, c ff \, d gg \, %];
+#X text 380 43 hash contents;
+#X msg 405 10 [%;
+#X text 442 11 open hash;
+#X msg 407 126 %];
+#X text 438 126 close hash;
+#X text 1329 273 enter / exit (sub) hash;
+#X text 1329 241 enter / exit (sub) list;
+#X msg 214 304 clear;
+#X text 481 551 open list;
+#X msg 444 550 [@;
+#X msg 447 666 @];
+#X text 477 666 close list;
+#X msg 441 602 1 \, 1 \, 2 \, 3;
+#X msg 362 633 kislih \, 11 \, rdecih \, 12 \, gnilih \, 3;
+#X text 419 583 list contents;
+#X text 93 576 hash contents;
+#X msg 118 543 [%;
+#X text 155 544 open hash;
+#X msg 134 784 %];
+#X text 167 784 close hash;
+#X msg 105 631 and_also =>;
+#X text 211 634 hash bridge;
+#X text 167 663 open list;
+#X msg 127 701 12 \, 24.4 \, 345;
+#X text 244 704 list contents;
+#X msg 125 665 [@;
+#X msg 129 741 @];
+#X text 171 741 close list;
+#X obj 28 691 s \$0-YW;
+#X msg 101 598 aaa 1 \, bbb 3;
+#X text 756 576 open list;
+#X msg 780 562 [@;
+#X msg 791 719 @];
+#X msg 777 614 1 \, 1 \, 2 \, 3;
+#X msg 792 686 kislih \, 11 \, rdecih \, 12 \, gnilih \, 3;
+#X text 755 595 list contents;
+#X msg 792 748 @];
+#X msg 793 650 [@;
+#X msg 620 100 [% \, slive => \, [% \, hruške => \, [@ \, a \, b \,
+c \, @] \, jabolka 10 \, grozdje 100 \, %] \, slive2 114 \, slive3
+115 \, %];
+#X msg 746 398 [@ \, 1 \, 2 \, [% \, quo 1 \, %] \, 3 \, @];
+#X msg 752 425 [@ \, 1 \, 2 \, [% \, quo 1;
+#X msg 612 31 [@ \, 1 \, 2 \, [% \, status => \, [% \, quo => \, nonquo
+\, andalso => \, [@ \, moo \, baa \, ram \, @] \, %] \, %] \, 3 \,
+@];
+#X msg 625 340 [@ \, 1 \, 2 \, 3 \, [% \, a moo \, b yaa \, %] \, @]
+;
+#X text 1326 209 nest a hash via HASHKEY BRIDGE;
+#X connect 0 0 7 1;
+#X connect 5 0 7 1;
+#X connect 6 0 7 0;
+#X connect 7 0 2 0;
+#X connect 11 0 7 1;
+#X connect 12 0 7 0;
+#X connect 13 0 11 0;
+#X connect 22 0 7 0;
+#X connect 23 0 7 1;
+#X connect 34 0 7 0;
+#X connect 35 0 7 0;
+#X connect 36 0 7 0;
+#X connect 37 0 7 0;
+#X connect 39 0 7 0;
+#X connect 41 0 7 0;
+#X connect 45 0 7 1;
+#X connect 47 0 7 0;
+#X connect 48 0 7 0;
+#X connect 50 0 7 0;
+#X connect 51 0 7 0;
+#X connect 54 0 66 0;
+#X connect 56 0 66 0;
+#X connect 58 0 66 0;
+#X connect 61 0 66 0;
+#X connect 63 0 66 0;
+#X connect 64 0 66 0;
+#X connect 67 0 66 0;
+#X connect 69 0 7 0;
+#X connect 70 0 7 0;
+#X connect 71 0 7 0;
+#X connect 72 0 7 0;
+#X connect 74 0 7 0;
+#X connect 75 0 7 0;
+#X connect 76 0 7 0;
+#X connect 77 0 7 0;
+#X connect 78 0 7 0;
+#X connect 79 0 7 0;
+#X connect 80 0 7 0;

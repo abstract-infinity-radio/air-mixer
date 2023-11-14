@@ -1,0 +1,10 @@
+#N canvas 1674 678 2014 968 12;
+#X text 425 20 gpp-add-extension :: a convenience wrapper around [makefilename]
+;
+#X obj 158 101 gpp-add-extension txt;
+#X msg 159 57 symbol /my/freakin/textfile;
+#X symbolatom 158 153 30 0 0 0 - - -;
+#X obj 159 25 loadbang;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X connect 4 0 2 0;

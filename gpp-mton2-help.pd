@@ -1,0 +1,28 @@
+#N canvas 1324 548 2069 883 12;
+#X obj 161 144 gpp-mton2;
+#X text 525 18 gpp-mton2 :: a simple variant of gpp-mton : convert
+midi note numbers to note names (no tuning) :: BUT: it will report
+the note "detune" value;
+#X obj 372 25 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
+0;
+#X text 371 49 Gregor Pirš 2022-23;
+#X floatatom 161 106 5 0 0 0 - - -;
+#X msg 73 15 440;
+#X msg 110 13 466.164;
+#X obj 79 75 ftom;
+#X obj 165 192 unpack s f;
+#X floatatom 224 292 5 0 0 1 cents - -;
+#X symbolatom 165 236 10 0 0 0 - - -;
+#X floatatom 250 236 5 0 0 1 octave - -;
+#X msg 175 14 475;
+#X msg 218 14 480;
+#X connect 0 0 8 0;
+#X connect 0 1 9 0;
+#X connect 4 0 0 0;
+#X connect 5 0 7 0;
+#X connect 6 0 7 0;
+#X connect 7 0 4 0;
+#X connect 8 0 10 0;
+#X connect 8 1 11 0;
+#X connect 12 0 7 0;
+#X connect 13 0 7 0;

@@ -1,0 +1,11 @@
+#N canvas 1974 180 1608 1400 10;
+#X obj 73 11 inlet;
+#X obj 75 183 outlet;
+#X obj 108 112 float;
+#X obj 160 12 inlet;
+#X obj 75 112 min;
+#X connect 0 0 4 0;
+#X connect 2 0 4 1;
+#X connect 3 0 4 1;
+#X connect 4 0 2 0;
+#X connect 4 0 1 0;

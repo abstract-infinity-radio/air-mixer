@@ -1,0 +1,27 @@
+#N canvas 1589 553 1340 921 12;
+#X text 558 35 gpp-dynamics-bands :: a 'universal' method to translate
+env~ values into musical dynamic values and symbols;
+#X text 438 97 100+ ffff | 90-100 fff | 80-90 ff | 70-80 f | 65-70
+mf | 60-65 mp | 50-60 p | 40-50 pp | 30-40 ppp | 30- pppp 0 tacet,
+f 12;
+#X obj 439 38 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
+0;
+#X text 439 63 Gregor Pirš 2023;
+#X obj 129 131 gpp-dynamics-bands;
+#X obj 130 94 env~;
+#X symbolatom 257 161 10 0 0 0 - - -;
+#X floatatom 130 171 5 0 0 0 - - -;
+#X obj 130 37 osc~ 440;
+#X obj 130 70 *~;
+#X obj 281 6 vsl 15 128 0 100 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 16900 1;
+#X obj 184 75 dbtorms;
+#X floatatom 307 115 5 0 0 0 - - -;
+#X connect 4 0 7 0;
+#X connect 4 1 6 0;
+#X connect 5 0 4 0;
+#X connect 8 0 9 0;
+#X connect 9 0 5 0;
+#X connect 10 0 11 0;
+#X connect 10 0 12 0;
+#X connect 11 0 9 1;

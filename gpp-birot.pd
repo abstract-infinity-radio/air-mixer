@@ -1,13 +1,13 @@
-#N canvas 827 180 1900 1400 10;
+#N canvas 826 180 1900 1400 10;
 #X obj 126 14 inlet;
-#X obj 217 14 loadbang;
+#X obj 232 57 loadbang;
 #X obj 126 104 list append;
 #X obj 96 206 outlet;
 #X obj 182 204 outlet;
 #X text 296 141 gpp-birot :: rotates a buffer of 2 numbers;
 #X obj 126 142 list split 1;
-#X obj 290 15 inlet;
-#X text 351 17 set the "previous" number (fem);
+#X obj 191 12 inlet;
+#X text 246 13 set the "previous" number (fem);
 #X connect 0 0 2 0;
 #X connect 1 0 2 1;
 #X connect 2 0 6 0;

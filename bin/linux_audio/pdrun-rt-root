@@ -1,5 +1,5 @@
 chrt -f -p 50 `pgrep xhci`;
-for f in `pgrep -f irq/328-snd_hda`; do chrt -p -f 50 $f; done;
+for f in `pgrep -f snd_hda`; do chrt -p -f 50 $f; done;
 for f in `pgrep -f gdm`; do chrt -p -f 5 $f; done;
 for f in `pgrep -f gdm3`; do chrt -p -f 5 $f; done;
 for f in `pgrep -f /usr/bin/pulseaudio`;do chrt -p -f 5 $f; done;
