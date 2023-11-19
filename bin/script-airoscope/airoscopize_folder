@@ -7,13 +7,21 @@
 # Don't forget "START bang;" to actually run the process
 
 
+for f in `ls *.wav *.aiff *.WAV *.AIFF`; do 
+    p=`realpath $f`;
+    pp=`echo $p | cut -d'.' -f1`;
 pd -nogui -send "
-INFILE /home/gregor/audio/pd-projects/work/wavedata/air/testfile/beethoven-0.wav;
-OUTFILE /home/gregor/audio/pd-projects/work/wavedata/air/testfile/beethoven-0;
-PARAM temper fiforange 0 300;
-PARAM temper fifosize 5;
+INFILE $p; 
+OUTFILE $pp;
+DO drop all;
+DO use dynoz;
+DO use temper;
+DO use pitcher;
+PARAM temper fiforange 0 500;
+PARAM temper fifosize 8;
 PARAM temper transition_threshold 0.8;
-PARAM temper aubio_threshold 0.35;
+PARAM temper aubio_threshold 0.3;
 START bang;
 " gpp-airoscope.pd
+done;
 
