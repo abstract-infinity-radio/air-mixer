@@ -1,12 +1,12 @@
-#N canvas 967 240 2241 1349 12;
+#N canvas 967 180 2241 1349 12;
 #X obj 135 11 inlet~;
 #X obj 1124 85 aubio/aubiotempo~-help;
 #X msg 201 271 waitstart;
 #X obj 230 170 t b b b;
 #X obj 544 29 inlet;
 #X text 536 7 ext control;
-#N canvas 303 236 2880 1453 SEPACHAIN-ANALYSIS 1;
-#N canvas 695 762 2588 1288 \$0-SC-CONTROL 1;
+#N canvas 303 236 2880 1453 SEPACHAIN-ANALYSIS 0;
+#N canvas 695 762 2588 1288 \$0-SC-CONTROL 0;
 #X obj 402 256 outlet;
 #X msg 402 81 clear;
 #X msg 625 51 flush;
