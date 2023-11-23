@@ -1,18 +1,11 @@
 #!/usr/bin/perl -w
 
-############################################################
-# Load a data-structure from puredata processed yaml file. # 
-############################################################
-
-#2023 Gregor Pirš, B-AIR Project EU CE
-
-
-
 use YAML ();
 use Data::Dumper;
 use File::Slurp;
 use feature qw/say/;
-
+use lib "/home/gregor/audio/pd-projects/work/wavedata/air/pm/";
+use lib "/home/gregor/software/yellowroom/pm/";
 
 use Getopt::Long qw(GetOptionsFromString :config require_order no_ignore_case);
 use optchain; #getopt option chainer
@@ -27,6 +20,28 @@ my $CLN=join(' ',@ARGV);
 my $oh={};
 my $oc=optchain->new;
 
+#my $dsref=[{one=>[1,2,3],two=>[4,5,6],three=>[7,8,9],moo=>10},{alpha=>[11,12,13],beta=>[14,15],moo=>12},{moo=>13}];
+
+#my $dsref=[1,2,3,4,5,'msms'];
+
+#my $dsref={'a',2,'b',4,'c','msms'};
+
+#my $dsref={'a',{'aa'=>22},'b',{'cc'=>33},'c','msms'};
+
+#my $dsref=[[1,2,3],['a','b','c'],['moo',1,'baa']];
+
+#my $dsref=[[[1]]];
+
+#my $dsref={'a'=>1,'b'=>2,'c'=>[11,12,13,{'b'=>['a','b','c',1,2]}]};
+#my $dsref=['a','b','c',1,2,['a','b','c',[11,12,13]]];
+
+#my $dsref={'c'=>[11],'d'=>11};
+
+my $dsref=[{'a'=>1},{'b'=>2},{'c'=>[3,4,5]}];
+
+#print Dumper($dsref);
+
+
 GetOptionsFromString ($CLN,
 		      'l|load=s{1,1}' => sub{$oc->scalar('path',$_[1],\&load)},
 		      'd|dump=s{1,1}' => sub{$oc->scalar('path',$_[1],\&dump)},
@@ -34,6 +49,8 @@ GetOptionsFromString ($CLN,
 
 $oc->run;
 
+
+# "/home/gregor/audio/pd-projects/work/wavedata/air/airoscope/ywrite.out"
 sub load{
     my $oh=shift;
     my $meta=pd2yml::load($oh->{'path'});
@@ -43,4 +60,289 @@ sub load{
 sub dump{
     my $oh=shift;
     pd2yml::dump($dsref,$oh->{'path'});
+    
 };
+
+
+=pod
+
+=encoding utf8
+
+=head1 SYNOPSIS
+
+B<airloader> :: perl script that loads B<[gpp-airoscope]> analysis yaml data into perl data-structures.
+
+B<gpp-airoscope> :: AIR platform sound analysis tools 
+
+This manual is formally a part of B<airloader> but serves as a wider explanation of whole web audio/control framework concieved to support the B-AIR project's B<AIR platform>. B-AIR Project, Creative Europe 2020-23.
+
+=head1 B<[gpp-airoscope] PUREDATA PATCH>
+
+A swiss-knife audio-analysis tool modules that can be switched on or off depending on which parts of the analysis we want to use. The patch is intended to be used as a background process that takes care of performing various types of audio analysis or musical tissue, symultaneously and in realtime.
+
+It works by performing analyses on a mono music stream and writes the results of these analyses to files (one per analysis) in yaml format, suitable for fast reading and conversion into data structures in a wide variety of programming languages.
+
+=head2 TWO MODES OF EXECUTION
+
+[gpp-airoscope] can be B<(a)> executed from within another Puredata patch, as a patch element, or B<(b)> called as execution parameter from command line or any kind of external application. 
+
+In case of B<(a)> the [gpp-airoscope] patch will provide one control inlet and two control outlets.
+
+Control inlet accepts a single stream of commands, generated as pd messages:
+
+=over 3 
+
+=item infile /path/of/some/input/audiofile.wav - input file to analyse
+
+=item outfile /path/of/some/output/audiofile_root_without_extension - root of output file, several files with different extensions will be created using this root
+
+=item drop <tool> | all - do not use that tool ( use 'all' to drop all tools )
+
+=item use <tool> | all - use that tool ( or use 'all' )
+
+=item start bang; - start the process
+
+=item <tool> <specific_command> - send a tool-specific command to a tool. See specific tools' descriptions
+
+=back
+
+In case of B<b> the invoking script or application should call Puredata in the following way: 
+
+B<pd -nogui -send> "<COMMAND> <param>; <COMMAND> <param>; <COMMAND> <param>;" B<gpp-airoscope.pd>
+
+where <COMMAND> can be:
+
+=over 3
+
+=item INFILE /path/of/some/input/audiofile.wav
+
+=item OUTFILE /path/of/some/output/audiofile_root_without_extension
+
+=item PARAM <pass_params_to_separate_tools> - see separate tools' description
+
+=item DO <something>, where <something> can be whether 'drop <tool|all>' or 'use <tool|all>' command.
+
+=item START bang; - start the analysis process.
+
+=back
+
+=head1 AIROSCOPE TOOLS
+
+=head2 B<temper>
+
+Records universal tempo analysis based on the publicly available aubio tool. It looks for areas of stable and unstable tempo, marks where they start in time, records individual rhythmic accents within them and adds additional analysis of average values ​​for the entire recording or individual regions.
+
+There are two B<temper> subsystems that enable consistent following of tempo changes: B<[gpp-sepachain~]> and B<[gpp-fifostat~]>. [gpp-sepachain~] module is a separation chain. It analyses a stream of numbers and performs statistical operatins using [gpp-fifostat~], dividing the main output according to the statistical analysis performed. In other words, when [gpp-sepachain~] thinks that statistically the prevailing value of a stream has changed, it will output additional data describing the change and will remap the stream to another output. 
+
+B<temper input parameters>: 
+
+=over 3
+ 
+=item fiforange <from> <to> - the span of values processed.
+
+=item fifosize <number_of_values> - actual size of fifo, affecting decisions when to acknowledge that the tempo has changed
+
+=item transition_threshold <factor> - number ranging from 0.5-1 that determines what share of fifo should be populated with certain value in order to acknowledge that the value 'is prevailing'.
+
+=item aubio_threshold <factor> - parameter for [aubiotempo~] patch, describing the sensitivity of the tempo recognition tool. See documentation on  [aubiotempo~] and libaubio.
+
+=back
+
+=head3 B<temper output structure>: 
+
+B<header>=> (overall recording data)
+
+# regions: <number of regions found>
+
+# beats: <number of beats found>
+
+# fifostat_size: <fifostat size used>
+
+# fifostat_range_from: <fifostat range used from>
+
+# fifostat_range_to: <fifostat range used to>
+
+# transition_threshold: <transition threshold used>
+
+# aubio_threshold: <aubio threshold used>
+
+# average_tempo: <overall average tempo of the recording>
+
+B<region>=> <list of regions> where each <region> contains:
+
+# id: <region_id>
+
+# is_elusive: <boolean> - whether the prevailing tempo can be determined, or not
+
+# average_tempo: <tempo> 
+
+# prevalent tempo: <tempo> - only if <is_elusive> = 0
+
+# at_time: <timing>
+
+# at_ms: <miliseconds>
+
+# beat: <list_of_beats> where a <beat> contains:
+
+# tempo: <beat's tempo regarding to the previous beat>
+
+# id: <beat id>
+
+# at_ms: <beat timing in miliseconds>
+
+# at_time: <beat timing>
+
+
+=head2 B<dynoz>
+
+Records volume change analysis. It records volume changes, dividing the entire range into ten basic values, from absolute silence (tacet) to maximum volume (fortissimo possibile). It records the time of individual dynamic changes, the RMS value of the envelope, the associated musical symbols and various types of averaging.
+
+The output dynamic range is divided into 10 bands which can be described numerically (degree) or symbolically (symbol)
+
+=over 3 
+
+=item 0 = tacet (absolute silence)
+
+=item 1 = pppp
+
+=item 2 = ppp
+ 
+=item 3 = pp
+
+=item 4 = p
+
+=item 5 = mp
+
+=item 6 = mf
+ 
+=item 7 = f
+
+=item 8 = ff
+
+=item 9 = fff
+
+=item 10 = ffff
+
+=back 
+
+These are absolute dynamic, not 'psychological' values. 
+
+=head3 B<dynoz output structure>: 
+
+B<header> => (overall recording data)
+
+# number_of_dynamics: <number of dynamic changes found>
+
+# average_dynamics_occurences_degree: <average dynamics degree statistically detected>
+
+# average_dynamics_occurences_symbol: <average dynamics symbol statistically detected>
+
+# average_dynamics_duration_degree: <average dynamics degree expressed as the share of the duration share>
+
+# average_dynamics_duration_symbol: <average dynamics symbol expressed as the share of the duration share>
+
+# min_dynamics_degree: <minimal dynamics degree> 
+
+# max_dynamics_degree: <maximal dynamics degree found>
+
+# min_dynamics_symbol: <minimal dynamics symbol found>
+
+# max_dynamics_symbol: <maximal dynamics symbol found>
+
+# min_env_detected: <minimal envelope ([env~] RMS) value detected>
+
+# max_env_detected: <maximal envelope ([env~] RMS) value detected>
+
+=head2 B<pitcher>
+
+Records the analysis of the pitch base change. This, from a musical point of view, is usually the pitch that occurs in the treble (highest voice) and therefore specifically characterises the current sound situation. At each pitch change, it records the time, frequency, standard musical note, its name and octave, as well as the maximums and averages of the events or time content of pitches.
+
+Each pitch is described as follows:
+
+=over 3
+
+=item frequency = exact frequency (Hz)
+
+=item note_midivalue = numeric midi note value 
+
+=item note_name = musical note name (using sharps) [c,c#,d,d#,e,f,f#,g,g#,a,a#,b]
+
+=item note_octave = in which octave musical note name appears [ -4 subsubcontra octave | -3 subcontra octave | -2 contraoctave | -1 major octave | 0 minor octave | 1 one-line octave | 2 two-line octave | 3 three-line octave ... ]
+
+=item note_detune_cents = detune value in cents (the difference in cents from the note_name frequency @ A1 = 440Hz tuning)
+
+=back
+
+=head3 B<pitcher output structure>: 
+
+B<header>=> (overall recording data)
+
+# number_of_pitches: <number of pitches found>
+
+# average_frequency: <average frequency in Hz>
+
+# average_note_name: <average note name>
+
+# average_note_octave: <average note octave>
+
+# average_note_detune_cents: <average note detune_cents>
+
+B<pitch>=> list of pitches where each <pitch> contains:
+
+# frequency: <frequency in Hz>
+
+# note_name: <note name as explained above> 
+
+# note_octave: <note octave as explained above>
+
+# note_detune_cents: <note detune value as explained above>
+
+# env: <pitch envelope>
+
+# id: <pitch id>
+
+# note_midivalue: <note_midivalue as explained>
+
+# at_ms: <pitch timing in miliseconds>
+
+# at_time: <pitch timing>
+
+=head2 B<beater> and B<bonker>
+
+Beater and bonker have properties and structure similar to B<temper>, just the tempo-analysis method differs.
+
+=head2 B<EXAMPLES>
+
+An example of command-line call of [gpp-airoscope]:
+
+INFILE /some/file; 
+
+OUTFILE /some/file/root;
+
+DO drop all;
+
+DO use dynoz;
+
+DO use temper;
+
+DO use pitcher;
+
+PARAM temper fiforange 0 500;
+
+PARAM temper fifosize 8;
+
+PARAM temper transition_threshold 0.8;
+
+PARAM temper aubio_threshold 0.3;
+
+START bang;
+
+=head1 B<AUTHOR> 
+
+Gregor Pirs <gregor.pirs@guest.arnes.si>
+
+=head1 B<VERSION>
+
+C<[20-11-2023]>
+
+=cut

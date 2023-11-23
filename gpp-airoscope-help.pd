@@ -1,10 +1,10 @@
-#N canvas 155 277 3315 1758 12;
+#N canvas 739 180 2968 1739 12;
 #X obj 273 35 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
 0;
-#X text 430 16 gpp-airoscope :: various kinds of sample analysis for
+#X text 433 16 gpp-airoscope :: various kinds of sample analysis for
 the B-AIR/AIR platform;
 #X text 273 60 Gregor Pirš 2023;
-#X msg 118 45 symbol bach;
+#X msg 72 45 symbol bach;
 #X msg 117 78 symbol beethoven-0;
 #X msg 70 460 stop;
 #X msg 200 484 start;
@@ -27,40 +27,60 @@ tool extension;
 #X msg 500 58 symbol doors;
 #X msg 714 93 symbol zorbas;
 #X msg 712 60 symbol koral;
-#X obj 126 486 r AA;
-#X obj 97 551 gpp-airoscope;
-#X msg 643 134 symbol chlopy;
-#X obj 727 181 cnv 15 600 200 empty empty empty 20 12 0 14 -262130
+#X msg 661 124 symbol chlopy;
+#X obj 734 181 cnv 15 700 200 empty empty empty 20 12 0 14 -262130
 -66577 0;
-#X text 741 207 HOW TO INVOKE airoscope AT THE COMMAND LINE, f 46
+#X text 897 156 HOW TO INVOKE airoscope AT THE COMMAND LINE, f 46
 ;
-#X text 740 227 pd -nogui -send " INFILE /home/gregor/audio/pd-projects/work/wavedata/air/testfile/beethoven-0.wav
-\; OUTFILE /home/gregor/audio/pd-projects/work/wavedata/air/testfile/beethoven-0
-\; PARAM temper fiforange 0 300 \; PARAM temper fifosize 5 \; PARAM
-temper transition_threshold 0.8 \; PARAM temper aubio_threshold 0.35
-\; START bang \; " gpp-airoscope.pd, f 164;
-#X msg 118 169 \; AA drop all \; AA use dynoz \; AA use temper \; AA
-use pitcher \; AA infile /home/gregor/audio/pd-projects/work/wavedata/air/testfile/\$1.wav
+#X msg 841 72 symbol bachmono;
+#X text 707 654 AA use pitcher \; AA use dynoz \;;
+#X obj 914 558 gpp-afparams;
+#X msg 914 492 dur /home/gregor/audio/pd-projects/work/wavedata/air/testfile/doors.wav
+;
+#X floatatom 914 594 10 0 0 0 - - -;
+#X obj 913 624 / 60;
+#X floatatom 910 655 5 0 0 0 - - -;
+#X obj 968 624 / 8;
+#X floatatom 965 657 5 0 0 0 - - -;
+#X msg 117 157 \; AA drop all \; AA use temper \; AA use pitcher \;
+AA use dynoz \; AA infile /home/gregor/audio/pd-projects/work/wavedata/air/testfile/\$1.wav
 \; AA outfile /home/gregor/audio/pd-projects/work/wavedata/air/testfile/\$1
 \; AA temper fifosize 10 \; AA temper fiforange 0 500 \; AA temper
 transition_threshold 0.8 \; AA beater fifosize 10 \; AA beater fiforange
 0 500 \; AA beater transition_threshold 0.8 \; AA bonker fifosize 10
 \; AA bonker fiforange 0 500 \; AA bonker transition_threshold 0.8
 \; AA start \;, f 81;
-#X connect 3 0 29 0;
-#X connect 4 0 29 0;
-#X connect 5 0 24 0;
-#X connect 6 0 24 0;
-#X connect 11 0 24 0;
-#X connect 12 0 24 0;
-#X connect 14 0 24 0;
-#X connect 15 0 24 0;
-#X connect 17 0 29 0;
-#X connect 18 0 24 0;
-#X connect 20 0 29 0;
-#X connect 21 0 29 0;
-#X connect 22 0 29 0;
-#X connect 23 0 24 0;
-#X connect 24 0 8 0;
-#X connect 24 1 9 0;
-#X connect 25 0 29 0;
+#X obj 94 545 gpp-airoscope;
+#X obj 126 486 r AA;
+#X text 740 192 pd -nogui -send " INFILE /home/gregor/audio/pd-projects/work/wavedata/air/testfile/beethoven-0.wav
+\; OUTFILE /home/gregor/audio/pd-projects/work/wavedata/air/testfile/beethoven-0
+\; DO drop all \; DO use temper \; DO use pitcher \; DO use dynoz \;
+PARAM temper fiforange 0 300 \; PARAM temper fifosize 5 \; PARAM temper
+transition_threshold 0.8 \; PARAM temper aubio_threshold 0.35 \; START
+bang \; " gpp-airoscope.pd, f 164;
+#X obj 736 390 cnv 15 500 40 empty empty air@air.ijs.si:/var/air/testsamples/
+20 20 0 10 -261234 -66577 0;
+#X connect 3 0 35 0;
+#X connect 4 0 35 0;
+#X connect 5 0 36 0;
+#X connect 6 0 36 0;
+#X connect 11 0 36 0;
+#X connect 12 0 36 0;
+#X connect 14 0 36 0;
+#X connect 15 0 36 0;
+#X connect 17 0 35 0;
+#X connect 18 0 36 0;
+#X connect 20 0 35 0;
+#X connect 21 0 35 0;
+#X connect 22 0 35 0;
+#X connect 23 0 35 0;
+#X connect 26 0 35 0;
+#X connect 28 0 30 0;
+#X connect 29 0 28 0;
+#X connect 30 0 31 0;
+#X connect 30 0 33 0;
+#X connect 31 0 32 0;
+#X connect 33 0 34 0;
+#X connect 36 0 8 0;
+#X connect 36 1 9 0;
+#X connect 37 0 36 0;

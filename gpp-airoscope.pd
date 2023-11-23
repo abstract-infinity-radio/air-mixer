@@ -1,9 +1,9 @@
-#N canvas 965 180 2512 1612 12;
+#N canvas 1328 273 2512 1612 12;
 #X obj 597 17 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
 0;
 #X text 718 8 gpp-airoscope :: various kinds of sample analysis for
 the B-AIR/AIR platform, f 44;
-#N canvas 985 180 2769 1845 \$0-AUTOTRIG 0;
+#N canvas 1451 677 2769 1845 \$0-AUTOTRIG 0;
 #X obj 23 2 cnv 15 800 100 empty empty pd_call_receivers 20 12 0 8
 -262130 -66577 0;
 #X obj 28 28 r INFILE;
@@ -25,7 +25,7 @@ with each track input \, performing live analisis while people play
 track;
 #X obj 831 2 inlet;
 #X obj 56 486 outlet~;
-#N canvas 1685 538 1610 1165 \$0-PLAY 0;
+#N canvas 292 669 1610 1165 \$0-PLAY 0;
 #X obj 285 409 readsf~ 2;
 #X obj 165 419 readsf~;
 #X obj 165 543 outlet~;
@@ -140,13 +140,13 @@ one analysis per file.;
 #X obj 559 219 print *OUTFILE;
 #X obj 557 258 print *INFILE;
 #X text 298 5 RUN PD WITH:, f 60;
-#X obj 235 29 r PARAM;
+#X obj 241 30 r PARAM;
 #X text 192 297 NOTE: OUTFILE IS ACTUALLY A PATH ROOT ONLY \, EACH
 TOOL WILL ADD THEIR OWN EXTENSION;
 #X obj 309 112 route infile outfile start stop listen;
 #X msg 519 381 \; pd-\$1-listen vis \$2 \;;
 #X obj 519 352 list prepend \$0;
-#X obj 265 68 print >>PARAM;
+#X obj 243 82 print >>PARAM;
 #X obj 60 65 print >>OUTFILE;
 #X obj 36 140 print >>INFILE;
 #X obj 319 418 print >>START;
@@ -163,6 +163,9 @@ temper transition_threshold 0.8 \; START bang", f 274;
 PARAM temper fifosize 5 \; PARAM temper fiforange 0 300 \; PARAM temper
 transition_threshold 0.8 \; START bang \; " gpp-airoscope.pd, f 177
 ;
+#X obj 309 29 r DO;
+#X obj 300 55 print >>DO;
+#X text 654 62 NOTE: PARAM = DO. JUST THE MATTER OF EASE, f 23;
 #X connect 1 0 32 0;
 #X connect 1 0 14 0;
 #X connect 4 0 31 0;
@@ -196,6 +199,8 @@ transition_threshold 0.8 \; START bang \; " gpp-airoscope.pd, f 177
 #X connect 35 1 13 0;
 #X connect 36 0 37 0;
 #X connect 36 0 38 0;
+#X connect 41 0 42 0;
+#X connect 41 0 18 0;
 #X restore 15 209 pd \$0-AUTOTRIG;
 #X obj 20 95 inlet;
 #X obj 1132 626 r \$0-DNF;
@@ -274,7 +279,7 @@ transition_threshold 0.8 \; START bang \; " gpp-airoscope.pd, f 177
 -1;
 #X obj 495 77 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#N canvas 3058 846 781 598 \$0-listen 1;
+#N canvas 2308 180 781 598 \$0-listen 1;
 #X obj 79 61 inlet~;
 #X obj 153 143 *~;
 #X obj 206 25 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -203904
@@ -296,7 +301,7 @@ transition_threshold 0.8 \; START bang \; " gpp-airoscope.pd, f 177
 #X obj 573 366 route all;
 #X text 15 8 both: external file/trig control, f 11;
 #X text 100 13 and per tool control, f 7;
-#X msg 311 45 \; pd dsp 1 \;;
+#X msg 313 54 \; pd dsp 1 \;;
 #X obj 311 18 loadbang;
 #X obj 92 97 \$0;
 #X msg 93 125 \; pd-\$1-listen vis 1 \;;
@@ -369,13 +374,13 @@ use pitcher \; \$1-TOOLS use beater \;;
 #X connect 11 0 5 0;
 #X connect 11 0 10 0;
 #X restore 601 324 pd \$0-PILOTSIG;
-#X obj 26 516 gpp-airoscope-tool-temper aa.temper;
-#X obj 48 561 gpp-airoscope-tool-beater aa.beater;
-#X obj 74 609 gpp-airoscope-tool-dynoz aa.dynoz;
-#X obj 96 654 gpp-airoscope-tool-pitcher aa.pitcher;
-#X obj 138 700 gpp-airoscope-tool-bonker aa.bonker;
+#X obj 47 558 gpp-airoscope-tool-beater aa.beater;
+#X obj 78 613 gpp-airoscope-tool-dynoz aa.dynoz;
+#X obj 98 672 gpp-airoscope-tool-pitcher aa.pitcher;
+#X obj 144 746 gpp-airoscope-tool-bonker aa.bonker;
 #X obj 761 49 cnv 15 100 60 empty empty V_1.0 20 12 0 12 -204800 -66577
 0;
+#X obj 26 516 gpp-airoscope-tool-temper aa.temper;
 #X connect 2 0 12 0;
 #X connect 2 0 46 0;
 #X connect 2 1 9 0;
@@ -418,16 +423,16 @@ use pitcher \; \$1-TOOLS use beater \;;
 #X connect 40 0 9 0;
 #X connect 41 0 42 0;
 #X connect 43 0 39 0;
-#X connect 45 0 56 1;
-#X connect 45 1 57 1;
-#X connect 45 2 58 1;
-#X connect 45 3 59 1;
-#X connect 45 4 60 1;
-#X connect 46 0 56 0;
-#X connect 46 1 57 0;
-#X connect 46 2 58 0;
-#X connect 46 3 59 0;
-#X connect 46 4 60 0;
+#X connect 45 0 61 1;
+#X connect 45 1 56 1;
+#X connect 45 2 57 1;
+#X connect 45 3 58 1;
+#X connect 45 4 59 1;
+#X connect 46 0 61 0;
+#X connect 46 1 56 0;
+#X connect 46 2 57 0;
+#X connect 46 3 58 0;
+#X connect 46 4 59 0;
 #X connect 47 0 45 0;
 #X connect 47 1 45 1;
 #X connect 47 2 45 2;
