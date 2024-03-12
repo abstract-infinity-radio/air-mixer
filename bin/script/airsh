@@ -139,12 +139,12 @@ B<gpp-air-coremixer> is primarily intended to be used with Stanford CCRMA B<jack
 
 =over 3
 
-=item [ B<full> ] good networking conditions: each client broadcasting their channels and receiving all but themselves (jacktrip hubpatch mode 2). B<gpp-air-console>, a separate part of B<gpp-air-coremixer>, serves the purpose of monitoring and controlling this proces B<[#]> and, above all, master mixing. In this scenario, each client will mix their own master and prelisten bus (via B<gpp-air-console>). In this scenario, bandwidth issues may affect the very structure of mix(es).
+=item [ B<full> ] good networking conditions: each client broadcasting their channels and receiving all but themselves (jacktrip hubpatch mode 2). gpp-air-console, a separate part of air mixing system, serves the purpose of monitoring and controlling this proces [#] and, above all, master mixing. In this scenario, each client will mix their own master and prelisten bus (via gpp-air-console). In this scenario, bandwidth issues may affect the very structure of mix(es).
 
 =item .
 
-=item [ B<light> ] poor networking conditions: each client broadcasting their own channels but receiving only final mix (jacktrip hubpatch mode 0). Master mixer will also receive prelisten bus, but this one is mixed by master (gpp-air-coremix). A single prelisten-bus is established, available to the master-mixer but not for the other remote members. In this scenario, bandwidth issues may cause serious delay in perception of the final mix feedback.
-   
+=item [ B<light> ] poorer networking conditions: each client broadcasting their own channels and receiving minus-mix (all but theirselves) from the air mixer at the server. The Master Mixer receives master and prelisten outputs (2x stereo). In this scenario, bandwidth issues may cause latency issues / synchronization issues of the final mix and its feedback. In practice, this (light) option has been proved very successful and reliable and also simpler to manage and configure at the server.
+
 =back
 
 Links, explaining the context:
@@ -225,7 +225,7 @@ B<gpp-air-midisender> is actually a simple midi frontend talking to B<gpp-air-co
 
 =item [-]
 
-B<gpp-air-console> is bi-directionally connected to B<gpp-air-coremix> and B<gpp-air-midisender> slaves to B<gpp-air-console>. All the crucial init parameters such as number of channels are automatically synchronized if changed on the server. Currently, the console intended as master-mixer monitoring device, but shall be developed [#] into B<client monitoring and organizing tool> in order to B<provide complete mixing and input/output channels overview to each client> (in the context of 'full' audio-scheme scenario as described above).
+B<gpp-air-console> / B<gpp-air-iconsole> is bi-directionally connected to B<gpp-air-coremix> and B<gpp-air-midisender> slaves to B<gpp-air-console>. All the crucial init parameters such as number of channels are automatically synchronized if changed on the server. The i-console version is an interactive version of the console and provides mouse-mixing gui (via Puredata), developed to enhance awareness of the non/synchronicity between the action-herenow and the remote result. The gpp-air-coremix server gui (if enabled) also follows the same (interactive) model, where the action and effect are represented with separate controllers.
 
 =item .
 
