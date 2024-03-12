@@ -1,0 +1,68 @@
+#N canvas 705 212 2690 1042 12;
+#X obj 601 63 cnv 10 112 22 empty empty AIR 36 6 1 22 -66577 -262144
+0;
+#X obj 50 22 inlet;
+#X obj 298 20 inlet;
+#X obj 59 134 spigot;
+#X obj 60 273 outlet;
+#X text 296 -11 RMS [env~] wire;
+#X obj 301 86 < \$1;
+#X obj 52 98 f;
+#X obj 301 117 change;
+#X obj 257 278 delay \$2;
+#X obj 330 237 t b f;
+#X text 65 292 output value;
+#X obj 361 19 inlet;
+#X obj 364 85 < \$1;
+#X obj 364 116 change;
+#X obj 331 190 &&;
+#X obj 362 149 t b f;
+#X obj 166 187 spigot;
+#X msg 234 136 1;
+#X msg 200 137 0;
+#X obj 59 201 t f b;
+#X obj 48 59 t b f b;
+#X text 749 197 NOTE: the RMS wire will no more trigger 'blind' bangs
+(repeaded same-value outputs) on each RMS-condition-reached. Output
+will only be possible if left inlet gets a new value.;
+#X obj 490 24 inlet;
+#X obj 429 20 inlet;
+#X text 597 93 Gregor Pirš 2024;
+#X text 727 59 comment, f 74;
+#X text 746 56 gpp-waitforsilence :: wait for the right outlet to fall
+under the threshold [in negative RMS DB] which is (env~ output - 100)
+\, then pass the (left outlet) wire. Optional delay can be set = for
+how much time (ms) should the under-threshold state persist in order
+to trigger the output value. This is intended for delayed mute etc.
+| STEREO VERSION: requires the && condition be met in order to consider
+the silence silence., f 74;
+#X obj 300 52 - 100;
+#X obj 362 50 - 100;
+#X connect 1 0 21 0;
+#X connect 2 0 28 0;
+#X connect 3 0 20 0;
+#X connect 6 0 8 0;
+#X connect 7 0 3 0;
+#X connect 8 0 15 0;
+#X connect 9 0 17 0;
+#X connect 10 0 9 0;
+#X connect 10 1 3 1;
+#X connect 12 0 29 0;
+#X connect 13 0 14 0;
+#X connect 14 0 16 0;
+#X connect 15 0 10 0;
+#X connect 16 0 15 0;
+#X connect 16 1 15 1;
+#X connect 17 0 7 0;
+#X connect 18 0 17 1;
+#X connect 19 0 17 1;
+#X connect 20 0 4 0;
+#X connect 20 1 19 0;
+#X connect 21 0 7 0;
+#X connect 21 1 7 1;
+#X connect 21 2 18 0;
+#X connect 23 0 9 1;
+#X connect 24 0 13 1;
+#X connect 24 0 6 1;
+#X connect 28 0 6 0;
+#X connect 29 0 13 0;

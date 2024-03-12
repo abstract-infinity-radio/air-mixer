@@ -1,0 +1,951 @@
+#!/usr/bin/perl -w
+
+    
+use Net::OpenSoundControl::Client;
+use Net::OpenSoundControl::Server;
+use feature qw/say/;
+use Data::Dumper;
+use Term::ReadLine;
+use bytes;
+
+my $prompt = "AIRmix|>";
+my $ppat = qr{AIRmix\|\>};
+my $HOST = "localhost";
+
+my @log;
+open (ACTIONS , "+<","/var/air/data/airsh/airsh_log.txt");
+print "=============\n";
+for (<ACTIONS>) {
+    push @log,$_;
+    print $_;
+};
+print "=============\n";
+
+my $HOST_CLAIMED = $ARGV[0] ? $ARGV[0] : undef; 
+
+my @HC=split /:/,$HOST_CLAIMED;
+
+my $PRERUN;
+
+if ($ARGV[1]){
+    say ">> PASSED SCRIPT: $ARGV[1]";
+    $PRERUN=$ARGV[1];
+}elsif ( -f "/var/air/data/airsh/airsh_initscript.txt"){
+    say ">> INIT SCRIPT: /var/air/data/airsh/airsh_initscript.txt";
+    $PRERUN='/var/air/data/airsh/airsh_initscript.txt';
+}
+
+say "Connecting to ",($HC[0] || $HOST || "localhost"),":",($HC[1] || 3000);
+my $client = Net::OpenSoundControl::Client->new(
+    Host => $HC[0] || $HOST || "localhost", Port => $HC[1] || 3000)
+#        Host => "localhost", Port => 3000)
+    or die "Could not start client: $@\n";
+
+#say $client->name();
+
+
+my $term = Term::ReadLine->new('airmix');
+my $OUT = $term->OUT || \*STDOUT;
+
+# IF PRERUN
+open ( PRERUN , "<",$PRERUN );
+    while (<PRERUN>) {
+	s/^$ppat//;
+	s/$//;
+	m/^\s*exit/ and exit;
+	print "[PRE>] ",$_;
+	my (@args)=split /\s+/,$_;
+	my $track=shift(@args);
+	my $ctrl=shift(@args);
+	# i f s (b) :: @rest are pairs type,val
+	my @rest=map { oftype($_)=>$_ } @args;
+	#	     print Dumper("REST",@rest);
+
+	$client->send(['/airmix/'.$track.($ctrl ? '/'.$ctrl : ""),(@rest ? @rest : "")]);	     
+      EXIT:
+}
+
+close PRERUN;
+
+
+while ( defined ($_ = $term->readline($prompt)) and $_ ne "exit" ) {
+    print ACTIONS $_,"\n";
+    if ( $_ eq 'clear' ){ @log=(); close ACTIONS; open (ACTIONS , "+>","/var/air/data/airsh/airsh_log.txt"); goto EXIT;}; 
+    my (@args)=split /\s+/,$_;
+    my $track=shift(@args);
+    my $ctrl=shift(@args);
+    # i f s (b) :: @rest are pairs type,val
+    my @rest=map { oftype($_)=>$_ } @args;
+    #	     print Dumper("REST",@rest);
+    say '> /airmix/'.$track.($ctrl ? '/'.$ctrl : ""),(@rest ? @rest : "");
+    $client->send(['/airmix/'.$track.($ctrl ? '/'.$ctrl : ""),(@rest ? @rest : "")]);	     
+  EXIT:
+}
+
+close ACTIONS;
+
+sub oftype{
+    $_=shift;
+    m/^\-?\d*\.\d+$/ and return "f";
+    m/^\-?\d+$/ and return "i";
+    return "s";
+};
+
+=pod
+
+=encoding utf8
+
+=head1 SYNOPSIS
+
+B<airsh> :: AIR shell, a simple air-coremix.pd control shell to demonstrate OSC parameters that control the B<AIR core mixer> and B<AIR console> | B<B-AIR project Creative Europe 2020-2023>
+
+This manual is formally a part of B<airsh> but serves as a wider explanation of whole web audio/control framework concieved to support the B-AIR project's B<AIR platform>.
+
+=head1 B<HOW TO RUN airsh itself>
+
+=over 3
+
+=item B<airsh> with no arguments : connect to localhost, no init script 
+
+=item B<airsh> B<host> B<init-script-path>: connect to B<host> and run B<initscript>. In this case, host should be declared, if the server is running locally, use "localhost" 
+
+=back
+
+=head1 B<PUREDATA gpp-air-coremixer ELEMENT> [server-side]
+
+OSC-controlled puredata core mixer for AIR platform:
+
+[ B<gpp-air-coremixer.pd> <num.input.channels> <OSC.inaddress> <OSC.outaddress> ] 
+
+Air core mixer will automatically connect to the <jackd> / <jacktrip> -provided channels via puredata input [adc~] and output [dac~]. Although technically unlimited, within this setup (AIR platform) the core mixer will provide stereo master output and a separate prelisten-bus (as an audio-premonitoring option). The number of the input channels is arbitrary, set as a creation argument to the core mixer. B<gpp-air-coremix> will take the following creation arguments: 
+
+=over 3
+
+=item [=] Number of channels (creation arg)
+
+=item [=] OSC receiver address and port (creation arg)
+
+=item [=] OSC sender (backlink) port (creation arg)
+
+=item [-] inlet1 : puredata [netreceive] control input (debugging purposes) 
+
+=item [-] inlet2 : direct mixer input (debugging purposes) 
+
+=back
+
+=head1 B<gpp-air-coremixer and jacktrip>
+
+B<gpp-air-coremixer> is primarily intended to be used with Stanford CCRMA B<jacktrip> audio networking solution, based on Jack server, primarily in B<hub mode>, following two possible audio-scheme scenarios, which differ in network-bandwidth demands, quality of user experience and flexibility: 
+
+=over 3
+
+=item [ B<full> ] good networking conditions: each client broadcasting their channels and receiving all but themselves (jacktrip hubpatch mode 2). B<gpp-air-console>, a separate part of B<gpp-air-coremixer>, serves the purpose of monitoring and controlling this proces B<[#]> and, above all, master mixing. In this scenario, each client will mix their own master and prelisten bus (via B<gpp-air-console>). In this scenario, bandwidth issues may affect the very structure of mix(es).
+
+=item .
+
+=item [ B<light> ] poor networking conditions: each client broadcasting their own channels but receiving only final mix (jacktrip hubpatch mode 0). Master mixer will also receive prelisten bus, but this one is mixed by master (gpp-air-coremix). A single prelisten-bus is established, available to the master-mixer but not for the other remote members. In this scenario, bandwidth issues may cause serious delay in perception of the final mix feedback.
+   
+=back
+
+Links, explaining the context:
+
+[B<OSC protocol>] C<https://ccrma.stanford.edu/groups/osc/index.html>
+
+[B<jacktrip>] C<https://ccrma.stanford.edu/software/jacktrip/> 
+
+[B<jacktrip>] C<https://ccrma.stanford.edu/groups/soundwire/software/jacktrip/>
+
+[B<jacktrip> modes] C<https://www.haven2.com/index.php/archives/jacktrip-hub-mode-server-options>
+
+[B<jack server>] C<https://jackaudio.org/>
+
+.
+
+=head1 WHO CAN CONNECT
+
+=over 3
+
+=item [B<jacktrip>] Any client that can run and make use of B<CCRMA Jack / jacktrip> can join. According to our pre-testing even connection via modern smartphones works decently. Jack / jacktrip is free software solution. [all open-source software]
+
+=item .
+
+=item [B<gpp-air-console>] Any client that can run full installation of B<puredata 0.51+> [open-source software]
+ 
+=item .
+
+=item [B<airsh>] Any client that can run Perl programming language v5.28 or higher C<https://www.perl.org/>. Air shell is actually a simple OSC sender so it can be easily implemented in different software environments. All processing is done by B<gpp-air-coremix>. 
+
+=item . 
+
+=back
+
+=head1 CONNECTIVITY
+
+A channel input can be connected either MONO or STEREO. Currently, there's no option to recognize whether the jack has been mono or stereo connected within PD, so only manual option remains:
+
+=over 3
+
+=item <ch> mono : set selected channels into mono mode
+
+=item <ch> stereo : set selected channels into stereo mode
+
+=item mono : shortcut to set mono mode globally
+
+=item stereo : shortcut to set  stereo mode globally
+
+=back
+
+B<IMPORTANT> A B<mono> wire should be connected to B<both stereo inputs> in order to assure proper operation.  
+
+A stereo/mono led indicator on the top of each channel fader shows the stereo/mono state. 
+
+=head1 CONTROL WORKFLOW 
+
+=head2 B<airmix and airmon> control and monitoring OSC streams
+
+=head2
+
+*** B<client> | user action->[B<airsh> or a midi mixer controller connected via B<gpp-air-midisender>] 
+
+===> airmix_protocol ===> [B<gpp-air-coremix> | server] =====>airmon_protocol=====> 
+
+[B<gpp-air-console>]->user perception | B<client> ***
+
+=head2
+
+=over 3
+
+=item [-] 
+
+B<airsh> [B<air shell>], though text-based, allows for targeted and complex multi- controller operation, such as addressing complex spans of channels, describing complex ramps for controllers and triggering gadgets such as player / recorder ([#] more to come in future). This functionality (conceptually) transcends simple physical-faders-and-knobs operating mode, although, of course, will always represent 'a different kind of game'. The combination of both, external physical controller and air shell might represent a win-win combination in controlling different cases and situations during live mixing.
+
+=item [-]
+
+B<gpp-air-midisender> is actually a simple midi frontend talking to B<gpp-air-coremix> sitting at server-side. It can be set up to control any parameters, basic or high resolution faders/knobs (nrpn).
+
+=item [-]
+
+B<gpp-air-console> is bi-directionally connected to B<gpp-air-coremix> and B<gpp-air-midisender> slaves to B<gpp-air-console>. All the crucial init parameters such as number of channels are automatically synchronized if changed on the server. Currently, the console intended as master-mixer monitoring device, but shall be developed [#] into B<client monitoring and organizing tool> in order to B<provide complete mixing and input/output channels overview to each client> (in the context of 'full' audio-scheme scenario as described above).
+
+=item .
+
+=back
+
+
+=head1 B<PUREDATA gpp-air-console ELEMENT> [client-side]
+
+[ B<gpp-air-console.pd> <OSC.inaddress> <OSC.outaddress> ] 
+
+=over 3
+
+=item [=] OSC receiver address and port (creation arg)
+
+=item [=] OSC sender (backlink) port (creation arg)
+
+=item [-] inlet1 and outlet1 for bi-directional communication with the optional B<gpp-air-midisender> at the client side
+
+=back
+
+=head1 B<PUREDATA gpp-midisender ELEMENT> [client-side]
+
+=over 3
+
+=item [-] inlet1 : input for B<gpp-air-console> commands [connected to console's outlet1]
+
+=item [-] inlet2 : midi setup - in
+
+=item [-] outlet1 : number of channels and input address/port monitoring state
+
+=item [-] outlet2 : B<gpp-air-console> init-bang (querying server for crucial parameters such as number of channels and server-receive OSC addres [connected to console's inlet1]
+
+=item [-] outlet3 : midi setup - out
+
+=back
+
+
+
+
+=head1 AIRMIX :: AIR CORE MIXER OSC COMMAND PROTOCOL
+
+=head2 CHANNEL ADDRESSING
+
+The structure of the OSC message is: 
+
+B</airmix/E<lt>channelE<gt>/E<lt>controllerE<gt> argument(s)>
+
+where channel = 
+
+=over 3 
+
+=item master (in short: m) 
+
+=item prelisten | preunmute (in short: p pu) 
+
+=item <channel> | <channel_span> | <channel_selection_alias> - see B<CHANNEL_SPAN AND CHANNEL_ALIASING>
+
+=back
+
+=head1 MONITORING
+
+=head2 <ch> B<mon> / <ch> B<nom>
+
+local per-channel monitoring; provides a pd gui window for each separate channel in the selected span (server-side).
+
+=head2 B<mix / xim>
+
+show whole mixer-monitor in a single pd window. mixer-monitor is a gui element directly rendered by the B<server> and is intended for direct monitoring on the server side. 
+
+=head2 B<con / noc>
+
+inform remote client (gpp-air-console user) to show or hide console gui window (a remote version of mixer-monitor in a single pd window)
+
+=head1 CONTROLLERS
+
+=head2 B<master|m> B<fader|f|level> <airliner_vector> 
+
+send B<airliner_vector> to a master fader (both channels)
+
+=head2 B<master|m> B<lfader|rfader|left|right> <airliner_vector>
+
+send B<airliner_vector> to a master fader (separate channels)
+
+=head2 <ch> B<fader|f> <airliner_vector>
+
+send B<airliner_ector> to a separate channel's faders
+
+* faders are dynamic. a ramp can be interrupted with a new ramp at any point and will continue to flow from that point on. Airliner vector curves will B<scale> up/down to adapt to the height of the new window to cover.  
+
+=head2 <ch> B<pan|p> <airliner_vector>
+
+send an B<airliner_vector> to a separate channel pan
+
+
+* B<NOTE> master has no pan but both faders /stereo/ instead
+
+
+=head1 B<AIRLINER_VECTOR>
+
+is managed by gpp-airliner~.pm. Airliner can be bound to any mixer param, currently it controls B<faders> and B<panning> 
+
+it will accept 1 - 4 input parameters:
+
+<B<value_to_reach [rms 0-1]>>  <B<time_of_operation [ms]>>B<?>  <B<curve [string - see below]>>B<?>  <B<initial delay [ms]>>B<?>
+
+where only the first parameter, <B<value_to_reach [rms 0-1]>>, is compulsory. The other three, if omitted, will default to: 
+
+=over 7
+
+=item <B<time_of_operation [ms]>> defaults to 'jump' micro-fader time (50 ms) 
+
+=item <B<curve [see]>> defaults to 'lin' or 'linear'
+
+=item <B<initial delay [ms]>> defaults to 0
+
+=back
+
+Currently available curves:
+
+=over 3
+
+=item B<jump> micro-fader (50ms) linear curve
+
+=item B<lin> linear 
+
+=item B<sin> sinusoidal (soft) 
+
+=item B<hsin> half-sinusoidal (equal power) 
+
+=item B<log> logarithmic, hard neck
+
+=item B<pow> power (exponential), slow sudden attack
+
+=back
+
+=head2 <airliner_vector> examples
+
+=over 3
+
+=item B<0.9> => jump to 0.9
+
+=item B<0.422 7500> => slide to 0.422 in 7.5 seconds
+
+=item B<1 4230 sin> => slide to 1 in 4.23 seconds following sinusoidal curve
+
+=item B<0.5 7600 pow 2000> => slide to .5 in 7.6 seconds following power curve, but start after 2 seconds from now
+
+=back
+
+=head1 AUDIO PRODUCTION / PROCESSING TOOLS
+
+=head2 B<PLAY>
+
+<ch> play B<<file*>> 
+
+Play a file (wav,aiff)
+
+<ch> play <file> <hh:mm:ss.uuu> 
+
+Play a B<file> from the selected B<timing> on
+
+<ch> play <file> <hh:mm:ss.uuu> <hh:mm:ss.uuu> 
+
+Play a B<file> from the selected B<timing> to the selected B<end>
+
+<ch> play <file> <hh:mm:ss.uuu> <hh:mm:ss.uuu> +<hh:mm:ss.uuu> 
+
+Play a B<file> from the selected B<timing> to the selected B<end> with the selected B<+delay>. Note that the player / looper delay parameter should be marked with B<+>
+
+B<<file>*> can be either a B<filename in connection with current working directory> (see cd / dir directives) or an B<absolute path>
+
+<ch> wplay <same arguments as play>
+
+play a B<file> with waitmute enabled. Initially, the recording is muted while being played and it will unmute the moment that the wait-unmute condition is met (=a moment of silence). therefore, the apperance of the sonic matter will be 'organic' = not forefully cut.
+
+B<set wmtime> <milisecs>
+
+set wmtime - required time of relative silence between sound events to trigger waitmute / waitunmute.  
+
+B<set wmthreshold> <-dB> 
+
+threshold of recognition what means 'relative silence' using -dB scale (-100 to 0 dB). 
+
+<ch> stop 
+
+Stop current playing session at channel(s) <ch>
+
+<ch> wstop 
+
+stop the B<file> with waitmute enabled. The B<stop> directive will wait till the wait-unmute condition is met. so the stopping will look organic, but may not happen at the very moment of execution of the command.  
+
+<ch> wclip <same arguments as wplay / play> [**WARNING: STILL FLIMSY!!]
+
+Auto clipper, based on waitmute system. 
+
+B<wclip> uses the same timing parameters as B<play> command. The timings are rather arbitrary, though, and determine only the timing-frame within which the waitmute system will operate (= initial wplay start splaying at the timing1 and the timing2 will end playing anyway, even if the waitmute condition hasn't been met yet). 
+
+B<set wctime> <milisecs>
+
+set wctime - required minimal duration of non-silence segment [ > wmthreshold dB ] to recognize the clip existence and trigger the wstop chain. 
+
+=head2 B<LOOP>
+
+<ch> loop <file>  
+
+Loop whole B<file>
+
+<ch> loop <file>  <hh:mm:ss.uuu> <hh:mm:ss.uuu>
+
+Loop B<file clip> from selected B<timing> to selected B<timing>
+
+<ch> loop <file>  <hh:mm:ss.uuu> <hh:mm:ss.uuu> +<hh:mm:ss.uuu>     
+
+Loop B<file clip> from selected B<timing> to selected B<timing> with intermediate B<+delay>
+
+<ch> stop 
+
+Stop current looping session at channel(s) <ch> immediately
+
+<ch> B<deloop> 
+
+stop playing when the current loop iteration finishes
+
+<ch> B<unwind> 
+
+release the loop and B<play the sample till the end> 
+
+=head2 B<RECORD>
+
+<ch> record <file>  
+
+Record to B<file>
+
+<ch> record <file>  <hh:mm:ss.uuu>
+
+Record to B<file> after initial B<+delay>
+
+<ch> record <file>  <hh:mm:ss.uuu>  <hh:mm:ss.uuu>
+ 
+Record to B<file> after initial B<lead-in> a B<lenght> long clip. The second figure being interval length. Timing display will change color to red when the recording actually starts.
+
+<ch> stop 
+
+Stop current recording session at the addressed channel
+
+=head2 B<OTHER>
+
+B<gpp-playhed> will be added in future to enable complex manipulations of PLAY function (speed change, different ways of oscillating ramps, granulation/heartbeat etc...) [#] Performance-sensitive, will have to be tested in terms of mass channel addressing and potentially heavy monitoring OSC-traffic. 
+
+
+
+=head1 B<CHANNEL_SPAN AND CHANNEL_ALIASING>
+
+<ch> refers to:
+
+=over 3
+
+=item B<channel number> : send to a selected channel 
+
+=item B<all> : send to all channels
+
+=item B<even> : send to even-numbered channels
+
+=item B<odd> : send to odd-numbered channels
+
+=item B<selection span> : send to a selection span which consist from '-' delimited ranges and ',' delimited lists, for instance B<1,3,5-7>
+
+=back 
+
+=head1 B<GLOBAL AND PER-CHANNEL COMMANDS>
+
+=head2 B<solo, mute>
+
+=over 3
+
+=item B<<ch>> B<solo> : set the channel 'solo' : set corresponding mutes and also send B<setsolo> boolean signal
+
+=item B<<ch>> B<unsolo> | B<us> : set the channel 'not solo' : set corresponding mutes and also send B<setsolo> boolean signal
+
+=item B<master> B<mute> | B<m> : mute  master channel (monitored via setmute boolean )
+
+=item B<<ch>> B<mute> | B<m> : mute selected channel (processed and monitored via B<setmute> boolean )
+
+=item B<master> B<unmute> | B<u> | B<um> : mute the master channel (monitored via setmute boolean )
+
+=item B<master> B<lunmute> | B<lu> : mute left master channel (monitored via B<setlmute> boolean )
+
+=item B<master> B<runmute> | B<ru> : mute right master channel (monitored via B<setrmute> boolean )
+
+=item B<<ch>> B<unmute> | B<u> : mute selected channel (monitored via setmute boolean )
+
+=item B<<ch>> B<setmute> <boolean> : set mute value (monitoring: /airmon/etc/<ch>/setmute <boolean>)
+
+=item B<master> B<setlmute> <boolean> : set l-master mute value (monitoring: /airmon/etc/master/setlmute <boolean>)
+
+=item B<master> B<setrmute> <boolean> : set r-master mute value (monitoring: /airmon/etc/master/setrmute <boolean>)
+
+=item B<mutelock> directive is machine-generated and controls the second mute layer during solo operations
+
+NOTE: solo also operates on complex spans, for instance 1-3,7 will set solo the corresponding channels.
+
+=back
+
+=head2 B<solo> and B<presolo> switches policy
+
+B<solo> and B<presolo> switches do the following:
+
+=over 3
+
+=item B<solo> or a group of solo commands (represented by a B<complex channel span> will grab the mixer, disabling the rest of channels. If these are already muted, they will stay muted. If not, they will be B<solomuted> (= mechanically locked to mute-state). If yes, they will remain muted, but an attempt to unmute them will put them into B<solomuted> state. 
+
+=item B<solo>-ed channels can be muted/unmuted at will
+
+=item Any channel can be either added to or removed from the B<solo span>.
+
+=item When the last B<solo> channel is disabled, all B<solomuted> channels will B<return to the previous state>, either B<muted> or B<unmuted>. 
+
+=item same policy applies on B<prelisten> bus solo (B<presolo>)
+
+=back
+
+=head2 B<prelisten> bus
+
+=over 3
+
+=item B<ch> B<prelisten> | B<pl>: add the channel to the pre-listening bus (separate prelisten monitoring audio port)  
+
+=item B<ch> B<premute> | B<pm>: remove the channel from the pre-listening bus (separate prelisten monitoring audio port)  
+
+=item B<ch> B<presolo> | B<ps>: set the channel as pre-listening B<solo>  : adjusts all B<premute> values and also sends B<setpresolo> boolean to the corresponding channel(s)
+
+=item B<ch> B<unpresolo> | B<ups>: set the channel as pre-listening B<solo>  : adjusts all B<premute> values and also sends B<setpresolo> boolean to the corresponding channel(s)
+
+=item B<ch> B<setpremute> : boolean directive (fit for monitoring: /airmon/etc/<ch>/setpremute  <boolean> ) 
+
+=item B<ch> B<setsolopremute> : machine generated solomute directive on presolo bus
+
+=back
+
+=head2 B<waitmute> | B<wm>, B<waitunmute> | B<wu>
+
+=over 3
+
+=item B<waitmute> or B<wm> performs an ordinary <mute> command, but before it does it waits for a condition to be fulfilled: the post-fader (and pre-mute) output of the track (or both tracks of a stereo) in question will have to become 'silent', with env~ value < 10. 
+
+=item B<waitunmute> or B<wu> performs an ordinary <unmute> command, but under the same condition than B<waitmute>
+
+=item B<NOTE> if the post-fader output level of the track is below the env~ treshold (< 10) B<waitmute> and B<waitunmute> function similarly to B<mute> and B<unmute>
+
+=back 
+
+
+=head2 B<other globals>
+
+=over 3
+
+=item B<human> | B<nonhuman> : set OSC input policy. B<nonhuman> will: 1) not dereference complex spans (only per-channel or global addressing remains) and 2) treat all timing arguments as miliseconds (not hh:mm:ss.msc format). B<human> reverts this behaviour to normal (enabled complex spans and hh:mm:ss.msc format)
+
+=item B<panic> : all channel faders set to 0
+
+=item B<dir> | B<cd> : set global wavedata directory
+
+=item B<ls> : get global wavedata directory 
+
+=item B<trimfader> : set B<trimfader time> or B<trimfader type>  B<[#]>
+
+=item B<centerpan> : center all pans
+
+=item B<fullout> : set all faders to full
+
+=item B<stereopan> : set even-numbered faders to 0 and odd-numbered faders to 1 (receiving in full stereo mode) 
+
+=item B<globepan> : evenly distribute panning across panorama 0-1 accross all channels
+
+=item B<lstracks> : list numbers / configuration of input and output tracks through the rightmost outlet of [gpp-air-coremix] element (via set message)
+
+=item B<autosave> : turn autosave (track names, mixer state, fader type) feature ON
+
+=item B<noautosave> : turn autosave (track names, mixer state, fader type) feature OFF
+
+=item B<latency> / B<latencystop> : starts / stops measuring console latency (audio and control). The values are reported to the control (3rd) outlet of the [gpp-air-coremix] element (via set message)
+
+=item B<setmode> : set server's monitoring mode (auto, mirror, coarse, off). See 'Two main server-side monitoring modes' below.
+
+=item B<setff> : set server's fanning factor (distance between serial OSC monitoring request, somewhere between 2 and 6, default 3 ) :: the serial monitoring requests (fader, pan) get distributed after the following formula: 
+
+=over 5
+
+=item B<fader> : (<ch> * <FF> * 2) msec DELAY
+
+=item B<pan> : (<ch> * <FF>) msec DELAY
+
+=back
+
+=item B<alivesig> start / stop : turn alive signals on / off. In the left bottom corner of the iConsole and CoreMixer there are rectangular symbols B<iCo> and B<Srv>. If B<alivesig> is running they will show the state of connection: 
+
+=over 5
+
+=item B<iCo> is green : iConsole is connected (server-side monitoring)
+
+=item B<Srv> is green : Server is connected (client-side monitoring) 
+
+=item both red in case of opposite
+
+=back
+
+=item B<reset> : erase autosave mixer data. By default, mixer has 2 sec interval autosave (autosave.txt). Persistence survives mixer-restart and mixer-resize. This command resets all parameters. 
+
+=item B<fadertype> lin / log : set linear or logarhytmic fader tipe. B<setfadertype> boolean [ NOT YET IMPLEMENTED ON iCONSOLE!!! ]
+
+=back
+
+=head1 B<INTERNAL CLIENT- COMMANDS>
+
+These are client- (console) initiated 
+
+=over 3
+
+=item /airmix/cinit/ bang => client signalizing server their own loadbang and querying for initial parameters such as number of channels, airdir etc. This request is handled separately on air-coremixer input. 
+
+=back
+
+=head1 B<PRELISTEN BUS>
+
+Unless in the B<light> audio-scheme scenario B<Prelisten bus> itself will not be provided by the server. It will be rendered by the client, gpp-air-console will render their own bus from all channels gathered via jacktrip. 
+
+On the contrary, B<light> mode [#] will provide prelisten bus, as well as master-mix.
+
+=over 3
+
+=item B<ch> B<prelisten> B<preunmute> | B<pl pu>: add the channel to the pre-listening bus (separate prelisten monitoring audio port)  (monitoring: /airmon/etc/prelisten 1 )
+
+=item B<ch> B<premute> | B<pm>: remove the channel from the pre-listening bus (separate prelisten monitoring audio port)  (monitoring: /airmon/etc/prelisten 0 )
+
+=item B<ch> B<presolo> | B<ps>: set the channel as pre-listening B<solo>  (monitoring: /airmon/etc/presolo  )
+
+=item B<setprelevel> : set the level of prelistening bus. Bound to 'jump' (50ms) ramp, not gpp-airliner. This know is per-ch only. There is no master volume. Available via B</airmon/etc/[ch]/setprelevel>
+
+=back
+
+=head1 AIRMIX EXAMPLES [broadcast by the user/client sender such as B<airsh>]
+
+=head2 MASTER 
+
+=over 3
+
+=item /airmix/master/lfader 1 : set left master fader
+
+=item /airmix/master/rfader 0.235 : set right master fader
+
+=item /airmix/master/fader 0.5 : set both master faders
+
+=back 
+
+=head2 CHANNELS
+
+=over 3
+
+=item /airmix/3/fader 1 : set fader #3
+
+=item /airmix/3-5,7/fader 1 : set faders #3,#4,#5 and #7
+
+=item /airmix/odd/fader 1 : set odd faders
+
+=item /airmix/all/fader 1 3000 sin : start all faders' ramp to 1, 3000 ms, sinusoidal curve
+
+=item /airmix/even/pan .5 6000 pow : start even pans' ramp to .5, 6 sec, power curve
+
+=item /airmix/4,5/pan 0 4000 log 6234 : start channel's 4 and 5 pan ramp to 0 in 4 s, logarhytmic curve, after 6,234 sec delay
+
+=item /airmix/even/play test.wav : play file test.wav on even channels
+
+=item /airmix/even/play test.wav 0:05 : play file test.wav on the even channels from 0:05 to the end
+
+=item /airmix/even/play test.wav 0:05 : play file test.wav on the even channels from 0:05 to the end
+
+=item /airmix/1-4/loop test.wav 0:20 0:22.123 +0:03.120 : loop file test.wav on channels 1-4 clipped at 0:20 to 0:22.123 with 0:03.120 delay/gap
+
+=item /airmix/3/record myrecording.wav 0:25 : record to myrecording.wav after 0:25 delay (with pre-count)
+
+
+=back
+
+=head2 CHANNEL- AND GLOBAL- ALIASES
+
+=over 3
+
+=item /airmix/odd mute : mute odd channels
+
+=item /airmix/3,4-5 solo : solo channels 3,4 and 5
+
+=item /airmix/panic : panic (turn all faders down)
+
+=item /airmix/ls : get info about the server audio storage directory
+
+=item /airmix/trimfader : set trimfader time and type 
+
+=item /airmix/centerpan : center all pans
+
+=item /airmix/stereopan : set all pans to stereo mode
+
+=item /airmix/globepan : equidistant placing of all pans
+
+=item /airmux/setmode : set server monitoring mode
+
+=item (...)
+
+=back
+
+=head1 AIRMON :: AIR CORE MONITORING OSC COMMAND PROTOCOL
+
+=head2 MONITORING TACTICS
+
+Serves dispatching information about the mixer state to all subordinated (remote) web client subjects. While the data, dispatched on momentary basis, does not represent a problem regarding the OSC traffic demands, all continuous data types, such as fader pan etc, represent a challenge. Air engine will internally handle such types by the usage of signal-level streaming, therefore monitoring can be done using 3 different tactics:
+
+=over 3
+
+=item B<A request> : whole B<request> (for instance: fader .5 3000 sin 6000) is transfered (copied from the airmix OSC input) to the web clients and clients themselves will take care about rendering itself, from begining to end. Not only B<gpp-airliner> directive, but also timer requests can be given this way. 
+
+=item B<B snapshot> : current state of controller transferred on periodical basis (metronome pulse). Intermediate request data is sent using relatively low frequency in order to avoid OSC wire overheads
+
+=item B<C contour> : this tactics is actually a modification of B<snapshot> tactics, but will only send B<snapshot> to the client(s) when B<RF (request_fulfilled)> signal on the respected controller is broadcast (this is called B<VR (value_reached)>, also provided by gpp-airliner~). So instead of metronome pulse, the initiative for broadcasting B<snapshot> is based on reaching controllers' border states. All intermediate request data is ignored. This tactics alone can be used for low bandwidth cases, but also to complement tactics B<A> and B<B>. With the B<A> tactics, it can help assure that the final state is obeyed regardless of potential server/client desync. With the B<B> tactics it can assure that the border state information is delivered exactly in time, even if the server's snapshot heartbeat is low.     
+   
+=back
+
+=head2 OSC CONTROLLER MAP
+
+=head3 MONITORING TACTICS:
+
+=over 3
+
+=item B<A. REQUEST> 
+
+/airmon/request/<ch>/<controller> <request params>
+
+any kind of user-request as such, copied directly from the OSC input for each respective controller, such as:
+
+=over 5
+
+=item /airmon/request/<ch>/B<fader> <airliner~ params>
+
+=item /airmon/request/<ch>/B<pan> <airliner~ params>
+
+_
+
+=back
+
+=item B<A2. VIRTUAL REQUEST> 
+
+A request assembled by the server engine (not passed by the user) in order to encapsule bandwidth-demanding movement to be rendered by the client engine, such as:
+
+=over 5
+
+=item /airmon/request/<ch>/B<timer>/<type> [start|stop] [initial_timing_ms]? 
+
+B<display> timer, where <type> can be "play" or "record" 
+
+=back
+
+_
+
+=item B<B. SNAPSHOT> 
+
+/airmon/snapshot/<ch>/<controller> 
+
+B<controller> state at the very moment
+
+=item B<C. CONTOUR> 
+
+/airmon/contour/<ch>/... 
+
+separate reporting of basic border states :: the point of this tactics is to report some basic params that the client (web or pd) can use to render their own movement. There are several 'contour handlers', such as: 
+
+=over 5
+
+=item ... B<rf>/<controller> => B<controller> rf when reached (request fulfilled => reached destination boolean (1=yes 0=not yet), fader or pan
+
+=item ... B<vr>/<controller> => B<controller> vr when rf reached (value reached => the actual destination value triggered when reached, fader or pan, and also play, record (border states)
+
+=item ... B<ac>/<controller> => B<controller> ac (active) : play, record and such things => player is active boolean (1=yes, 0=not)
+
+=back
+
+=back
+
+*note difference between B<rf> and B<ac> switches: B<rf> policy is negative (= positive when not active) while B<ac> policy is positive (= negative when not active). 
+
+=head3 ALL THE REST
+
+All data that cannot be ranged into the 3 main monitoring tactics, will be passed via B<etc>  
+
+=over 3
+
+=item /airmon/etc/<anyparam> => other data or switches, non policy-classified
+
+=item /airmon/etc/<ch>/<anyparam> => other data or switches, non policy-classified : per-channel
+
+=back
+
+for instance: 
+
+=over 5
+
+=item /airmon/etc/<ch>/filename/ => current file name distributed exactly before each play- or record- request
+
+=item /airmon/etc/<ch>/mute => mute boolean for the selected channel
+
+=item /airmon/etc/master/mute => master mute boolean (both channels)
+
+=item /airmon/etc/master/rmute => master mute boolean (right channel only)
+
+=item /airmon/etc/master/lmute => master mute boolean (left channel only)
+
+
+=back
+
+=head3 DIRECT SYS PARAMS
+
+System params (internal communication between air-coremix and console, without user interaction) are sent via /sys/ and /syscore/ controllers. B</sys/> will deliver the messaga to the console frontend (shell that envelopes console-core) and B</syscore/> will to the console core itself. These params is no thing the end user should be bothered with.  
+
+=over 5
+
+=item /airmon/sys/CHNUM/ => number of channels, required by gpp-air-coremixer creation argument - the console automatically resizes if the argument changes. 
+
+=item /airmon/syscore/AIRDIR/ => airdir path storage (path itself stored as text)
+
+=item /airmon/syscore/SHOW/ [boolean] => show / hide console
+
+=back
+
+=head1 B<TWO MAIN SERVER-SIDE MONITORING MODES BASED ON DIFFERENT MONITORING TACTICS>
+
+=over 3
+
+=item B<OFF> :: monitoring disabled
+
+=item B<MIRROR> and B<COARSE> :: implementing B<contour> and B<snapshot> tactics:
+
+=over 5
+
+=item B<MIRROR> : use B<both> tactics => high bandwidth and low client capacity; will report border states and intermediate snapshots according to network capacity (tunable). B<Contour> skeleton is used to prevent possible timing-based anomalies, especially with extremely lo frequency monitoring heartbeat. 
+
+=item B<COARSE> : use B<only contour tactic> => low bandwidth and low client capacity; will only report border (crucial) states.
+
+=back
+
+=item B<AUTO>  :: use B<request> and B<snapshot> tactics => client themselves will render events; this is only safe when client is capable of running puredata console.  Suitable for very low web bandwidth. B<Contour> skeleton is used to prevent possible timing-based anomalies. 
+
+Server can be set to either mode in terms of communicating with its console(s):
+
+=over 5
+
+=item /airmix/B<setmode mirror> or airsh B<setmode mirror> :: set mirroring mode (contour + snapshot)
+
+=item /airmix/B<setmode coarse> or airsh B<setmode coarse> :: set mirroring mode with only contour tactics enabled
+
+=item /airmix/B<setmode auto> or airsh B<setmode auto> :: set autonomous mode (all rendering based on request tactics data vectors)
+
+=item /airmix/B<lsmode> :: list currently selected monitoring mode
+
+=back
+
+=back
+
+=head1 B<AIR MIXER CONFIG FILES> 
+
+=over
+
+=item /var/air/data/mixer/airdir.txt - air current working directory
+
+=item /var/air/data/mixer/state/autosave.txt - mixer params state
+
+=item /var/air/data/mixer/state/autosave_chname.txt - fader type and channel names
+
+=item /var/air/data/airsh/airsh_log.txt - list of recently cast airsh commands
+
+=back
+
+=head1 B<AIRSH EXAMPLES> EXAMPLES> [broadcast by user/client]
+
+airsh m fader 1 2000 sin => fade complex curve
+
+airsh 1 fader .3 4000 log 2000 => fade after delay
+
+airsh play file.wav 0:12.345 0:15.012 +1:0.300 => play a clip after delay
+
+airsh loop file.wav 0:12.345 0:15.012 +1:0.300 => loop a clip after delay
+
+airsh rec 0:10 0:15 => record 15 seconds after 10 seconds delay
+
+=head1 B<AIRMON PROTOCOL EXAMPLES> [broadcast by gpp-air-coremix/server]
+
+/airmon/request/master/lfader/ 1 3000 sin
+
+/airmon/request/master/rfader/ 1 3000 sin
+
+/airmon/request/master/fader/ 1 3000 sin
+
+/airmon/snapshot/1/fader .346567
+
+/airmon/contour/master/rf/lfader 1
+
+/airmon/contour/master/rf/lfader 1
+
+/airmon/contour/3/ac/player 1
+
+/airmon/contour/1/timer/player start 3543 down
+
+/airmon/contour/1/timer/player stop
+
+/airmon/contour/3/timer/recorder start 0 up
+
+=head1 B<AUTHOR> 
+
+Gregor Pirs <gregor.pirs@guest.arnes.si>
+
+=head1 B<VERSION>
+
+B<[27-2-2024]> | air-coremix.pd 1.6
+
+=cut
+
+

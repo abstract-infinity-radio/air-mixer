@@ -283,14 +283,14 @@ sub list_gtk3{
     #a fast solution, should be modelled after @columns
     my $store = Gtk3::TreeStore->new('Glib::String');
     
-    for my $r ($self->{'afdb'}->resultset('Public_Card')->search($h)->all) {
+    for my $r ($self->{'afdb'}->resultset('Public_Card')->search($h,{order_by => { -asc => 'airc' }})->all) {
 	my $iter = $store->append();
-	$store->set($iter, 0 => $r->title);
+	$store->set($iter, 0 => "[".$r->airc."] ".$r->title);
 	
 	for my $c ($self->{'afdb'}->source('Public_Card')->columns,'recordings'){
 	    unless ($c eq 'title' or $c eq 'ts'){ #exclude header and timestamp
 		my $iter_child = $store->append($iter);
-		if ($c eq 'airc'){$store->set($iter_child, 0 => 'AIRC.'.$r->$c)}elsif($c eq 'recordings'){$store->set($iter_child, 0 => "number of recordings: ".$r->recordings->count)}else{$store->set($iter_child, 0 => $c.": ".$r->$c)}
+		if ($c eq 'airc'){$store->set($iter_child, 0 => 'AIRC_'.$r->$c)}elsif($c eq 'recordings'){$store->set($iter_child, 0 => "number of recordings: ".$r->recordings->count)}else{$store->set($iter_child, 0 => $c.": ".$r->$c)}
 	    }#unless;
 	};#columns
     };

@@ -4,7 +4,7 @@
 #X text 7 90 master;
 #X obj 88 36 receive~ \$1_auxL;
 #X obj 213 36 receive~ \$1_auxR;
-#X msg 422 378 1 2;
+#X msg 422 378 11 12;
 #X obj 422 415 list append for channel \$1;
 #X obj 423 345 t b a;
 #X obj 142 364 dac~;
@@ -16,7 +16,6 @@
 #X msg 422 304 set \$1 \$2;
 #X obj 445 263 pack f f;
 #X obj 447 119 r \$0-RECHAN;
-#X obj 399 204 expr (2*\$1) - 1 \; 2*\$1 \;;
 #X obj 418 107 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X msg 1025 458 set \$1 \$2;
@@ -25,9 +24,11 @@
 #X obj 1006 343 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 1019 384 expr (2*\$2)+1+(2*\$1)-1 \; (2*\$2)+1+(2*\$1) \;;
-#X msg 1022 500 26 27;
+#X msg 1022 500 18 19;
 #X floatatom 534 258 5 0 0 0 - - -;
 #X msg 63 336 set 1 2;
+#X obj 568 31 expr (2*\$1) - 1 \; 2*\$1 \;;
+#X obj 399 204 expr (2*\$1) - 1 + 10 \; (2*\$1) + 10 \;;
 #X connect 0 0 9 0;
 #X connect 1 0 10 0;
 #X connect 3 0 9 1;
@@ -38,20 +39,20 @@
 #X connect 7 1 5 0;
 #X connect 9 0 8 0;
 #X connect 10 0 8 1;
-#X connect 13 0 17 0;
+#X connect 13 0 27 0;
 #X connect 14 0 8 0;
 #X connect 14 0 7 0;
 #X connect 15 0 14 0;
-#X connect 16 0 17 0;
-#X connect 17 0 12 0;
-#X connect 17 0 15 0;
-#X connect 17 1 15 1;
-#X connect 17 1 25 0;
-#X connect 18 0 17 0;
-#X connect 19 0 24 0;
-#X connect 20 0 19 0;
-#X connect 21 0 23 0;
-#X connect 22 0 23 0;
-#X connect 23 0 20 0;
-#X connect 23 1 20 1;
-#X connect 26 0 8 0;
+#X connect 16 0 27 0;
+#X connect 17 0 27 0;
+#X connect 18 0 23 0;
+#X connect 19 0 18 0;
+#X connect 20 0 22 0;
+#X connect 21 0 22 0;
+#X connect 22 0 19 0;
+#X connect 22 1 19 1;
+#X connect 25 0 8 0;
+#X connect 27 0 12 0;
+#X connect 27 0 15 0;
+#X connect 27 1 15 1;
+#X connect 27 1 24 0;

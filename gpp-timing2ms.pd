@@ -1,10 +1,10 @@
-#N canvas 921 203 2686 1400 12;
+#N canvas 921 180 2686 1400 12;
 #X obj 129 137 list-abs/list-map;
 #X obj 160 448 list prepend 0;
 #X obj 83 663 outlet;
 #X text 724 198 : 46=>32;
 #X text 724 217 . 58=>32;
-#X obj 129 54 inlet;
+#X obj 129 18 inlet;
 #X obj 532 21 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
 0;
 #X text 530 48 Gregor Pirš 2022;
@@ -72,10 +72,11 @@ zero);
 <hh>:<mm>:<ss>.ms) to miliseconds;
 #X obj 78 624 expr ($f1*3600*1000 + $f2*60*1000 + $f3*1000 + $f4 )
 \;;
+#X obj 128 53 list trim;
 #X connect 0 0 18 0;
 #X connect 0 1 23 0;
 #X connect 1 0 8 0;
-#X connect 5 0 14 0;
+#X connect 5 0 33 0;
 #X connect 8 0 20 0;
 #X connect 9 0 32 0;
 #X connect 9 1 32 1;
@@ -108,3 +109,4 @@ zero);
 #X connect 29 0 0 0;
 #X connect 30 0 21 0;
 #X connect 32 0 2 0;
+#X connect 33 0 14 0;

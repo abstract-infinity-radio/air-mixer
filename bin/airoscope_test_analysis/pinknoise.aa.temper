@@ -1,0 +1,45 @@
+---
+region:
+# -
+# # id: 1
+# # is_elusive: 1
+# # beat:
+# # # -
+# # # # tempo: 137
+# # # # id: 1
+# # # # at_ms: 437.333
+# # # # at_time: 0:00:00.437
+# # # -
+# # # # tempo: 137
+# # # # id: 2
+# # # # at_ms: 874.667
+# # # # at_time: 0:00:00.874
+# # # -
+# # # # tempo: 134
+# # # # id: 3
+# # # # at_ms: 1322.67
+# # # # at_time: 0:00:01.322
+# # # -
+# # # # tempo: 137
+# # # # id: 4
+# # # # at_ms: 1760
+# # # # at_time: 0:00:01.760
+# # # -
+# # # # tempo: 134
+# # # # id: 5
+# # # # at_ms: 2208
+# # # # at_time: 0:00:02.208
+# # # -
+# # # # tempo: 152
+# # # # id: 6
+# # # # at_ms: 2602.67
+# # # # at_time: 0:00:02.602
+header:
+# regions: 1
+# beats: 6
+# fifostat_size: 8
+# fifostat_range_from: 0
+# fifostat_range_to: 500
+# transition_threshold: 0.8
+# aubio_threshold: 0.3
+# average_tempo: 138.5

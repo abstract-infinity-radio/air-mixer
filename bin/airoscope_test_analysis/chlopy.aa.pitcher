@@ -1,0 +1,5638 @@
+---
+pitch:
+# -
+# # frequency: 444.82
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: 18.8614
+# # env: 84.0406
+# # id: 1
+# # note_midivalue: 69
+# # at_ms: 1429.33
+# # at_time: 0:00:01.429
+# -
+# # frequency: 439.297
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -2.76718
+# # env: 80.3547
+# # id: 2
+# # note_midivalue: 69
+# # at_ms: 1898.67
+# # at_time: 0:00:01.898
+# -
+# # frequency: 326.171
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -18.2522
+# # env: 77.6624
+# # id: 3
+# # note_midivalue: 64
+# # at_ms: 2405.33
+# # at_time: 0:00:02.405
+# -
+# # frequency: 389.471
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -11.1832
+# # env: 84.1555
+# # id: 4
+# # note_midivalue: 67
+# # at_ms: 2773.33
+# # at_time: 0:00:02.773
+# -
+# # frequency: 327.647
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -10.4313
+# # env: 74
+# # id: 5
+# # note_midivalue: 64
+# # at_ms: 3045.33
+# # at_time: 0:00:03.045
+# -
+# # frequency: 335.344
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: 29.7638
+# # env: 80.3071
+# # id: 6
+# # note_midivalue: 64
+# # at_ms: 3221.33
+# # at_time: 0:00:03.221
+# -
+# # frequency: 344.396
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -24.1211
+# # env: 82.1122
+# # id: 7
+# # note_midivalue: 65
+# # at_ms: 3317.33
+# # at_time: 0:00:03.317
+# -
+# # frequency: 346.307
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -14.5424
+# # env: 78.9735
+# # id: 8
+# # note_midivalue: 65
+# # at_ms: 3632
+# # at_time: 0:00:03.632
+# -
+# # frequency: 342.593
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -33.2069
+# # env: 79.8124
+# # id: 9
+# # note_midivalue: 65
+# # at_ms: 4581.33
+# # at_time: 0:00:04.581
+# -
+# # frequency: 347.217
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -9.99908
+# # env: 83.0974
+# # id: 10
+# # note_midivalue: 65
+# # at_ms: 4960
+# # at_time: 0:00:04.960
+# -
+# # frequency: 434.849
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -20.388
+# # env: 84.9637
+# # id: 11
+# # note_midivalue: 69
+# # at_ms: 5114.67
+# # at_time: 0:00:05.114
+# -
+# # frequency: 393.349
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: 5.96771
+# # env: 82.3462
+# # id: 12
+# # note_midivalue: 67
+# # at_ms: 5274.67
+# # at_time: 0:00:05.274
+# -
+# # frequency: 432.464
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -29.9088
+# # env: 82.4482
+# # id: 13
+# # note_midivalue: 69
+# # at_ms: 5429.33
+# # at_time: 0:00:05.429
+# -
+# # frequency: 452.913
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -49.9252
+# # env: 84.8778
+# # id: 14
+# # note_midivalue: 70
+# # at_ms: 5616
+# # at_time: 0:00:05.616
+# -
+# # frequency: 437.825
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -8.58078
+# # env: 84.0758
+# # id: 15
+# # note_midivalue: 69
+# # at_ms: 6128
+# # at_time: 0:00:06.128
+# -
+# # frequency: 588.1
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: 2.27051
+# # env: 86.1281
+# # id: 16
+# # note_midivalue: 74
+# # at_ms: 6853.33
+# # at_time: 0:00:06.853
+# -
+# # frequency: 578.296
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -26.8341
+# # env: 84.5464
+# # id: 17
+# # note_midivalue: 74
+# # at_ms: 7445.33
+# # at_time: 0:00:07.445
+# -
+# # frequency: 461.158
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -18.6928
+# # env: 85.4172
+# # id: 18
+# # note_midivalue: 70
+# # at_ms: 8517.33
+# # at_time: 0:00:08.517
+# -
+# # frequency: 465.218
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -3.51639
+# # env: 80.7078
+# # id: 19
+# # note_midivalue: 70
+# # at_ms: 8821.33
+# # at_time: 0:00:08.821
+# -
+# # frequency: 391.354
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -2.83737
+# # env: 81.714
+# # id: 20
+# # note_midivalue: 67
+# # at_ms: 9120
+# # at_time: 0:00:09.120
+# -
+# # frequency: 340.48
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -43.9186
+# # env: 78.1745
+# # id: 21
+# # note_midivalue: 65
+# # at_ms: 9429.33
+# # at_time: 0:00:09.429
+# -
+# # frequency: 345.152
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -20.327
+# # env: 81.9319
+# # id: 22
+# # note_midivalue: 65
+# # at_ms: 10618.7
+# # at_time: 0:00:10.618
+# -
+# # frequency: 435.167
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -19.1223
+# # env: 83.2602
+# # id: 23
+# # note_midivalue: 69
+# # at_ms: 10794.7
+# # at_time: 0:00:10.794
+# -
+# # frequency: 389.368
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -11.6432
+# # env: 83.6206
+# # id: 24
+# # note_midivalue: 67
+# # at_ms: 10992
+# # at_time: 0:00:10.992
+# -
+# # frequency: 392.183
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: 0.829315
+# # env: 83.5588
+# # id: 25
+# # note_midivalue: 67
+# # at_ms: 11152
+# # at_time: 0:00:11.152
+# -
+# # frequency: 345.644
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -17.8589
+# # env: 77.5485
+# # id: 26
+# # note_midivalue: 65
+# # at_ms: 11728
+# # at_time: 0:00:11.728
+# -
+# # frequency: 327.756
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -9.85527
+# # env: 79.0001
+# # id: 27
+# # note_midivalue: 64
+# # at_ms: 11834.7
+# # at_time: 0:00:11.834
+# -
+# # frequency: 435.703
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -16.9914
+# # env: 88.6041
+# # id: 28
+# # note_midivalue: 69
+# # at_ms: 14320
+# # at_time: 0:00:14.320
+# -
+# # frequency: 441.74
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: 6.83136
+# # env: 88.1264
+# # id: 29
+# # note_midivalue: 69
+# # at_ms: 14698.7
+# # at_time: 0:00:14.698
+# -
+# # frequency: 435.674
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -17.1036
+# # env: 85.5516
+# # id: 30
+# # note_midivalue: 69
+# # at_ms: 14954.7
+# # at_time: 0:00:14.954
+# -
+# # frequency: 331.077
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: 7.59811
+# # env: 85.5145
+# # id: 31
+# # note_midivalue: 64
+# # at_ms: 15520
+# # at_time: 0:00:15.520
+# -
+# # frequency: 389.58
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -10.7002
+# # env: 88.5377
+# # id: 32
+# # note_midivalue: 67
+# # at_ms: 15706.7
+# # at_time: 0:00:15.706
+# -
+# # frequency: 328.049
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -8.30917
+# # env: 86.1341
+# # id: 33
+# # note_midivalue: 64
+# # at_ms: 15877.3
+# # at_time: 0:00:15.877
+# -
+# # frequency: 347.624
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -7.96967
+# # env: 87.0299
+# # id: 34
+# # note_midivalue: 65
+# # at_ms: 16213.3
+# # at_time: 0:00:16.213
+# -
+# # frequency: 325.432
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -22.1767
+# # env: 86.3437
+# # id: 35
+# # note_midivalue: 64
+# # at_ms: 16544
+# # at_time: 0:00:16.544
+# -
+# # frequency: 328.888
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -3.88908
+# # env: 88.111
+# # id: 36
+# # note_midivalue: 64
+# # at_ms: 17136
+# # at_time: 0:00:17.136
+# -
+# # frequency: 349.139
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -0.440979
+# # env: 85.2037
+# # id: 37
+# # note_midivalue: 65
+# # at_ms: 17285.3
+# # at_time: 0:00:17.285
+# -
+# # frequency: 436.726
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -12.9303
+# # env: 87.9968
+# # id: 38
+# # note_midivalue: 69
+# # at_ms: 17418.7
+# # at_time: 0:00:17.418
+# -
+# # frequency: 435.59
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -17.4393
+# # env: 87.0048
+# # id: 39
+# # note_midivalue: 69
+# # at_ms: 17680
+# # at_time: 0:00:17.680
+# -
+# # frequency: 458.533
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -28.5736
+# # env: 88.9199
+# # id: 40
+# # note_midivalue: 70
+# # at_ms: 17840
+# # at_time: 0:00:17.840
+# -
+# # frequency: 439.428
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -2.2522
+# # env: 85.0311
+# # id: 41
+# # note_midivalue: 69
+# # at_ms: 18378.7
+# # at_time: 0:00:18.378
+# -
+# # frequency: 523.789
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: 1.77994
+# # env: 87.7445
+# # id: 42
+# # note_midivalue: 72
+# # at_ms: 18597.3
+# # at_time: 0:00:18.597
+# -
+# # frequency: 584.822
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -7.40662
+# # env: 87.8229
+# # id: 43
+# # note_midivalue: 74
+# # at_ms: 18992
+# # at_time: 0:00:18.992
+# -
+# # frequency: 586.234
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -3.23257
+# # env: 88.5303
+# # id: 44
+# # note_midivalue: 74
+# # at_ms: 19210.7
+# # at_time: 0:00:19.210
+# -
+# # frequency: 292.373
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -7.63206
+# # env: 85.9283
+# # id: 45
+# # note_midivalue: 62
+# # at_ms: 19269.3
+# # at_time: 0:00:19.269
+# -
+# # frequency: 586.882
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -1.31912
+# # env: 79.8283
+# # id: 46
+# # note_midivalue: 74
+# # at_ms: 19434.7
+# # at_time: 0:00:19.434
+# -
+# # frequency: 462.588
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -13.3301
+# # env: 85.0009
+# # id: 47
+# # note_midivalue: 70
+# # at_ms: 20074.7
+# # at_time: 0:00:20.074
+# -
+# # frequency: 391.701
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -1.30234
+# # env: 88.2608
+# # id: 48
+# # note_midivalue: 67
+# # at_ms: 20346.7
+# # at_time: 0:00:20.346
+# -
+# # frequency: 346.926
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -11.4502
+# # env: 88.1312
+# # id: 49
+# # note_midivalue: 65
+# # at_ms: 20661.3
+# # at_time: 0:00:20.661
+# -
+# # frequency: 349.656
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: 2.11868
+# # env: 84.3076
+# # id: 50
+# # note_midivalue: 65
+# # at_ms: 20853.3
+# # at_time: 0:00:20.853
+# -
+# # frequency: 327.449
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -11.4803
+# # env: 88.271
+# # id: 51
+# # note_midivalue: 64
+# # at_ms: 20954.7
+# # at_time: 0:00:20.954
+# -
+# # frequency: 292.302
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -8.05054
+# # env: 85.8186
+# # id: 52
+# # note_midivalue: 62
+# # at_ms: 21157.3
+# # at_time: 0:00:21.157
+# -
+# # frequency: 349.915
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: 3.39966
+# # env: 87.056
+# # id: 53
+# # note_midivalue: 65
+# # at_ms: 21386.7
+# # at_time: 0:00:21.386
+# -
+# # frequency: 390.332
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -7.36084
+# # env: 87.5083
+# # id: 54
+# # note_midivalue: 67
+# # at_ms: 21792
+# # at_time: 0:00:21.792
+# -
+# # frequency: 346.29
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -14.6271
+# # env: 85.7303
+# # id: 55
+# # note_midivalue: 65
+# # at_ms: 22144
+# # at_time: 0:00:22.144
+# -
+# # frequency: 328.501
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -5.92842
+# # env: 89.3544
+# # id: 56
+# # note_midivalue: 64
+# # at_ms: 22309.3
+# # at_time: 0:00:22.309
+# -
+# # frequency: 327.912
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -9.03473
+# # env: 86.7887
+# # id: 57
+# # note_midivalue: 64
+# # at_ms: 22437.3
+# # at_time: 0:00:22.437
+# -
+# # frequency: 294.108
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: 2.61116
+# # env: 86.9828
+# # id: 58
+# # note_midivalue: 62
+# # at_ms: 22560
+# # at_time: 0:00:22.560
+# -
+# # frequency: 293.922
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: 1.51596
+# # env: 78.3133
+# # id: 59
+# # note_midivalue: 62
+# # at_ms: 23013.3
+# # at_time: 0:00:23.013
+# -
+# # frequency: 329.011
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -3.23906
+# # env: 88.6724
+# # id: 60
+# # note_midivalue: 64
+# # at_ms: 23440
+# # at_time: 0:00:23.440
+# -
+# # frequency: 344.918
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -21.4981
+# # env: 86.9708
+# # id: 61
+# # note_midivalue: 65
+# # at_ms: 23850.7
+# # at_time: 0:00:23.850
+# -
+# # frequency: 389.872
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -9.4017
+# # env: 87.7211
+# # id: 62
+# # note_midivalue: 67
+# # at_ms: 24096
+# # at_time: 0:00:24.096
+# -
+# # frequency: 327.011
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -13.7955
+# # env: 85.4455
+# # id: 63
+# # note_midivalue: 64
+# # at_ms: 24437.3
+# # at_time: 0:00:24.437
+# -
+# # frequency: 291.678
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -11.7527
+# # env: 86.6146
+# # id: 64
+# # note_midivalue: 62
+# # at_ms: 24688
+# # at_time: 0:00:24.688
+# -
+# # frequency: 329.037
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -3.10402
+# # env: 87.6828
+# # id: 65
+# # note_midivalue: 64
+# # at_ms: 25008
+# # at_time: 0:00:25.008
+# -
+# # frequency: 347.043
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -10.8658
+# # env: 84.8293
+# # id: 66
+# # note_midivalue: 65
+# # at_ms: 25141.3
+# # at_time: 0:00:25.141
+# -
+# # frequency: 436.582
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -13.5017
+# # env: 88.3155
+# # id: 67
+# # note_midivalue: 69
+# # at_ms: 25237.3
+# # at_time: 0:00:25.237
+# -
+# # frequency: 433.578
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -25.4562
+# # env: 87.1674
+# # id: 68
+# # note_midivalue: 69
+# # at_ms: 25573.3
+# # at_time: 0:00:25.573
+# -
+# # frequency: 462.59
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -13.3247
+# # env: 89.6964
+# # id: 69
+# # note_midivalue: 70
+# # at_ms: 25749.3
+# # at_time: 0:00:25.749
+# -
+# # frequency: 522.611
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: -2.12021
+# # env: 88.2184
+# # id: 70
+# # note_midivalue: 72
+# # at_ms: 26528
+# # at_time: 0:00:26.528
+# -
+# # frequency: 518.879
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: -14.5248
+# # env: 87.5805
+# # id: 71
+# # note_midivalue: 72
+# # at_ms: 26698.7
+# # at_time: 0:00:26.698
+# -
+# # frequency: 456.395
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -36.6646
+# # env: 87.2555
+# # id: 72
+# # note_midivalue: 70
+# # at_ms: 27802.7
+# # at_time: 0:00:27.802
+# -
+# # frequency: 430.703
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -36.9713
+# # env: 88.1511
+# # id: 73
+# # note_midivalue: 69
+# # at_ms: 27914.7
+# # at_time: 0:00:27.914
+# -
+# # frequency: 390.347
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -7.2937
+# # env: 88.2755
+# # id: 74
+# # note_midivalue: 67
+# # at_ms: 28074.7
+# # at_time: 0:00:28.074
+# -
+# # frequency: 348.881
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -1.72195
+# # env: 84.2284
+# # id: 75
+# # note_midivalue: 65
+# # at_ms: 28682.7
+# # at_time: 0:00:28.682
+# -
+# # frequency: 328.231
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -7.35168
+# # env: 86.9663
+# # id: 76
+# # note_midivalue: 64
+# # at_ms: 28773.3
+# # at_time: 0:00:28.773
+# -
+# # frequency: 291.763
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -11.245
+# # env: 87.4084
+# # id: 77
+# # note_midivalue: 62
+# # at_ms: 28960
+# # at_time: 0:00:28.960
+# -
+# # frequency: 434.808
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -20.549
+# # env: 88.7106
+# # id: 78
+# # note_midivalue: 69
+# # at_ms: 29360
+# # at_time: 0:00:29.360
+# -
+# # frequency: 390.453
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -6.82755
+# # env: 88.0681
+# # id: 79
+# # note_midivalue: 67
+# # at_ms: 29488
+# # at_time: 0:00:29.488
+# -
+# # frequency: 392.679
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: 3.0159
+# # env: 85.5845
+# # id: 80
+# # note_midivalue: 67
+# # at_ms: 29610.7
+# # at_time: 0:00:29.610
+# -
+# # frequency: 346.707
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -12.5443
+# # env: 86.9175
+# # id: 81
+# # note_midivalue: 65
+# # at_ms: 29962.7
+# # at_time: 0:00:29.962
+# -
+# # frequency: 327.627
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -10.5377
+# # env: 87.5782
+# # id: 82
+# # note_midivalue: 64
+# # at_ms: 30080
+# # at_time: 0:00:30.080
+# -
+# # frequency: 293.713
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: 0.282669
+# # env: 84.3024
+# # id: 83
+# # note_midivalue: 62
+# # at_ms: 30341.3
+# # at_time: 0:00:30.341
+# -
+# # frequency: 292.337
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -7.84378
+# # env: 80.4285
+# # id: 84
+# # note_midivalue: 62
+# # at_ms: 30789.3
+# # at_time: 0:00:30.789
+# -
+# # frequency: 292.392
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -7.51991
+# # env: 82.2243
+# # id: 85
+# # note_midivalue: 62
+# # at_ms: 30880
+# # at_time: 0:00:30.880
+# -
+# # frequency: 293.581
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -0.49324
+# # env: 87.4506
+# # id: 86
+# # note_midivalue: 62
+# # at_ms: 31034.7
+# # at_time: 0:00:31.034
+# -
+# # frequency: 327.134
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -13.1485
+# # env: 87.0596
+# # id: 87
+# # note_midivalue: 64
+# # at_ms: 31258.7
+# # at_time: 0:00:31.258
+# -
+# # frequency: 347.126
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -10.4507
+# # env: 88.4758
+# # id: 88
+# # note_midivalue: 65
+# # at_ms: 31658.7
+# # at_time: 0:00:31.658
+# -
+# # frequency: 328.232
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -7.3452
+# # env: 86.9457
+# # id: 89
+# # note_midivalue: 64
+# # at_ms: 32309.3
+# # at_time: 0:00:32.309
+# -
+# # frequency: 97.9115
+# # note_name: g
+# # note_octave: -1
+# # note_detune_cents: -1.54381
+# # env: 88.5809
+# # id: 90
+# # note_midivalue: 43
+# # at_ms: 32416
+# # at_time: 0:00:32.416
+# -
+# # frequency: 289.896
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -22.3625
+# # env: 85.191
+# # id: 91
+# # note_midivalue: 62
+# # at_ms: 32533.3
+# # at_time: 0:00:32.533
+# -
+# # frequency: 345.364
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -19.2642
+# # env: 89.6859
+# # id: 92
+# # note_midivalue: 65
+# # at_ms: 32746.7
+# # at_time: 0:00:32.746
+# -
+# # frequency: 327.433
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -11.5646
+# # env: 87.5095
+# # id: 93
+# # note_midivalue: 64
+# # at_ms: 32874.7
+# # at_time: 0:00:32.874
+# -
+# # frequency: 434.421
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -22.0909
+# # env: 86.8684
+# # id: 94
+# # note_midivalue: 69
+# # at_ms: 33114.7
+# # at_time: 0:00:33.114
+# -
+# # frequency: 393.245
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: 5.50766
+# # env: 88.373
+# # id: 95
+# # note_midivalue: 67
+# # at_ms: 33253.3
+# # at_time: 0:00:33.253
+# -
+# # frequency: 437.179
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -11.1351
+# # env: 85.6999
+# # id: 96
+# # note_midivalue: 69
+# # at_ms: 33381.3
+# # at_time: 0:00:33.381
+# -
+# # frequency: 465.173
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -3.68423
+# # env: 86.6313
+# # id: 97
+# # note_midivalue: 70
+# # at_ms: 33674.7
+# # at_time: 0:00:33.674
+# -
+# # frequency: 519.29
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: -13.1569
+# # env: 89.3812
+# # id: 98
+# # note_midivalue: 72
+# # at_ms: 34506.7
+# # at_time: 0:00:34.506
+# -
+# # frequency: 456.01
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -38.1256
+# # env: 88.1616
+# # id: 99
+# # note_midivalue: 70
+# # at_ms: 35605.3
+# # at_time: 0:00:35.605
+# -
+# # frequency: 434.488
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -21.8246
+# # env: 88.5959
+# # id: 100
+# # note_midivalue: 69
+# # at_ms: 35712
+# # at_time: 0:00:35.712
+# -
+# # frequency: 391.174
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -3.63235
+# # env: 88.4656
+# # id: 101
+# # note_midivalue: 67
+# # at_ms: 35904
+# # at_time: 0:00:35.904
+# -
+# # frequency: 328.404
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -6.43806
+# # env: 86.9724
+# # id: 102
+# # note_midivalue: 64
+# # at_ms: 36597.3
+# # at_time: 0:00:36.597
+# -
+# # frequency: 291.917
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -10.3317
+# # env: 86.7026
+# # id: 103
+# # note_midivalue: 62
+# # at_ms: 36768
+# # at_time: 0:00:36.768
+# -
+# # frequency: 391.879
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -0.512695
+# # env: 88.1514
+# # id: 104
+# # note_midivalue: 67
+# # at_ms: 37434.7
+# # at_time: 0:00:37.434
+# -
+# # frequency: 344.708
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -22.5548
+# # env: 87.7621
+# # id: 105
+# # note_midivalue: 65
+# # at_ms: 37754.7
+# # at_time: 0:00:37.754
+# -
+# # frequency: 328.471
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -6.08482
+# # env: 85.8928
+# # id: 106
+# # note_midivalue: 64
+# # at_ms: 38021.3
+# # at_time: 0:00:38.021
+# -
+# # frequency: 293.39
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -1.62239
+# # env: 87.2884
+# # id: 107
+# # note_midivalue: 62
+# # at_ms: 38160
+# # at_time: 0:00:38.160
+# -
+# # frequency: 439.835
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -0.650787
+# # env: 87.9603
+# # id: 108
+# # note_midivalue: 69
+# # at_ms: 38901.3
+# # at_time: 0:00:38.901
+# -
+# # frequency: 440.284
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: 1.11847
+# # env: 88.5356
+# # id: 109
+# # note_midivalue: 69
+# # at_ms: 39093.3
+# # at_time: 0:00:39.093
+# -
+# # frequency: 433.603
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -25.354
+# # env: 88.0394
+# # id: 110
+# # note_midivalue: 69
+# # at_ms: 39440
+# # at_time: 0:00:39.440
+# -
+# # frequency: 439.222
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -3.06549
+# # env: 86.7841
+# # id: 111
+# # note_midivalue: 69
+# # at_ms: 39770.7
+# # at_time: 0:00:39.770
+# -
+# # frequency: 326.537
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -16.3101
+# # env: 87.4584
+# # id: 112
+# # note_midivalue: 64
+# # at_ms: 40762.7
+# # at_time: 0:00:40.762
+# -
+# # frequency: 390.007
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -8.80356
+# # env: 85.8609
+# # id: 113
+# # note_midivalue: 67
+# # at_ms: 40976
+# # at_time: 0:00:40.976
+# -
+# # frequency: 328.684
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -4.96216
+# # env: 87.0519
+# # id: 114
+# # note_midivalue: 64
+# # at_ms: 41168
+# # at_time: 0:00:41.168
+# -
+# # frequency: 350.97
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: 8.61359
+# # env: 87.9371
+# # id: 115
+# # note_midivalue: 65
+# # at_ms: 41520
+# # at_time: 0:00:41.520
+# -
+# # frequency: 329.019
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -3.20053
+# # env: 87.3902
+# # id: 116
+# # note_midivalue: 64
+# # at_ms: 41781.3
+# # at_time: 0:00:41.781
+# -
+# # frequency: 291.655
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -11.8885
+# # env: 86.3983
+# # id: 117
+# # note_midivalue: 62
+# # at_ms: 41946.7
+# # at_time: 0:00:41.946
+# -
+# # frequency: 328.382
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -6.55289
+# # env: 87.7784
+# # id: 118
+# # note_midivalue: 64
+# # at_ms: 42362.7
+# # at_time: 0:00:42.362
+# -
+# # frequency: 346.995
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -11.1053
+# # env: 88.8763
+# # id: 119
+# # note_midivalue: 65
+# # at_ms: 42506.7
+# # at_time: 0:00:42.506
+# -
+# # frequency: 436.178
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -15.1039
+# # env: 87.5816
+# # id: 120
+# # note_midivalue: 69
+# # at_ms: 42634.7
+# # at_time: 0:00:42.634
+# -
+# # frequency: 437.476
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -9.95789
+# # env: 88.0544
+# # id: 121
+# # note_midivalue: 69
+# # at_ms: 42944
+# # at_time: 0:00:42.944
+# -
+# # frequency: 465.055
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -4.12292
+# # env: 88.1805
+# # id: 122
+# # note_midivalue: 70
+# # at_ms: 43200
+# # at_time: 0:00:43.200
+# -
+# # frequency: 440.223
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: 0.876617
+# # env: 88.9883
+# # id: 123
+# # note_midivalue: 69
+# # at_ms: 43360
+# # at_time: 0:00:43.360
+# -
+# # frequency: 440.554
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: 2.17667
+# # env: 86.8939
+# # id: 124
+# # note_midivalue: 69
+# # at_ms: 43562.7
+# # at_time: 0:00:43.562
+# -
+# # frequency: 584.057
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -9.67178
+# # env: 89.2151
+# # id: 125
+# # note_midivalue: 74
+# # at_ms: 44096
+# # at_time: 0:00:44.096
+# -
+# # frequency: 583.932
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -10.0441
+# # env: 87.9239
+# # id: 126
+# # note_midivalue: 74
+# # at_ms: 44341.3
+# # at_time: 0:00:44.341
+# -
+# # frequency: 464.753
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -5.24597
+# # env: 86.335
+# # id: 127
+# # note_midivalue: 70
+# # at_ms: 45066.7
+# # at_time: 0:00:45.066
+# -
+# # frequency: 440.648
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: 2.54822
+# # env: 88.3205
+# # id: 128
+# # note_midivalue: 69
+# # at_ms: 45296
+# # at_time: 0:00:45.296
+# -
+# # frequency: 393.946
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: 8.59451
+# # env: 86.6273
+# # id: 129
+# # note_midivalue: 67
+# # at_ms: 45493.3
+# # at_time: 0:00:45.493
+# -
+# # frequency: 344.46
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -23.7999
+# # env: 87.9983
+# # id: 130
+# # note_midivalue: 65
+# # at_ms: 45754.7
+# # at_time: 0:00:45.754
+# -
+# # frequency: 328.693
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -4.91409
+# # env: 87.5504
+# # id: 131
+# # note_midivalue: 64
+# # at_ms: 46133.3
+# # at_time: 0:00:46.133
+# -
+# # frequency: 293.43
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -1.38664
+# # env: 86.6139
+# # id: 132
+# # note_midivalue: 62
+# # at_ms: 46304
+# # at_time: 0:00:46.304
+# -
+# # frequency: 435.143
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -19.2154
+# # env: 88.4371
+# # id: 133
+# # note_midivalue: 69
+# # at_ms: 46698.7
+# # at_time: 0:00:46.698
+# -
+# # frequency: 392.294
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: 1.31989
+# # env: 87.0169
+# # id: 134
+# # note_midivalue: 67
+# # at_ms: 46976
+# # at_time: 0:00:46.976
+# -
+# # frequency: 344.356
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -24.321
+# # env: 86.7722
+# # id: 135
+# # note_midivalue: 65
+# # at_ms: 47258.7
+# # at_time: 0:00:47.258
+# -
+# # frequency: 328.131
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -7.87888
+# # env: 88.7309
+# # id: 136
+# # note_midivalue: 64
+# # at_ms: 47477.3
+# # at_time: 0:00:47.477
+# -
+# # frequency: 292.081
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -9.36012
+# # env: 86.4031
+# # id: 137
+# # note_midivalue: 62
+# # at_ms: 47808
+# # at_time: 0:00:47.808
+# -
+# # frequency: 436.509
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -13.7909
+# # env: 88.9605
+# # id: 138
+# # note_midivalue: 69
+# # at_ms: 48421.3
+# # at_time: 0:00:48.421
+# -
+# # frequency: 442.052
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: 8.05359
+# # env: 84.8361
+# # id: 139
+# # note_midivalue: 69
+# # at_ms: 48682.7
+# # at_time: 0:00:48.682
+# -
+# # frequency: 440.882
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: 3.46832
+# # env: 88.0565
+# # id: 140
+# # note_midivalue: 69
+# # at_ms: 48725.3
+# # at_time: 0:00:48.725
+# -
+# # frequency: 659.115
+# # note_name: e
+# # note_octave: 2
+# # note_detune_cents: -0.367737
+# # env: 85.8997
+# # id: 141
+# # note_midivalue: 76
+# # at_ms: 49541.3
+# # at_time: 0:00:49.541
+# -
+# # frequency: 396.165
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: 18.3197
+# # env: 84.9347
+# # id: 142
+# # note_midivalue: 67
+# # at_ms: 49642.7
+# # at_time: 0:00:49.642
+# -
+# # frequency: 327.394
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -11.7722
+# # env: 88.579
+# # id: 143
+# # note_midivalue: 64
+# # at_ms: 49850.7
+# # at_time: 0:00:49.850
+# -
+# # frequency: 347.815
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -7.02209
+# # env: 88.8997
+# # id: 144
+# # note_midivalue: 65
+# # at_ms: 50149.3
+# # at_time: 0:00:50.149
+# -
+# # frequency: 348.386
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -4.17862
+# # env: 87.6624
+# # id: 145
+# # note_midivalue: 65
+# # at_ms: 50320
+# # at_time: 0:00:50.320
+# -
+# # frequency: 325.647
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -21.0342
+# # env: 88.2611
+# # id: 146
+# # note_midivalue: 64
+# # at_ms: 50464
+# # at_time: 0:00:50.464
+# -
+# # frequency: 290.719
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -17.4541
+# # env: 86.017
+# # id: 147
+# # note_midivalue: 62
+# # at_ms: 50650.7
+# # at_time: 0:00:50.650
+# -
+# # frequency: 581.969
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -15.8745
+# # env: 85.8127
+# # id: 148
+# # note_midivalue: 74
+# # at_ms: 50789.3
+# # at_time: 0:00:50.789
+# -
+# # frequency: 344.171
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -25.2541
+# # env: 90.4972
+# # id: 149
+# # note_midivalue: 65
+# # at_ms: 50917.3
+# # at_time: 0:00:50.917
+# -
+# # frequency: 433.57
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -25.4875
+# # env: 89.155
+# # id: 150
+# # note_midivalue: 69
+# # at_ms: 51264
+# # at_time: 0:00:51.264
+# -
+# # frequency: 391.038
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -4.23203
+# # env: 87.8246
+# # id: 151
+# # note_midivalue: 67
+# # at_ms: 51424
+# # at_time: 0:00:51.424
+# -
+# # frequency: 433.427
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -26.0574
+# # env: 85.7249
+# # id: 152
+# # note_midivalue: 69
+# # at_ms: 51573.3
+# # at_time: 0:00:51.573
+# -
+# # frequency: 462.41
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -13.9969
+# # env: 89.1617
+# # id: 153
+# # note_midivalue: 70
+# # at_ms: 51733.3
+# # at_time: 0:00:51.733
+# -
+# # frequency: 438.68
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -5.20248
+# # env: 87.1855
+# # id: 154
+# # note_midivalue: 69
+# # at_ms: 52336
+# # at_time: 0:00:52.336
+# -
+# # frequency: 932.826
+# # note_name: a#
+# # note_octave: 2
+# # note_detune_cents: 0.924683
+# # env: 86.6574
+# # id: 155
+# # note_midivalue: 82
+# # at_ms: 52432
+# # at_time: 0:00:52.432
+# -
+# # frequency: 582.204
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -15.1733
+# # env: 88.0175
+# # id: 156
+# # note_midivalue: 74
+# # at_ms: 52677.3
+# # at_time: 0:00:52.677
+# -
+# # frequency: 589.137
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: 5.31845
+# # env: 87.1356
+# # id: 157
+# # note_midivalue: 74
+# # at_ms: 53237.3
+# # at_time: 0:00:53.237
+# -
+# # frequency: 439.611
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -1.53275
+# # env: 88.2054
+# # id: 158
+# # note_midivalue: 69
+# # at_ms: 53909.3
+# # at_time: 0:00:53.909
+# -
+# # frequency: 391.504
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -2.17056
+# # env: 87.9392
+# # id: 159
+# # note_midivalue: 67
+# # at_ms: 54106.7
+# # at_time: 0:00:54.106
+# -
+# # frequency: 346.466
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -13.7459
+# # env: 87.5642
+# # id: 160
+# # note_midivalue: 65
+# # at_ms: 54368
+# # at_time: 0:00:54.368
+# -
+# # frequency: 328.001
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -8.56476
+# # env: 88.5535
+# # id: 161
+# # note_midivalue: 64
+# # at_ms: 54736
+# # at_time: 0:00:54.736
+# -
+# # frequency: 291.121
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -15.0631
+# # env: 86.572
+# # id: 162
+# # note_midivalue: 62
+# # at_ms: 54965.3
+# # at_time: 0:00:54.965
+# -
+# # frequency: 437.322
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -10.5675
+# # env: 89.3712
+# # id: 163
+# # note_midivalue: 69
+# # at_ms: 55306.7
+# # at_time: 0:00:55.306
+# -
+# # frequency: 392.001
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: 0.0259399
+# # env: 87.0434
+# # id: 164
+# # note_midivalue: 67
+# # at_ms: 55546.7
+# # at_time: 0:00:55.546
+# -
+# # frequency: 346.417
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -13.9946
+# # env: 87.8795
+# # id: 165
+# # note_midivalue: 65
+# # at_ms: 55877.3
+# # at_time: 0:00:55.877
+# -
+# # frequency: 328.541
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -5.71632
+# # env: 88.4591
+# # id: 166
+# # note_midivalue: 64
+# # at_ms: 56037.3
+# # at_time: 0:00:56.037
+# -
+# # frequency: 292.204
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -8.6338
+# # env: 87.089
+# # id: 167
+# # note_midivalue: 62
+# # at_ms: 56298.7
+# # at_time: 0:00:56.298
+# -
+# # frequency: 326.732
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -15.2733
+# # env: 89.3377
+# # id: 168
+# # note_midivalue: 64
+# # at_ms: 57136
+# # at_time: 0:00:57.136
+# -
+# # frequency: 342.934
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -31.485
+# # env: 87.7476
+# # id: 169
+# # note_midivalue: 65
+# # at_ms: 57274.7
+# # at_time: 0:00:57.274
+# -
+# # frequency: 345.623
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -17.9672
+# # env: 88.2868
+# # id: 170
+# # note_midivalue: 65
+# # at_ms: 57568
+# # at_time: 0:00:57.568
+# -
+# # frequency: 327.913
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -9.02939
+# # env: 87.8641
+# # id: 171
+# # note_midivalue: 64
+# # at_ms: 58122.7
+# # at_time: 0:00:58.122
+# -
+# # frequency: 292.004
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -9.82056
+# # env: 86.8368
+# # id: 172
+# # note_midivalue: 62
+# # at_ms: 58373.3
+# # at_time: 0:00:58.373
+# -
+# # frequency: 345.439
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -18.8858
+# # env: 90.1385
+# # id: 173
+# # note_midivalue: 65
+# # at_ms: 58597.3
+# # at_time: 0:00:58.597
+# -
+# # frequency: 329.288
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -1.78452
+# # env: 88.0092
+# # id: 174
+# # note_midivalue: 64
+# # at_ms: 58725.3
+# # at_time: 0:00:58.725
+# -
+# # frequency: 433.124
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -27.2682
+# # env: 87.5556
+# # id: 175
+# # note_midivalue: 69
+# # at_ms: 58970.7
+# # at_time: 0:00:58.970
+# -
+# # frequency: 438.018
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -7.81555
+# # env: 87.4465
+# # id: 176
+# # note_midivalue: 69
+# # at_ms: 59280
+# # at_time: 0:00:59.280
+# -
+# # frequency: 461.458
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -17.5636
+# # env: 88.3313
+# # id: 177
+# # note_midivalue: 70
+# # at_ms: 59408
+# # at_time: 0:00:59.408
+# -
+# # frequency: 433.55
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -25.5676
+# # env: 87.4961
+# # id: 178
+# # note_midivalue: 69
+# # at_ms: 59658.7
+# # at_time: 0:00:59.658
+# -
+# # frequency: 465.665
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -1.85242
+# # env: 87.5157
+# # id: 179
+# # note_midivalue: 70
+# # at_ms: 60117.3
+# # at_time: 0:01:00.117
+# -
+# # frequency: 523.57
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: 1.05591
+# # env: 88.195
+# # id: 180
+# # note_midivalue: 72
+# # at_ms: 60357.3
+# # at_time: 0:01:00.357
+# -
+# # frequency: 522.329
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: -3.05328
+# # env: 89.6537
+# # id: 181
+# # note_midivalue: 72
+# # at_ms: 60485.3
+# # at_time: 0:01:00.485
+# -
+# # frequency: 523.993
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: 2.45361
+# # env: 87.8932
+# # id: 182
+# # note_midivalue: 72
+# # at_ms: 61120
+# # at_time: 0:01:01.120
+# -
+# # frequency: 462.269
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -14.5264
+# # env: 88.1733
+# # id: 183
+# # note_midivalue: 70
+# # at_ms: 61477.3
+# # at_time: 0:01:01.477
+# -
+# # frequency: 436.149
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -15.2191
+# # env: 88.3115
+# # id: 184
+# # note_midivalue: 69
+# # at_ms: 61701.3
+# # at_time: 0:01:01.701
+# -
+# # frequency: 392.729
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: 3.23715
+# # env: 87.9471
+# # id: 185
+# # note_midivalue: 67
+# # at_ms: 61856
+# # at_time: 0:01:01.856
+# -
+# # frequency: 344.807
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -22.0551
+# # env: 89.2682
+# # id: 186
+# # note_midivalue: 65
+# # at_ms: 62080
+# # at_time: 0:01:02.080
+# -
+# # frequency: 327.874
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -9.23462
+# # env: 86.9352
+# # id: 187
+# # note_midivalue: 64
+# # at_ms: 62448
+# # at_time: 0:01:02.448
+# -
+# # frequency: 292.177
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -8.79364
+# # env: 86.4101
+# # id: 188
+# # note_midivalue: 62
+# # at_ms: 62618.7
+# # at_time: 0:01:02.618
+# -
+# # frequency: 651.195
+# # note_name: e
+# # note_octave: 2
+# # note_detune_cents: -21.2959
+# # env: 86.5274
+# # id: 189
+# # note_midivalue: 76
+# # at_ms: 62773.3
+# # at_time: 0:01:02.773
+# -
+# # frequency: 347.808
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -7.05719
+# # env: 89.2049
+# # id: 190
+# # note_midivalue: 65
+# # at_ms: 62901.3
+# # at_time: 0:01:02.901
+# -
+# # frequency: 435.091
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -19.4244
+# # env: 87.6931
+# # id: 191
+# # note_midivalue: 69
+# # at_ms: 63029.3
+# # at_time: 0:01:03.029
+# -
+# # frequency: 391.007
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -4.37317
+# # env: 87.4768
+# # id: 192
+# # note_midivalue: 67
+# # at_ms: 63168
+# # at_time: 0:01:03.168
+# -
+# # frequency: 393.333
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: 5.89523
+# # env: 87.5442
+# # id: 193
+# # note_midivalue: 67
+# # at_ms: 63301.3
+# # at_time: 0:01:03.301
+# -
+# # frequency: 346.271
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -14.7209
+# # env: 85.3022
+# # id: 194
+# # note_midivalue: 65
+# # at_ms: 63616
+# # at_time: 0:01:03.616
+# -
+# # frequency: 327.507
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -11.1732
+# # env: 88.8464
+# # id: 195
+# # note_midivalue: 64
+# # at_ms: 63738.7
+# # at_time: 0:01:03.738
+# -
+# # frequency: 291.634
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -12.0144
+# # env: 84.7443
+# # id: 196
+# # note_midivalue: 62
+# # at_ms: 64074.7
+# # at_time: 0:01:04.074
+# -
+# # frequency: 145.881
+# # note_name: d
+# # note_octave: 0
+# # note_detune_cents: -11.248
+# # env: 82.038
+# # id: 197
+# # note_midivalue: 50
+# # at_ms: 64181.3
+# # at_time: 0:01:04.181
+# -
+# # frequency: 292.553
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -6.56433
+# # env: 90.0033
+# # id: 198
+# # note_midivalue: 62
+# # at_ms: 64618.7
+# # at_time: 0:01:04.618
+# -
+# # frequency: 326.694
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -15.4781
+# # env: 88.9278
+# # id: 199
+# # note_midivalue: 64
+# # at_ms: 64853.3
+# # at_time: 0:01:04.853
+# -
+# # frequency: 327.958
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -8.79059
+# # env: 89.4072
+# # id: 200
+# # note_midivalue: 64
+# # at_ms: 65120
+# # at_time: 0:01:05.120
+# -
+# # frequency: 346.253
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -14.8117
+# # env: 87.3088
+# # id: 201
+# # note_midivalue: 65
+# # at_ms: 65280
+# # at_time: 0:01:05.280
+# -
+# # frequency: 345.71
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -17.5293
+# # env: 88.3468
+# # id: 202
+# # note_midivalue: 65
+# # at_ms: 65712
+# # at_time: 0:01:05.712
+# -
+# # frequency: 345.07
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -20.7397
+# # env: 89.8553
+# # id: 203
+# # note_midivalue: 65
+# # at_ms: 66298.7
+# # at_time: 0:01:06.298
+# -
+# # frequency: 328.491
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -5.97763
+# # env: 89.3024
+# # id: 204
+# # note_midivalue: 64
+# # at_ms: 66437.3
+# # at_time: 0:01:06.437
+# -
+# # frequency: 346.008
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -16.0378
+# # env: 87.6279
+# # id: 205
+# # note_midivalue: 65
+# # at_ms: 66554.7
+# # at_time: 0:01:06.554
+# -
+# # frequency: 436.845
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -12.4588
+# # env: 89.2003
+# # id: 206
+# # note_midivalue: 69
+# # at_ms: 66688
+# # at_time: 0:01:06.688
+# -
+# # frequency: 394.973
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: 13.1004
+# # env: 88.4101
+# # id: 207
+# # note_midivalue: 67
+# # at_ms: 66864
+# # at_time: 0:01:06.864
+# -
+# # frequency: 438.268
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -6.82983
+# # env: 84.5606
+# # id: 208
+# # note_midivalue: 69
+# # at_ms: 67077.3
+# # at_time: 0:01:07.077
+# -
+# # frequency: 460.356
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -21.7026
+# # env: 88.7307
+# # id: 209
+# # note_midivalue: 70
+# # at_ms: 67237.3
+# # at_time: 0:01:07.237
+# -
+# # frequency: 436.557
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -13.6009
+# # env: 87.2519
+# # id: 210
+# # note_midivalue: 69
+# # at_ms: 67429.3
+# # at_time: 0:01:07.429
+# -
+# # frequency: 392.57
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: 2.53677
+# # env: 88.045
+# # id: 211
+# # note_midivalue: 67
+# # at_ms: 71008
+# # at_time: 0:01:11.008
+# -
+# # frequency: 353.085
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: 19.0147
+# # env: 82.8097
+# # id: 212
+# # note_midivalue: 65
+# # at_ms: 71877.3
+# # at_time: 0:01:11.877
+# -
+# # frequency: 292.676
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -5.83801
+# # env: 80.4721
+# # id: 213
+# # note_midivalue: 62
+# # at_ms: 72138.7
+# # at_time: 0:01:12.138
+# -
+# # frequency: 295.658
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: 11.7092
+# # env: 85.9278
+# # id: 214
+# # note_midivalue: 62
+# # at_ms: 72650.7
+# # at_time: 0:01:12.650
+# -
+# # frequency: 582.454
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -14.4325
+# # env: 85.0698
+# # id: 215
+# # note_midivalue: 74
+# # at_ms: 73077.3
+# # at_time: 0:01:13.077
+# -
+# # frequency: 579.979
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -21.8048
+# # env: 87.4155
+# # id: 216
+# # note_midivalue: 74
+# # at_ms: 73296
+# # at_time: 0:01:13.296
+# -
+# # frequency: 581.231
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -18.071
+# # env: 83.6192
+# # id: 217
+# # note_midivalue: 74
+# # at_ms: 73664
+# # at_time: 0:01:13.664
+# -
+# # frequency: 521.174
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: -6.88553
+# # env: 87.9021
+# # id: 218
+# # note_midivalue: 72
+# # at_ms: 74496
+# # at_time: 0:01:14.496
+# -
+# # frequency: 438.951
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -4.13055
+# # env: 87.1249
+# # id: 219
+# # note_midivalue: 69
+# # at_ms: 74656
+# # at_time: 0:01:14.656
+# -
+# # frequency: 461.944
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -15.744
+# # env: 88.3824
+# # id: 220
+# # note_midivalue: 70
+# # at_ms: 74954.7
+# # at_time: 0:01:14.954
+# -
+# # frequency: 390.804
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -5.2681
+# # env: 86.0596
+# # id: 221
+# # note_midivalue: 67
+# # at_ms: 75525.3
+# # at_time: 0:01:15.525
+# -
+# # frequency: 463.297
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -10.6812
+# # env: 90.2489
+# # id: 222
+# # note_midivalue: 70
+# # at_ms: 75749.3
+# # at_time: 0:01:15.749
+# -
+# # frequency: 468.259
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: 7.76367
+# # env: 87.196
+# # id: 223
+# # note_midivalue: 70
+# # at_ms: 76021.3
+# # at_time: 0:01:16.021
+# -
+# # frequency: 585.179
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -6.35071
+# # env: 86.9339
+# # id: 224
+# # note_midivalue: 74
+# # at_ms: 76160
+# # at_time: 0:01:16.160
+# -
+# # frequency: 617.437
+# # note_name: d#
+# # note_octave: 2
+# # note_detune_cents: -13.4544
+# # env: 89.1385
+# # id: 225
+# # note_midivalue: 75
+# # at_ms: 76645.3
+# # at_time: 0:01:16.645
+# -
+# # frequency: 621.02
+# # note_name: d#
+# # note_octave: 2
+# # note_detune_cents: -3.43628
+# # env: 89.9281
+# # id: 226
+# # note_midivalue: 75
+# # at_ms: 76768
+# # at_time: 0:01:16.768
+# -
+# # frequency: 587.99
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: 1.9455
+# # env: 87.1648
+# # id: 227
+# # note_midivalue: 74
+# # at_ms: 76976
+# # at_time: 0:01:16.976
+# -
+# # frequency: 391.227
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -3.39813
+# # env: 89.4874
+# # id: 228
+# # note_midivalue: 67
+# # at_ms: 77642.7
+# # at_time: 0:01:17.642
+# -
+# # frequency: 196.401
+# # note_name: g
+# # note_octave: 0
+# # note_detune_cents: 3.55492
+# # env: 85.1471
+# # id: 229
+# # note_midivalue: 55
+# # at_ms: 77893.3
+# # at_time: 0:01:17.893
+# -
+# # frequency: 387.197
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -21.3226
+# # env: 85.5499
+# # id: 230
+# # note_midivalue: 67
+# # at_ms: 77968
+# # at_time: 0:01:17.968
+# -
+# # frequency: 778.58
+# # note_name: g
+# # note_octave: 2
+# # note_detune_cents: -11.9904
+# # env: 76.5293
+# # id: 231
+# # note_midivalue: 79
+# # at_ms: 78213.3
+# # at_time: 0:01:18.213
+# -
+# # frequency: 601.769
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: 42.0486
+# # env: 88.5778
+# # id: 232
+# # note_midivalue: 74
+# # at_ms: 78581.3
+# # at_time: 0:01:18.581
+# -
+# # frequency: 585.692
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -4.83475
+# # env: 86.2739
+# # id: 233
+# # note_midivalue: 74
+# # at_ms: 78858.7
+# # at_time: 0:01:18.858
+# -
+# # frequency: 523.313
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: 0.203705
+# # env: 88.1941
+# # id: 234
+# # note_midivalue: 72
+# # at_ms: 79002.7
+# # at_time: 0:01:19.002
+# -
+# # frequency: 466.197
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: 0.12207
+# # env: 89.9699
+# # id: 235
+# # note_midivalue: 70
+# # at_ms: 79189.3
+# # at_time: 0:01:19.189
+# -
+# # frequency: 434.764
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -20.7268
+# # env: 83.9648
+# # id: 236
+# # note_midivalue: 69
+# # at_ms: 79584
+# # at_time: 0:01:19.584
+# -
+# # frequency: 391.289
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -3.12119
+# # env: 86.5286
+# # id: 237
+# # note_midivalue: 67
+# # at_ms: 79765.3
+# # at_time: 0:01:19.765
+# -
+# # frequency: 583.917
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -10.0883
+# # env: 88.7578
+# # id: 238
+# # note_midivalue: 74
+# # at_ms: 80160
+# # at_time: 0:01:20.160
+# -
+# # frequency: 520.667
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: -8.57239
+# # env: 88.5615
+# # id: 239
+# # note_midivalue: 72
+# # at_ms: 80421.3
+# # at_time: 0:01:20.421
+# -
+# # frequency: 466.238
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: 0.273895
+# # env: 86.5832
+# # id: 240
+# # note_midivalue: 70
+# # at_ms: 80698.7
+# # at_time: 0:01:20.698
+# -
+# # frequency: 390.416
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -6.98853
+# # env: 87.6253
+# # id: 241
+# # note_midivalue: 67
+# # at_ms: 81152
+# # at_time: 0:01:21.152
+# -
+# # frequency: 195.495
+# # note_name: g
+# # note_octave: 0
+# # note_detune_cents: -4.44183
+# # env: 83.1784
+# # id: 242
+# # note_midivalue: 55
+# # at_ms: 81557.3
+# # at_time: 0:01:21.557
+# -
+# # frequency: 363.419
+# # note_name: f#
+# # note_octave: 1
+# # note_detune_cents: -31.044
+# # env: 86.0995
+# # id: 243
+# # note_midivalue: 66
+# # at_ms: 82576
+# # at_time: 0:01:22.576
+# -
+# # frequency: 438.287
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -6.75507
+# # env: 86.1385
+# # id: 244
+# # note_midivalue: 69
+# # at_ms: 83418.7
+# # at_time: 0:01:23.418
+# -
+# # frequency: 293.663
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -0.00762939
+# # env: 87.4057
+# # id: 245
+# # note_midivalue: 62
+# # at_ms: 85114.7
+# # at_time: 0:01:25.114
+# -
+# # frequency: 292.92
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -4.39339
+# # env: 79.4869
+# # id: 246
+# # note_midivalue: 62
+# # at_ms: 85749.3
+# # at_time: 0:01:25.749
+# -
+# # frequency: 293.671
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: 0.0362396
+# # env: 83.1346
+# # id: 247
+# # note_midivalue: 62
+# # at_ms: 85792
+# # at_time: 0:01:25.792
+# -
+# # frequency: 391.607
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -1.71738
+# # env: 88.5181
+# # id: 248
+# # note_midivalue: 67
+# # at_ms: 86224
+# # at_time: 0:01:26.224
+# -
+# # frequency: 394.149
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: 9.4841
+# # env: 84.3574
+# # id: 249
+# # note_midivalue: 67
+# # at_ms: 86896
+# # at_time: 0:01:26.896
+# -
+# # frequency: 100.861
+# # note_name: g
+# # note_octave: -1
+# # note_detune_cents: 49.8383
+# # env: 88.1885
+# # id: 250
+# # note_midivalue: 43
+# # at_ms: 86970.7
+# # at_time: 0:01:26.970
+# -
+# # frequency: 614.141
+# # note_name: d#
+# # note_octave: 2
+# # note_detune_cents: -22.7203
+# # env: 88.432
+# # id: 251
+# # note_midivalue: 75
+# # at_ms: 87290.7
+# # at_time: 0:01:27.290
+# -
+# # frequency: 523.841
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: 1.94931
+# # env: 87.5059
+# # id: 252
+# # note_midivalue: 72
+# # at_ms: 87701.3
+# # at_time: 0:01:27.701
+# -
+# # frequency: 232.072
+# # note_name: a#
+# # note_octave: 0
+# # note_detune_cents: -7.51686
+# # env: 81.205
+# # id: 253
+# # note_midivalue: 58
+# # at_ms: 88170.7
+# # at_time: 0:01:28.170
+# -
+# # frequency: 219.049
+# # note_name: a
+# # note_octave: 0
+# # note_detune_cents: -7.49626
+# # env: 84.082
+# # id: 254
+# # note_midivalue: 57
+# # at_ms: 88288
+# # at_time: 0:01:28.288
+# -
+# # frequency: 389.778
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -9.82285
+# # env: 84.8646
+# # id: 255
+# # note_midivalue: 67
+# # at_ms: 88506.7
+# # at_time: 0:01:28.506
+# -
+# # frequency: 194.785
+# # note_name: g
+# # note_octave: 0
+# # note_detune_cents: -10.7491
+# # env: 83.2433
+# # id: 256
+# # note_midivalue: 55
+# # at_ms: 88576
+# # at_time: 0:01:28.576
+# -
+# # frequency: 232.337
+# # note_name: a#
+# # note_octave: 0
+# # note_detune_cents: -5.54466
+# # env: 86.8859
+# # id: 257
+# # note_midivalue: 58
+# # at_ms: 89408
+# # at_time: 0:01:29.408
+# -
+# # frequency: 194.855
+# # note_name: g
+# # note_octave: 0
+# # note_detune_cents: -10.1196
+# # env: 84.5878
+# # id: 258
+# # note_midivalue: 55
+# # at_ms: 89904
+# # at_time: 0:01:29.904
+# -
+# # frequency: 195.807
+# # note_name: g
+# # note_octave: 0
+# # note_detune_cents: -1.68266
+# # env: 83.7151
+# # id: 259
+# # note_midivalue: 55
+# # at_ms: 90186.7
+# # at_time: 0:01:30.186
+# -
+# # frequency: 391.414
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -2.56958
+# # env: 88.3174
+# # id: 260
+# # note_midivalue: 67
+# # at_ms: 90378.7
+# # at_time: 0:01:30.378
+# -
+# # frequency: 440.439
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: 1.72501
+# # env: 86.4289
+# # id: 261
+# # note_midivalue: 69
+# # at_ms: 90720
+# # at_time: 0:01:30.720
+# -
+# # frequency: 466.257
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: 0.344849
+# # env: 89.1864
+# # id: 262
+# # note_midivalue: 70
+# # at_ms: 90837.3
+# # at_time: 0:01:30.837
+# -
+# # frequency: 443.014
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: 11.8179
+# # env: 87.929
+# # id: 263
+# # note_midivalue: 69
+# # at_ms: 90976
+# # at_time: 0:01:30.976
+# -
+# # frequency: 521.528
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: -5.70908
+# # env: 89.4932
+# # id: 264
+# # note_midivalue: 72
+# # at_ms: 91232
+# # at_time: 0:01:31.232
+# -
+# # frequency: 468.741
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: 9.54666
+# # env: 89.2938
+# # id: 265
+# # note_midivalue: 70
+# # at_ms: 91509.3
+# # at_time: 0:01:31.509
+# -
+# # frequency: 442.491
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: 9.77325
+# # env: 87.1508
+# # id: 266
+# # note_midivalue: 69
+# # at_ms: 91648
+# # at_time: 0:01:31.648
+# -
+# # frequency: 390.819
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -5.20325
+# # env: 85.672
+# # id: 267
+# # note_midivalue: 67
+# # at_ms: 91914.7
+# # at_time: 0:01:31.914
+# -
+# # frequency: 466.377
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: 0.790405
+# # env: 88.4975
+# # id: 268
+# # note_midivalue: 70
+# # at_ms: 92149.3
+# # at_time: 0:01:32.149
+# -
+# # frequency: 465.938
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -0.83847
+# # env: 87.009
+# # id: 269
+# # note_midivalue: 70
+# # at_ms: 92400
+# # at_time: 0:01:32.400
+# -
+# # frequency: 584.515
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -8.31604
+# # env: 88.7587
+# # id: 270
+# # note_midivalue: 74
+# # at_ms: 92501.3
+# # at_time: 0:01:32.501
+# -
+# # frequency: 525.145
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: 6.25458
+# # env: 87.9284
+# # id: 271
+# # note_midivalue: 72
+# # at_ms: 92693.3
+# # at_time: 0:01:32.693
+# -
+# # frequency: 616.319
+# # note_name: d#
+# # note_octave: 2
+# # note_detune_cents: -16.5909
+# # env: 88.2549
+# # id: 272
+# # note_midivalue: 75
+# # at_ms: 93008
+# # at_time: 0:01:33.008
+# -
+# # frequency: 697.749
+# # note_name: f
+# # note_octave: 2
+# # note_detune_cents: -1.75552
+# # env: 88.8904
+# # id: 273
+# # note_midivalue: 77
+# # at_ms: 93941.3
+# # at_time: 0:01:33.941
+# -
+# # frequency: 618.899
+# # note_name: d#
+# # note_octave: 2
+# # note_detune_cents: -9.35974
+# # env: 89.7061
+# # id: 274
+# # note_midivalue: 75
+# # at_ms: 94954.7
+# # at_time: 0:01:34.954
+# -
+# # frequency: 523.256
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: 0.0167847
+# # env: 87.2196
+# # id: 275
+# # note_midivalue: 72
+# # at_ms: 95418.7
+# # at_time: 0:01:35.418
+# -
+# # frequency: 464.994
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -4.35104
+# # env: 87.731
+# # id: 276
+# # note_midivalue: 70
+# # at_ms: 95664
+# # at_time: 0:01:35.664
+# -
+# # frequency: 460.754
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -20.2095
+# # env: 86.7455
+# # id: 277
+# # note_midivalue: 70
+# # at_ms: 95813.3
+# # at_time: 0:01:35.813
+# -
+# # frequency: 439.299
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -2.75879
+# # env: 87.7572
+# # id: 278
+# # note_midivalue: 69
+# # at_ms: 95952
+# # at_time: 0:01:35.952
+# -
+# # frequency: 391.341
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -2.8923
+# # env: 87.0946
+# # id: 279
+# # note_midivalue: 67
+# # at_ms: 96170.7
+# # at_time: 0:01:36.170
+# -
+# # frequency: 584.486
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -8.40149
+# # env: 87.9096
+# # id: 280
+# # note_midivalue: 74
+# # at_ms: 96528
+# # at_time: 0:01:36.528
+# -
+# # frequency: 520.999
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: -7.46613
+# # env: 88.9101
+# # id: 281
+# # note_midivalue: 72
+# # at_ms: 96773.3
+# # at_time: 0:01:36.773
+# -
+# # frequency: 464.46
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -6.34079
+# # env: 88.134
+# # id: 282
+# # note_midivalue: 70
+# # at_ms: 97141.3
+# # at_time: 0:01:37.141
+# -
+# # frequency: 388.517
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -15.432
+# # env: 86.6699
+# # id: 283
+# # note_midivalue: 67
+# # at_ms: 97552
+# # at_time: 0:01:37.552
+# -
+# # frequency: 390.429
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -6.93283
+# # env: 86.402
+# # id: 284
+# # note_midivalue: 67
+# # at_ms: 97674.7
+# # at_time: 0:01:37.674
+# -
+# # frequency: 195.833
+# # note_name: g
+# # note_octave: 0
+# # note_detune_cents: -1.45721
+# # env: 83.9735
+# # id: 285
+# # note_midivalue: 55
+# # at_ms: 97845.3
+# # at_time: 0:01:37.845
+# -
+# # frequency: 97.8723
+# # note_name: g
+# # note_octave: -1
+# # note_detune_cents: -2.23656
+# # env: 88.2718
+# # id: 286
+# # note_midivalue: 43
+# # at_ms: 98154.7
+# # at_time: 0:01:38.154
+# -
+# # frequency: 439.325
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -2.65884
+# # env: 85.8632
+# # id: 287
+# # note_midivalue: 69
+# # at_ms: 98405.3
+# # at_time: 0:01:38.405
+# -
+# # frequency: 465.452
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -2.64359
+# # env: 88.4611
+# # id: 288
+# # note_midivalue: 70
+# # at_ms: 98816
+# # at_time: 0:01:38.816
+# -
+# # frequency: 521.253
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: -6.6246
+# # env: 90.1799
+# # id: 289
+# # note_midivalue: 72
+# # at_ms: 98965.3
+# # at_time: 0:01:38.965
+# -
+# # frequency: 464.074
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -7.77893
+# # env: 86.4228
+# # id: 290
+# # note_midivalue: 70
+# # at_ms: 99248
+# # at_time: 0:01:39.248
+# -
+# # frequency: 389.566
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -10.7628
+# # env: 83.4767
+# # id: 291
+# # note_midivalue: 67
+# # at_ms: 99605.3
+# # at_time: 0:01:39.605
+# -
+# # frequency: 195.133
+# # note_name: g
+# # note_octave: 0
+# # note_detune_cents: -7.65266
+# # env: 80.7745
+# # id: 292
+# # note_midivalue: 55
+# # at_ms: 99696
+# # at_time: 0:01:39.696
+# -
+# # frequency: 462.63
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -13.1752
+# # env: 89.8628
+# # id: 293
+# # note_midivalue: 70
+# # at_ms: 99824
+# # at_time: 0:01:39.824
+# -
+# # frequency: 466.842
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: 2.5177
+# # env: 88.8119
+# # id: 294
+# # note_midivalue: 70
+# # at_ms: 100064
+# # at_time: 0:01:40.064
+# -
+# # frequency: 585.953
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -4.06342
+# # env: 87.8515
+# # id: 295
+# # note_midivalue: 74
+# # at_ms: 100219
+# # at_time: 0:01:40.218
+# -
+# # frequency: 588.777
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: 4.26102
+# # env: 84.7735
+# # id: 296
+# # note_midivalue: 74
+# # at_ms: 100512
+# # at_time: 0:01:40.512
+# -
+# # frequency: 618.122
+# # note_name: d#
+# # note_octave: 2
+# # note_detune_cents: -11.5356
+# # env: 89.8554
+# # id: 297
+# # note_midivalue: 75
+# # at_ms: 100736
+# # at_time: 0:01:40.736
+# -
+# # frequency: 583.104
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -12.5015
+# # env: 86.9311
+# # id: 298
+# # note_midivalue: 74
+# # at_ms: 101168
+# # at_time: 0:01:41.168
+# -
+# # frequency: 693.601
+# # note_name: f
+# # note_octave: 2
+# # note_detune_cents: -12.0766
+# # env: 88.0739
+# # id: 299
+# # note_midivalue: 77
+# # at_ms: 101611
+# # at_time: 0:01:41.610
+# -
+# # frequency: 621.638
+# # note_name: d#
+# # note_octave: 2
+# # note_detune_cents: -1.71509
+# # env: 89.9845
+# # id: 300
+# # note_midivalue: 75
+# # at_ms: 102677
+# # at_time: 0:01:42.677
+# -
+# # frequency: 586.161
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -3.44696
+# # env: 88.6189
+# # id: 301
+# # note_midivalue: 74
+# # at_ms: 102923
+# # at_time: 0:01:42.922
+# -
+# # frequency: 524.175
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: 3.05405
+# # env: 87.4318
+# # id: 302
+# # note_midivalue: 72
+# # at_ms: 103109
+# # at_time: 0:01:43.109
+# -
+# # frequency: 463.868
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -8.54645
+# # env: 88.0756
+# # id: 303
+# # note_midivalue: 70
+# # at_ms: 103365
+# # at_time: 0:01:43.365
+# -
+# # frequency: 437.42
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -10.183
+# # env: 87.512
+# # id: 304
+# # note_midivalue: 69
+# # at_ms: 103664
+# # at_time: 0:01:43.664
+# -
+# # frequency: 391.951
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -0.196075
+# # env: 85.9403
+# # id: 305
+# # note_midivalue: 67
+# # at_ms: 103904
+# # at_time: 0:01:43.904
+# -
+# # frequency: 195.21
+# # note_name: g
+# # note_octave: 0
+# # note_detune_cents: -6.97098
+# # env: 81.6876
+# # id: 306
+# # note_midivalue: 55
+# # at_ms: 104000
+# # at_time: 0:01:44.000
+# -
+# # frequency: 461.761
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -16.4268
+# # env: 88.683
+# # id: 307
+# # note_midivalue: 70
+# # at_ms: 104091
+# # at_time: 0:01:44.090
+# -
+# # frequency: 581.009
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -18.7309
+# # env: 87.3317
+# # id: 308
+# # note_midivalue: 74
+# # at_ms: 104251
+# # at_time: 0:01:44.250
+# -
+# # frequency: 522.655
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: -1.9722
+# # env: 88.035
+# # id: 309
+# # note_midivalue: 72
+# # at_ms: 104517
+# # at_time: 0:01:44.517
+# -
+# # frequency: 464.52
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -6.11496
+# # env: 89.6294
+# # id: 310
+# # note_midivalue: 70
+# # at_ms: 104789
+# # at_time: 0:01:44.789
+# -
+# # frequency: 392.355
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: 1.58615
+# # env: 84.5498
+# # id: 311
+# # note_midivalue: 67
+# # at_ms: 105392
+# # at_time: 0:01:45.392
+# -
+# # frequency: 389.444
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -11.3068
+# # env: 89.2477
+# # id: 312
+# # note_midivalue: 67
+# # at_ms: 105829
+# # at_time: 0:01:45.829
+# -
+# # frequency: 436.596
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -13.4438
+# # env: 89.2303
+# # id: 313
+# # note_midivalue: 69
+# # at_ms: 106096
+# # at_time: 0:01:46.096
+# -
+# # frequency: 458.539
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -28.5515
+# # env: 86.9202
+# # id: 314
+# # note_midivalue: 70
+# # at_ms: 106251
+# # at_time: 0:01:46.250
+# -
+# # frequency: 437.503
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -9.85336
+# # env: 89.9627
+# # id: 315
+# # note_midivalue: 69
+# # at_ms: 106363
+# # at_time: 0:01:46.362
+# -
+# # frequency: 461.974
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -15.6319
+# # env: 86.3617
+# # id: 316
+# # note_midivalue: 70
+# # at_ms: 106544
+# # at_time: 0:01:46.544
+# -
+# # frequency: 521.32
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: -6.40182
+# # env: 89.6198
+# # id: 317
+# # note_midivalue: 72
+# # at_ms: 106667
+# # at_time: 0:01:46.666
+# -
+# # frequency: 438.611
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -5.47485
+# # env: 87.4132
+# # id: 318
+# # note_midivalue: 69
+# # at_ms: 107040
+# # at_time: 0:01:47.040
+# -
+# # frequency: 390.076
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -8.49609
+# # env: 88.694
+# # id: 319
+# # note_midivalue: 67
+# # at_ms: 107264
+# # at_time: 0:01:47.264
+# -
+# # frequency: 579.304
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -23.8197
+# # env: 87.0073
+# # id: 320
+# # note_midivalue: 74
+# # at_ms: 107936
+# # at_time: 0:01:47.936
+# -
+# # frequency: 350.553
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: 6.55518
+# # env: 87.6555
+# # id: 321
+# # note_midivalue: 65
+# # at_ms: 109536
+# # at_time: 0:01:49.536
+# -
+# # frequency: 174.565
+# # note_name: f
+# # note_octave: 0
+# # note_detune_cents: -0.488281
+# # env: 86.115
+# # id: 322
+# # note_midivalue: 53
+# # at_ms: 109669
+# # at_time: 0:01:49.669
+# -
+# # frequency: 436.851
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -12.4344
+# # env: 88.473
+# # id: 323
+# # note_midivalue: 69
+# # at_ms: 111312
+# # at_time: 0:01:51.312
+# -
+# # frequency: 292.333
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -7.8701
+# # env: 89.3627
+# # id: 324
+# # note_midivalue: 62
+# # at_ms: 111595
+# # at_time: 0:01:51.594
+# -
+# # frequency: 196.263
+# # note_name: g
+# # note_octave: 0
+# # note_detune_cents: 2.34528
+# # env: 85.1741
+# # id: 325
+# # note_midivalue: 55
+# # at_ms: 113339
+# # at_time: 0:01:53.338
+# -
+# # frequency: 460.905
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -19.6419
+# # env: 86.5694
+# # id: 326
+# # note_midivalue: 70
+# # at_ms: 113877
+# # at_time: 0:01:53.877
+# -
+# # frequency: 299.92
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: 36.491
+# # env: 86.977
+# # id: 327
+# # note_midivalue: 62
+# # at_ms: 113941
+# # at_time: 0:01:53.941
+# -
+# # frequency: 293.51
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -0.915527
+# # env: 88.7002
+# # id: 328
+# # note_midivalue: 62
+# # at_ms: 114709
+# # at_time: 0:01:54.709
+# -
+# # frequency: 391.745
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -1.10626
+# # env: 86.0884
+# # id: 329
+# # note_midivalue: 67
+# # at_ms: 115008
+# # at_time: 0:01:55.008
+# -
+# # frequency: 291.167
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -14.7892
+# # env: 89.4057
+# # id: 330
+# # note_midivalue: 62
+# # at_ms: 116347
+# # at_time: 0:01:56.346
+# -
+# # frequency: 440.608
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: 2.39182
+# # env: 84.7479
+# # id: 331
+# # note_midivalue: 69
+# # at_ms: 117568
+# # at_time: 0:01:57.568
+# -
+# # frequency: 460.64
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -20.6352
+# # env: 87.4162
+# # id: 332
+# # note_midivalue: 70
+# # at_ms: 118731
+# # at_time: 0:01:58.730
+# -
+# # frequency: 463.389
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -10.3348
+# # env: 85.5548
+# # id: 333
+# # note_midivalue: 70
+# # at_ms: 118875
+# # at_time: 0:01:58.874
+# -
+# # frequency: 392.134
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: 0.611877
+# # env: 86.9382
+# # id: 334
+# # note_midivalue: 67
+# # at_ms: 119243
+# # at_time: 0:01:59.242
+# -
+# # frequency: 385.294
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -29.8515
+# # env: 88.8095
+# # id: 335
+# # note_midivalue: 67
+# # at_ms: 120592
+# # at_time: 0:02:00.592
+# -
+# # frequency: 195.58
+# # note_name: g
+# # note_octave: 0
+# # note_detune_cents: -3.69453
+# # env: 85.1528
+# # id: 336
+# # note_midivalue: 55
+# # at_ms: 120843
+# # at_time: 0:02:00.842
+# -
+# # frequency: 388.122
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -17.1913
+# # env: 87.8448
+# # id: 337
+# # note_midivalue: 67
+# # at_ms: 121157
+# # at_time: 0:02:01.157
+# -
+# # frequency: 462.833
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -12.4123
+# # env: 87.1606
+# # id: 338
+# # note_midivalue: 70
+# # at_ms: 121877
+# # at_time: 0:02:01.877
+# -
+# # frequency: 391.062
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -4.12903
+# # env: 88.3016
+# # id: 339
+# # note_midivalue: 67
+# # at_ms: 122677
+# # at_time: 0:02:02.677
+# -
+# # frequency: 439.243
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -2.9808
+# # env: 88.257
+# # id: 340
+# # note_midivalue: 69
+# # at_ms: 123008
+# # at_time: 0:02:03.008
+# -
+# # frequency: 292.089
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -9.31358
+# # env: 88.2955
+# # id: 341
+# # note_midivalue: 62
+# # at_ms: 123611
+# # at_time: 0:02:03.610
+# -
+# # frequency: 583.963
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -9.95178
+# # env: 88.7856
+# # id: 342
+# # note_midivalue: 74
+# # at_ms: 124128
+# # at_time: 0:02:04.128
+# -
+# # frequency: 704.92
+# # note_name: f
+# # note_octave: 2
+# # note_detune_cents: 15.9462
+# # env: 88.9863
+# # id: 343
+# # note_midivalue: 77
+# # at_ms: 124645
+# # at_time: 0:02:04.645
+# -
+# # frequency: 709.717
+# # note_name: f
+# # note_octave: 2
+# # note_detune_cents: 27.6894
+# # env: 86.8924
+# # id: 344
+# # note_midivalue: 77
+# # at_ms: 125285
+# # at_time: 0:02:05.285
+# -
+# # frequency: 624.334
+# # note_name: d#
+# # note_octave: 2
+# # note_detune_cents: 5.77698
+# # env: 87.7207
+# # id: 345
+# # note_midivalue: 75
+# # at_ms: 125707
+# # at_time: 0:02:05.706
+# -
+# # frequency: 524.288
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: 3.42865
+# # env: 88.1426
+# # id: 346
+# # note_midivalue: 72
+# # at_ms: 126112
+# # at_time: 0:02:06.112
+# -
+# # frequency: 466.972
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: 2.99911
+# # env: 86.0948
+# # id: 347
+# # note_midivalue: 70
+# # at_ms: 126384
+# # at_time: 0:02:06.384
+# -
+# # frequency: 468.976
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: 10.4141
+# # env: 84.2873
+# # id: 348
+# # note_midivalue: 70
+# # at_ms: 126587
+# # at_time: 0:02:06.586
+# -
+# # frequency: 391.412
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -2.57721
+# # env: 83.2618
+# # id: 349
+# # note_midivalue: 67
+# # at_ms: 126896
+# # at_time: 0:02:06.896
+# -
+# # frequency: 582.056
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -15.6143
+# # env: 87.7196
+# # id: 350
+# # note_midivalue: 74
+# # at_ms: 127216
+# # at_time: 0:02:07.216
+# -
+# # frequency: 521.077
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: -7.20978
+# # env: 88.9179
+# # id: 351
+# # note_midivalue: 72
+# # at_ms: 127509
+# # at_time: 0:02:07.509
+# -
+# # frequency: 390.067
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -8.53958
+# # env: 87.1696
+# # id: 352
+# # note_midivalue: 67
+# # at_ms: 128213
+# # at_time: 0:02:08.213
+# -
+# # frequency: 195.289
+# # note_name: g
+# # note_octave: 0
+# # note_detune_cents: -6.27136
+# # env: 87.7379
+# # id: 353
+# # note_midivalue: 55
+# # at_ms: 128517
+# # at_time: 0:02:08.517
+# -
+# # frequency: 97.6343
+# # note_name: g
+# # note_octave: -1
+# # note_detune_cents: -6.45256
+# # env: 86.5778
+# # id: 354
+# # note_midivalue: 43
+# # at_ms: 128864
+# # at_time: 0:02:08.864
+# -
+# # frequency: 439.319
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -2.6825
+# # env: 86.1576
+# # id: 355
+# # note_midivalue: 69
+# # at_ms: 129067
+# # at_time: 0:02:09.066
+# -
+# # frequency: 463.011
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -11.75
+# # env: 89.6606
+# # id: 356
+# # note_midivalue: 70
+# # at_ms: 129456
+# # at_time: 0:02:09.455
+# -
+# # frequency: 521.734
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: -5.02625
+# # env: 89.4407
+# # id: 357
+# # note_midivalue: 72
+# # at_ms: 129605
+# # at_time: 0:02:09.605
+# -
+# # frequency: 520.056
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: -10.6049
+# # env: 88.2679
+# # id: 358
+# # note_midivalue: 72
+# # at_ms: 129765
+# # at_time: 0:02:09.765
+# -
+# # frequency: 464.902
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -4.69055
+# # env: 87.7245
+# # id: 359
+# # note_midivalue: 70
+# # at_ms: 129883
+# # at_time: 0:02:09.882
+# -
+# # frequency: 390.669
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -5.87006
+# # env: 83.3719
+# # id: 360
+# # note_midivalue: 67
+# # at_ms: 130267
+# # at_time: 0:02:10.266
+# -
+# # frequency: 466.62
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: 1.69449
+# # env: 87.5674
+# # id: 361
+# # note_midivalue: 70
+# # at_ms: 130704
+# # at_time: 0:02:10.703
+# -
+# # frequency: 584.739
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -7.65228
+# # env: 87.1037
+# # id: 362
+# # note_midivalue: 74
+# # at_ms: 130821
+# # at_time: 0:02:10.821
+# -
+# # frequency: 521.189
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: -6.83517
+# # env: 89.5264
+# # id: 363
+# # note_midivalue: 72
+# # at_ms: 130987
+# # at_time: 0:02:10.986
+# -
+# # frequency: 576.558
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -32.045
+# # env: 87.3775
+# # id: 364
+# # note_midivalue: 74
+# # at_ms: 131120
+# # at_time: 0:02:11.120
+# -
+# # frequency: 622.543
+# # note_name: d#
+# # note_octave: 2
+# # note_detune_cents: 0.804138
+# # env: 89.3457
+# # id: 365
+# # note_midivalue: 75
+# # at_ms: 131365
+# # at_time: 0:02:11.365
+# -
+# # frequency: 97.7402
+# # note_name: g
+# # note_octave: -1
+# # note_detune_cents: -4.57497
+# # env: 89.4441
+# # id: 366
+# # note_midivalue: 43
+# # at_ms: 131840
+# # at_time: 0:02:11.840
+# -
+# # frequency: 700.62
+# # note_name: f
+# # note_octave: 2
+# # note_detune_cents: 5.35431
+# # env: 89.7967
+# # id: 367
+# # note_midivalue: 77
+# # at_ms: 132251
+# # at_time: 0:02:12.250
+# -
+# # frequency: 693.162
+# # note_name: f
+# # note_octave: 2
+# # note_detune_cents: -13.1737
+# # env: 84.494
+# # id: 368
+# # note_midivalue: 77
+# # at_ms: 132821
+# # at_time: 0:02:12.821
+# -
+# # frequency: 618.442
+# # note_name: d#
+# # note_octave: 2
+# # note_detune_cents: -10.6392
+# # env: 89.2601
+# # id: 369
+# # note_midivalue: 75
+# # at_ms: 133221
+# # at_time: 0:02:13.221
+# -
+# # frequency: 585.549
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -5.25665
+# # env: 87.565
+# # id: 370
+# # note_midivalue: 74
+# # at_ms: 133493
+# # at_time: 0:02:13.493
+# -
+# # frequency: 523.797
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: 1.80664
+# # env: 87.0739
+# # id: 371
+# # note_midivalue: 72
+# # at_ms: 133675
+# # at_time: 0:02:13.674
+# -
+# # frequency: 464.172
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -7.41348
+# # env: 87.3484
+# # id: 372
+# # note_midivalue: 70
+# # at_ms: 133941
+# # at_time: 0:02:13.941
+# -
+# # frequency: 434.784
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -20.6451
+# # env: 83.4733
+# # id: 373
+# # note_midivalue: 69
+# # at_ms: 134240
+# # at_time: 0:02:14.240
+# -
+# # frequency: 436.553
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -13.6147
+# # env: 87.41
+# # id: 374
+# # note_midivalue: 69
+# # at_ms: 134283
+# # at_time: 0:02:14.282
+# -
+# # frequency: 388.887
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -13.7833
+# # env: 86.5696
+# # id: 375
+# # note_midivalue: 67
+# # at_ms: 134411
+# # at_time: 0:02:14.410
+# -
+# # frequency: 461.805
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -16.2643
+# # env: 89.3178
+# # id: 376
+# # note_midivalue: 70
+# # at_ms: 134619
+# # at_time: 0:02:14.618
+# -
+# # frequency: 579.669
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -22.728
+# # env: 88.8202
+# # id: 377
+# # note_midivalue: 74
+# # at_ms: 134795
+# # at_time: 0:02:14.794
+# -
+# # frequency: 524.192
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: 3.10974
+# # env: 89.3907
+# # id: 378
+# # note_midivalue: 72
+# # at_ms: 135013
+# # at_time: 0:02:15.013
+# -
+# # frequency: 467.562
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: 5.18646
+# # env: 90.2297
+# # id: 379
+# # note_midivalue: 70
+# # at_ms: 135264
+# # at_time: 0:02:15.264
+# -
+# # frequency: 439.28
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -2.83661
+# # env: 87.7505
+# # id: 380
+# # note_midivalue: 69
+# # at_ms: 135568
+# # at_time: 0:02:15.568
+# -
+# # frequency: 390.541
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -6.43463
+# # env: 85.8243
+# # id: 381
+# # note_midivalue: 67
+# # at_ms: 135845
+# # at_time: 0:02:15.845
+# -
+# # frequency: 197.547
+# # note_name: g
+# # note_octave: 0
+# # note_detune_cents: 13.6322
+# # env: 85.1377
+# # id: 382
+# # note_midivalue: 55
+# # at_ms: 135963
+# # at_time: 0:02:15.962
+# -
+# # frequency: 394.512
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: 11.0779
+# # env: 83.2576
+# # id: 383
+# # note_midivalue: 67
+# # at_ms: 136235
+# # at_time: 0:02:16.234
+# -
+# # frequency: 440.097
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: 0.382233
+# # env: 89.305
+# # id: 384
+# # note_midivalue: 69
+# # at_ms: 136453
+# # at_time: 0:02:16.453
+# -
+# # frequency: 878.391
+# # note_name: a
+# # note_octave: 2
+# # note_detune_cents: -3.16772
+# # env: 89.9458
+# # id: 385
+# # note_midivalue: 81
+# # at_ms: 137061
+# # at_time: 0:02:17.061
+# -
+# # frequency: 441.212
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: 4.76227
+# # env: 82.8893
+# # id: 386
+# # note_midivalue: 69
+# # at_ms: 137957
+# # at_time: 0:02:17.957
+# -
+# # frequency: 439.357
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -2.53296
+# # env: 87.7261
+# # id: 387
+# # note_midivalue: 69
+# # at_ms: 137984
+# # at_time: 0:02:17.984
+# -
+# # frequency: 654.067
+# # note_name: e
+# # note_octave: 2
+# # note_detune_cents: -13.6787
+# # env: 88.4696
+# # id: 388
+# # note_midivalue: 76
+# # at_ms: 138331
+# # at_time: 0:02:18.330
+# -
+# # frequency: 653.031
+# # note_name: e
+# # note_octave: 2
+# # note_detune_cents: -16.423
+# # env: 88.5444
+# # id: 389
+# # note_midivalue: 76
+# # at_ms: 138725
+# # at_time: 0:02:18.725
+# -
+# # frequency: 690.449
+# # note_name: f
+# # note_octave: 2
+# # note_detune_cents: -19.9615
+# # env: 86.0869
+# # id: 390
+# # note_midivalue: 77
+# # at_ms: 139168
+# # at_time: 0:02:19.168
+# -
+# # frequency: 581.926
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -16.0011
+# # env: 87.6982
+# # id: 391
+# # note_midivalue: 74
+# # at_ms: 139509
+# # at_time: 0:02:19.509
+# -
+# # frequency: 347.698
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -7.60193
+# # env: 86.6119
+# # id: 392
+# # note_midivalue: 65
+# # at_ms: 140075
+# # at_time: 0:02:20.074
+# -
+# # frequency: 434.618
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -21.3081
+# # env: 89.2329
+# # id: 393
+# # note_midivalue: 69
+# # at_ms: 140139
+# # at_time: 0:02:20.138
+# -
+# # frequency: 436.972
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -11.9568
+# # env: 88.989
+# # id: 394
+# # note_midivalue: 69
+# # at_ms: 140411
+# # at_time: 0:02:20.410
+# -
+# # frequency: 435.256
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -18.766
+# # env: 89.0011
+# # id: 395
+# # note_midivalue: 69
+# # at_ms: 140843
+# # at_time: 0:02:20.842
+# -
+# # frequency: 439.321
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -2.6741
+# # env: 83.2854
+# # id: 396
+# # note_midivalue: 69
+# # at_ms: 141077
+# # at_time: 0:02:21.077
+# -
+# # frequency: 554.021
+# # note_name: c#
+# # note_octave: 2
+# # note_detune_cents: -1.07651
+# # env: 84.329
+# # id: 397
+# # note_midivalue: 73
+# # at_ms: 141285
+# # at_time: 0:02:21.285
+# -
+# # frequency: 578.671
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -25.7118
+# # env: 88.1761
+# # id: 398
+# # note_midivalue: 74
+# # at_ms: 141808
+# # at_time: 0:02:21.808
+# -
+# # frequency: 1151.99
+# # note_name: d
+# # note_octave: 3
+# # note_detune_cents: -33.7379
+# # env: 85.8169
+# # id: 399
+# # note_midivalue: 86
+# # at_ms: 142203
+# # at_time: 0:02:22.202
+# -
+# # frequency: 914.437
+# # note_name: a#
+# # note_octave: 2
+# # note_detune_cents: -33.5442
+# # env: 88.8401
+# # id: 400
+# # note_midivalue: 82
+# # at_ms: 142581
+# # at_time: 0:02:22.581
+# -
+# # frequency: 437.48
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -9.94339
+# # env: 89.449
+# # id: 401
+# # note_midivalue: 69
+# # at_ms: 142725
+# # at_time: 0:02:22.725
+# -
+# # frequency: 780.938
+# # note_name: g
+# # note_octave: 2
+# # note_detune_cents: -6.75354
+# # env: 87.6774
+# # id: 402
+# # note_midivalue: 79
+# # at_ms: 142992
+# # at_time: 0:02:22.992
+# -
+# # frequency: 701.961
+# # note_name: f
+# # note_octave: 2
+# # note_detune_cents: 8.6647
+# # env: 87.2953
+# # id: 403
+# # note_midivalue: 77
+# # at_ms: 143365
+# # at_time: 0:02:23.365
+# -
+# # frequency: 655.969
+# # note_name: e
+# # note_octave: 2
+# # note_detune_cents: -8.65021
+# # env: 87.5009
+# # id: 404
+# # note_midivalue: 76
+# # at_ms: 143563
+# # at_time: 0:02:23.562
+# -
+# # frequency: 582.58
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -14.0564
+# # env: 87.2921
+# # id: 405
+# # note_midivalue: 74
+# # at_ms: 143787
+# # at_time: 0:02:23.786
+# -
+# # frequency: 652.286
+# # note_name: e
+# # note_octave: 2
+# # note_detune_cents: -18.3975
+# # env: 87.0848
+# # id: 406
+# # note_midivalue: 76
+# # at_ms: 143856
+# # at_time: 0:02:23.856
+# -
+# # frequency: 778.953
+# # note_name: g
+# # note_octave: 2
+# # note_detune_cents: -11.161
+# # env: 89.1773
+# # id: 407
+# # note_midivalue: 79
+# # at_ms: 144320
+# # at_time: 0:02:24.320
+# -
+# # frequency: 695.919
+# # note_name: f
+# # note_octave: 2
+# # note_detune_cents: -6.30035
+# # env: 87.002
+# # id: 408
+# # note_midivalue: 77
+# # at_ms: 144715
+# # at_time: 0:02:24.714
+# -
+# # frequency: 584.255
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -9.08585
+# # env: 87.2122
+# # id: 409
+# # note_midivalue: 74
+# # at_ms: 145109
+# # at_time: 0:02:25.109
+# -
+# # frequency: 437.454
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -10.0456
+# # env: 89.7675
+# # id: 410
+# # note_midivalue: 69
+# # at_ms: 145941
+# # at_time: 0:02:25.941
+# -
+# # frequency: 328.855
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -4.06113
+# # env: 87.5539
+# # id: 411
+# # note_midivalue: 64
+# # at_ms: 146805
+# # at_time: 0:02:26.805
+# -
+# # frequency: 392.588
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: 2.61459
+# # env: 85.4699
+# # id: 412
+# # note_midivalue: 67
+# # at_ms: 147040
+# # at_time: 0:02:27.040
+# -
+# # frequency: 328.249
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -7.25365
+# # env: 87.8749
+# # id: 413
+# # note_midivalue: 64
+# # at_ms: 147253
+# # at_time: 0:02:27.253
+# -
+# # frequency: 346.195
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -15.1039
+# # env: 88.081
+# # id: 414
+# # note_midivalue: 65
+# # at_ms: 147488
+# # at_time: 0:02:27.488
+# -
+# # frequency: 326.928
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -14.2376
+# # env: 86.6232
+# # id: 415
+# # note_midivalue: 64
+# # at_ms: 147840
+# # at_time: 0:02:27.840
+# -
+# # frequency: 290.361
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -19.5862
+# # env: 85.7499
+# # id: 416
+# # note_midivalue: 62
+# # at_ms: 148048
+# # at_time: 0:02:28.048
+# -
+# # frequency: 347.188
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -10.1448
+# # env: 89.8294
+# # id: 417
+# # note_midivalue: 65
+# # at_ms: 148293
+# # at_time: 0:02:28.293
+# -
+# # frequency: 326.543
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -16.275
+# # env: 87.0108
+# # id: 418
+# # note_midivalue: 64
+# # at_ms: 148432
+# # at_time: 0:02:28.432
+# -
+# # frequency: 436.025
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -15.7127
+# # env: 88.3386
+# # id: 419
+# # note_midivalue: 69
+# # at_ms: 148651
+# # at_time: 0:02:28.650
+# -
+# # frequency: 435.043
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -19.6152
+# # env: 86.0914
+# # id: 420
+# # note_midivalue: 69
+# # at_ms: 148960
+# # at_time: 0:02:28.960
+# -
+# # frequency: 464.113
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -7.63474
+# # env: 89.4596
+# # id: 421
+# # note_midivalue: 70
+# # at_ms: 149168
+# # at_time: 0:02:29.168
+# -
+# # frequency: 440.11
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: 0.432587
+# # env: 87.4592
+# # id: 422
+# # note_midivalue: 69
+# # at_ms: 149611
+# # at_time: 0:02:29.610
+# -
+# # frequency: 523.833
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: 1.92261
+# # env: 85.7358
+# # id: 423
+# # note_midivalue: 72
+# # at_ms: 149840
+# # at_time: 0:02:29.840
+# -
+# # frequency: 582.048
+# # note_name: d
+# # note_octave: 2
+# # note_detune_cents: -15.6372
+# # env: 90.0365
+# # id: 424
+# # note_midivalue: 74
+# # at_ms: 150000
+# # at_time: 0:02:30.000
+# -
+# # frequency: 291.279
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -14.1224
+# # env: 88.1307
+# # id: 425
+# # note_midivalue: 62
+# # at_ms: 150261
+# # at_time: 0:02:30.261
+# -
+# # frequency: 441.321
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: 5.18799
+# # env: 83.6444
+# # id: 426
+# # note_midivalue: 69
+# # at_ms: 151307
+# # at_time: 0:02:31.306
+# -
+# # frequency: 350.831
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: 7.92923
+# # env: 87.999
+# # id: 427
+# # note_midivalue: 65
+# # at_ms: 151829
+# # at_time: 0:02:31.829
+# -
+# # frequency: 349.808
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: 2.87094
+# # env: 85.509
+# # id: 428
+# # note_midivalue: 65
+# # at_ms: 152000
+# # at_time: 0:02:32.000
+# -
+# # frequency: 328.447
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -6.21223
+# # env: 88.0003
+# # id: 429
+# # note_midivalue: 64
+# # at_ms: 152133
+# # at_time: 0:02:32.133
+# -
+# # frequency: 292.411
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -7.40433
+# # env: 87.1093
+# # id: 430
+# # note_midivalue: 62
+# # at_ms: 152293
+# # at_time: 0:02:32.293
+# -
+# # frequency: 435.088
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -19.4374
+# # env: 89.8378
+# # id: 431
+# # note_midivalue: 69
+# # at_ms: 152672
+# # at_time: 0:02:32.672
+# -
+# # frequency: 394.825
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: 12.4504
+# # env: 85.3599
+# # id: 432
+# # note_midivalue: 67
+# # at_ms: 152949
+# # at_time: 0:02:32.949
+# -
+# # frequency: 348.54
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -3.41339
+# # env: 87.8259
+# # id: 433
+# # note_midivalue: 65
+# # at_ms: 153216
+# # at_time: 0:02:33.216
+# -
+# # frequency: 292.654
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -5.96848
+# # env: 86.4895
+# # id: 434
+# # note_midivalue: 62
+# # at_ms: 153621
+# # at_time: 0:02:33.621
+# -
+# # frequency: 293.146
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -3.05939
+# # env: 87.2381
+# # id: 435
+# # note_midivalue: 62
+# # at_ms: 154331
+# # at_time: 0:02:34.330
+# -
+# # frequency: 342.777
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -32.2807
+# # env: 88.889
+# # id: 436
+# # note_midivalue: 65
+# # at_ms: 154624
+# # at_time: 0:02:34.624
+# -
+# # frequency: 345.234
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -19.9158
+# # env: 86.651
+# # id: 437
+# # note_midivalue: 65
+# # at_ms: 155381
+# # at_time: 0:02:35.381
+# -
+# # frequency: 327.327
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -12.1227
+# # env: 87.9631
+# # id: 438
+# # note_midivalue: 64
+# # at_ms: 155488
+# # at_time: 0:02:35.488
+# -
+# # frequency: 293.242
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -2.49367
+# # env: 86.3599
+# # id: 439
+# # note_midivalue: 62
+# # at_ms: 155776
+# # at_time: 0:02:35.776
+# -
+# # frequency: 329.556
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -0.378418
+# # env: 87.0785
+# # id: 440
+# # note_midivalue: 64
+# # at_ms: 156053
+# # at_time: 0:02:36.053
+# -
+# # frequency: 436.11
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -15.3755
+# # env: 87.6405
+# # id: 441
+# # note_midivalue: 69
+# # at_ms: 156320
+# # at_time: 0:02:36.320
+# -
+# # frequency: 436.2
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -15.0154
+# # env: 84.6679
+# # id: 442
+# # note_midivalue: 69
+# # at_ms: 156672
+# # at_time: 0:02:36.672
+# -
+# # frequency: 452.047
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: 46.7636
+# # env: 87.3371
+# # id: 443
+# # note_midivalue: 69
+# # at_ms: 156720
+# # at_time: 0:02:36.720
+# -
+# # frequency: 467.735
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: 5.82504
+# # env: 87.4348
+# # id: 444
+# # note_midivalue: 70
+# # at_ms: 157467
+# # at_time: 0:02:37.466
+# -
+# # frequency: 521.043
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: -7.32193
+# # env: 89.0171
+# # id: 445
+# # note_midivalue: 72
+# # at_ms: 157739
+# # at_time: 0:02:37.738
+# -
+# # frequency: 519.331
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: -13.0203
+# # env: 88.9083
+# # id: 446
+# # note_midivalue: 72
+# # at_ms: 157851
+# # at_time: 0:02:37.850
+# -
+# # frequency: 465.872
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -1.0849
+# # env: 88.848
+# # id: 447
+# # note_midivalue: 70
+# # at_ms: 158795
+# # at_time: 0:02:38.794
+# -
+# # frequency: 393.728
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: 7.63626
+# # env: 88.1873
+# # id: 448
+# # note_midivalue: 67
+# # at_ms: 159152
+# # at_time: 0:02:39.152
+# -
+# # frequency: 350.06
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: 4.11987
+# # env: 87.9908
+# # id: 449
+# # note_midivalue: 65
+# # at_ms: 159456
+# # at_time: 0:02:39.456
+# -
+# # frequency: 330.022
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: 2.06833
+# # env: 86.4254
+# # id: 450
+# # note_midivalue: 64
+# # at_ms: 159819
+# # at_time: 0:02:39.818
+# -
+# # frequency: 291.404
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -13.3801
+# # env: 87.3644
+# # id: 451
+# # note_midivalue: 62
+# # at_ms: 159979
+# # at_time: 0:02:39.978
+# -
+# # frequency: 438.686
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -5.1796
+# # env: 88.7841
+# # id: 452
+# # note_midivalue: 69
+# # at_ms: 160368
+# # at_time: 0:02:40.368
+# -
+# # frequency: 389.761
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -9.89532
+# # env: 88.0071
+# # id: 453
+# # note_midivalue: 67
+# # at_ms: 160475
+# # at_time: 0:02:40.474
+# -
+# # frequency: 392.265
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: 1.19019
+# # env: 87.3961
+# # id: 454
+# # note_midivalue: 67
+# # at_ms: 160608
+# # at_time: 0:02:40.608
+# -
+# # frequency: 348.084
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -5.68085
+# # env: 87.1806
+# # id: 455
+# # note_midivalue: 65
+# # at_ms: 160891
+# # at_time: 0:02:40.890
+# -
+# # frequency: 328.344
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -6.75697
+# # env: 88.7593
+# # id: 456
+# # note_midivalue: 64
+# # at_ms: 161061
+# # at_time: 0:02:41.061
+# -
+# # frequency: 293.802
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: 0.810242
+# # env: 86.4713
+# # id: 457
+# # note_midivalue: 62
+# # at_ms: 161328
+# # at_time: 0:02:41.328
+# -
+# # frequency: 326.809
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -14.8659
+# # env: 86.47
+# # id: 458
+# # note_midivalue: 64
+# # at_ms: 162213
+# # at_time: 0:02:42.213
+# -
+# # frequency: 344.211
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -25.0534
+# # env: 87.3629
+# # id: 459
+# # note_midivalue: 65
+# # at_ms: 162331
+# # at_time: 0:02:42.330
+# -
+# # frequency: 393.735
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: 7.66678
+# # env: 87.0167
+# # id: 460
+# # note_midivalue: 67
+# # at_ms: 162880
+# # at_time: 0:02:42.880
+# -
+# # frequency: 347.653
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -7.82471
+# # env: 88.0591
+# # id: 461
+# # note_midivalue: 65
+# # at_ms: 162981
+# # at_time: 0:02:42.981
+# -
+# # frequency: 329.599
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -0.149918
+# # env: 86.8843
+# # id: 462
+# # note_midivalue: 64
+# # at_ms: 163168
+# # at_time: 0:02:43.168
+# -
+# # frequency: 344.179
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -25.2129
+# # env: 88.7684
+# # id: 463
+# # note_midivalue: 65
+# # at_ms: 163621
+# # at_time: 0:02:43.621
+# -
+# # frequency: 328.855
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -4.06456
+# # env: 88.4153
+# # id: 464
+# # note_midivalue: 64
+# # at_ms: 163744
+# # at_time: 0:02:43.744
+# -
+# # frequency: 437.22
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -10.9726
+# # env: 88.4819
+# # id: 465
+# # note_midivalue: 69
+# # at_ms: 164000
+# # at_time: 0:02:44.000
+# -
+# # frequency: 438.554
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -5.69916
+# # env: 87.3384
+# # id: 466
+# # note_midivalue: 69
+# # at_ms: 164288
+# # at_time: 0:02:44.288
+# -
+# # frequency: 465.345
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -3.04184
+# # env: 89.0421
+# # id: 467
+# # note_midivalue: 70
+# # at_ms: 164555
+# # at_time: 0:02:44.554
+# -
+# # frequency: 441.442
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: 5.66483
+# # env: 85.5604
+# # id: 468
+# # note_midivalue: 69
+# # at_ms: 164907
+# # at_time: 0:02:44.906
+# -
+# # frequency: 522.213
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: -3.43704
+# # env: 88.1528
+# # id: 469
+# # note_midivalue: 72
+# # at_ms: 165483
+# # at_time: 0:02:45.482
+# -
+# # frequency: 459.165
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -26.1879
+# # env: 87.7242
+# # id: 470
+# # note_midivalue: 70
+# # at_ms: 166443
+# # at_time: 0:02:46.442
+# -
+# # frequency: 393.291
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: 5.7106
+# # env: 88.6477
+# # id: 471
+# # note_midivalue: 67
+# # at_ms: 166747
+# # at_time: 0:02:46.746
+# -
+# # frequency: 348.217
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -5.02243
+# # env: 88.9397
+# # id: 472
+# # note_midivalue: 65
+# # at_ms: 167024
+# # at_time: 0:02:47.024
+# -
+# # frequency: 327.67
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -10.3127
+# # env: 86.6525
+# # id: 473
+# # note_midivalue: 64
+# # at_ms: 167381
+# # at_time: 0:02:47.381
+# -
+# # frequency: 292.621
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -6.16226
+# # env: 85.8885
+# # id: 474
+# # note_midivalue: 62
+# # at_ms: 167547
+# # at_time: 0:02:47.546
+# -
+# # frequency: 348.125
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -5.47714
+# # env: 89.2718
+# # id: 475
+# # note_midivalue: 65
+# # at_ms: 167840
+# # at_time: 0:02:47.840
+# -
+# # frequency: 436.626
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -13.3247
+# # env: 89.138
+# # id: 476
+# # note_midivalue: 69
+# # at_ms: 167952
+# # at_time: 0:02:47.952
+# -
+# # frequency: 392.96
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: 4.25262
+# # env: 85.2456
+# # id: 477
+# # note_midivalue: 67
+# # at_ms: 168219
+# # at_time: 0:02:48.218
+# -
+# # frequency: 347.251
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -9.82742
+# # env: 87.9429
+# # id: 478
+# # note_midivalue: 65
+# # at_ms: 168485
+# # at_time: 0:02:48.485
+# -
+# # frequency: 293.379
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -1.68533
+# # env: 86.863
+# # id: 479
+# # note_midivalue: 62
+# # at_ms: 168955
+# # at_time: 0:02:48.954
+# -
+# # frequency: 292.285
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -8.15315
+# # env: 86.5115
+# # id: 480
+# # note_midivalue: 62
+# # at_ms: 169627
+# # at_time: 0:02:49.626
+# -
+# # frequency: 327.396
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -11.7615
+# # env: 87.2783
+# # id: 481
+# # note_midivalue: 64
+# # at_ms: 169781
+# # at_time: 0:02:49.781
+# -
+# # frequency: 347.026
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -10.9505
+# # env: 88.8249
+# # id: 482
+# # note_midivalue: 65
+# # at_ms: 170192
+# # at_time: 0:02:50.192
+# -
+# # frequency: 390.998
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -4.41284
+# # env: 88.305
+# # id: 483
+# # note_midivalue: 67
+# # at_ms: 170347
+# # at_time: 0:02:50.346
+# -
+# # frequency: 346.178
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -15.1871
+# # env: 87.1932
+# # id: 484
+# # note_midivalue: 65
+# # at_ms: 170635
+# # at_time: 0:02:50.634
+# -
+# # frequency: 328.746
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -4.63486
+# # env: 88.2603
+# # id: 485
+# # note_midivalue: 64
+# # at_ms: 170752
+# # at_time: 0:02:50.752
+# -
+# # frequency: 290.275
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -20.1
+# # env: 87.363
+# # id: 486
+# # note_midivalue: 62
+# # at_ms: 170955
+# # at_time: 0:02:50.954
+# -
+# # frequency: 438.89
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -4.37241
+# # env: 87.971
+# # id: 487
+# # note_midivalue: 69
+# # at_ms: 171872
+# # at_time: 0:02:51.872
+# -
+# # frequency: 348.105
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -5.5748
+# # env: 88.6808
+# # id: 488
+# # note_midivalue: 65
+# # at_ms: 172288
+# # at_time: 0:02:52.288
+# -
+# # frequency: 259.249
+# # note_name: c
+# # note_octave: 1
+# # note_detune_cents: -15.8009
+# # env: 86.0282
+# # id: 489
+# # note_midivalue: 60
+# # at_ms: 173189
+# # at_time: 0:02:53.189
+# -
+# # frequency: 258.412
+# # note_name: c
+# # note_octave: 1
+# # note_detune_cents: -21.3951
+# # env: 86.0577
+# # id: 490
+# # note_midivalue: 60
+# # at_ms: 173360
+# # at_time: 0:02:53.360
+# -
+# # frequency: 655.08
+# # note_name: e
+# # note_octave: 2
+# # note_detune_cents: -10.9978
+# # env: 87.4535
+# # id: 491
+# # note_midivalue: 76
+# # at_ms: 175051
+# # at_time: 0:02:55.050
+# -
+# # frequency: 219.444
+# # note_name: a
+# # note_octave: 0
+# # note_detune_cents: -4.38385
+# # env: 85.7466
+# # id: 492
+# # note_midivalue: 57
+# # at_ms: 175365
+# # at_time: 0:02:55.365
+# -
+# # frequency: 98.1252
+# # note_name: g
+# # note_octave: -1
+# # note_detune_cents: 2.23083
+# # env: 89.0711
+# # id: 493
+# # note_midivalue: 43
+# # at_ms: 178597
+# # at_time: 0:02:58.597
+# -
+# # frequency: 434.843
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -20.4117
+# # env: 88.5081
+# # id: 494
+# # note_midivalue: 69
+# # at_ms: 179328
+# # at_time: 0:02:59.328
+# -
+# # frequency: 519.397
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: -12.7975
+# # env: 89.238
+# # id: 495
+# # note_midivalue: 72
+# # at_ms: 180624
+# # at_time: 0:03:00.624
+# -
+# # frequency: 519.807
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: -11.4342
+# # env: 88.3382
+# # id: 496
+# # note_midivalue: 72
+# # at_ms: 180832
+# # at_time: 0:03:00.832
+# -
+# # frequency: 520.881
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: -7.86057
+# # env: 87.8881
+# # id: 497
+# # note_midivalue: 72
+# # at_ms: 181189
+# # at_time: 0:03:01.189
+# -
+# # frequency: 519.22
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: -13.3881
+# # env: 88.6076
+# # id: 498
+# # note_midivalue: 72
+# # at_ms: 181525
+# # at_time: 0:03:01.525
+# -
+# # frequency: 461.233
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -18.409
+# # env: 88.3786
+# # id: 499
+# # note_midivalue: 70
+# # at_ms: 181685
+# # at_time: 0:03:01.685
+# -
+# # frequency: 436.141
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -15.2504
+# # env: 88.4384
+# # id: 500
+# # note_midivalue: 69
+# # at_ms: 181845
+# # at_time: 0:03:01.845
+# -
+# # frequency: 391.275
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -3.18298
+# # env: 89.3261
+# # id: 501
+# # note_midivalue: 67
+# # at_ms: 182005
+# # at_time: 0:03:02.005
+# -
+# # frequency: 345.814
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -17.0105
+# # env: 88.5313
+# # id: 502
+# # note_midivalue: 65
+# # at_ms: 182219
+# # at_time: 0:03:02.218
+# -
+# # frequency: 290.046
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -21.468
+# # env: 87.2071
+# # id: 503
+# # note_midivalue: 62
+# # at_ms: 182848
+# # at_time: 0:03:02.848
+# -
+# # frequency: 436.443
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -14.0541
+# # env: 88.2558
+# # id: 504
+# # note_midivalue: 69
+# # at_ms: 183221
+# # at_time: 0:03:03.221
+# -
+# # frequency: 392.336
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: 1.50146
+# # env: 87.114
+# # id: 505
+# # note_midivalue: 67
+# # at_ms: 183493
+# # at_time: 0:03:03.493
+# -
+# # frequency: 345.015
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -21.0152
+# # env: 87.4965
+# # id: 506
+# # note_midivalue: 65
+# # at_ms: 183787
+# # at_time: 0:03:03.786
+# -
+# # frequency: 73.4486
+# # note_name: d
+# # note_octave: -1
+# # note_detune_cents: 0.764465
+# # env: 88.21
+# # id: 507
+# # note_midivalue: 38
+# # at_ms: 184005
+# # at_time: 0:03:04.005
+# -
+# # frequency: 290.876
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -16.5176
+# # env: 88.4092
+# # id: 508
+# # note_midivalue: 62
+# # at_ms: 184187
+# # at_time: 0:03:04.186
+# -
+# # frequency: 292.308
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -8.01811
+# # env: 88.664
+# # id: 509
+# # note_midivalue: 62
+# # at_ms: 184299
+# # at_time: 0:03:04.298
+# -
+# # frequency: 291.398
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -13.4151
+# # env: 87.3162
+# # id: 510
+# # note_midivalue: 62
+# # at_ms: 184848
+# # at_time: 0:03:04.848
+# -
+# # frequency: 344.007
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -26.0811
+# # env: 87.9173
+# # id: 511
+# # note_midivalue: 65
+# # at_ms: 185173
+# # at_time: 0:03:05.173
+# -
+# # frequency: 347.744
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -7.37534
+# # env: 88.6817
+# # id: 512
+# # note_midivalue: 65
+# # at_ms: 185440
+# # at_time: 0:03:05.440
+# -
+# # frequency: 348.297
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -4.62036
+# # env: 88.2622
+# # id: 513
+# # note_midivalue: 65
+# # at_ms: 185867
+# # at_time: 0:03:05.866
+# -
+# # frequency: 328.194
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -7.547
+# # env: 88.5762
+# # id: 514
+# # note_midivalue: 64
+# # at_ms: 186011
+# # at_time: 0:03:06.010
+# -
+# # frequency: 290.692
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -17.6117
+# # env: 87.9953
+# # id: 515
+# # note_midivalue: 62
+# # at_ms: 186197
+# # at_time: 0:03:06.197
+# -
+# # frequency: 434.581
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -21.4539
+# # env: 86.0416
+# # id: 516
+# # note_midivalue: 69
+# # at_ms: 187147
+# # at_time: 0:03:07.146
+# -
+# # frequency: 433.55
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -25.5653
+# # env: 88.097
+# # id: 517
+# # note_midivalue: 69
+# # at_ms: 187563
+# # at_time: 0:03:07.562
+# -
+# # frequency: 462.564
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -13.4209
+# # env: 89.3016
+# # id: 518
+# # note_midivalue: 70
+# # at_ms: 188005
+# # at_time: 0:03:08.005
+# -
+# # frequency: 519.898
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: -11.129
+# # env: 89.4067
+# # id: 519
+# # note_midivalue: 72
+# # at_ms: 188299
+# # at_time: 0:03:08.298
+# -
+# # frequency: 518.209
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: -16.7633
+# # env: 89.7511
+# # id: 520
+# # note_midivalue: 72
+# # at_ms: 188517
+# # at_time: 0:03:08.517
+# -
+# # frequency: 523.536
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: 0.942993
+# # env: 88.1244
+# # id: 521
+# # note_midivalue: 72
+# # at_ms: 188971
+# # at_time: 0:03:08.970
+# -
+# # frequency: 465.574
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -2.1904
+# # env: 89.8135
+# # id: 522
+# # note_midivalue: 70
+# # at_ms: 189259
+# # at_time: 0:03:09.258
+# -
+# # frequency: 431.691
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -33.004
+# # env: 88.3186
+# # id: 523
+# # note_midivalue: 69
+# # at_ms: 189504
+# # at_time: 0:03:09.504
+# -
+# # frequency: 390.42
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -6.97403
+# # env: 88.4314
+# # id: 524
+# # note_midivalue: 67
+# # at_ms: 189707
+# # at_time: 0:03:09.706
+# -
+# # frequency: 346.007
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -16.0408
+# # env: 88.4475
+# # id: 525
+# # note_midivalue: 65
+# # at_ms: 189904
+# # at_time: 0:03:09.904
+# -
+# # frequency: 341.861
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -36.9148
+# # env: 84.3451
+# # id: 526
+# # note_midivalue: 65
+# # at_ms: 190123
+# # at_time: 0:03:10.122
+# -
+# # frequency: 328.316
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -6.90422
+# # env: 88.5944
+# # id: 527
+# # note_midivalue: 64
+# # at_ms: 190224
+# # at_time: 0:03:10.224
+# -
+# # frequency: 292.557
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -6.54106
+# # env: 83.7917
+# # id: 528
+# # note_midivalue: 62
+# # at_ms: 190464
+# # at_time: 0:03:10.464
+# -
+# # frequency: 436.502
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -13.8168
+# # env: 87.1227
+# # id: 529
+# # note_midivalue: 69
+# # at_ms: 190811
+# # at_time: 0:03:10.810
+# -
+# # frequency: 392.985
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: 4.36554
+# # env: 86.039
+# # id: 530
+# # note_midivalue: 67
+# # at_ms: 191051
+# # at_time: 0:03:11.050
+# -
+# # frequency: 295.097
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: 8.42514
+# # env: 87.9414
+# # id: 531
+# # note_midivalue: 62
+# # at_ms: 191835
+# # at_time: 0:03:11.834
+# -
+# # frequency: 294.425
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: 4.47731
+# # env: 85.5865
+# # id: 532
+# # note_midivalue: 62
+# # at_ms: 192224
+# # at_time: 0:03:12.224
+# -
+# # frequency: 294.384
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: 4.23775
+# # env: 89.8982
+# # id: 533
+# # note_midivalue: 62
+# # at_ms: 192304
+# # at_time: 0:03:12.304
+# -
+# # frequency: 342.248
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -34.9518
+# # env: 87.1964
+# # id: 534
+# # note_midivalue: 65
+# # at_ms: 192741
+# # at_time: 0:03:12.741
+# -
+# # frequency: 346.957
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -11.2976
+# # env: 88.0416
+# # id: 535
+# # note_midivalue: 65
+# # at_ms: 193003
+# # at_time: 0:03:13.002
+# -
+# # frequency: 391.302
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -3.06549
+# # env: 88.9318
+# # id: 536
+# # note_midivalue: 67
+# # at_ms: 193221
+# # at_time: 0:03:13.221
+# -
+# # frequency: 97.5508
+# # note_name: g
+# # note_octave: -1
+# # note_detune_cents: -7.93266
+# # env: 87.2655
+# # id: 537
+# # note_midivalue: 43
+# # at_ms: 193328
+# # at_time: 0:03:13.328
+# -
+# # frequency: 291.879
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -10.5572
+# # env: 87.1762
+# # id: 538
+# # note_midivalue: 62
+# # at_ms: 193803
+# # at_time: 0:03:13.802
+# -
+# # frequency: 348.281
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -4.70047
+# # env: 87.8718
+# # id: 539
+# # note_midivalue: 65
+# # at_ms: 194277
+# # at_time: 0:03:14.277
+# -
+# # frequency: 435.29
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -18.6317
+# # env: 89.6098
+# # id: 540
+# # note_midivalue: 69
+# # at_ms: 194411
+# # at_time: 0:03:14.410
+# -
+# # frequency: 392.488
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: 2.17514
+# # env: 88.5647
+# # id: 541
+# # note_midivalue: 67
+# # at_ms: 194555
+# # at_time: 0:03:14.554
+# -
+# # frequency: 437.928
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -8.17337
+# # env: 87.2233
+# # id: 542
+# # note_midivalue: 69
+# # at_ms: 194779
+# # at_time: 0:03:14.778
+# -
+# # frequency: 462.454
+# # note_name: a#
+# # note_octave: 1
+# # note_detune_cents: -13.8329
+# # env: 88.904
+# # id: 543
+# # note_midivalue: 70
+# # at_ms: 194949
+# # at_time: 0:03:14.949
+# -
+# # frequency: 438.636
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -5.37338
+# # env: 88.7031
+# # id: 544
+# # note_midivalue: 69
+# # at_ms: 195093
+# # at_time: 0:03:15.093
+# -
+# # frequency: 519.577
+# # note_name: c
+# # note_octave: 2
+# # note_detune_cents: -12.1979
+# # env: 87.4677
+# # id: 545
+# # note_midivalue: 72
+# # at_ms: 196048
+# # at_time: 0:03:16.048
+# -
+# # frequency: 439.806
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -0.762177
+# # env: 88.6011
+# # id: 546
+# # note_midivalue: 69
+# # at_ms: 196965
+# # at_time: 0:03:16.965
+# -
+# # frequency: 394.158
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: 9.52377
+# # env: 86.7622
+# # id: 547
+# # note_midivalue: 67
+# # at_ms: 197195
+# # at_time: 0:03:17.194
+# -
+# # frequency: 347.329
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -9.43832
+# # env: 89.3797
+# # id: 548
+# # note_midivalue: 65
+# # at_ms: 197461
+# # at_time: 0:03:17.461
+# -
+# # frequency: 345.783
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -17.1661
+# # env: 84.3194
+# # id: 549
+# # note_midivalue: 65
+# # at_ms: 197733
+# # at_time: 0:03:17.733
+# -
+# # frequency: 329.476
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -0.798035
+# # env: 88.4896
+# # id: 550
+# # note_midivalue: 64
+# # at_ms: 197819
+# # at_time: 0:03:17.818
+# -
+# # frequency: 291.574
+# # note_name: d
+# # note_octave: 1
+# # note_detune_cents: -12.3676
+# # env: 88.1787
+# # id: 551
+# # note_midivalue: 62
+# # at_ms: 198037
+# # at_time: 0:03:18.037
+# -
+# # frequency: 438.52
+# # note_name: a
+# # note_octave: 1
+# # note_detune_cents: -5.83344
+# # env: 89.6055
+# # id: 552
+# # note_midivalue: 69
+# # at_ms: 198421
+# # at_time: 0:03:18.421
+# -
+# # frequency: 389.509
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -11.0168
+# # env: 87.2879
+# # id: 553
+# # note_midivalue: 67
+# # at_ms: 198661
+# # at_time: 0:03:18.661
+# -
+# # frequency: 391.034
+# # note_name: g
+# # note_octave: 1
+# # note_detune_cents: -4.25262
+# # env: 87.6054
+# # id: 554
+# # note_midivalue: 67
+# # at_ms: 198741
+# # at_time: 0:03:18.741
+# -
+# # frequency: 348.003
+# # note_name: f
+# # note_octave: 1
+# # note_detune_cents: -6.08292
+# # env: 86.9648
+# # id: 555
+# # note_midivalue: 65
+# # at_ms: 198997
+# # at_time: 0:03:18.997
+# -
+# # frequency: 328.229
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -7.36084
+# # env: 88.2381
+# # id: 556
+# # note_midivalue: 64
+# # at_ms: 199205
+# # at_time: 0:03:19.205
+# -
+# # frequency: 328.7
+# # note_name: e
+# # note_octave: 1
+# # note_detune_cents: -4.88091
+# # env: 55.8304
+# # id: 557
+# # note_midivalue: 64
+# # at_ms: 199819
+# # at_time: 0:03:19.818
+# -
+# # frequency: 71.8667
+# # note_name: d
+# # note_octave: -1
+# # note_detune_cents: -36.9308
+# # env: 87.5162
+# # id: 558
+# # note_midivalue: 38
+# # at_ms: 200160
+# # at_time: 0:03:20.160
+# -
+# # frequency: 148.601
+# # note_name: d
+# # note_octave: 0
+# # note_detune_cents: 20.7287
+# # env: 64.5585
+# # id: 559
+# # note_midivalue: 50
+# # at_ms: 203376
+# # at_time: 0:03:23.376
+# -
+# # frequency: 74.0474
+# # note_name: d
+# # note_octave: -1
+# # note_detune_cents: 14.8205
+# # env: 51.0505
+# # id: 560
+# # note_midivalue: 38
+# # at_ms: 203664
+# # at_time: 0:03:23.664
+# -
+# # frequency: 20203.9
+# # note_name: d#
+# # note_octave: 7
+# # note_detune_cents: 25.1831
+# # env: 19.6442
+# # id: 561
+# # note_midivalue: 135
+# # at_ms: 205152
+# # at_time: 0:03:25.152
+# -
+# # frequency: 73.8641
+# # note_name: d
+# # note_octave: -1
+# # note_detune_cents: 10.5289
+# # env: 5.20649
+# # id: 562
+# # note_midivalue: 38
+# # at_ms: 205989
+# # at_time: 0:03:25.989
+# -
+# # frequency: 20029.3
+# # note_name: d#
+# # note_octave: 7
+# # note_detune_cents: 10.1562
+# # env: 21.8383
+# # id: 563
+# # note_midivalue: 135
+# # at_ms: 208789
+# # at_time: 0:03:28.789
+header:
+# number_of_pitches: 563
+# average_frequency: 481.868
+# average_note_name: h
+# average_note_octave: 1
+# average_note_detune_cents: -42.6384

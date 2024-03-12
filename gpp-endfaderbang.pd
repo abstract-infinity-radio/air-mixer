@@ -1,4 +1,4 @@
-#N canvas 643 180 2548 1400 12;
+#N canvas 1174 1177 2548 1400 12;
 #X obj 523 38 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
 0;
 #X text 521 61 Gregor Pirš 2022;
@@ -17,8 +17,8 @@ fader duration ];
 #X obj 211 94 \$2;
 #X obj 90 230 outlet;
 #X obj 204 222 outlet;
-#X floatatom 33 213 5 0 0 0 - - -;
-#X floatatom 269 161 5 0 0 0 - - -;
+#X floatatom 33 213 10 0 0 0 - - -;
+#X floatatom 269 161 10 0 0 0 - - -;
 #X text 645 174 out1 = endfader bang;
 #X text 645 201 out2 = end boundary bang;
 #X text 648 86 \$1 = sample clip duration [ms] | \$2 = fader duration

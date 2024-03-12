@@ -1,0 +1,84 @@
+---
+dynamics:
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 1
+# # duration_ms: 172
+# # at_ms: 172
+# # at_time: 0:00:00.172
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 2
+# # duration_ms: 512
+# # at_ms: 684
+# # at_time: 0:00:00.684
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 3
+# # duration_ms: 341.333
+# # at_ms: 1025.33
+# # at_time: 0:00:01.025
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 4
+# # duration_ms: 170.667
+# # at_ms: 1196
+# # at_time: 0:00:01.196
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 5
+# # duration_ms: 1194.67
+# # at_ms: 2390.67
+# # at_time: 0:00:02.390
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 6
+# # duration_ms: 170.667
+# # at_ms: 2561.33
+# # at_time: 0:00:02.561
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 7
+# # duration_ms: 341.333
+# # at_ms: 2902.67
+# # at_time: 0:00:02.902
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 8
+# # duration_ms: 170.667
+# # at_ms: 3073.33
+# # at_time: 0:00:03.073
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 9
+# # duration_ms: 4437.33
+# # at_ms: 7510.67
+# # at_time: 0:00:07.510
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 10
+# # duration_ms: 170.667
+# # at_ms: 7681.33
+# # at_time: 0:00:07.681
+header:
+# number_of_dynamics: 10
+# average_dynamics_occurences_degree: 6
+# average_dynamics_occurences_symbol: mf
+# average_dynamics_duration_degree: 6
+# average_dynamics_duration_symbol: mf
+# min_dynamics_degree: 0
+# max_dynamics_degree: 7
+# min_dynamics_symbol: tacet
+# max_dynamics_symbol: f
+# min_env_detected: 0
+# max_env_detected: 87.9605

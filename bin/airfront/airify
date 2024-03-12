@@ -4,6 +4,8 @@
 #################################################################################################
 # airfront main tool :: transfer and conversion of local recordings, documentation and metadata #
 # B-AIR project, EU CE									        #
+# for local use | will not work without the perl-modules setup,                                 #
+# DB setup and lib entries clarification                                                        #
 #################################################################################################
 
 
@@ -62,12 +64,13 @@ my $LOCALHOST='gregor@matangi';
 #my $REMOTEHOST='gregor@kohai';
 # NOTE: KEEP TRAILING SLASHES IN REMOTEHOME DEFINITIONS:
 
-my $REMOTEHOST=('root@air.sedemcezdevet.si');
+#my $REMOTEHOST=('root@air.sedemcezdevet.si');
+my $REMOTEHOST=('air@air.ijs.si');
 my $REMOTEHOME=('/var/air/data/library/');
 #my $REMOTEHOST=('gregor@kohai');
 #my $REMOTEHOME=('/home/gregor/air/aerotheque/');
 
-my $TEMPDIR="/home/gregor/temp/airfront/";
+my $TEMPDIR="/var/air/data/library/";
 #my $REMOTEHOME="/home/gregor/air/aerotheque/";
 my $LASTTEMP=""; #Global for temp post-removal
 my $LASTREMOTE=""; #Global for remote rollback-removal
@@ -107,6 +110,7 @@ my $AFDB= airfront::Schema->connect(
 GetOptions (
     'test|t=s{0,}' => sub{ $oc->array('t',$_[1],\&test)},
     'list|l=s{0,1}' => sub{ $oc->scalar('what',$_[1],\&list)},
+    'brief|b=s{0,2}' => sub{ $oc->array('boundary',$_[1],\&brief)},
     'pwd' => sub{ $oc->scalar('source',$PWD)},
     'source=s' => sub {$oc->scalar('source',$_[1])},
     'resync|r' => sub{$oc->caller(\&resync)},
@@ -133,7 +137,9 @@ exit;
 
 airify :: AIR platform (EU CE 2020-23) Audiodata frontend. 
 
-Swallow whole musical directories and flush metadata to airfront database
+Swallow whole musical directories and flush metadata to airfront database; 
+
+WARNING : THIS SCRIPT IS INTENDED FOR INTERNAL USAGE AND REQUIRES LOCAL SYSTEM ADJUSTMENTS 
 
 =head1 OPTIONS
 
@@ -144,6 +150,10 @@ swallow current a directory or current directory, convert flush to server
 =head2 -nosync
 
 do not transfer to server, just keep the files in the temp dir [ ~/temp/airfront/ ]
+
+=head2 -b <FROM> <TO> - brief db entries
+
+list all recordings to STDOUT starting with <FROM> ending with <TO>
 
 =head2 -l <PARAM>  - list db entries
 
@@ -261,6 +271,33 @@ sub list{
     $AFUI->cardsel($oh->{'what'} || ""); #NOTE: cardsel = scalar with its own policy of transforming into search hash, see man
     $AFUI->list_gtk3;
 }#list
+
+
+# list all to STDOUT
+sub brief{
+    my $oh=shift;
+    $DBG and warn "airify.brief called";
+    $DBG and print Dumper($oh);
+
+    print "\n|=========================================|";
+    print "\n\nLIST OF AIR RECORDING CARDS\n";
+    print "\n";
+    my $rs;
+    
+    if ( @{$oh->{'boundary'}} == 2){
+	$rs = $AFDB->resultset('Public_Card')->search({-and=>[ 'airc'=>{'>=', $oh->{'boundary'}[0]},'airc'=>{'<=',$oh->{'boundary'}[1]}]},{ order_by => {-asc => 'airc'} });
+    }elsif(@{$oh->{'boundary'}} == 1){
+    	$rs = $AFDB->resultset('Public_Card')->search({'airc'=>{'>=', $oh->{'boundary'}[0]}},{ order_by => {-asc => 'airc'} });
+    }else{
+	$rs = $AFDB->resultset('Public_Card')->search({'airc'=>{'>=', 3}},{ order_by => {-asc => 'airc'} });
+    };
+    while (my $R = $rs->next){
+	print "[".$R->airc."] ".$R->title." by ".$R->authors." performed by ".$R->performers." [".$R->date.", ".$R->recordings->count." tracks]\n";
+    };
+    print "\n";
+
+}#brief
+
 
 
 sub new{

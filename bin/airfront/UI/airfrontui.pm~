@@ -378,6 +378,65 @@ sub donedialog_gtk3{
     Gtk3->main_quit;
 };
 
+
+sub yesnodialog{
+    my $self = shift;
+    my $num=shift;
+    
+    my $window = Gtk3::Window->new('toplevel');
+    $window->set_title ('REALLY REVERT THE DB TO FREE THE LISTED AIRC ENTRIES '.$num.' AND ABOVE?');
+    $window->set_default_size(250,100);
+    $window->signal_connect('delete_event' => sub {Gtk3->main_quit()});
+
+    my $grid = Gtk3::Grid->new();
+    $grid->set_row_spacing(7);
+    $grid->set_column_spacing(20);
+
+    
+    # a button on the parent window
+    my $buttonY = Gtk3::Button->new('YES');
+    # connect the signal 'clicked' of the button with the function
+    # on_button_click()
+    $buttonY->signal_connect('clicked', \&on_button_YES);
+    # add the button to the window
+
+    $grid->attach($buttonY,0,1,40,1);
+
+    
+    # a button on the parent window
+    my $buttonN = Gtk3::Button->new('NO');
+    # connect the signal 'clicked' of the button with the function
+    # on_button_click()
+    $buttonN->signal_connect('clicked', \&on_button_NO);
+    # add the button to the window
+    $grid->attach($buttonN,0,0,40,1);
+
+    $window->add($grid);
+    
+    
+    # show the window and run the Application
+    $window -> show_all();
+    Gtk3->main();
+    
+    # callback function for the signal 'clicked' of the button in the parent 
+    # window
+    
+    sub on_button_YES{
+	$window->destroy;
+	Gtk3->main_quit;
+	$self->{'yesnoval'}=1;
+    };
+    
+    sub on_button_NO{
+	$window->destroy;
+	Gtk3->main_quit;
+	$self->{'yesnoval'}=0;
+    };
+    
+    return $self->{'yesnoval'};
+    
+};#yesnodialog
+
 #----------------
 
 #accessors for all data gathered

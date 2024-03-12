@@ -1,4 +1,4 @@
-#N canvas 415 650 2503 1400 12;
+#N canvas 415 595 2503 1400 12;
 #X obj 687 50 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
 0;
 #X text 687 75 Gregor Pirš 2022;
@@ -27,7 +27,6 @@
 #X msg 520 120 0.003;
 #X text 550 20 3 seconds (!!!);
 #X msg 49 32 1:1:1;
-#X msg 34 191 1:1:1.1;
 #X obj 164 280 gpp-display-seconds;
 #X symbolatom 161 315 20 0 0 0 - - -;
 #X msg 305 28 02:13:12;
@@ -40,9 +39,10 @@
 #X text 815 48 gpp-timing2seconds / gpp-timing2ms :: change the standard
 timing format (symbol: <hh>:<mm>:<ss>.<ms>) to seconds;
 #X obj 259 136 gpp-timing2ms;
+#X msg 35 192 symbol 1:1:1.1;
 #X connect 2 0 3 0;
 #X connect 2 0 11 0;
-#X connect 3 0 26 0;
+#X connect 3 0 25 0;
 #X connect 4 0 2 0;
 #X connect 5 0 2 0;
 #X connect 7 0 2 0;
@@ -59,8 +59,8 @@ timing format (symbol: <hh>:<mm>:<ss>.<ms>) to seconds;
 #X connect 21 0 2 0;
 #X connect 22 0 2 0;
 #X connect 24 0 2 0;
-#X connect 25 0 2 0;
-#X connect 26 0 27 0;
+#X connect 25 0 26 0;
+#X connect 27 0 2 0;
 #X connect 28 0 2 0;
-#X connect 29 0 2 0;
-#X connect 33 0 2 0;
+#X connect 32 0 2 0;
+#X connect 35 0 2 0;

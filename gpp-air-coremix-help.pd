@@ -1,4 +1,4 @@
-#N canvas 2428 608 1353 1376 12;
+#N canvas 940 947 2005 1139 12;
 #X msg 1154 242 4 pan 100;
 #X obj 786 4 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
 0;
@@ -19,7 +19,7 @@ arguments], f 72;
 #X text 82 177 NOTE: air coremix handles adc~ and dac~ ports itself.
 outlet~ output is intended exclusively for monitoring;
 #X restore 679 8 pd \$0-REST;
-#N canvas 332 202 2800 1903 \$0-TODO 0;
+#N canvas 332 180 2800 1903 \$0-TODO 0;
 #X text 1015 239 -- bidirectional OSC: reporting ENDBANGS on tracks
 \, possibility to query the track from "currently played" file-id;
 #X text 1021 121 --- play from and to directives (automatical cutting)
@@ -57,10 +57,10 @@ sample-play and beginning of the new iteration o sample(or trimmed-chunk)-play
 METRONOME?) AND ENDBENG/ENDFADER MECH DOESNT PROPERLY CALIBRATE;
 #X text 1027 646 --- transform MONO player for operation with new dir
 sys and loopbang and loop delay \, just like STEREO player;
-#X text 63 392 -- osc monitor send -- playhead func: 1 playhead file.wav
+#X text 87 123 -- osc monitor send -- playhead func: 1 playhead file.wav
 , f 44;
-#X text 60 365 -- dissable excessive PRINT commands;
-#X text 61 332 -- data check : negative time span can break the whole
+#X text 87 90 -- dissable excessive PRINT commands;
+#X text 550 436 -- data check : negative time span can break the whole
 thing!;
 #X text 1030 697 -- mapping sudden sub-sec loop to ALL faders will
 most probably break the pd gui due to channel in- faders: should a
@@ -87,13 +87,21 @@ that each play- or record- request is preceeded by a stop- request:
 transitions from play to record or from on play to another play.;
 #X text 671 37 !!! MAKE monitoring mode val persistent;
 #X text 766 7 DONE2:;
-#X text 53 160 !!!!!!! FADERS ARE SELF-RESETTING \, NOT CONTINUING
+#X text 553 339 !!!!!!! FADERS ARE SELF-RESETTING \, NOT CONTINUING
 !!!!!;
-#X text 75 193 NEW LOOP ITERATION WILL RESET THE FILENAME TAG;
+#X text 575 372 NEW LOOP ITERATION WILL RESET THE FILENAME TAG;
 #X text 546 213 adding refresh values to console and mixer OK FOR BOTH
 \, MIXER AND CONSOLE;
-#X text 44 116 !!!!! seems that fader-on but muted track bursts in
+#X text 544 295 !!!!! seems that fader-on but muted track bursts in
 the beginning of play (monoplay?);
+#X text 89 294 REMOVE PREFADER INPUT SET OF OUTPUT TRACKS \, THISE
+SERVE NO PURPOSE. INSTEAD \, IMPLEMENT SWITCH FOR EACH TO-CLIENT (MONITORING)
+TRACKS TO BROADCAST EITHER MINUS-MIX OR MASTER MIX OR PRELISTEN MIX
+;
+#X text 88 244 !!!! OUTPUT TRACKS: STEREO MIX (1-2) \, PRELISTEN MIX
+(3-4) \, UTILITY - SYNCTRACK ETC (5-6) \, TO-CLIENTS-MONITORING-MINUS-MIXES-TRACKS
+7-....;
+#X text 89 218 BEFORE THE NEXT LIVE PROJECT:;
 #X restore 679 37 pd \$0-TODO;
 #X text 680 610 COMMAND LINE$ send_osc osc.udp://localhost:3000/ /airmix/4/pan/
 100, f 75;
@@ -169,7 +177,7 @@ first track stated will be used., f 20;
 #X msg 576 -108 1 fader 0 1000 hsin;
 #X text 107 -25 DISCONNECT;
 #X msg 1153 272 dir /home/gregor/audio;
-#N canvas 575 671 2803 1488 \$0-PLAY-RECORD-LOOP 0;
+#N canvas 575 616 2803 1488 \$0-PLAY-RECORD-LOOP 0;
 #X obj 268 487 outlet;
 #X text 684 363 trim A - B and play \, with trimfaders;
 #X text 684 391 trim beginning - B and play \, with trimfaders;
@@ -221,18 +229,17 @@ than default;
 #X obj 111 29 cnv 15 140 60 empty empty SERVER 20 12 0 16 -203904 -66577
 0;
 #X msg 373 147 CONSOLE AUDIO LATENCY: 0;
-#X msg 116 298 [ŧotal 37] @OUTPUT TRACKS (stereo pairs) : SUBSTRMIX:
-1+2 (CH1) .. 15+16 (CH8) | 17 SYNCTRACK | PREDFADER: 18+19 (CH1) ..
-32+33 (CH8) | MASTER 34+35 | PRELISTEN BUS 36+37, f 80;
-#N canvas 118 203 758 554 MATTHEW 0;
+#X msg 239 279 [26] @OUTPUT TRACKS (stereo pairs) : MASTER 1+2 | PRELISTEN
+3+4 | SYNC 5 | MINUS-MIX: 11+12 (CH1) ... 25+26 (CH8), f 80;
+#N canvas 118 180 758 554 MATTHEW 0;
 #X text 28 20 add solo BUTTONS;
 #X text 28 94 window opener switch;
 #X text 29 40 add presolo BUTTONS;
 #X text 28 63 prelevel values interactive = faders?;
 #X text 23 145 save state on the console!!! = local ....;
 #X restore 13 67 pd MATTHEW;
-#X msg 118 253 [ŧotal 17] @INPUT TRACKS (stereo pairs) : [ŧotal 17]
-1+2 (CH1).. 15+16 (CH8) | 17 SYNCTRACK, f 88;
+#X msg 111 225 [17] @INPUT TRACKS (stereo pairs) : 1+2 (CH1) ... 15+16
+(CH8) | SYNC 17, f 88;
 #X msg 480 54 84.20.237.57 :: GP;
 #X obj 256 23 tgl 50 1 empty foorec MIX 10 12 0 10 -262130 -1 -1 1
 1;
@@ -247,7 +254,7 @@ than default;
 #X connect 3 0 1 0;
 #X connect 4 0 2 0;
 #X connect 4 1 3 0;
-#X restore 257 75 pd \$0-SHOWMIX;
+#X restore 257 79 pd \$0-SHOWMIX;
 #X text 405 89 gpp-aircoremix <channels> <OSC-in-port> <OSC-out-port>
 <client OSC address>, f 78;
 #X msg 584 121 MIHA :: 89.212.162.186;
@@ -260,6 +267,7 @@ than default;
 #X text 819 207 /var/air/data/mixer/airdir;
 #X obj 821 154 cnv 15 200 15 empty empty empty 20 12 0 14 -258113 -66577
 0;
+#X msg 367 71 1 fader 0.3;
 #X obj 111 118 gpp-air-coremix 8 3000 3001 localhost;
 #X connect 33 0 32 0;
 #X connect 36 0 35 0;
@@ -273,6 +281,7 @@ than default;
 #X connect 46 0 31 0;
 #X connect 47 0 31 0;
 #X connect 57 0 58 0;
-#X connect 69 0 55 0;
-#X connect 69 1 53 0;
-#X connect 69 2 52 0;
+#X connect 69 0 70 1;
+#X connect 70 0 55 0;
+#X connect 70 1 53 0;
+#X connect 70 2 52 0;

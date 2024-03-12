@@ -1,0 +1,3080 @@
+---
+dynamics:
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 1
+# # duration_ms: 172
+# # at_ms: 172
+# # at_time: 0:00:00.172
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 2
+# # duration_ms: 170.667
+# # at_ms: 342.667
+# # at_time: 0:00:00.342
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 3
+# # duration_ms: 170.667
+# # at_ms: 513.333
+# # at_time: 0:00:00.513
+# -
+# # dynamics_degree: 4
+# # dynamics_symbol: p
+# # id: 4
+# # duration_ms: 512
+# # at_ms: 1025.33
+# # at_time: 0:00:01.025
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 5
+# # duration_ms: 170.667
+# # at_ms: 1196
+# # at_time: 0:00:01.196
+# -
+# # dynamics_degree: 4
+# # dynamics_symbol: p
+# # id: 6
+# # duration_ms: 170.667
+# # at_ms: 1366.67
+# # at_time: 0:00:01.366
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 7
+# # duration_ms: 170.667
+# # at_ms: 1537.33
+# # at_time: 0:00:01.537
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 8
+# # duration_ms: 512
+# # at_ms: 2049.33
+# # at_time: 0:00:02.049
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 9
+# # duration_ms: 170.667
+# # at_ms: 2220
+# # at_time: 0:00:02.220
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 10
+# # duration_ms: 170.667
+# # at_ms: 2390.67
+# # at_time: 0:00:02.390
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 11
+# # duration_ms: 682.667
+# # at_ms: 3073.33
+# # at_time: 0:00:03.073
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 12
+# # duration_ms: 170.667
+# # at_ms: 3244
+# # at_time: 0:00:03.244
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 13
+# # duration_ms: 170.667
+# # at_ms: 3414.67
+# # at_time: 0:00:03.414
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 14
+# # duration_ms: 682.667
+# # at_ms: 4097.33
+# # at_time: 0:00:04.097
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 15
+# # duration_ms: 341.333
+# # at_ms: 4438.67
+# # at_time: 0:00:04.438
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 16
+# # duration_ms: 682.667
+# # at_ms: 5121.33
+# # at_time: 0:00:05.121
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 17
+# # duration_ms: 341.333
+# # at_ms: 5462.67
+# # at_time: 0:00:05.462
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 18
+# # duration_ms: 682.667
+# # at_ms: 6145.33
+# # at_time: 0:00:06.145
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 19
+# # duration_ms: 170.667
+# # at_ms: 6316
+# # at_time: 0:00:06.316
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 20
+# # duration_ms: 170.667
+# # at_ms: 6486.67
+# # at_time: 0:00:06.486
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 21
+# # duration_ms: 682.667
+# # at_ms: 7169.33
+# # at_time: 0:00:07.169
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 22
+# # duration_ms: 170.667
+# # at_ms: 7340
+# # at_time: 0:00:07.340
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 23
+# # duration_ms: 170.667
+# # at_ms: 7510.67
+# # at_time: 0:00:07.510
+# -
+# # dynamics_degree: 4
+# # dynamics_symbol: p
+# # id: 24
+# # duration_ms: 512
+# # at_ms: 8022.67
+# # at_time: 0:00:08.022
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 25
+# # duration_ms: 170.667
+# # at_ms: 8193.33
+# # at_time: 0:00:08.193
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 26
+# # duration_ms: 170.667
+# # at_ms: 8364
+# # at_time: 0:00:08.364
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 27
+# # duration_ms: 170.667
+# # at_ms: 8534.67
+# # at_time: 0:00:08.534
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 28
+# # duration_ms: 512
+# # at_ms: 9046.67
+# # at_time: 0:00:09.046
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 29
+# # duration_ms: 170.666
+# # at_ms: 9217.33
+# # at_time: 0:00:09.217
+# -
+# # dynamics_degree: 3
+# # dynamics_symbol: pp
+# # id: 30
+# # duration_ms: 170.667
+# # at_ms: 9388
+# # at_time: 0:00:09.388
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 31
+# # duration_ms: 170.667
+# # at_ms: 9558.67
+# # at_time: 0:00:09.558
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 32
+# # duration_ms: 341.333
+# # at_ms: 9900
+# # at_time: 0:00:09.900
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 33
+# # duration_ms: 170.667
+# # at_ms: 10070.7
+# # at_time: 0:00:10.070
+# -
+# # dynamics_degree: 3
+# # dynamics_symbol: pp
+# # id: 34
+# # duration_ms: 170.666
+# # at_ms: 10241.3
+# # at_time: 0:00:10.241
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 35
+# # duration_ms: 170.667
+# # at_ms: 10412
+# # at_time: 0:00:10.412
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 36
+# # duration_ms: 341.333
+# # at_ms: 10753.3
+# # at_time: 0:00:10.753
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 37
+# # duration_ms: 170.667
+# # at_ms: 10924
+# # at_time: 0:00:10.924
+# -
+# # dynamics_degree: 3
+# # dynamics_symbol: pp
+# # id: 38
+# # duration_ms: 170.667
+# # at_ms: 11094.7
+# # at_time: 0:00:11.094
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 39
+# # duration_ms: 170.666
+# # at_ms: 11265.3
+# # at_time: 0:00:11.265
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 40
+# # duration_ms: 341.334
+# # at_ms: 11606.7
+# # at_time: 0:00:11.606
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 41
+# # duration_ms: 170.666
+# # at_ms: 11777.3
+# # at_time: 0:00:11.777
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 42
+# # duration_ms: 170.667
+# # at_ms: 11948
+# # at_time: 0:00:11.948
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 43
+# # duration_ms: 170.667
+# # at_ms: 12118.7
+# # at_time: 0:00:12.118
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 44
+# # duration_ms: 341.333
+# # at_ms: 12460
+# # at_time: 0:00:12.460
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 45
+# # duration_ms: 170.667
+# # at_ms: 12630.7
+# # at_time: 0:00:12.630
+# -
+# # dynamics_degree: 4
+# # dynamics_symbol: p
+# # id: 46
+# # duration_ms: 170.666
+# # at_ms: 12801.3
+# # at_time: 0:00:12.801
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 47
+# # duration_ms: 170.667
+# # at_ms: 12972
+# # at_time: 0:00:12.972
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 48
+# # duration_ms: 341.333
+# # at_ms: 13313.3
+# # at_time: 0:00:13.313
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 49
+# # duration_ms: 170.667
+# # at_ms: 13484
+# # at_time: 0:00:13.484
+# -
+# # dynamics_degree: 4
+# # dynamics_symbol: p
+# # id: 50
+# # duration_ms: 170.667
+# # at_ms: 13654.7
+# # at_time: 0:00:13.654
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 51
+# # duration_ms: 170.666
+# # at_ms: 13825.3
+# # at_time: 0:00:13.825
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 52
+# # duration_ms: 341.334
+# # at_ms: 14166.7
+# # at_time: 0:00:14.166
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 53
+# # duration_ms: 170.666
+# # at_ms: 14337.3
+# # at_time: 0:00:14.337
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 54
+# # duration_ms: 170.667
+# # at_ms: 14508
+# # at_time: 0:00:14.508
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 55
+# # duration_ms: 170.667
+# # at_ms: 14678.7
+# # at_time: 0:00:14.678
+# -
+# # dynamics_degree: 4
+# # dynamics_symbol: p
+# # id: 56
+# # duration_ms: 341.333
+# # at_ms: 15020
+# # at_time: 0:00:15.020
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 57
+# # duration_ms: 170.667
+# # at_ms: 15190.7
+# # at_time: 0:00:15.190
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 58
+# # duration_ms: 170.666
+# # at_ms: 15361.3
+# # at_time: 0:00:15.361
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 59
+# # duration_ms: 170.667
+# # at_ms: 15532
+# # at_time: 0:00:15.532
+# -
+# # dynamics_degree: 4
+# # dynamics_symbol: p
+# # id: 60
+# # duration_ms: 341.333
+# # at_ms: 15873.3
+# # at_time: 0:00:15.873
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 61
+# # duration_ms: 170.667
+# # at_ms: 16044
+# # at_time: 0:00:16.044
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 62
+# # duration_ms: 170.666
+# # at_ms: 16214.7
+# # at_time: 0:00:16.214
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 63
+# # duration_ms: 170.668
+# # at_ms: 16385.3
+# # at_time: 0:00:16.385
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 64
+# # duration_ms: 341.332
+# # at_ms: 16726.7
+# # at_time: 0:00:16.726
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 65
+# # duration_ms: 170.668
+# # at_ms: 16897.3
+# # at_time: 0:00:16.897
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 66
+# # duration_ms: 170.666
+# # at_ms: 17068
+# # at_time: 0:00:17.068
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 67
+# # duration_ms: 170.666
+# # at_ms: 17238.7
+# # at_time: 0:00:17.238
+# -
+# # dynamics_degree: 3
+# # dynamics_symbol: pp
+# # id: 68
+# # duration_ms: 341.334
+# # at_ms: 17580
+# # at_time: 0:00:17.580
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 69
+# # duration_ms: 170.666
+# # at_ms: 17750.7
+# # at_time: 0:00:17.750
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 70
+# # duration_ms: 170.668
+# # at_ms: 17921.3
+# # at_time: 0:00:17.921
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 71
+# # duration_ms: 170.666
+# # at_ms: 18092
+# # at_time: 0:00:18.092
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 72
+# # duration_ms: 341.334
+# # at_ms: 18433.3
+# # at_time: 0:00:18.433
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 73
+# # duration_ms: 341.332
+# # at_ms: 18774.7
+# # at_time: 0:00:18.774
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 74
+# # duration_ms: 341.334
+# # at_ms: 19116
+# # at_time: 0:00:19.116
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 75
+# # duration_ms: 170.666
+# # at_ms: 19286.7
+# # at_time: 0:00:19.286
+# -
+# # dynamics_degree: 4
+# # dynamics_symbol: p
+# # id: 76
+# # duration_ms: 170.668
+# # at_ms: 19457.3
+# # at_time: 0:00:19.457
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 77
+# # duration_ms: 170.666
+# # at_ms: 19628
+# # at_time: 0:00:19.628
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 78
+# # duration_ms: 341.334
+# # at_ms: 19969.3
+# # at_time: 0:00:19.969
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 79
+# # duration_ms: 341.332
+# # at_ms: 20310.7
+# # at_time: 0:00:20.310
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 80
+# # duration_ms: 341.334
+# # at_ms: 20652
+# # at_time: 0:00:20.652
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 81
+# # duration_ms: 341.334
+# # at_ms: 20993.3
+# # at_time: 0:00:20.993
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 82
+# # duration_ms: 341.332
+# # at_ms: 21334.7
+# # at_time: 0:00:21.334
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 83
+# # duration_ms: 170.668
+# # at_ms: 21505.3
+# # at_time: 0:00:21.505
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 84
+# # duration_ms: 170.666
+# # at_ms: 21676
+# # at_time: 0:00:21.676
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 85
+# # duration_ms: 170.666
+# # at_ms: 21846.7
+# # at_time: 0:00:21.846
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 86
+# # duration_ms: 341.334
+# # at_ms: 22188
+# # at_time: 0:00:22.188
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 87
+# # duration_ms: 341.334
+# # at_ms: 22529.3
+# # at_time: 0:00:22.529
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 88
+# # duration_ms: 341.332
+# # at_ms: 22870.7
+# # at_time: 0:00:22.870
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 89
+# # duration_ms: 170.668
+# # at_ms: 23041.3
+# # at_time: 0:00:23.041
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 90
+# # duration_ms: 170.666
+# # at_ms: 23212
+# # at_time: 0:00:23.212
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 91
+# # duration_ms: 512
+# # at_ms: 23724
+# # at_time: 0:00:23.724
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 92
+# # duration_ms: 170.666
+# # at_ms: 23894.7
+# # at_time: 0:00:23.894
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 93
+# # duration_ms: 170.668
+# # at_ms: 24065.3
+# # at_time: 0:00:24.065
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 94
+# # duration_ms: 341.332
+# # at_ms: 24406.7
+# # at_time: 0:00:24.406
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 95
+# # duration_ms: 341.334
+# # at_ms: 24748
+# # at_time: 0:00:24.748
+# -
+# # dynamics_degree: 4
+# # dynamics_symbol: p
+# # id: 96
+# # duration_ms: 341.334
+# # at_ms: 25089.3
+# # at_time: 0:00:25.089
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 97
+# # duration_ms: 170.666
+# # at_ms: 25260
+# # at_time: 0:00:25.260
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 98
+# # duration_ms: 170.666
+# # at_ms: 25430.7
+# # at_time: 0:00:25.430
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 99
+# # duration_ms: 170.668
+# # at_ms: 25601.3
+# # at_time: 0:00:25.601
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 100
+# # duration_ms: 170.666
+# # at_ms: 25772
+# # at_time: 0:00:25.772
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 101
+# # duration_ms: 170.666
+# # at_ms: 25942.7
+# # at_time: 0:00:25.942
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 102
+# # duration_ms: 170.668
+# # at_ms: 26113.3
+# # at_time: 0:00:26.113
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 103
+# # duration_ms: 170.666
+# # at_ms: 26284
+# # at_time: 0:00:26.284
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 104
+# # duration_ms: 170.666
+# # at_ms: 26454.7
+# # at_time: 0:00:26.454
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 105
+# # duration_ms: 170.668
+# # at_ms: 26625.3
+# # at_time: 0:00:26.625
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 106
+# # duration_ms: 170.666
+# # at_ms: 26796
+# # at_time: 0:00:26.796
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 107
+# # duration_ms: 341.334
+# # at_ms: 27137.3
+# # at_time: 0:00:27.137
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 108
+# # duration_ms: 170.666
+# # at_ms: 27308
+# # at_time: 0:00:27.308
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 109
+# # duration_ms: 170.666
+# # at_ms: 27478.7
+# # at_time: 0:00:27.478
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 110
+# # duration_ms: 341.334
+# # at_ms: 27820
+# # at_time: 0:00:27.820
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 111
+# # duration_ms: 170.666
+# # at_ms: 27990.7
+# # at_time: 0:00:27.990
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 112
+# # duration_ms: 170.668
+# # at_ms: 28161.3
+# # at_time: 0:00:28.161
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 113
+# # duration_ms: 341.332
+# # at_ms: 28502.7
+# # at_time: 0:00:28.502
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 114
+# # duration_ms: 341.334
+# # at_ms: 28844
+# # at_time: 0:00:28.844
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 115
+# # duration_ms: 341.334
+# # at_ms: 29185.3
+# # at_time: 0:00:29.185
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 116
+# # duration_ms: 341.332
+# # at_ms: 29526.7
+# # at_time: 0:00:29.526
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 117
+# # duration_ms: 341.334
+# # at_ms: 29868
+# # at_time: 0:00:29.868
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 118
+# # duration_ms: 170.666
+# # at_ms: 30038.7
+# # at_time: 0:00:30.038
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 119
+# # duration_ms: 170.668
+# # at_ms: 30209.3
+# # at_time: 0:00:30.209
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 120
+# # duration_ms: 341.332
+# # at_ms: 30550.7
+# # at_time: 0:00:30.550
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 121
+# # duration_ms: 341.334
+# # at_ms: 30892
+# # at_time: 0:00:30.892
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 122
+# # duration_ms: 341.332
+# # at_ms: 31233.3
+# # at_time: 0:00:31.233
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 123
+# # duration_ms: 170.668
+# # at_ms: 31404
+# # at_time: 0:00:31.404
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 124
+# # duration_ms: 170.666
+# # at_ms: 31574.7
+# # at_time: 0:00:31.574
+# -
+# # dynamics_degree: 4
+# # dynamics_symbol: p
+# # id: 125
+# # duration_ms: 170.666
+# # at_ms: 31745.3
+# # at_time: 0:00:31.745
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 126
+# # duration_ms: 170.668
+# # at_ms: 31916
+# # at_time: 0:00:31.916
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 127
+# # duration_ms: 170.666
+# # at_ms: 32086.7
+# # at_time: 0:00:32.086
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 128
+# # duration_ms: 170.666
+# # at_ms: 32257.3
+# # at_time: 0:00:32.257
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 129
+# # duration_ms: 170.668
+# # at_ms: 32428
+# # at_time: 0:00:32.428
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 130
+# # duration_ms: 341.332
+# # at_ms: 32769.3
+# # at_time: 0:00:32.769
+# -
+# # dynamics_degree: 3
+# # dynamics_symbol: pp
+# # id: 131
+# # duration_ms: 170.668
+# # at_ms: 32940
+# # at_time: 0:00:32.940
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 132
+# # duration_ms: 170.668
+# # at_ms: 33110.7
+# # at_time: 0:00:33.110
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 133
+# # duration_ms: 170.664
+# # at_ms: 33281.3
+# # at_time: 0:00:33.281
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 134
+# # duration_ms: 170.668
+# # at_ms: 33452
+# # at_time: 0:00:33.452
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 135
+# # duration_ms: 170.668
+# # at_ms: 33622.7
+# # at_time: 0:00:33.622
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 136
+# # duration_ms: 170.664
+# # at_ms: 33793.3
+# # at_time: 0:00:33.793
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 137
+# # duration_ms: 170.668
+# # at_ms: 33964
+# # at_time: 0:00:33.964
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 138
+# # duration_ms: 341.332
+# # at_ms: 34305.3
+# # at_time: 0:00:34.305
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 139
+# # duration_ms: 170.668
+# # at_ms: 34476
+# # at_time: 0:00:34.476
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 140
+# # duration_ms: 170.668
+# # at_ms: 34646.7
+# # at_time: 0:00:34.646
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 141
+# # duration_ms: 170.664
+# # at_ms: 34817.3
+# # at_time: 0:00:34.817
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 142
+# # duration_ms: 341.336
+# # at_ms: 35158.7
+# # at_time: 0:00:35.158
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 143
+# # duration_ms: 341.332
+# # at_ms: 35500
+# # at_time: 0:00:35.500
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 144
+# # duration_ms: 170.668
+# # at_ms: 35670.7
+# # at_time: 0:00:35.670
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 145
+# # duration_ms: 170.664
+# # at_ms: 35841.3
+# # at_time: 0:00:35.841
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 146
+# # duration_ms: 170.668
+# # at_ms: 36012
+# # at_time: 0:00:36.012
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 147
+# # duration_ms: 341.332
+# # at_ms: 36353.3
+# # at_time: 0:00:36.353
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 148
+# # duration_ms: 341.336
+# # at_ms: 36694.7
+# # at_time: 0:00:36.694
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 149
+# # duration_ms: 170.664
+# # at_ms: 36865.3
+# # at_time: 0:00:36.865
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 150
+# # duration_ms: 170.668
+# # at_ms: 37036
+# # at_time: 0:00:37.036
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 151
+# # duration_ms: 170.668
+# # at_ms: 37206.7
+# # at_time: 0:00:37.206
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 152
+# # duration_ms: 170.664
+# # at_ms: 37377.3
+# # at_time: 0:00:37.377
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 153
+# # duration_ms: 170.668
+# # at_ms: 37548
+# # at_time: 0:00:37.548
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 154
+# # duration_ms: 341.332
+# # at_ms: 37889.3
+# # at_time: 0:00:37.889
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 155
+# # duration_ms: 170.668
+# # at_ms: 38060
+# # at_time: 0:00:38.060
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 156
+# # duration_ms: 170.668
+# # at_ms: 38230.7
+# # at_time: 0:00:38.230
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 157
+# # duration_ms: 170.664
+# # at_ms: 38401.3
+# # at_time: 0:00:38.401
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 158
+# # duration_ms: 341.336
+# # at_ms: 38742.7
+# # at_time: 0:00:38.742
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 159
+# # duration_ms: 170.664
+# # at_ms: 38913.3
+# # at_time: 0:00:38.913
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 160
+# # duration_ms: 170.668
+# # at_ms: 39084
+# # at_time: 0:00:39.084
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 161
+# # duration_ms: 170.668
+# # at_ms: 39254.7
+# # at_time: 0:00:39.254
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 162
+# # duration_ms: 170.664
+# # at_ms: 39425.3
+# # at_time: 0:00:39.425
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 163
+# # duration_ms: 170.668
+# # at_ms: 39596
+# # at_time: 0:00:39.596
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 164
+# # duration_ms: 170.668
+# # at_ms: 39766.7
+# # at_time: 0:00:39.766
+# -
+# # dynamics_degree: 4
+# # dynamics_symbol: p
+# # id: 165
+# # duration_ms: 170.664
+# # at_ms: 39937.3
+# # at_time: 0:00:39.937
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 166
+# # duration_ms: 170.668
+# # at_ms: 40108
+# # at_time: 0:00:40.108
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 167
+# # duration_ms: 170.668
+# # at_ms: 40278.7
+# # at_time: 0:00:40.278
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 168
+# # duration_ms: 170.664
+# # at_ms: 40449.3
+# # at_time: 0:00:40.449
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 169
+# # duration_ms: 170.668
+# # at_ms: 40620
+# # at_time: 0:00:40.620
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 170
+# # duration_ms: 170.668
+# # at_ms: 40790.7
+# # at_time: 0:00:40.790
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 171
+# # duration_ms: 170.664
+# # at_ms: 40961.3
+# # at_time: 0:00:40.961
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 172
+# # duration_ms: 170.668
+# # at_ms: 41132
+# # at_time: 0:00:41.132
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 173
+# # duration_ms: 341.332
+# # at_ms: 41473.3
+# # at_time: 0:00:41.473
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 174
+# # duration_ms: 170.668
+# # at_ms: 41644
+# # at_time: 0:00:41.644
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 175
+# # duration_ms: 341.332
+# # at_ms: 41985.3
+# # at_time: 0:00:41.985
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 176
+# # duration_ms: 170.668
+# # at_ms: 42156
+# # at_time: 0:00:42.156
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 177
+# # duration_ms: 170.668
+# # at_ms: 42326.7
+# # at_time: 0:00:42.326
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 178
+# # duration_ms: 170.664
+# # at_ms: 42497.3
+# # at_time: 0:00:42.497
+# -
+# # dynamics_degree: 4
+# # dynamics_symbol: p
+# # id: 179
+# # duration_ms: 170.668
+# # at_ms: 42668
+# # at_time: 0:00:42.668
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 180
+# # duration_ms: 170.668
+# # at_ms: 42838.7
+# # at_time: 0:00:42.838
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 181
+# # duration_ms: 170.664
+# # at_ms: 43009.3
+# # at_time: 0:00:43.009
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 182
+# # duration_ms: 170.668
+# # at_ms: 43180
+# # at_time: 0:00:43.180
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 183
+# # duration_ms: 170.668
+# # at_ms: 43350.7
+# # at_time: 0:00:43.350
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 184
+# # duration_ms: 170.664
+# # at_ms: 43521.3
+# # at_time: 0:00:43.521
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 185
+# # duration_ms: 170.668
+# # at_ms: 43692
+# # at_time: 0:00:43.692
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 186
+# # duration_ms: 170.668
+# # at_ms: 43862.7
+# # at_time: 0:00:43.862
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 187
+# # duration_ms: 170.664
+# # at_ms: 44033.3
+# # at_time: 0:00:44.033
+# -
+# # dynamics_degree: 3
+# # dynamics_symbol: pp
+# # id: 188
+# # duration_ms: 170.668
+# # at_ms: 44204
+# # at_time: 0:00:44.204
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 189
+# # duration_ms: 170.668
+# # at_ms: 44374.7
+# # at_time: 0:00:44.374
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 190
+# # duration_ms: 170.664
+# # at_ms: 44545.3
+# # at_time: 0:00:44.545
+# -
+# # dynamics_degree: 4
+# # dynamics_symbol: p
+# # id: 191
+# # duration_ms: 170.668
+# # at_ms: 44716
+# # at_time: 0:00:44.716
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 192
+# # duration_ms: 170.668
+# # at_ms: 44886.7
+# # at_time: 0:00:44.886
+# -
+# # dynamics_degree: 4
+# # dynamics_symbol: p
+# # id: 193
+# # duration_ms: 170.664
+# # at_ms: 45057.3
+# # at_time: 0:00:45.057
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 194
+# # duration_ms: 170.668
+# # at_ms: 45228
+# # at_time: 0:00:45.228
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 195
+# # duration_ms: 170.668
+# # at_ms: 45398.7
+# # at_time: 0:00:45.398
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 196
+# # duration_ms: 170.664
+# # at_ms: 45569.3
+# # at_time: 0:00:45.569
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 197
+# # duration_ms: 341.336
+# # at_ms: 45910.7
+# # at_time: 0:00:45.910
+# -
+# # dynamics_degree: 2
+# # dynamics_symbol: ppp
+# # id: 198
+# # duration_ms: 170.664
+# # at_ms: 46081.3
+# # at_time: 0:00:46.081
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 199
+# # duration_ms: 170.668
+# # at_ms: 46252
+# # at_time: 0:00:46.252
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 200
+# # duration_ms: 170.668
+# # at_ms: 46422.7
+# # at_time: 0:00:46.422
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 201
+# # duration_ms: 170.664
+# # at_ms: 46593.3
+# # at_time: 0:00:46.593
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 202
+# # duration_ms: 170.668
+# # at_ms: 46764
+# # at_time: 0:00:46.764
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 203
+# # duration_ms: 170.668
+# # at_ms: 46934.7
+# # at_time: 0:00:46.934
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 204
+# # duration_ms: 170.664
+# # at_ms: 47105.3
+# # at_time: 0:00:47.105
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 205
+# # duration_ms: 170.668
+# # at_ms: 47276
+# # at_time: 0:00:47.276
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 206
+# # duration_ms: 341.332
+# # at_ms: 47617.3
+# # at_time: 0:00:47.617
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 207
+# # duration_ms: 170.668
+# # at_ms: 47788
+# # at_time: 0:00:47.788
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 208
+# # duration_ms: 341.332
+# # at_ms: 48129.3
+# # at_time: 0:00:48.129
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 209
+# # duration_ms: 170.668
+# # at_ms: 48300
+# # at_time: 0:00:48.300
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 210
+# # duration_ms: 341.332
+# # at_ms: 48641.3
+# # at_time: 0:00:48.641
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 211
+# # duration_ms: 170.668
+# # at_ms: 48812
+# # at_time: 0:00:48.812
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 212
+# # duration_ms: 170.668
+# # at_ms: 48982.7
+# # at_time: 0:00:48.982
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 213
+# # duration_ms: 170.664
+# # at_ms: 49153.3
+# # at_time: 0:00:49.153
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 214
+# # duration_ms: 170.668
+# # at_ms: 49324
+# # at_time: 0:00:49.324
+# -
+# # dynamics_degree: 3
+# # dynamics_symbol: pp
+# # id: 215
+# # duration_ms: 170.668
+# # at_ms: 49494.7
+# # at_time: 0:00:49.494
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 216
+# # duration_ms: 170.664
+# # at_ms: 49665.3
+# # at_time: 0:00:49.665
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 217
+# # duration_ms: 170.668
+# # at_ms: 49836
+# # at_time: 0:00:49.836
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 218
+# # duration_ms: 170.668
+# # at_ms: 50006.7
+# # at_time: 0:00:50.006
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 219
+# # duration_ms: 170.664
+# # at_ms: 50177.3
+# # at_time: 0:00:50.177
+# -
+# # dynamics_degree: 4
+# # dynamics_symbol: p
+# # id: 220
+# # duration_ms: 341.336
+# # at_ms: 50518.7
+# # at_time: 0:00:50.518
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 221
+# # duration_ms: 170.664
+# # at_ms: 50689.3
+# # at_time: 0:00:50.689
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 222
+# # duration_ms: 170.668
+# # at_ms: 50860
+# # at_time: 0:00:50.860
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 223
+# # duration_ms: 170.668
+# # at_ms: 51030.7
+# # at_time: 0:00:51.030
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 224
+# # duration_ms: 170.664
+# # at_ms: 51201.3
+# # at_time: 0:00:51.201
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 225
+# # duration_ms: 170.668
+# # at_ms: 51372
+# # at_time: 0:00:51.372
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 226
+# # duration_ms: 170.668
+# # at_ms: 51542.7
+# # at_time: 0:00:51.542
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 227
+# # duration_ms: 341.332
+# # at_ms: 51884
+# # at_time: 0:00:51.884
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 228
+# # duration_ms: 170.668
+# # at_ms: 52054.7
+# # at_time: 0:00:52.054
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 229
+# # duration_ms: 170.664
+# # at_ms: 52225.3
+# # at_time: 0:00:52.225
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 230
+# # duration_ms: 170.668
+# # at_ms: 52396
+# # at_time: 0:00:52.396
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 231
+# # duration_ms: 170.668
+# # at_ms: 52566.7
+# # at_time: 0:00:52.566
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 232
+# # duration_ms: 170.664
+# # at_ms: 52737.3
+# # at_time: 0:00:52.737
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 233
+# # duration_ms: 170.668
+# # at_ms: 52908
+# # at_time: 0:00:52.908
+# -
+# # dynamics_degree: 4
+# # dynamics_symbol: p
+# # id: 234
+# # duration_ms: 341.332
+# # at_ms: 53249.3
+# # at_time: 0:00:53.249
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 235
+# # duration_ms: 170.668
+# # at_ms: 53420
+# # at_time: 0:00:53.420
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 236
+# # duration_ms: 170.668
+# # at_ms: 53590.7
+# # at_time: 0:00:53.590
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 237
+# # duration_ms: 170.664
+# # at_ms: 53761.3
+# # at_time: 0:00:53.761
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 238
+# # duration_ms: 170.668
+# # at_ms: 53932
+# # at_time: 0:00:53.932
+# -
+# # dynamics_degree: 3
+# # dynamics_symbol: pp
+# # id: 239
+# # duration_ms: 170.668
+# # at_ms: 54102.7
+# # at_time: 0:00:54.102
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 240
+# # duration_ms: 170.664
+# # at_ms: 54273.3
+# # at_time: 0:00:54.273
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 241
+# # duration_ms: 170.668
+# # at_ms: 54444
+# # at_time: 0:00:54.444
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 242
+# # duration_ms: 170.668
+# # at_ms: 54614.7
+# # at_time: 0:00:54.614
+# -
+# # dynamics_degree: 4
+# # dynamics_symbol: p
+# # id: 243
+# # duration_ms: 341.332
+# # at_ms: 54956
+# # at_time: 0:00:54.956
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 244
+# # duration_ms: 170.668
+# # at_ms: 55126.7
+# # at_time: 0:00:55.126
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 245
+# # duration_ms: 170.664
+# # at_ms: 55297.3
+# # at_time: 0:00:55.297
+# -
+# # dynamics_degree: 2
+# # dynamics_symbol: ppp
+# # id: 246
+# # duration_ms: 512
+# # at_ms: 55809.3
+# # at_time: 0:00:55.809
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 247
+# # duration_ms: 170.668
+# # at_ms: 55980
+# # at_time: 0:00:55.980
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 248
+# # duration_ms: 170.668
+# # at_ms: 56150.7
+# # at_time: 0:00:56.150
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 249
+# # duration_ms: 170.664
+# # at_ms: 56321.3
+# # at_time: 0:00:56.321
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 250
+# # duration_ms: 170.668
+# # at_ms: 56492
+# # at_time: 0:00:56.492
+# -
+# # dynamics_degree: 0
+# # dynamics_symbol: tacet
+# # id: 251
+# # duration_ms: 170.668
+# # at_ms: 56662.7
+# # at_time: 0:00:56.662
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 252
+# # duration_ms: 170.664
+# # at_ms: 56833.3
+# # at_time: 0:00:56.833
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 253
+# # duration_ms: 170.668
+# # at_ms: 57004
+# # at_time: 0:00:57.004
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 254
+# # duration_ms: 170.668
+# # at_ms: 57174.7
+# # at_time: 0:00:57.174
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 255
+# # duration_ms: 512
+# # at_ms: 57686.7
+# # at_time: 0:00:57.686
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 256
+# # duration_ms: 170.664
+# # at_ms: 57857.3
+# # at_time: 0:00:57.857
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 257
+# # duration_ms: 853.336
+# # at_ms: 58710.7
+# # at_time: 0:00:58.710
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 258
+# # duration_ms: 170.664
+# # at_ms: 58881.3
+# # at_time: 0:00:58.881
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 259
+# # duration_ms: 170.668
+# # at_ms: 59052
+# # at_time: 0:00:59.052
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 260
+# # duration_ms: 853.332
+# # at_ms: 59905.3
+# # at_time: 0:00:59.905
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 261
+# # duration_ms: 170.668
+# # at_ms: 60076
+# # at_time: 0:01:00.076
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 262
+# # duration_ms: 170.668
+# # at_ms: 60246.7
+# # at_time: 0:01:00.246
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 263
+# # duration_ms: 682.664
+# # at_ms: 60929.3
+# # at_time: 0:01:00.929
+# -
+# # dynamics_degree: 4
+# # dynamics_symbol: p
+# # id: 264
+# # duration_ms: 170.668
+# # at_ms: 61100
+# # at_time: 0:01:01.100
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 265
+# # duration_ms: 170.664
+# # at_ms: 61270.7
+# # at_time: 0:01:01.270
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 266
+# # duration_ms: 170.668
+# # at_ms: 61441.3
+# # at_time: 0:01:01.441
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 267
+# # duration_ms: 853.332
+# # at_ms: 62294.7
+# # at_time: 0:01:02.294
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 268
+# # duration_ms: 170.668
+# # at_ms: 62465.3
+# # at_time: 0:01:02.465
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 269
+# # duration_ms: 170.668
+# # at_ms: 62636
+# # at_time: 0:01:02.636
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 270
+# # duration_ms: 170.664
+# # at_ms: 62806.7
+# # at_time: 0:01:02.806
+# -
+# # dynamics_degree: 3
+# # dynamics_symbol: pp
+# # id: 271
+# # duration_ms: 170.668
+# # at_ms: 62977.3
+# # at_time: 0:01:02.977
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 272
+# # duration_ms: 170.668
+# # at_ms: 63148
+# # at_time: 0:01:03.148
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 273
+# # duration_ms: 170.664
+# # at_ms: 63318.7
+# # at_time: 0:01:03.318
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 274
+# # duration_ms: 170.668
+# # at_ms: 63489.3
+# # at_time: 0:01:03.489
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 275
+# # duration_ms: 170.668
+# # at_ms: 63660
+# # at_time: 0:01:03.660
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 276
+# # duration_ms: 170.664
+# # at_ms: 63830.7
+# # at_time: 0:01:03.830
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 277
+# # duration_ms: 853.336
+# # at_ms: 64684
+# # at_time: 0:01:04.684
+# -
+# # dynamics_degree: 4
+# # dynamics_symbol: p
+# # id: 278
+# # duration_ms: 170.664
+# # at_ms: 64854.7
+# # at_time: 0:01:04.854
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 279
+# # duration_ms: 170.668
+# # at_ms: 65025.3
+# # at_time: 0:01:05.025
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 280
+# # duration_ms: 170.668
+# # at_ms: 65196
+# # at_time: 0:01:05.196
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 281
+# # duration_ms: 170.664
+# # at_ms: 65366.7
+# # at_time: 0:01:05.366
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 282
+# # duration_ms: 170.672
+# # at_ms: 65537.3
+# # at_time: 0:01:05.537
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 283
+# # duration_ms: 170.664
+# # at_ms: 65708
+# # at_time: 0:01:05.708
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 284
+# # duration_ms: 170.664
+# # at_ms: 65878.7
+# # at_time: 0:01:05.878
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 285
+# # duration_ms: 170.672
+# # at_ms: 66049.3
+# # at_time: 0:01:06.049
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 286
+# # duration_ms: 682.664
+# # at_ms: 66732
+# # at_time: 0:01:06.732
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 287
+# # duration_ms: 170.664
+# # at_ms: 66902.7
+# # at_time: 0:01:06.902
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 288
+# # duration_ms: 170.672
+# # at_ms: 67073.3
+# # at_time: 0:01:07.073
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 289
+# # duration_ms: 682.664
+# # at_ms: 67756
+# # at_time: 0:01:07.756
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 290
+# # duration_ms: 170.664
+# # at_ms: 67926.7
+# # at_time: 0:01:07.926
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 291
+# # duration_ms: 170.672
+# # at_ms: 68097.3
+# # at_time: 0:01:08.097
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 292
+# # duration_ms: 512
+# # at_ms: 68609.3
+# # at_time: 0:01:08.609
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 293
+# # duration_ms: 341.328
+# # at_ms: 68950.7
+# # at_time: 0:01:08.950
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 294
+# # duration_ms: 170.672
+# # at_ms: 69121.3
+# # at_time: 0:01:09.121
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 295
+# # duration_ms: 682.664
+# # at_ms: 69804
+# # at_time: 0:01:09.804
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 296
+# # duration_ms: 170.664
+# # at_ms: 69974.7
+# # at_time: 0:01:09.974
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 297
+# # duration_ms: 170.672
+# # at_ms: 70145.3
+# # at_time: 0:01:10.145
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 298
+# # duration_ms: 682.664
+# # at_ms: 70828
+# # at_time: 0:01:10.828
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 299
+# # duration_ms: 170.664
+# # at_ms: 70998.7
+# # at_time: 0:01:10.998
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 300
+# # duration_ms: 170.672
+# # at_ms: 71169.3
+# # at_time: 0:01:11.169
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 301
+# # duration_ms: 682.664
+# # at_ms: 71852
+# # at_time: 0:01:11.852
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 302
+# # duration_ms: 170.664
+# # at_ms: 72022.7
+# # at_time: 0:01:12.022
+# -
+# # dynamics_degree: 5
+# # dynamics_symbol: mp
+# # id: 303
+# # duration_ms: 341.336
+# # at_ms: 72364
+# # at_time: 0:01:12.364
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 304
+# # duration_ms: 170.664
+# # at_ms: 72534.7
+# # at_time: 0:01:12.534
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 305
+# # duration_ms: 341.336
+# # at_ms: 72876
+# # at_time: 0:01:12.876
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 306
+# # duration_ms: 170.664
+# # at_ms: 73046.7
+# # at_time: 0:01:13.046
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 307
+# # duration_ms: 682.672
+# # at_ms: 73729.3
+# # at_time: 0:01:13.729
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 308
+# # duration_ms: 170.664
+# # at_ms: 73900
+# # at_time: 0:01:13.900
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 309
+# # duration_ms: 341.336
+# # at_ms: 74241.3
+# # at_time: 0:01:14.241
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 310
+# # duration_ms: 170.664
+# # at_ms: 74412
+# # at_time: 0:01:14.412
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 311
+# # duration_ms: 170.664
+# # at_ms: 74582.7
+# # at_time: 0:01:14.582
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 312
+# # duration_ms: 170.672
+# # at_ms: 74753.3
+# # at_time: 0:01:14.753
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 313
+# # duration_ms: 170.664
+# # at_ms: 74924
+# # at_time: 0:01:14.924
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 314
+# # duration_ms: 170.664
+# # at_ms: 75094.7
+# # at_time: 0:01:15.094
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 315
+# # duration_ms: 170.672
+# # at_ms: 75265.3
+# # at_time: 0:01:15.265
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 316
+# # duration_ms: 341.328
+# # at_ms: 75606.7
+# # at_time: 0:01:15.606
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 317
+# # duration_ms: 170.672
+# # at_ms: 75777.3
+# # at_time: 0:01:15.777
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 318
+# # duration_ms: 341.328
+# # at_ms: 76118.7
+# # at_time: 0:01:16.118
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 319
+# # duration_ms: 170.672
+# # at_ms: 76289.3
+# # at_time: 0:01:16.289
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 320
+# # duration_ms: 341.328
+# # at_ms: 76630.7
+# # at_time: 0:01:16.630
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 321
+# # duration_ms: 170.672
+# # at_ms: 76801.3
+# # at_time: 0:01:16.801
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 322
+# # duration_ms: 341.328
+# # at_ms: 77142.7
+# # at_time: 0:01:17.142
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 323
+# # duration_ms: 341.336
+# # at_ms: 77484
+# # at_time: 0:01:17.484
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 324
+# # duration_ms: 170.664
+# # at_ms: 77654.7
+# # at_time: 0:01:17.654
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 325
+# # duration_ms: 682.672
+# # at_ms: 78337.3
+# # at_time: 0:01:18.337
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 326
+# # duration_ms: 170.664
+# # at_ms: 78508
+# # at_time: 0:01:18.508
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 327
+# # duration_ms: 682.664
+# # at_ms: 79190.7
+# # at_time: 0:01:19.190
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 328
+# # duration_ms: 170.672
+# # at_ms: 79361.3
+# # at_time: 0:01:19.361
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 329
+# # duration_ms: 170.664
+# # at_ms: 79532
+# # at_time: 0:01:19.532
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 330
+# # duration_ms: 170.664
+# # at_ms: 79702.7
+# # at_time: 0:01:19.702
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 331
+# # duration_ms: 341.336
+# # at_ms: 80044
+# # at_time: 0:01:20.044
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 332
+# # duration_ms: 170.664
+# # at_ms: 80214.7
+# # at_time: 0:01:20.214
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 333
+# # duration_ms: 170.672
+# # at_ms: 80385.3
+# # at_time: 0:01:20.385
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 334
+# # duration_ms: 170.664
+# # at_ms: 80556
+# # at_time: 0:01:20.556
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 335
+# # duration_ms: 341.336
+# # at_ms: 80897.3
+# # at_time: 0:01:20.897
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 336
+# # duration_ms: 170.664
+# # at_ms: 81068
+# # at_time: 0:01:21.068
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 337
+# # duration_ms: 170.664
+# # at_ms: 81238.7
+# # at_time: 0:01:21.238
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 338
+# # duration_ms: 341.336
+# # at_ms: 81580
+# # at_time: 0:01:21.580
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 339
+# # duration_ms: 170.664
+# # at_ms: 81750.7
+# # at_time: 0:01:21.750
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 340
+# # duration_ms: 170.672
+# # at_ms: 81921.3
+# # at_time: 0:01:21.921
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 341
+# # duration_ms: 341.328
+# # at_ms: 82262.7
+# # at_time: 0:01:22.262
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 342
+# # duration_ms: 341.336
+# # at_ms: 82604
+# # at_time: 0:01:22.604
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 343
+# # duration_ms: 170.664
+# # at_ms: 82774.7
+# # at_time: 0:01:22.774
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 344
+# # duration_ms: 341.336
+# # at_ms: 83116
+# # at_time: 0:01:23.116
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 345
+# # duration_ms: 170.664
+# # at_ms: 83286.7
+# # at_time: 0:01:23.286
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 346
+# # duration_ms: 341.336
+# # at_ms: 83628
+# # at_time: 0:01:23.628
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 347
+# # duration_ms: 170.664
+# # at_ms: 83798.7
+# # at_time: 0:01:23.798
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 348
+# # duration_ms: 341.336
+# # at_ms: 84140
+# # at_time: 0:01:24.140
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 349
+# # duration_ms: 170.664
+# # at_ms: 84310.7
+# # at_time: 0:01:24.310
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 350
+# # duration_ms: 170.672
+# # at_ms: 84481.3
+# # at_time: 0:01:24.481
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 351
+# # duration_ms: 170.664
+# # at_ms: 84652
+# # at_time: 0:01:24.652
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 352
+# # duration_ms: 341.336
+# # at_ms: 84993.3
+# # at_time: 0:01:24.993
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 353
+# # duration_ms: 170.664
+# # at_ms: 85164
+# # at_time: 0:01:25.164
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 354
+# # duration_ms: 341.336
+# # at_ms: 85505.3
+# # at_time: 0:01:25.505
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 355
+# # duration_ms: 170.664
+# # at_ms: 85676
+# # at_time: 0:01:25.676
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 356
+# # duration_ms: 170.664
+# # at_ms: 85846.7
+# # at_time: 0:01:25.846
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 357
+# # duration_ms: 341.336
+# # at_ms: 86188
+# # at_time: 0:01:26.188
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 358
+# # duration_ms: 170.664
+# # at_ms: 86358.7
+# # at_time: 0:01:26.358
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 359
+# # duration_ms: 170.672
+# # at_ms: 86529.3
+# # at_time: 0:01:26.529
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 360
+# # duration_ms: 170.664
+# # at_ms: 86700
+# # at_time: 0:01:26.700
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 361
+# # duration_ms: 341.336
+# # at_ms: 87041.3
+# # at_time: 0:01:27.041
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 362
+# # duration_ms: 170.664
+# # at_ms: 87212
+# # at_time: 0:01:27.212
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 363
+# # duration_ms: 170.664
+# # at_ms: 87382.7
+# # at_time: 0:01:27.382
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 364
+# # duration_ms: 170.672
+# # at_ms: 87553.3
+# # at_time: 0:01:27.553
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 365
+# # duration_ms: 170.664
+# # at_ms: 87724
+# # at_time: 0:01:27.724
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 366
+# # duration_ms: 341.336
+# # at_ms: 88065.3
+# # at_time: 0:01:28.065
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 367
+# # duration_ms: 170.664
+# # at_ms: 88236
+# # at_time: 0:01:28.236
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 368
+# # duration_ms: 170.664
+# # at_ms: 88406.7
+# # at_time: 0:01:28.406
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 369
+# # duration_ms: 341.336
+# # at_ms: 88748
+# # at_time: 0:01:28.748
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 370
+# # duration_ms: 170.664
+# # at_ms: 88918.7
+# # at_time: 0:01:28.918
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 371
+# # duration_ms: 341.336
+# # at_ms: 89260
+# # at_time: 0:01:29.260
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 372
+# # duration_ms: 170.664
+# # at_ms: 89430.7
+# # at_time: 0:01:29.430
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 373
+# # duration_ms: 170.672
+# # at_ms: 89601.3
+# # at_time: 0:01:29.601
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 374
+# # duration_ms: 170.664
+# # at_ms: 89772
+# # at_time: 0:01:29.772
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 375
+# # duration_ms: 170.664
+# # at_ms: 89942.7
+# # at_time: 0:01:29.942
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 376
+# # duration_ms: 170.672
+# # at_ms: 90113.3
+# # at_time: 0:01:30.113
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 377
+# # duration_ms: 341.328
+# # at_ms: 90454.7
+# # at_time: 0:01:30.454
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 378
+# # duration_ms: 170.672
+# # at_ms: 90625.3
+# # at_time: 0:01:30.625
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 379
+# # duration_ms: 170.664
+# # at_ms: 90796
+# # at_time: 0:01:30.796
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 380
+# # duration_ms: 170.664
+# # at_ms: 90966.7
+# # at_time: 0:01:30.966
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 381
+# # duration_ms: 170.672
+# # at_ms: 91137.3
+# # at_time: 0:01:31.137
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 382
+# # duration_ms: 170.664
+# # at_ms: 91308
+# # at_time: 0:01:31.308
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 383
+# # duration_ms: 170.664
+# # at_ms: 91478.7
+# # at_time: 0:01:31.478
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 384
+# # duration_ms: 170.672
+# # at_ms: 91649.3
+# # at_time: 0:01:31.649
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 385
+# # duration_ms: 170.664
+# # at_ms: 91820
+# # at_time: 0:01:31.820
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 386
+# # duration_ms: 170.664
+# # at_ms: 91990.7
+# # at_time: 0:01:31.990
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 387
+# # duration_ms: 170.672
+# # at_ms: 92161.3
+# # at_time: 0:01:32.161
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 388
+# # duration_ms: 170.664
+# # at_ms: 92332
+# # at_time: 0:01:32.332
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 389
+# # duration_ms: 170.664
+# # at_ms: 92502.7
+# # at_time: 0:01:32.502
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 390
+# # duration_ms: 170.672
+# # at_ms: 92673.3
+# # at_time: 0:01:32.673
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 391
+# # duration_ms: 170.664
+# # at_ms: 92844
+# # at_time: 0:01:32.844
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 392
+# # duration_ms: 170.664
+# # at_ms: 93014.7
+# # at_time: 0:01:33.014
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 393
+# # duration_ms: 170.672
+# # at_ms: 93185.3
+# # at_time: 0:01:33.185
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 394
+# # duration_ms: 170.664
+# # at_ms: 93356
+# # at_time: 0:01:33.356
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 395
+# # duration_ms: 170.664
+# # at_ms: 93526.7
+# # at_time: 0:01:33.526
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 396
+# # duration_ms: 170.672
+# # at_ms: 93697.3
+# # at_time: 0:01:33.697
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 397
+# # duration_ms: 170.664
+# # at_ms: 93868
+# # at_time: 0:01:33.868
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 398
+# # duration_ms: 170.664
+# # at_ms: 94038.7
+# # at_time: 0:01:34.038
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 399
+# # duration_ms: 170.672
+# # at_ms: 94209.3
+# # at_time: 0:01:34.209
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 400
+# # duration_ms: 170.664
+# # at_ms: 94380
+# # at_time: 0:01:34.380
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 401
+# # duration_ms: 170.664
+# # at_ms: 94550.7
+# # at_time: 0:01:34.550
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 402
+# # duration_ms: 170.672
+# # at_ms: 94721.3
+# # at_time: 0:01:34.721
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 403
+# # duration_ms: 170.664
+# # at_ms: 94892
+# # at_time: 0:01:34.892
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 404
+# # duration_ms: 170.664
+# # at_ms: 95062.7
+# # at_time: 0:01:35.062
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 405
+# # duration_ms: 170.672
+# # at_ms: 95233.3
+# # at_time: 0:01:35.233
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 406
+# # duration_ms: 170.664
+# # at_ms: 95404
+# # at_time: 0:01:35.404
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 407
+# # duration_ms: 170.664
+# # at_ms: 95574.7
+# # at_time: 0:01:35.574
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 408
+# # duration_ms: 170.672
+# # at_ms: 95745.3
+# # at_time: 0:01:35.745
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 409
+# # duration_ms: 170.664
+# # at_ms: 95916
+# # at_time: 0:01:35.916
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 410
+# # duration_ms: 341.336
+# # at_ms: 96257.3
+# # at_time: 0:01:36.257
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 411
+# # duration_ms: 170.664
+# # at_ms: 96428
+# # at_time: 0:01:36.428
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 412
+# # duration_ms: 170.664
+# # at_ms: 96598.7
+# # at_time: 0:01:36.598
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 413
+# # duration_ms: 170.672
+# # at_ms: 96769.3
+# # at_time: 0:01:36.769
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 414
+# # duration_ms: 170.664
+# # at_ms: 96940
+# # at_time: 0:01:36.940
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 415
+# # duration_ms: 170.664
+# # at_ms: 97110.7
+# # at_time: 0:01:37.110
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 416
+# # duration_ms: 170.672
+# # at_ms: 97281.3
+# # at_time: 0:01:37.281
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 417
+# # duration_ms: 170.664
+# # at_ms: 97452
+# # at_time: 0:01:37.452
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 418
+# # duration_ms: 170.664
+# # at_ms: 97622.7
+# # at_time: 0:01:37.622
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 419
+# # duration_ms: 170.672
+# # at_ms: 97793.3
+# # at_time: 0:01:37.793
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 420
+# # duration_ms: 170.664
+# # at_ms: 97964
+# # at_time: 0:01:37.964
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 421
+# # duration_ms: 170.664
+# # at_ms: 98134.7
+# # at_time: 0:01:38.134
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 422
+# # duration_ms: 170.672
+# # at_ms: 98305.3
+# # at_time: 0:01:38.305
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 423
+# # duration_ms: 170.664
+# # at_ms: 98476
+# # at_time: 0:01:38.476
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 424
+# # duration_ms: 341.336
+# # at_ms: 98817.3
+# # at_time: 0:01:38.817
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 425
+# # duration_ms: 170.664
+# # at_ms: 98988
+# # at_time: 0:01:38.988
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 426
+# # duration_ms: 170.664
+# # at_ms: 99158.7
+# # at_time: 0:01:39.158
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 427
+# # duration_ms: 170.672
+# # at_ms: 99329.3
+# # at_time: 0:01:39.329
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 428
+# # duration_ms: 170.664
+# # at_ms: 99500
+# # at_time: 0:01:39.500
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 429
+# # duration_ms: 170.664
+# # at_ms: 99670.7
+# # at_time: 0:01:39.670
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 430
+# # duration_ms: 170.672
+# # at_ms: 99841.3
+# # at_time: 0:01:39.841
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 431
+# # duration_ms: 170.664
+# # at_ms: 100012
+# # at_time: 0:01:40.012
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 432
+# # duration_ms: 341.336
+# # at_ms: 100353
+# # at_time: 0:01:40.353
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 433
+# # duration_ms: 170.664
+# # at_ms: 100524
+# # at_time: 0:01:40.524
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 434
+# # duration_ms: 170.664
+# # at_ms: 100695
+# # at_time: 0:01:40.694
+# -
+# # dynamics_degree: 7
+# # dynamics_symbol: f
+# # id: 435
+# # duration_ms: 170.672
+# # at_ms: 100865
+# # at_time: 0:01:40.865
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 436
+# # duration_ms: 170.664
+# # at_ms: 101036
+# # at_time: 0:01:41.036
+# -
+# # dynamics_degree: 8
+# # dynamics_symbol: ff
+# # id: 437
+# # duration_ms: 170.664
+# # at_ms: 101207
+# # at_time: 0:01:41.206
+# -
+# # dynamics_degree: 6
+# # dynamics_symbol: mf
+# # id: 438
+# # duration_ms: 341.336
+# # at_ms: 101548
+# # at_time: 0:01:41.548
+header:
+# number_of_dynamics: 438
+# average_dynamics_occurences_degree: 5
+# average_dynamics_occurences_symbol: mp
+# average_dynamics_duration_degree: 5
+# average_dynamics_duration_symbol: mp
+# min_dynamics_degree: 0
+# max_dynamics_degree: 8
+# min_dynamics_symbol: tacet
+# max_dynamics_symbol: ff
+# min_env_detected: 0
+# max_env_detected: 91.8987

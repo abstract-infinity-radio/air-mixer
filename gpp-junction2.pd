@@ -1,0 +1,28 @@
+#N canvas 926 272 1133 319 12;
+#X obj 67 28 inlet;
+#X obj 123 28 inlet;
+#X obj 212 20 inlet;
+#X obj 68 137 spigot;
+#X obj 128 136 spigot;
+#X obj 103 191 outlet;
+#X obj 263 109 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 198 105 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 212 51 expr ! $f1 \; $f1 \;;
+#X obj 313 50 cnv 10 114 22 empty empty AIR 36 6 1 22 -66577 -262144
+0;
+#X text 311 73 Gregor Pirš 2022;
+#X text 468 120 NOTE: 0 = left enabled | 1 = right enabled;
+#X text 466 43 gpp-junction2 :: a simple junction based on toggle.
+| inlet1 \, 2 = ctrl lines to junct | inlet3 = switch toggle | outlet1
+= output routing of inlet1 control stream;
+#X connect 0 0 3 0;
+#X connect 1 0 4 0;
+#X connect 2 0 8 0;
+#X connect 3 0 5 0;
+#X connect 4 0 5 0;
+#X connect 8 0 3 1;
+#X connect 8 0 7 0;
+#X connect 8 1 4 1;
+#X connect 8 1 6 0;
