@@ -97,9 +97,13 @@ sub oftype{
 
 =head1 SYNOPSIS
 
-B<airsh> :: AIR shell, a simple air-coremix.pd control shell to demonstrate OSC parameters that control the B<AIR core mixer> and B<AIR console> | B<B-AIR project Creative Europe 2020-2023>
+B<airsh> :: AIR shell, a simple shell to control gpp-air-coremix.pd via OSC 
 
 This manual is formally a part of B<airsh> but serves as a wider explanation of whole web audio/control framework concieved to support the B-AIR project's B<AIR platform>.
+
+=head1 DISCLAIMER
+
+This software is based on author's collection of gpp- patches and perl- based tools and has been further developed within the frame of the B<B-AIR project Creative Europe 2020-2023>. The project has been funded with support from the European Commission. This document content reflects the views only of the author, and the Commission cannot be held responsible for any use which may be made of the information contained therein. 
 
 =head1 B<HOW TO RUN airsh itself>
 
@@ -111,11 +115,11 @@ This manual is formally a part of B<airsh> but serves as a wider explanation of 
 
 =back
 
-=head1 B<PUREDATA gpp-air-coremixer ELEMENT> [server-side]
+=head1 B<PUREDATA gpp-air-coremix ELEMENT> [server-side]
 
 OSC-controlled puredata core mixer for AIR platform:
 
-[ B<gpp-air-coremixer.pd> <num.input.channels> <OSC.inaddress> <OSC.outaddress> ] 
+[ B<gpp-air-coremix.pd> <num.input.channels> <OSC.inaddress> <OSC.outaddress> ] 
 
 Air core mixer will automatically connect to the <jackd> / <jacktrip> -provided channels via puredata input [adc~] and output [dac~]. Although technically unlimited, within this setup (AIR platform) the core mixer will provide stereo master output and a separate prelisten-bus (as an audio-premonitoring option). The number of the input channels is arbitrary, set as a creation argument to the core mixer. B<gpp-air-coremix> will take the following creation arguments: 
 
@@ -133,18 +137,18 @@ Air core mixer will automatically connect to the <jackd> / <jacktrip> -provided 
 
 =back
 
-=head1 B<gpp-air-coremixer and jacktrip>
+=head1 B<gpp-air-coremix and jacktrip>
 
-B<gpp-air-coremixer> is primarily intended to be used with Stanford CCRMA B<jacktrip> audio networking solution, based on Jack server, primarily in B<hub mode>, following two possible audio-scheme scenarios, which differ in network-bandwidth demands, quality of user experience and flexibility: 
+B<gpp-air-coremix> is primarily intended to be used with Stanford CCRMA B<jacktrip> audio networking solution, based on Jack server, primarily in B<hub mode>, following two possible audio-scheme scenarios, which differ in network-bandwidth demands, quality of user experience and flexibility: 
 
 =over 3
 
-=item [ B<full> ] good networking conditions: each client broadcasting their channels and receiving all but themselves (jacktrip hubpatch mode 2). B<gpp-air-console>, a separate part of B<gpp-air-coremixer>, serves the purpose of monitoring and controlling this proces B<[#]> and, above all, master mixing. In this scenario, each client will mix their own master and prelisten bus (via B<gpp-air-console>). In this scenario, bandwidth issues may affect the very structure of mix(es).
+=item [ B<full> ] good networking conditions: each client broadcasting their channels and receiving all but themselves (jacktrip hubpatch mode 2). gpp-air-console, a separate part of air mixing system, serves the purpose of monitoring and controlling this proces [#] and, above all, master mixing. In this scenario, each client will mix their own master and prelisten bus (via gpp-air-console). In this scenario, bandwidth issues may affect the very structure of mix(es).
 
 =item .
 
-=item [ B<light> ] poor networking conditions: each client broadcasting their own channels but receiving only final mix (jacktrip hubpatch mode 0). Master mixer will also receive prelisten bus, but this one is mixed by master (gpp-air-coremix). A single prelisten-bus is established, available to the master-mixer but not for the other remote members. In this scenario, bandwidth issues may cause serious delay in perception of the final mix feedback.
-   
+=item [ B<light> ] poorer networking conditions: each client broadcasting their own channels and receiving minus-mix (all but theirselves) from the air mixer at the server. The Master Mixer receives master and prelisten outputs (2x stereo). In this scenario, bandwidth issues may cause latency issues / synchronization issues of the final mix and its feedback. In practice, this (light) option has been proved very successful and reliable and also simpler to manage and configure at the server.
+
 =back
 
 Links, explaining the context:
@@ -225,7 +229,7 @@ B<gpp-air-midisender> is actually a simple midi frontend talking to B<gpp-air-co
 
 =item [-]
 
-B<gpp-air-console> is bi-directionally connected to B<gpp-air-coremix> and B<gpp-air-midisender> slaves to B<gpp-air-console>. All the crucial init parameters such as number of channels are automatically synchronized if changed on the server. Currently, the console intended as master-mixer monitoring device, but shall be developed [#] into B<client monitoring and organizing tool> in order to B<provide complete mixing and input/output channels overview to each client> (in the context of 'full' audio-scheme scenario as described above).
+B<gpp-air-console> / B<gpp-air-iconsole> is bi-directionally connected to B<gpp-air-coremix> and B<gpp-air-midisender> slaves to B<gpp-air-console>. All the crucial init parameters such as number of channels are automatically synchronized if changed on the server. The i-console version is an interactive version of the console and provides mouse-mixing gui (via Puredata), developed to enhance awareness of the non/synchronicity between the action-herenow and the remote result. The gpp-air-coremix server gui (if enabled) also follows the same (interactive) model, where the action and effect are represented with separate controllers.
 
 =item .
 
@@ -620,7 +624,7 @@ B<solo> and B<presolo> switches do the following:
 
 =back
 
-=item B<alivesig> start / stop : turn alive signals on / off. In the left bottom corner of the iConsole and CoreMixer there are rectangular symbols B<iCo> and B<Srv>. If B<alivesig> is running they will show the state of connection: 
+=item B<alivesig> start / stop : turn alive signals on / off. In the left bottom corner of the iConsole and Coremix there are rectangular symbols B<iCo> and B<Srv>. If B<alivesig> is running they will show the state of connection: 
 
 =over 5
 
@@ -644,7 +648,7 @@ These are client- (console) initiated
 
 =over 3
 
-=item /airmix/cinit/ bang => client signalizing server their own loadbang and querying for initial parameters such as number of channels, airdir etc. This request is handled separately on air-coremixer input. 
+=item /airmix/cinit/ bang => client signalizing server their own loadbang and querying for initial parameters such as number of channels, airdir etc. This request is handled separately on air-coremix input. 
 
 =back
 
@@ -844,11 +848,11 @@ for instance:
 
 =head3 DIRECT SYS PARAMS
 
-System params (internal communication between air-coremix and console, without user interaction) are sent via /sys/ and /syscore/ controllers. B</sys/> will deliver the messaga to the console frontend (shell that envelopes console-core) and B</syscore/> will to the console core itself. These params is no thing the end user should be bothered with.  
+System params (internal communication between gpp-air-coremix and gpp-air-(i)console, without user interaction) are sent via /sys/ and /syscore/ controllers. B</sys/> will deliver the messaga to the console frontend (shell that envelopes console-core) and B</syscore/> will to the console core itself. These params is no thing the end user should be bothered with.  
 
 =over 5
 
-=item /airmon/sys/CHNUM/ => number of channels, required by gpp-air-coremixer creation argument - the console automatically resizes if the argument changes. 
+=item /airmon/sys/CHNUM/ => number of channels, required by gpp-air-coremix creation argument - the console automatically resizes if the argument changes. 
 
 =item /airmon/syscore/AIRDIR/ => airdir path storage (path itself stored as text)
 
@@ -944,7 +948,7 @@ Gregor Pirs <gregor.pirs@guest.arnes.si>
 
 =head1 B<VERSION>
 
-B<[27-2-2024]> | air-coremix.pd 1.6
+B<[27-2-2024]> | gpp-air-coremix.pd 1.6
 
 =cut
 
